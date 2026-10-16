@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="https://cpim.org/wp-content/uploads/2024/04/cropped-ham-sic-website-2-copy-32x32.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>CPI(M) Official Documents Archive & Research Environment</title>
+		
+		<!-- Typography: Soviet Constructivist Display + Scholarly Editorial Prose + Archival Mono -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+		<style>
+			:root {
+				/* CONSTRUCTIVIST PALETTE */
+				--color-red-primary: #C41E3A;
+				--color-red-dark: #9A1428;
+				--color-red-light: #FCE8E6;
+				--color-gold: #D4A017;
+				--color-gold-muted: #E6C665;
+				--color-black: #121212;
+				--color-charcoal: #232323;
+				--color-gray-dark: #404040;
+				--color-gray-medium: #707070;
+				--color-gray-light: #DDD9CF;
+				--color-paper: #F4F1EA;
+				--color-paper-light: #FAF8F5;
+				--color-paper-dark: #E6E1D5;
+				--color-surface-pure: #FFFFFF;
+
+				/* BORDERS & SHADOWS */
+				--border-heavy: 3px solid var(--color-black);
+				--border-medium: 2px solid var(--color-black);
+				--border-fine: 1px solid var(--color-gray-dark);
+				--border-accent: 3px solid var(--color-red-primary);
+				--shadow-hard-sm: 2px 2px 0px var(--color-black);
+				--shadow-hard-md: 4px 4px 0px var(--color-black);
+				--shadow-hard-lg: 6px 6px 0px var(--color-black);
+
+				/* EDITORIAL READER */
+				--reader-bg: var(--color-paper-light);
+				--reader-ink: #1F2022;
+				--reader-ink-secondary: #525357;
+				--reader-link: var(--color-red-primary);
+				--reader-measure: 68ch;
+				--reader-line-height: 1.78;
+
+				/* FONTS */
+				--font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				--font-prose: 'Newsreader', Georgia, serif;
+				--font-mono: 'JetBrains Mono', 'Courier New', monospace;
+			}
+
+			*, *::before, *::after {
+				box-sizing: border-box;
+				border-radius: 0px !important; /* Strict Constructivist 90-degree angular forms */
+			}
+
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: var(--color-paper);
+				color: var(--color-black);
+				font-family: var(--font-display);
+				line-height: 1.5;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			::selection {
+				background-color: var(--color-red-primary);
+				color: #FFFFFF;
+			}
+		</style>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

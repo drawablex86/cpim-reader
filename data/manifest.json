@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "last_synced": "2026-10-16T18:14:00Z",
+  "documents": {
+    "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
+      "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
+      "title": "Review of Assembly Election Results – July 2026",
+      "date": "2026-07-27",
+      "category": "CC Documents",
+      "author": "Central Committee, Communist Party of India (Marxist)",
+      "page_count": 18,
+      "source_pdf_url": "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf",
+      "source_post_url": "https://cpim.org/review-of-assembly-election-results-july-2026/",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T18:14:00Z"
+    },
+    "https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf": {
+      "slug": "2026-07-20-the-annihilation-of-caste-a-marxist-perspective",
+      "title": "The Annihilation of Caste: A Marxist Perspective",
+      "date": "2026-07-20",
+      "category": "Issues",
+      "author": "B. V. Raghavulu (Preface by Prakash Karat)",
+      "page_count": 36,
+      "source_pdf_url": "https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf",
+      "source_post_url": "https://cpim.org/the-annihilation-of-caste-a-marxist-perspective/",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T18:14:00Z"
+    },
+    "https://cpim.org/wp-content/uploads/2026/07/20260309_Perspective-Action-Agenda-on-Health-Issues.pdf": {
+      "slug": "2026-07-20-perspective-action-agenda-on-health-issues",
+      "title": "Perspective & Action Agenda on Health Issues",
+      "date": "2026-07-20",
+      "category": "Issues",
+      "author": "Central Committee, Communist Party of India (Marxist)",
+      "page_count": 24,
+      "source_pdf_url": "https://cpim.org/wp-content/uploads/2026/07/20260309_Perspective-Action-Agenda-on-Health-Issues.pdf",
+      "source_post_url": "https://cpim.org/perspective-action-agenda-on-health-issues/",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T18:14:00Z"
+    }
+  }
+}
