@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && npx pagefind --site build",
+    "build:pagefind": "npx pagefind --site build --output-path static/pagefind && cp -r static/pagefind build/",
+    "build": "vite build && npm run build:pagefind",
     "preview": "vite preview",
     "sync": "python3 scripts/sync.py"
   },

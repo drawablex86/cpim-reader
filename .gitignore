@@ -1,6 +1,9 @@
 node_modules/
 .svelte-kit/
 build/
+static/pagefind/
 .cache/
 .env*
 .DS_Store
+__pycache__/
+*.pyc

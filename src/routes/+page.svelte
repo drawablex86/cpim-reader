@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import CitationModal from '$lib/components/CitationModal.svelte';
   import type { DocumentMeta } from '$lib/documents';
 
@@ -6,24 +7,115 @@
 
   let selectedCategory = $state('All');
   let searchQuery = $state('');
+  let searchMode = $state<'all' | 'titles'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
   let activeCiteDoc = $state<DocumentMeta | null>(null);
 
+  // Pagefind WASM state
+  let pagefindModule: any = $state(null);
+  let isWasmLoading = $state(false);
+  let isWasmSearching = $state(false);
+  let wasmError = $state<string | null>(null);
+  let pagefindMatches = $state<Map<string, { excerpt: string; score: number }>>(new Map());
+
   const categories = ['All', 'CC Documents', 'Party Congress', 'Issues', 'Left View'];
 
-  const filteredDocs = $derived(
-    data.documents.filter((doc: DocumentMeta) => {
-      const matchesCategory =
-        selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
-      const q = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !q ||
-        doc.title.toLowerCase().includes(q) ||
-        (doc.author && doc.author.toLowerCase().includes(q)) ||
-        doc.date.includes(q);
-      return matchesCategory && matchesSearch;
-    })
-  );
+  // Initialize Pagefind dynamically in the browser
+  onMount(() => {
+    async function loadPagefind() {
+      if (typeof window === 'undefined') return;
+      isWasmLoading = true;
+      try {
+        // Pagefind is served from static/pagefind in dev or build/pagefind in prod
+        // Using new Function prevents Vite/Rollup from attempting compile-time module resolution
+        const importPagefind = new Function('path', 'return import(path)');
+        const pf = await importPagefind('/pagefind/pagefind.js');
+        await pf.init();
+        pagefindModule = pf;
+        isWasmLoading = false;
+      } catch (err: any) {
+        console.warn('Pagefind WASM initialization notice (in-memory search active):', err?.message);
+        wasmError = err?.message || 'WASM unavailable';
+        isWasmLoading = false;
+      }
+    }
+
+    loadPagefind();
+  });
+
+  // Debounced search effect
+  let debounceTimer: any;
+  $effect(() => {
+    const q = searchQuery.trim();
+    if (!q || searchMode === 'titles' || !pagefindModule) {
+      pagefindMatches = new Map();
+      isWasmSearching = false;
+      return;
+    }
+
+    clearTimeout(debounceTimer);
+    isWasmSearching = true;
+
+    debounceTimer = setTimeout(async () => {
+      try {
+        const searchRes = await pagefindModule.search(q);
+        const matches = new Map<string, { excerpt: string; score: number }>();
+
+        if (searchRes && searchRes.results) {
+          // Load fragment data for top 30 matches
+          const topResults = searchRes.results.slice(0, 30);
+          for (const res of topResults) {
+            const docData = await res.data();
+            // Extract slug from URL: e.g. /docs/2026-07-27-review-of-assembly-election-results-july-2026.html
+            const match = docData.url.match(/docs\/([^/?#]+)(?:\.html)?/);
+            const slug = match ? match[1].replace(/\.html$/, '') : null;
+            if (slug) {
+              matches.set(slug, {
+                excerpt: docData.excerpt || '',
+                score: res.score
+              });
+            }
+          }
+        }
+        pagefindMatches = matches;
+      } catch (err) {
+        console.error('Pagefind search failed:', err);
+      } finally {
+        isWasmSearching = false;
+      }
+    }, 200);
+
+    return () => clearTimeout(debounceTimer);
+  });
+
+  // Filter and sort documents based on metadata + Pagefind WASM results
+  const filteredDocs = $derived.by(() => {
+    const q = searchQuery.toLowerCase().trim();
+
+    return data.documents
+      .filter((doc: DocumentMeta) => {
+        const matchesCategory =
+          selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
+        if (!matchesCategory) return false;
+
+        if (!q) return true;
+
+        const matchesMeta =
+          doc.title.toLowerCase().includes(q) ||
+          (doc.author && doc.author.toLowerCase().includes(q)) ||
+          doc.date.includes(q);
+
+        const matchesWasm = pagefindMatches.has(doc.slug);
+
+        return searchMode === 'titles' ? matchesMeta : matchesMeta || matchesWasm;
+      })
+      .sort((a: DocumentMeta, b: DocumentMeta) => {
+        if (!q || searchMode === 'titles') return 0;
+        const scoreA = pagefindMatches.get(a.slug)?.score || 0;
+        const scoreB = pagefindMatches.get(b.slug)?.score || 0;
+        return scoreB - scoreA;
+      });
+  });
 
   function openCite(doc: DocumentMeta) {
     activeCiteDoc = doc;
@@ -92,10 +184,13 @@
           <input
             type="search"
             bind:value={searchQuery}
-            placeholder="Search documents by title, author, date..."
+            placeholder={searchMode === 'all' ? "Search across titles, resolutions & full text (WASM)..." : "Search titles, authors, dates..."}
             class="search-input"
             aria-label="Search documents"
           />
+          {#if isWasmSearching}
+            <span class="search-spinner" title="Querying WASM index...">●</span>
+          {/if}
           {#if searchQuery}
             <button
               type="button"
@@ -106,6 +201,28 @@
               ✕
             </button>
           {/if}
+
+          <!-- Integrated Search Scope Toggle (Inside Unified Search Box) -->
+          <div class="search-mode-pill" role="group" aria-label="Search scope">
+            <button
+              type="button"
+              class="mode-toggle-btn"
+              class:active={searchMode === 'all'}
+              onclick={() => (searchMode = 'all')}
+              title="Search entire verbatim resolutions using client-side WASM full-text index"
+            >
+              ★ FULL TEXT (WASM)
+            </button>
+            <button
+              type="button"
+              class="mode-toggle-btn"
+              class:active={searchMode === 'titles'}
+              onclick={() => (searchMode = 'titles')}
+              title="Fast filter by titles, authors, and dates only"
+            >
+              METADATA
+            </button>
+          </div>
         </div>
 
         <div class="view-toggles" role="group" aria-label="Catalog Layout View">
@@ -135,9 +252,24 @@
   <!-- Results Count Strip -->
   <div class="results-meta-bar">
     <div class="results-inner">
-      <span class="results-count">
-        SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
-      </span>
+      <div class="results-left">
+        <span class="results-count">
+          SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
+        </span>
+        {#if searchQuery && searchMode === 'all'}
+          <span class="wasm-status-badge">
+            {#if isWasmSearching}
+              SEARCHING DEEP RESOLUTION TEXT...
+            {:else if pagefindMatches.size > 0}
+              ⚡ {pagefindMatches.size} FULL-TEXT WASM MATCH{pagefindMatches.size === 1 ? '' : 'ES'}
+            {:else if pagefindModule}
+              WASM ENGINE READY
+            {:else if wasmError}
+              TITLES ONLY (WASM OFFLINE)
+            {/if}
+          </span>
+        {/if}
+      </div>
       {#if selectedCategory !== 'All' || searchQuery}
         <button
           type="button"
@@ -193,12 +325,23 @@
               </div>
             {/if}
 
+            <!-- Deep WASM Excerpt Display (if term was matched in resolution body) -->
+            {#if searchQuery && pagefindMatches.has(doc.slug)}
+              <div class="search-excerpt">
+                <div class="excerpt-badge">MATCH IN FULL TEXT (PAGEFIND WASM):</div>
+                <div class="excerpt-text">{@html pagefindMatches.get(doc.slug)?.excerpt}</div>
+              </div>
+            {/if}
+
             <div class="card-footer">
               <div class="card-badges">
                 {#if doc.page_count}
                   <span class="badge-tag">{doc.page_count} PP</span>
                 {/if}
                 <span class="badge-tag uppercase">{doc.extraction_method || 'OFFICIAL'}</span>
+                {#if pagefindMatches.has(doc.slug)}
+                  <span class="badge-tag wasm-match-tag">WASM HIT</span>
+                {/if}
               </div>
 
               <div class="card-actions">
@@ -244,6 +387,11 @@
                   </a>
                   {#if doc.author}
                     <div class="table-author">{doc.author}</div>
+                  {/if}
+                  {#if searchQuery && pagefindMatches.has(doc.slug)}
+                    <div class="table-excerpt">
+                      {@html pagefindMatches.get(doc.slug)?.excerpt}
+                    </div>
                   {/if}
                 </td>
                 <td class="mono-cell">{doc.page_count || '—'}</td>
@@ -417,24 +565,25 @@
 
   .search-box {
     flex: 1;
-    min-width: 280px;
+    min-width: 320px;
     display: flex;
     align-items: center;
     background-color: #FFFFFF;
     border: 2px solid var(--color-black);
     box-shadow: var(--shadow-hard-sm);
-    padding: 0 0.75rem;
+    padding: 0 0.5rem 0 0.75rem;
+    gap: 0.5rem;
   }
 
   .search-icon {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-gray-dark);
-    margin-right: 0.5rem;
   }
 
   .search-input {
     flex: 1;
+    min-width: 120px;
     border: none;
     outline: none;
     font-family: inherit;
@@ -443,12 +592,52 @@
     background: transparent;
   }
 
+  .search-spinner {
+    font-size: 0.75rem;
+    color: var(--color-red-primary);
+    animation: pulse 0.8s infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.2; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1.15); }
+  }
+
   .clear-btn {
     background: transparent;
     border: none;
     cursor: pointer;
     font-weight: 700;
     color: var(--color-gray-dark);
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Integrated Search Scope Toggle Pill */
+  .search-mode-pill {
+    display: inline-flex;
+    background-color: var(--color-paper-dark);
+    border: 1.5px solid var(--color-black);
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .mode-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.55rem;
+    border: none;
+    background: transparent;
+    color: var(--color-gray-dark);
+    cursor: pointer;
+    transition: all 0.1s ease;
+    white-space: nowrap;
+  }
+
+  .mode-toggle-btn.active {
+    background-color: var(--color-black);
+    color: #FFFFFF;
   }
 
   .view-toggles {
@@ -489,6 +678,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .results-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .wasm-status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.55rem;
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    border: 1px solid var(--color-red-dark);
   }
 
   .reset-filters {
@@ -586,6 +794,60 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-black);
+  }
+
+  /* Deep WASM Full-Text Search Excerpt */
+  .search-excerpt {
+    margin: 0.5rem 0 1rem;
+    padding: 0.65rem 0.85rem;
+    background-color: var(--color-paper);
+    border-left: 3px solid var(--color-red-primary);
+    border-top: 1px dashed var(--color-gray-light);
+    border-right: 1px dashed var(--color-gray-light);
+    border-bottom: 1px dashed var(--color-gray-light);
+  }
+
+  .excerpt-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-red-primary);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+  }
+
+  .excerpt-text {
+    font-family: var(--font-prose);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--reader-ink);
+    font-style: italic;
+  }
+
+  :global(.excerpt-text mark),
+  :global(.table-excerpt mark) {
+    background-color: var(--color-gold-muted);
+    color: var(--color-black);
+    font-weight: 700;
+    padding: 0 0.2rem;
+  }
+
+  .wasm-match-tag {
+    background-color: var(--color-red-primary) !important;
+    color: #FFFFFF !important;
+    border-color: var(--color-red-dark) !important;
+    font-weight: 700;
+  }
+
+  .table-excerpt {
+    margin-top: 0.4rem;
+    font-family: var(--font-prose);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--reader-ink-secondary);
+    padding: 0.3rem 0.6rem;
+    background-color: var(--color-paper);
+    border-left: 2px solid var(--color-red-primary);
   }
 
   .card-footer {
