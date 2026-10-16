@@ -103,10 +103,11 @@ def restore_glossary(text: str, masks: dict):
     return res
 
 class SingleDocumentTranslator:
-    def __init__(self, engine: str, target_lang: str, glossary: dict):
+    def __init__(self, engine: str, target_lang: str, glossary: dict, model_name: str = None):
         self.engine = engine
         self.target_lang = target_lang
         self.glossary = glossary
+        self.openrouter_model = model_name
         self.lang_info = INDICTRANS_LANG_MAP.get(target_lang, {"name": target_lang, "english_name": target_lang, "tag": f"{target_lang}_Indic"})
         self._indictrans_model = None
         self._indictrans_tokenizer = None
@@ -233,27 +234,41 @@ class SingleDocumentTranslator:
         if not api_key:
             raise RuntimeError("OPENROUTER_API_KEY is not set.")
 
+        model_name = getattr(self, "openrouter_model", None) or os.environ.get("OPENROUTER_TRANSLATE_MODEL", "google/gemma-4-31b-it:free")
         lang_name = self.lang_info["english_name"]
+        native_lang = self.lang_info.get("name", lang_name)
         headers = {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
         payload = {
-            "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+            "model": model_name,
             "messages": [
                 {
                     "role": "system",
-                    "content": f"You are an official translator for the Communist Party of India (Marxist). Translate from English to {lang_name} verbatim without conversational commentary."
+                    "content": (
+                        f"You are an official archivist for the Communist Party of India (Marxist).\n"
+                        f"Translate from English to formal, publication-grade {lang_name} ({native_lang}) verbatim.\n"
+                        f"RULES:\n"
+                        f"1. Transcribe verbatim. Retain all political meanings accurately without summarizing or altering tone.\n"
+                        f"2. Maintain all Markdown syntax (such as headings #, lists -, bold **).\n"
+                        f"3. Return ONLY the translated {lang_name} text. Do NOT include conversational remarks, preamble, or notes."
+                    )
                 },
                 {"role": "user", "content": text}
             ],
             "temperature": 0.1
         }
-        with httpx.Client(timeout=60.0) as client:
+        with httpx.Client(timeout=90.0) as client:
             resp = client.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=payload)
             if resp.status_code != 200:
                 raise RuntimeError(f"OpenRouter returned HTTP {resp.status_code}: {resp.text}")
-            return resp.json()["choices"][0]["message"]["content"].strip()
+            content = resp.json()["choices"][0]["message"]["content"].strip()
+            # Clean up potential markdown code fences wrapped around output
+            if content.startswith("```") and content.endswith("```"):
+                content = re.sub(r"^```[a-z]*\n?", "", content)
+                content = re.sub(r"\n?```$", "", content).strip()
+            return content
 
     def translate_unit(self, unit_text: str) -> str:
         if self.engine == "ct2":
@@ -306,6 +321,7 @@ def main():
     parser = argparse.ArgumentParser(description="Single-Document Malayalam Translation Worker")
     parser.add_argument("--slug", default="2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza", help="Document slug to translate")
     parser.add_argument("--engine", choices=["ct2", "ollama", "indictrans2", "openrouter", "mock"], default="ct2", help="Inference engine")
+    parser.add_argument("--model", default="google/gemma-4-31b-it:free", help="Model identifier for OpenRouter or Ollama")
     parser.add_argument("--lang", default="ml", help="Target language code (ml = Malayalam)")
     parser.add_argument("--save", action="store_true", help="Automatically write result to src/content/translations/[lang]/")
     args = parser.parse_args()
@@ -313,6 +329,8 @@ def main():
     log("STATUS", f"Initiating single-document translation pipeline")
     log("CONFIG", f"Target Document : {args.slug}")
     log("CONFIG", f"Engine          : {args.engine.upper()}")
+    if args.engine == "openrouter":
+        log("CONFIG", f"Cloud Model     : {args.model}")
     log("CONFIG", f"Target Language : {args.lang.upper()} ({INDICTRANS_LANG_MAP.get(args.lang, {}).get('name', args.lang)})")
 
     doc_file = DOCUMENTS_DIR / f"{args.slug}.md"
@@ -328,7 +346,7 @@ def main():
     log("LOAD", f"Loaded document '{meta.get('title', args.slug)}' ({len(body.splitlines())} lines)")
     log("LOAD", f"Ideological glossary ready with {len(glossary)} Marxist-Leninist definitions")
 
-    translator = SingleDocumentTranslator(engine=args.engine, target_lang=args.lang, glossary=glossary)
+    translator = SingleDocumentTranslator(engine=args.engine, target_lang=args.lang, glossary=glossary, model_name=args.model)
 
     # 1. Translate Title
     log("STATUS", f"Translating document headline...")

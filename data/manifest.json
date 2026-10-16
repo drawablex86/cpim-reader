@@ -301,7 +301,15 @@
       "sha256": "9abdadd3015a1e9d480e268ac4e3cbec0e907e3e7199f1df786a7d947bcd6082",
       "extraction_method": "html-archive",
       "status": "completed",
-      "processed_at": "2026-10-16T15:01:42.522392+00:00"
+      "processed_at": "2026-10-16T15:01:42.522392+00:00",
+      "translations": {
+        "ml": {
+          "status": "completed",
+          "engine": "openrouter",
+          "file": "src/content/translations/ml/2025-04-05-resolution-to-stand-in-solidarity-with-socialist-cuba.md",
+          "updated_at": "2026-10-16T18:14:13.859301+00:00"
+        }
+      }
     },
     "https://cpim.org/resolution-to-withdraw-the-divisive-and-unjust-waqf-amendment-act-immediately/": {
       "slug": "2025-04-04-resolution-to-withdraw-the-divisive-and-unjust-waqf-amendment-act-imme",

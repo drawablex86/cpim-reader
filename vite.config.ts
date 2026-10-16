@@ -239,7 +239,7 @@ function devTranslatePlugin(): Plugin {
 				}
 				const openrouterStatus = {
 					status: hasOpenRouterKey ? 'configured' : 'missing',
-					model: 'nvidia/nemotron-3-ultra-550b-a55b:free'
+					model: 'google/gemma-4-31b-it:free'
 				};
 
 				res.statusCode = 200;
@@ -249,6 +249,108 @@ function devTranslatePlugin(): Plugin {
 						ollama: ollamaStatus,
 						indictrans2: indictrans2Status,
 						openrouter: openrouterStatus
+					})
+				);
+			});
+
+			// Translation Catalog endpoint: lists all documents, tracking Malayalam translation status
+			server.middlewares.use('/api/dev/translation-catalog', async (req, res) => {
+				if (req.method !== 'GET') {
+					res.statusCode = 405;
+					return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+				}
+
+				const url = new URL(req.url || '', 'http://localhost');
+				const lang = url.searchParams.get('lang') || 'ml';
+
+				const docsDir = path.resolve('src/content/documents');
+				const transDir = path.resolve(`src/content/translations/${lang}`);
+				const manifestPath = path.resolve('data/manifest.json');
+
+				let manifestDocs: Record<string, any> = {};
+				if (fs.existsSync(manifestPath)) {
+					try {
+						const manifestData = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+						manifestDocs = manifestData.documents || {};
+					} catch {
+						manifestDocs = {};
+					}
+				}
+
+				const files = fs.existsSync(docsDir)
+					? fs.readdirSync(docsDir).filter((f) => f.endsWith('.md'))
+					: [];
+
+				const documents = files.map((file) => {
+					const slug = file.replace(/\.md$/, '');
+					const docPath = path.join(docsDir, file);
+					const transFile = path.join(transDir, file);
+					const isCompleted = fs.existsSync(transFile);
+
+					// Read frontmatter title and date
+					let title = slug;
+					let date = '';
+					let category = 'Document';
+					try {
+						const content = fs.readFileSync(docPath, 'utf-8');
+						const fmMatch = content.match(/^---\n([\s\S]*?)\n---/);
+						if (fmMatch) {
+							const fmLines = fmMatch[1].split('\n');
+							for (const line of fmLines) {
+								if (line.startsWith('title:')) {
+									title = line.replace(/^title:\s*/, '').replace(/^["']|["']$/g, '');
+								} else if (line.startsWith('date:')) {
+									date = line.replace(/^date:\s*/, '').replace(/^["']|["']$/g, '');
+								} else if (line.startsWith('category:')) {
+									category = line.replace(/^category:\s*/, '').replace(/^["']|["']$/g, '');
+								}
+							}
+						}
+					} catch {
+						// Fallback to slug
+					}
+
+					// Check manifest metadata
+					let engine = '';
+					let updatedAt = '';
+					for (const docInfo of Object.values(manifestDocs)) {
+						if (
+							docInfo.translations &&
+							docInfo.translations[lang] &&
+							(docInfo.file?.includes(slug) || docInfo.translations[lang].file?.includes(slug))
+						) {
+							engine = docInfo.translations[lang].engine || '';
+							updatedAt = docInfo.translations[lang].updated_at || '';
+							break;
+						}
+					}
+
+					return {
+						slug,
+						title,
+						date,
+						category,
+						status: isCompleted ? 'completed' : 'pending',
+						engine: engine || (isCompleted ? 'archived' : ''),
+						updated_at: updatedAt
+					};
+				});
+
+				// Sort newest date first
+				documents.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+				const completedCount = documents.filter((d) => d.status === 'completed').length;
+				const pendingCount = documents.filter((d) => d.status === 'pending').length;
+
+				res.setHeader('Content-Type', 'application/json');
+				res.statusCode = 200;
+				res.end(
+					JSON.stringify({
+						lang,
+						total: documents.length,
+						completed: completedCount,
+						pending: pendingCount,
+						documents
 					})
 				);
 			});

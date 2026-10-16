@@ -39,6 +39,56 @@
     openrouter?: { status: string; model: string };
   } | null>(null);
 
+  // Catalog queue state
+  interface CatalogDoc {
+    slug: string;
+    title: string;
+    date: string;
+    category: string;
+    status: 'completed' | 'pending';
+    engine: string;
+    updated_at: string;
+  }
+  let catalogData = $state<{
+    lang: string;
+    total: number;
+    completed: number;
+    pending: number;
+    documents: CatalogDoc[];
+  } | null>(null);
+  let isLoadingCatalog = $state(false);
+  let catalogFilter = $state<'pending' | 'all' | 'completed'>('pending');
+  let catalogSearch = $state('');
+
+  let filteredDocs = $derived.by(() => {
+    if (!catalogData) return [];
+    let list = catalogData.documents;
+    if (catalogFilter === 'pending') {
+      list = list.filter((d) => d.status === 'pending');
+    } else if (catalogFilter === 'completed') {
+      list = list.filter((d) => d.status === 'completed');
+    }
+    if (catalogSearch.trim()) {
+      const q = catalogSearch.toLowerCase();
+      list = list.filter((d) => d.title.toLowerCase().includes(q) || d.slug.toLowerCase().includes(q));
+    }
+    return list;
+  });
+
+  async function fetchCatalog() {
+    isLoadingCatalog = true;
+    try {
+      const res = await fetch(`/api/dev/translation-catalog?lang=${translateLang}`);
+      if (res.ok) {
+        catalogData = await res.json();
+      }
+    } catch (err) {
+      console.warn('Failed to fetch translation catalog:', err);
+    } finally {
+      isLoadingCatalog = false;
+    }
+  }
+
   async function fetchModelStatus() {
     isLoadingModels = true;
     try {
@@ -54,8 +104,9 @@
   }
 
   $effect(() => {
-    if (activeTab === 'translate' && !modelStatus && !isLoadingModels) {
-      fetchModelStatus();
+    if (activeTab === 'translate') {
+      if (!modelStatus && !isLoadingModels) fetchModelStatus();
+      if (!catalogData && !isLoadingCatalog) fetchCatalog();
     }
   });
 
@@ -94,6 +145,7 @@
 
       if (translateLogs.includes('[PROCESS TERMINATED WITH CODE 0]')) {
         translateSuccess = true;
+        fetchCatalog();
       }
     } catch (err: any) {
       translateLogs += `\n[NETWORK ERROR]: ${err.message}`;
@@ -395,34 +447,76 @@
         </div>
 
       {:else}
-        <!-- MALAYALAM TRANSLATION WORKER TAB -->
+        <!-- MALAYALAM TRANSLATION WORKER & CATALOG QUEUE TAB -->
         <div class="translate-tab-header">
           <div>
-            <h2 class="modal-title">MALAYALAM TRANSLATION WORKER</h2>
+            <h2 class="modal-title">MALAYALAM TRANSLATION CONSOLE</h2>
             <p class="modal-deck">
-              Singular focus dev environment: Translates official CPI(M) resolutions from English into publication-grade
-              <strong>Malayalam (മലയാളം)</strong>. Enforces party ideological vocabulary via
-              <code>scripts/glossary/marxist_indic.json</code> and tracks model readiness in real-time.
+              Archive translation management for <strong>Malayalam (മലയാളം - ml)</strong>.
+              All translations are filed in <code>src/content/translations/ml/[slug].md</code>.
+              Protected by Marxist-Leninist party ideological glossary.
             </p>
           </div>
-          <button type="button" class="btn-refresh-models" onclick={fetchModelStatus} disabled={isLoadingModels}>
-            {isLoadingModels ? 'CHECKING...' : '↻ REFRESH MODEL STATUS'}
-          </button>
+          <div class="header-action-group">
+            <button type="button" class="btn-refresh-models" onclick={fetchCatalog} disabled={isLoadingCatalog}>
+              {isLoadingCatalog ? 'LOADING...' : '↻ REFRESH CATALOG'}
+            </button>
+            <button type="button" class="btn-refresh-models" onclick={fetchModelStatus} disabled={isLoadingModels}>
+              {isLoadingModels ? 'CHECKING...' : '⚙ MODEL STATUS'}
+            </button>
+          </div>
         </div>
+
+        <!-- Catalog Queue Statistics Bar -->
+        {#if catalogData}
+          <div class="catalog-summary-bar">
+            <div class="summary-metric">
+              <span class="metric-label">TOTAL ARCHIVE</span>
+              <span class="metric-val">{catalogData.total}</span>
+            </div>
+            <div class="summary-metric metric-pending">
+              <span class="metric-label">PENDING (MALAYALAM)</span>
+              <span class="metric-val">{catalogData.pending}</span>
+            </div>
+            <div class="summary-metric metric-completed">
+              <span class="metric-label">COMPLETED</span>
+              <span class="metric-val">{catalogData.completed}</span>
+            </div>
+            <div class="summary-metric metric-pct">
+              <span class="metric-label">COMPLETION</span>
+              <span class="metric-val">{Math.round((catalogData.completed / (catalogData.total || 1)) * 100)}%</span>
+            </div>
+          </div>
+        {/if}
 
         <!-- Model Health & Discovery Matrix -->
         <div class="model-matrix">
           <div class="model-card featured-model-card">
             <div class="model-card-header">
-              <span class="model-tag">⚡ CTRANSLATE2 INT8 (FAST)</span>
+              <span class="model-tag">⚡ CTRANSLATE2 INT8</span>
               <span class="status-badge" class:online={modelStatus?.ct2?.status === 'installed'}>
-                {modelStatus?.ct2?.status === 'installed' ? '● INSTALLED (807 MB)' : '○ MISSING'}
+                {modelStatus?.ct2?.status === 'installed' ? '● READY (807 MB)' : '○ MISSING'}
               </span>
             </div>
             <div class="model-card-body">
-              <div class="model-name">IndicTrans2 200M (CT2 INT8)</div>
+              <div class="model-name">IndicTrans2 200M INT8</div>
               <div class="model-desc">
-                Sub-second inference (~0.4s/chunk) via Apple Silicon C++ NEON engine. <strong>Recommended</strong>.
+                Sub-second local C++ NEON inference (~0.4s/para). <strong>Recommended</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="model-card">
+            <div class="model-card-header">
+              <span class="model-tag">CLOUD API (FREE)</span>
+              <span class="status-badge" class:online={modelStatus?.openrouter?.status === 'configured'}>
+                {modelStatus?.openrouter?.status === 'configured' ? '● ONLINE' : '○ NO API KEY'}
+              </span>
+            </div>
+            <div class="model-card-body">
+              <div class="model-name">Google Gemma 4 31B Free</div>
+              <div class="model-desc">
+                High-resolution zero-compute cloud fallback via OpenRouter.
               </div>
             </div>
           </div>
@@ -435,93 +529,82 @@
               </span>
             </div>
             <div class="model-card-body">
-              <div class="model-name">qwen2.5:7b (7.6B / Q4_K_M)</div>
+              <div class="model-name">qwen2.5:7b (Causal LLM)</div>
               <div class="model-desc">
-                Generative causal LLM in Ollama. Slower (~1-2m/chunk).
-              </div>
-            </div>
-          </div>
-
-          <div class="model-card">
-            <div class="model-card-header">
-              <span class="model-tag">CLOUD FALLBACK</span>
-              <span class="status-badge" class:online={modelStatus?.openrouter?.status === 'configured'}>
-                {modelStatus?.openrouter?.status === 'configured' ? '● READY (.env)' : '○ NO API KEY'}
-              </span>
-            </div>
-            <div class="model-card-body">
-              <div class="model-name">NVIDIA Nemotron 3 Ultra (Free)</div>
-              <div class="model-desc">
-                Zero local RAM fallback via OpenRouter API.
+                Local generative Ollama worker (~1-2m/chunk).
               </div>
             </div>
           </div>
         </div>
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="translate-slug">TARGET DOCUMENT SLUG (SINGULAR FOCUS)</label>
-            <input
-              id="translate-slug"
-              type="text"
-              bind:value={translateSlug}
-              class="form-input"
+        <!-- Active Worker Control Console -->
+        <div class="runner-panel">
+          <div class="runner-panel-header">
+            <span class="runner-tag">ACTIVE WORKER PIPELINE</span>
+            <div class="engine-pills">
+              <button
+                type="button"
+                class="engine-pill"
+                class:active={translateEngine === 'ct2'}
+                onclick={() => (translateEngine = 'ct2')}
+                disabled={isTranslating}
+              >
+                ⚡ CTranslate2 INT8
+              </button>
+              <button
+                type="button"
+                class="engine-pill"
+                class:active={translateEngine === 'openrouter'}
+                onclick={() => (translateEngine = 'openrouter')}
+                disabled={isTranslating}
+              >
+                ☁ Cloud Gemma 31B
+              </button>
+              <button
+                type="button"
+                class="engine-pill"
+                class:active={translateEngine === 'ollama'}
+                onclick={() => (translateEngine = 'ollama')}
+                disabled={isTranslating}
+              >
+                ⚙ Local Ollama
+              </button>
+            </div>
+          </div>
+
+          <div class="active-doc-banner">
+            <div class="active-doc-info">
+              <span class="active-label">TARGET DOCUMENT:</span>
+              <span class="active-slug">{translateSlug}</span>
+            </div>
+            <button
+              type="button"
+              class="btn-run btn-translate-active"
+              class:running={isTranslating}
+              onclick={startTranslation}
               disabled={isTranslating}
-            />
-            <span class="field-hint">Source document in <code>src/content/documents/</code></span>
+            >
+              {isTranslating ? 'TRANSLATING TO MALAYALAM...' : 'TRANSLATE THIS DOCUMENT ➔'}
+            </button>
           </div>
-
-          <div class="form-row">
-            <div class="form-group half">
-              <label for="translate-engine">INFERENCE ENGINE</label>
-              <select id="translate-engine" bind:value={translateEngine} class="form-select" disabled={isTranslating}>
-                <option value="ct2">⚡ CTranslate2 INT8 200M [Recommended / Sub-second ~3s]</option>
-                <option value="ollama">Ollama Local (qwen2.5:7b) [Generative LLM]</option>
-                <option value="indictrans2">AI4Bharat IndicTrans2 1B (Full PyTorch Seq2Seq)</option>
-                <option value="openrouter">OpenRouter Free (NVIDIA Nemotron 3 Ultra)</option>
-              </select>
-            </div>
-
-            <div class="form-group half">
-              <label for="translate-lang">TARGET LANGUAGE</label>
-              <input
-                id="translate-lang"
-                type="text"
-                value="Malayalam (മലയാളം - ml)"
-                class="form-input readonly-input"
-                disabled
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="action-strip">
-          <button
-            type="button"
-            class="btn-run btn-translate"
-            class:running={isTranslating}
-            onclick={startTranslation}
-            disabled={isTranslating}
-          >
-            {isTranslating ? 'TRANSLATING DOCUMENT TO MALAYALAM...' : 'TRANSLATE DOCUMENT TO MALAYALAM ➔'}
-          </button>
         </div>
 
         {#if translateSuccess}
           <div class="success-banner translate-success">
             <div class="success-text">
-              ✓ <strong>TRANSLATION COMPLETE!</strong> Document saved to <code>src/content/translations/ml/{translateSlug}.md</code> and indexed in <code>data/manifest.json</code>.
+              ✓ <strong>TRANSLATION COMPLETED!</strong> Stored in <code>src/content/translations/ml/{translateSlug}.md</code> and indexed in <code>data/manifest.json</code>.
             </div>
             <a
               href="/docs/{translateSlug}?lang=ml"
               class="btn-view-doc"
               onclick={onclose}
             >
-              READ IN MALAYALAM (OR TOGGLE BILINGUAL) ➔
+              OPEN IN READER (MALAYALAM / BILINGUAL) ➔
             </a>
           </div>
         {/if}
 
+        <!-- Terminal Output Stream -->
         <div class="terminal-shell">
           <div class="terminal-bar">
             <span>TRANSLATION IPC STREAM // stdout & stderr</span>
@@ -529,7 +612,122 @@
               <button type="button" class="btn-clear" onclick={() => (translateLogs = '')}>CLEAR</button>
             {/if}
           </div>
-          <pre class="terminal-pre"><code>{translateLogs || 'Select engine and click "TRANSLATE DOCUMENT TO MALAYALAM" to initiate.'}</code></pre>
+          <pre class="terminal-pre"><code>{translateLogs || 'Select any document from the queue below and click "TRANSLATE THIS DOCUMENT".'}</code></pre>
+        </div>
+
+        <!-- Catalog Queue Filter & Table -->
+        <div class="catalog-section">
+          <div class="catalog-controls">
+            <div class="filter-tabs">
+              <button
+                type="button"
+                class="filter-tab"
+                class:active={catalogFilter === 'pending'}
+                onclick={() => (catalogFilter = 'pending')}
+              >
+                PENDING ({catalogData?.pending ?? '...'})
+              </button>
+              <button
+                type="button"
+                class="filter-tab"
+                class:active={catalogFilter === 'all'}
+                onclick={() => (catalogFilter = 'all')}
+              >
+                ALL DOCUMENTS ({catalogData?.total ?? '...'})
+              </button>
+              <button
+                type="button"
+                class="filter-tab"
+                class:active={catalogFilter === 'completed'}
+                onclick={() => (catalogFilter = 'completed')}
+              >
+                COMPLETED ({catalogData?.completed ?? '...'})
+              </button>
+            </div>
+
+            <div class="search-box">
+              <input
+                type="text"
+                placeholder="Search documents by title or slug..."
+                bind:value={catalogSearch}
+                class="search-input"
+              />
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="catalog-table">
+              <thead>
+                <tr>
+                  <th style="width: 105px;">DATE</th>
+                  <th>TITLE / SLUG</th>
+                  <th style="width: 130px;">MALAYALAM</th>
+                  <th style="width: 130px; text-align: right;">ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {#if filteredDocs.length === 0}
+                  <tr>
+                    <td colspan="4" class="empty-cell">
+                      {isLoadingCatalog ? 'Loading documents...' : 'No matching documents found.'}
+                    </td>
+                  </tr>
+                {:else}
+                  {#each filteredDocs as doc (doc.slug)}
+                    <tr class:selected={translateSlug === doc.slug}>
+                      <td class="date-cell">{doc.date || '—'}</td>
+                      <td class="title-cell">
+                        <button
+                          type="button"
+                          class="doc-title-btn"
+                          onclick={() => (translateSlug = doc.slug)}
+                          title="Select document"
+                        >
+                          <span class="doc-title">{doc.title}</span>
+                          <span class="doc-slug">{doc.slug}</span>
+                        </button>
+                      </td>
+                      <td class="status-cell">
+                        {#if doc.status === 'completed'}
+                          <span class="badge badge-completed">
+                            ● TRANSLATED
+                            {#if doc.engine}
+                              <small>({doc.engine.toUpperCase()})</small>
+                            {/if}
+                          </span>
+                        {:else}
+                          <span class="badge badge-pending">○ PENDING</span>
+                        {/if}
+                      </td>
+                      <td class="action-cell">
+                        {#if doc.status === 'completed'}
+                          <a
+                            href="/docs/{doc.slug}?lang=ml"
+                            class="btn-row-action btn-view"
+                            onclick={onclose}
+                          >
+                            READ ➔
+                          </a>
+                        {:else}
+                          <button
+                            type="button"
+                            class="btn-row-action btn-trans-row"
+                            onclick={() => {
+                              translateSlug = doc.slug;
+                              startTranslation();
+                            }}
+                            disabled={isTranslating}
+                          >
+                            TRANSLATE
+                          </button>
+                        {/if}
+                      </td>
+                    </tr>
+                  {/each}
+                {/if}
+              </tbody>
+            </table>
+          </div>
         </div>
       {/if}
     </div>
@@ -1027,5 +1225,347 @@
   .btn-view-doc:hover {
     transform: translate(-1px, -1px);
     box-shadow: var(--shadow-hard-md);
+  }
+
+  /* Catalog Queue & Console Styles */
+  .header-action-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .catalog-summary-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    border: 2px solid var(--color-black);
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .summary-metric {
+    display: flex;
+    flex-direction: column;
+    padding: 0.65rem 0.85rem;
+    border-right: 1px solid #333333;
+  }
+
+  .summary-metric:last-child {
+    border-right: none;
+  }
+
+  .metric-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: #AAAAAA;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-val {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .metric-pending .metric-val {
+    color: var(--color-gold);
+  }
+
+  .metric-completed .metric-val {
+    color: #33FF33;
+  }
+
+  .metric-pct .metric-val {
+    color: #55CCFF;
+  }
+
+  /* Active Runner Panel */
+  .runner-panel {
+    background-color: #FFFFFF;
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .runner-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--color-gray-light);
+    padding-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .runner-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-red-primary);
+  }
+
+  .engine-pills {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .engine-pill {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .engine-pill.active {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .active-doc-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .active-doc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .active-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--color-gray-dark);
+  }
+
+  .active-slug {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-black);
+    word-break: break-all;
+  }
+
+  .btn-translate-active {
+    width: auto;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* Catalog Section */
+  .catalog-section {
+    margin-top: 1.5rem;
+    border-top: 2px solid var(--color-black);
+    padding-top: 1rem;
+  }
+
+  .catalog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .filter-tab {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .filter-tab.active {
+    background-color: var(--color-red-primary);
+    border-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.6rem;
+    border: 1.5px solid var(--color-black);
+    background-color: #FFFFFF;
+  }
+
+  /* Catalog Table */
+  .table-container {
+    max-height: 380px;
+    overflow-y: auto;
+    border: 2px solid var(--color-black);
+    background-color: #FFFFFF;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .catalog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    text-align: left;
+  }
+
+  .catalog-table th {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-paper-dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-black);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid var(--color-black);
+    z-index: 10;
+  }
+
+  .catalog-table td {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--color-paper-dark);
+    vertical-align: middle;
+  }
+
+  .catalog-table tr:hover {
+    background-color: #FFFDF0;
+  }
+
+  .catalog-table tr.selected {
+    background-color: #FFF6E0;
+    border-left: 3px solid var(--color-gold);
+  }
+
+  .date-cell {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-gray-dark);
+    white-space: nowrap;
+  }
+
+  .doc-title-btn {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .doc-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.25;
+  }
+
+  .doc-slug {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-gray-dark);
+    word-break: break-all;
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .badge-pending {
+    border: 1px solid #D32F2F;
+    color: #D32F2F;
+    background-color: #FFEBEE;
+  }
+
+  .badge-completed {
+    border: 1px solid #2E7D32;
+    color: #1B5E20;
+    background-color: #E8F5E9;
+  }
+
+  .badge-completed small {
+    font-size: 0.58rem;
+    opacity: 0.85;
+  }
+
+  .action-cell {
+    text-align: right;
+  }
+
+  .btn-row-action {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border: 1.5px solid var(--color-black);
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.1s ease;
+  }
+
+  .btn-trans-row {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
+  .btn-trans-row:hover:not(:disabled) {
+    background-color: var(--color-red-dark);
+    transform: translate(-1px, -1px);
+  }
+
+  .btn-view {
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+  }
+
+  .btn-view:hover {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .empty-cell {
+    text-align: center;
+    padding: 2rem !important;
+    font-family: var(--font-mono);
+    color: var(--color-gray-dark);
   }
 </style>
