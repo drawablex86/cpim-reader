@@ -18,27 +18,57 @@
     }
   }
 
+  function scrollToHeading(id: string, e?: MouseEvent) {
+    if (e) e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      activeHeadingId = id;
+      history.pushState(null, '', `#${id}`);
+    }
+  }
+
   onMount(() => {
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
 
-    // Query headings from rendered markdown prose
-    const elements = document.querySelectorAll('.markdown-prose h2, .markdown-prose h3');
+    // Query headings from rendered markdown prose (support h1, h2, h3)
+    const elements = document.querySelectorAll('.markdown-prose h1, .markdown-prose h2, .markdown-prose h3');
     const collected: Array<{ id: string; text: string; level: number }> = [];
+    const seenSlugs = new Map<string, number>();
 
     elements.forEach((el) => {
       const headingEl = el as HTMLElement;
+      let rawText = headingEl.innerText.replace(/^#+\s*/, '').trim();
+
+      // Clean markdown formatting if present in text
+      rawText = rawText.replace(/\*\*/g, '').replace(/\*/g, '').replace(/__+/g, '').trim();
+
+      // Skip empty or generic document title if it repeats page title at the very top
+      if (!rawText) return;
+      if (headingEl.tagName === 'H1' && rawText.toLowerCase() === (data.meta.title || '').toLowerCase()) {
+        return;
+      }
+
+      const level = headingEl.tagName === 'H1' ? 1 : headingEl.tagName === 'H2' ? 2 : 3;
+
       if (!headingEl.id) {
-        headingEl.id = headingEl.innerText
+        const base = rawText
           .toLowerCase()
           .replace(/[^\w\s-]/g, '')
           .trim()
           .replace(/\s+/g, '-');
+        const count = seenSlugs.get(base) || 0;
+        seenSlugs.set(base, count + 1);
+        headingEl.id = count === 0 ? base : `${base}-${count}`;
+      } else {
+        seenSlugs.set(headingEl.id, (seenSlugs.get(headingEl.id) || 0) + 1);
       }
+
       collected.push({
         id: headingEl.id,
-        text: headingEl.innerText.replace(/^#\s*/, ''),
-        level: headingEl.tagName === 'H2' ? 2 : 3
+        text: rawText,
+        level
       });
     });
 
@@ -58,6 +88,18 @@
     );
 
     elements.forEach((el) => observer.observe(el));
+
+    // If deep-linked with hash on page load, smooth scroll to it
+    if (window.location.hash) {
+      const hashId = decodeURIComponent(window.location.hash.substring(1));
+      setTimeout(() => {
+        const target = document.getElementById(hashId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          activeHeadingId = hashId;
+        }
+      }, 150);
+    }
 
     return () => {
       window.removeEventListener('scroll', updateScroll);
@@ -159,9 +201,12 @@
             {#each headings as h}
               <a
                 href={`#${h.id}`}
-                class="toc-item"
+                class="toc-item level-{h.level}"
+                class:h1-item={h.level === 1}
+                class:h2-item={h.level === 2}
                 class:h3-indent={h.level === 3}
                 class:active={activeHeadingId === h.id}
+                onclick={(e) => scrollToHeading(h.id, e)}
               >
                 {h.text}
               </a>
@@ -449,9 +494,20 @@
     transition: all 0.1s ease;
   }
 
+  .toc-item.h1-item {
+    font-weight: 700;
+    color: var(--color-black);
+    margin-top: 0.35rem;
+  }
+
+  .toc-item.h2-item {
+    padding-left: 0.65rem;
+    font-size: 0.82rem;
+  }
+
   .toc-item.h3-indent {
-    padding-left: 1.15rem;
-    font-size: 0.8rem;
+    padding-left: 1.25rem;
+    font-size: 0.78rem;
     color: var(--color-gray-dark);
   }
 
@@ -482,16 +538,28 @@
     color: var(--reader-ink);
   }
 
+  :global(.markdown-prose h1) {
+    font-family: var(--font-prose);
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--color-black);
+    margin: 3.5rem 0 1.25rem;
+    border-bottom: 3px solid var(--color-black);
+    padding-bottom: 0.5rem;
+    scroll-margin-top: 3.5rem;
+  }
+
   :global(.markdown-prose h2) {
     font-family: var(--font-prose);
-    font-size: 1.85rem;
+    font-size: 1.75rem;
     font-weight: 700;
     line-height: 1.3;
     color: var(--color-black);
-    margin: 3rem 0 1.25rem;
+    margin: 2.75rem 0 1rem;
     border-bottom: 2px solid var(--color-black);
-    padding-bottom: 0.4rem;
-    scroll-margin-top: 3rem;
+    padding-bottom: 0.35rem;
+    scroll-margin-top: 3.5rem;
   }
 
   :global(.markdown-prose h3) {

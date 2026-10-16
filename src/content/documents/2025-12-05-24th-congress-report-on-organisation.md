@@ -729,7 +729,7 @@ A mid-term review of the implementation of these tasks shall be undertaken by th
 35
 
 # Statement of Party Membership
-## (After 23<sup>rd</sup> Congress)
+## Party Membership (Post-23rd Congress)
 
 | Name of State | Membership |
 | :--- | :---: | :---: | :---: | :---: |
@@ -802,7 +802,7 @@ A mid-term review of the implementation of these tasks shall be undertaken by th
 37
 
 # Membership of Kisan Front
-## (After 23<sup>rd</sup> Congress)
+## Kisan Front Membership (Post-23rd Congress)
 
 | Name of State | 2020-21 | 2021-22 | 2022-23 | 2023-24 |
 | :--- | :--- | :--- | :--- | :--- |
@@ -837,7 +837,7 @@ A mid-term review of the implementation of these tasks shall be undertaken by th
 | **Total** | **1,17,41,513** | **1,36,78,735** | **1,43,69,371** | **1,46,88,194** |
 
 # Membership of Agricultural Workers Union Front
-## (After 23<sup>rd</sup> Congress)
+## Agricultural Workers Union Front Membership (Post-23rd Congress)
 
 | Name of State | 2020-21 | 2021-22 | 2022-23 | 2023-24 |
 | :--- | :--- | :--- | :--- | :--- |
