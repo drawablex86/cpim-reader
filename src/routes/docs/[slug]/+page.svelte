@@ -55,12 +55,12 @@
       if (!headingEl.id) {
         const base = rawText
           .toLowerCase()
-          .replace(/[^\w\s-]/g, '')
+          .replace(/[^\p{L}\p{N}\s-]/gu, '')
           .trim()
           .replace(/\s+/g, '-');
         const count = seenSlugs.get(base) || 0;
         seenSlugs.set(base, count + 1);
-        headingEl.id = count === 0 ? base : `${base}-${count}`;
+        headingEl.id = count === 0 ? (base || `section-${headings.length + 1}`) : `${base}-${count}`;
       } else {
         seenSlugs.set(headingEl.id, (seenSlugs.get(headingEl.id) || 0) + 1);
       }

@@ -34,7 +34,8 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_VLM_MODEL = "qwen2.5vl:3b"
 DEFAULT_TEXT_MODEL = "qwen2.5:7b"
 NEMOTRON_TEXT_MODEL = "nvidia/nemotron-3-super-120b-a12b:free"
-NEMOTRON_VL_MODEL = "nvidia/nemotron-3.5-super-vl:free"
+NEMOTRON_VL_MODEL = "google/gemma-4-31b-it:free"
+
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 MANIFEST_PATH = ROOT_DIR / "data" / "manifest.json"
@@ -175,7 +176,30 @@ def discover_documents(client: httpx.Client) -> list[dict]:
     return discovered
 
 
+LEGACY_INDIC_FONTS = (
+    "chanakya",
+    "walkman",
+    "kruti",
+    "devlys",
+    "shree",
+    "kavita",
+    "shivaji",
+    "akruti",
+)
+
+
 def page_needs_vision_ocr(page: fitz.Page) -> tuple[bool, str]:
+    # Check if page relies on legacy non-Unicode DTP fonts (e.g. Chanakya, KrutiDev)
+    # which produce ASCII gibberish when extracted via text extraction
+    try:
+        fonts = page.get_fonts()
+        for font_info in fonts:
+            font_name = font_info[3].lower() if len(font_info) > 3 else ""
+            if any(lf in font_name for lf in LEGACY_INDIC_FONTS):
+                return True, "Text Recognition (Legacy Indic Font):"
+    except Exception:
+        pass
+
     text = page.get_text("text").strip()
     if len(text) < 60:
         return True, "Text Recognition:"
@@ -227,7 +251,7 @@ def ocr_page_with_openrouter(client: httpx.Client, page: fitz.Page, api_key: str
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": "Extract all text from this page verbatim into clean Markdown. Preserve all headings and tables."},
+                    {"type": "text", "text": "Extract all text from this page verbatim into clean Markdown. If the text is in Hindi or another Indic language, output in proper Unicode script (e.g. Devanagari). Preserve all headings, lists, tables, and paragraphs verbatim without summarizing or altering words."},
                     {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64_img}"}},
                 ],
             }
@@ -449,6 +473,13 @@ def main():
                 pages = max(1, len(body_md) // 2500)
                 method = "html-archive"
 
+            # Language detection: check title, URL, or body
+            is_hindi = any(
+                k in item["title"].lower() or k in (item["source_pdf_url"] or "").lower()
+                for k in ["hindi", "हिंदी", "रफाल", "घोषणापत्र", "समीक्षा"]
+            )
+            lang_code = "hi" if is_hindi else "en"
+
             safe_title = item["title"].replace('"', "'")
             frontmatter = (
                 "---\n"
@@ -458,6 +489,7 @@ def main():
                 f'category: "{item["category"]}"\n'
                 'author: "Central Committee, Communist Party of India (Marxist)"\n'
                 'publisher: "Communist Party of India (Marxist)"\n'
+                f'language: "{lang_code}"\n'
                 f'source_pdf_url: "{item["source_pdf_url"] or ""}"\n'
                 f'source_post_url: "{item["source_post_url"] or ""}"\n'
                 f"page_count: {pages}\n"
@@ -473,6 +505,7 @@ def main():
                 "title": item["title"],
                 "date": item["date"],
                 "category": item["category"],
+                "language": lang_code,
                 "page_count": pages,
                 "sha256": sha256_hash,
                 "extraction_method": method,

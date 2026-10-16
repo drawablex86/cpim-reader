@@ -3,6 +3,7 @@ export interface DocumentMeta {
   slug: string;
   date: string;
   category: string;
+  language?: string;
   author?: string;
   publisher?: string;
   source_pdf_url?: string;
@@ -35,7 +36,7 @@ export function loadAllDocuments(): DocumentMeta[] {
 export function slugifyText(text: string): string {
   return text
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
+    .replace(/[^\p{L}\p{N}\s-]/gu, '')
     .trim()
     .replace(/\s+/g, '-');
 }

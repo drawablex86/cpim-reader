@@ -73,11 +73,12 @@ def parse_frontmatter(md_text: str) -> tuple[dict, str]:
 def build_corpus_input(fm: dict, body: str) -> str:
     """
     Format input for EmbeddingGemma 2 corpus indexing.
-    Uses title: ... | text: ... instruction prefix pattern.
+    Uses title: ... | language: ... | text: ... instruction prefix pattern.
     """
     title = fm.get("title", "Untitled")
+    lang = "Hindi" if fm.get("language") == "hi" or "hindi" in title.lower() else "English"
     body_excerpt = body[:8000].strip()
-    return f"title: {title} | text: {body_excerpt}"
+    return f"title: {title} | language: {lang} | text: {body_excerpt}"
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:

@@ -13,6 +13,7 @@
   let { data } = $props();
 
   let selectedCategory = $state('All');
+  let selectedLanguage = $state<'all' | 'en' | 'hi'>('all');
   let searchQuery = $state('');
   let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
@@ -157,6 +158,10 @@
           selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
         if (!matchesCategory) return false;
 
+        const isHindi = doc.language === 'hi' || doc.title.toLowerCase().includes('hindi');
+        if (selectedLanguage === 'hi' && !isHindi) return false;
+        if (selectedLanguage === 'en' && isHindi) return false;
+
         if (!q) return true;
 
         const matchesMeta =
@@ -224,7 +229,7 @@
   <!-- Filter & Controls Toolbar -->
   <section class="controls-toolbar">
     <div class="toolbar-inner">
-      <!-- Category Tabs -->
+      <!-- Category Tabs & Language Toggle -->
       <div class="category-tabs" role="tablist" aria-label="Document Category Filter">
         {#each categories as cat}
           <button
@@ -238,6 +243,37 @@
             {cat.toUpperCase()}
           </button>
         {/each}
+
+        <!-- Constructivist Language Toggle -->
+        <div class="lang-toggle-group" role="group" aria-label="Language Filter">
+          <button
+            type="button"
+            class="lang-pill-btn"
+            class:active={selectedLanguage === 'all'}
+            onclick={() => (selectedLanguage = 'all')}
+            title="Show all documents"
+          >
+            ALL
+          </button>
+          <button
+            type="button"
+            class="lang-pill-btn"
+            class:active={selectedLanguage === 'en'}
+            onclick={() => (selectedLanguage = 'en')}
+            title="English documents only"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            class="lang-pill-btn"
+            class:active={selectedLanguage === 'hi'}
+            onclick={() => (selectedLanguage = 'hi')}
+            title="Hindi (हिंदी) documents only"
+          >
+            HI (हिंदी)
+          </button>
+        </div>
       </div>
 
       <!-- Search Field & View Switcher -->
@@ -443,6 +479,11 @@
 
             <div class="card-footer">
               <div class="card-badges">
+                {#if doc.language === 'hi' || doc.title.toLowerCase().includes('hindi')}
+                  <span class="badge-tag lang-hi">HI</span>
+                {:else}
+                  <span class="badge-tag">EN</span>
+                {/if}
                 {#if doc.page_count}
                   <span class="badge-tag">{doc.page_count} PP</span>
                 {/if}
@@ -488,6 +529,9 @@
                 <td class="mono-cell">{doc.date}</td>
                 <td>
                   <span class="category-stamp">{doc.category}</span>
+                  {#if doc.language === 'hi' || doc.title.toLowerCase().includes('hindi')}
+                    <span class="badge-tag lang-hi" style="margin-left: 0.25rem;">HI</span>
+                  {/if}
                 </td>
                 <td>
                   <a href={`/docs/${doc.slug}`} class="table-title-link">
@@ -662,6 +706,48 @@
     border-color: var(--color-black);
     box-shadow: none;
     transform: translate(1px, 1px);
+  }
+
+  .lang-toggle-group {
+    display: inline-flex;
+    margin-left: auto;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .lang-pill-btn {
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    padding: 0.45rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--color-black);
+    color: var(--color-black);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .lang-pill-btn:last-child {
+    border-right: none;
+  }
+
+  .lang-pill-btn:hover {
+    background-color: var(--color-red-light);
+    color: var(--color-red-primary);
+  }
+
+  .lang-pill-btn.active {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
+  .badge-tag.lang-hi {
+    background-color: var(--color-red-light);
+    color: var(--color-red-primary);
+    font-weight: 700;
+    border-color: var(--color-red-primary);
   }
 
   .search-and-views {
