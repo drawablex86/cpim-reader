@@ -96,5 +96,11 @@
       "status": "completed",
       "processed_at": "2026-10-16T13:27:20.606195+00:00"
     }
+  },
+  "embedding": {
+    "model": "embeddinggemma-2:270m",
+    "dim": 256,
+    "doc_count": 7,
+    "generated_at": "2026-10-16T13:53:51.425940+00:00"
   }
 }

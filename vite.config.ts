@@ -84,6 +84,83 @@ function devSyncPlugin(): Plugin {
 	};
 }
 
+/**
+ * Dev-only plugin to trigger and stream python semantic embedding pipeline execution.
+ * 'apply: serve' strictly ensures this plugin is NEVER compiled into production builds.
+ */
+function devEmbedPlugin(): Plugin {
+	return {
+		name: 'dev-embed-plugin',
+		apply: 'serve',
+		configureServer(server) {
+			server.middlewares.use('/api/dev/embed', async (req, res) => {
+				if (req.method !== 'POST') {
+					res.statusCode = 405;
+					return res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+				}
+
+				let body = '';
+				req.on('data', (chunk) => {
+					body += chunk;
+				});
+
+				req.on('end', () => {
+					let opts: { model?: string; dim?: number; force?: boolean } = {};
+					try {
+						opts = body ? JSON.parse(body) : {};
+					} catch {
+						opts = {};
+					}
+
+					const pythonBin = fs.existsSync(path.resolve('.venv/bin/python3'))
+						? path.resolve('.venv/bin/python3')
+						: 'python3';
+
+					const args = ['scripts/embed.py'];
+					if (opts.model) {
+						args.push('--model', opts.model);
+					}
+					if (opts.dim) {
+						args.push('--dim', String(opts.dim));
+					}
+					if (opts.force) {
+						args.push('--force');
+					}
+
+					res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+					res.setHeader('Transfer-Encoding', 'chunked');
+					res.setHeader('Cache-Control', 'no-cache');
+
+					res.write(`[DEV EMBED PIPELINE INITIATED]\nExecuting: ${pythonBin} ${args.join(' ')}\n\n`);
+
+					const child = spawn(pythonBin, args, {
+						cwd: process.cwd(),
+						env: process.env
+					});
+
+					child.stdout.on('data', (data) => {
+						res.write(data.toString());
+					});
+
+					child.stderr.on('data', (data) => {
+						res.write(data.toString());
+					});
+
+					child.on('close', (code) => {
+						res.write(`\n\n[PROCESS TERMINATED WITH CODE ${code}]\n`);
+						res.end();
+					});
+
+					child.on('error', (err) => {
+						res.write(`\n[SPAWN ERROR]: ${err.message}\n`);
+						res.end();
+					});
+				});
+			});
+		}
+	};
+}
+
 export default defineConfig({
-	plugins: [sveltekit(), devSyncPlugin()]
+	plugins: [sveltekit(), devSyncPlugin(), devEmbedPlugin()]
 });

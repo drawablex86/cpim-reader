@@ -1,15 +1,29 @@
 <script lang="ts">
   let { onclose } = $props<{ onclose: () => void }>();
 
+  // Mode: 'sync' or 'embed'
+  let activeTab = $state<'sync' | 'embed'>('sync');
+
+  // Sync state
   let provider = $state<'none' | 'openrouter' | 'ollama'>('none');
   let limit = $state(3);
   let dryRun = $state(true);
   let isRunning = $state(false);
   let terminalLogs = $state('');
 
+  // Embed prompt / state
+  let showEmbedPrompt = $state(false);
+  let isEmbedding = $state(false);
+  let embedLogs = $state('');
+  let embedDim = $state(256);
+  let embedModel = $state('embeddinggemma-2:270m');
+  let embedForce = $state(false);
+  let embedSuccess = $state(false);
+
   async function startSync() {
     isRunning = true;
-    terminalLogs = 'Connecting to local pipeline runner...\n';
+    showEmbedPrompt = false;
+    terminalLogs = 'Connecting to local extraction pipeline...\n';
 
     try {
       const response = await fetch('/api/dev/sync', {
@@ -30,12 +44,55 @@
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
-        terminalLogs += decoder.decode(value, { stream: true });
+        const text = decoder.decode(value, { stream: true });
+        terminalLogs += text;
+      }
+
+      if (terminalLogs.includes('[PROCESS TERMINATED WITH CODE 0]') && !dryRun) {
+        showEmbedPrompt = true;
       }
     } catch (err: any) {
       terminalLogs += `\n[NETWORK ERROR]: ${err.message}`;
     } finally {
       isRunning = false;
+    }
+  }
+
+  async function startEmbedding() {
+    isEmbedding = true;
+    embedSuccess = false;
+    embedLogs = 'Connecting to local embedding pipeline...\n';
+
+    try {
+      const response = await fetch('/api/dev/embed', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: embedModel, dim: embedDim, force: embedForce })
+      });
+
+      if (!response.body) {
+        embedLogs += '\n[ERROR]: No response body stream received.';
+        isEmbedding = false;
+        return;
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        const text = decoder.decode(value, { stream: true });
+        embedLogs += text;
+      }
+
+      if (embedLogs.includes('[PROCESS TERMINATED WITH CODE 0]')) {
+        embedSuccess = true;
+      }
+    } catch (err: any) {
+      embedLogs += `\n[NETWORK ERROR]: ${err.message}`;
+    } finally {
+      isEmbedding = false;
     }
   }
 </script>
@@ -51,75 +108,199 @@
     tabindex="-1"
   >
     <div class="modal-header">
-      <div class="header-badge">⚡ DEV-ONLY PIPELINE RUNNER</div>
+      <div class="header-badge">⚡ DEV PIPELINE RUNNER</div>
+      <div class="tab-pills">
+        <button
+          type="button"
+          class="tab-pill"
+          class:active={activeTab === 'sync'}
+          onclick={() => (activeTab = 'sync')}
+        >
+          1. EXTRACTION (SYNC)
+        </button>
+        <button
+          type="button"
+          class="tab-pill"
+          class:active={activeTab === 'embed'}
+          onclick={() => (activeTab = 'embed')}
+        >
+          2. VECTOR EMBEDDING
+        </button>
+      </div>
       <button type="button" class="close-btn" onclick={onclose} aria-label="Close modal">✕</button>
     </div>
 
     <div class="modal-body">
-      <h2 id="dev-sync-title" class="modal-title">INITIATE DOCUMENT EXTRACTION PIPELINE</h2>
-      <p class="modal-deck">
-        Executes <code>scripts/sync.py</code> locally on your machine.
-        (This control interface is stripped from static production builds via dead-code elimination).
-      </p>
+      {#if activeTab === 'sync'}
+        <!-- EXTRACTION TAB -->
+        <h2 id="dev-sync-title" class="modal-title">DOCUMENT EXTRACTION PIPELINE</h2>
+        <p class="modal-deck">
+          Executes <code>scripts/sync.py</code> locally. Downloads official documents, parses text/VLM, and outputs Markdown.
+        </p>
 
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="provider-select">INFERENCE PROVIDER</label>
-          <select id="provider-select" bind:value={provider} class="form-select" disabled={isRunning}>
-            <option value="none">Fast Baseline: pymupdf4llm (Zero API / Zero GPU)</option>
-            <option value="openrouter">Cloud Free: NVIDIA Nemotron 3 Ultra (OpenRouter .env)</option>
-            <option value="ollama">Local: Ollama (qwen2.5vl:3b + qwen2.5:7b)</option>
-          </select>
-          {#if provider === 'openrouter'}
-            <span class="field-hint">Reads <code>OPENROUTER_API_KEY</code> from local <code>.env</code> file.</span>
-          {/if}
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="provider-select">INFERENCE PROVIDER</label>
+            <select id="provider-select" bind:value={provider} class="form-select" disabled={isRunning}>
+              <option value="none">Fast Baseline: pymupdf4llm (Zero API / Zero GPU)</option>
+              <option value="openrouter">Cloud Free: NVIDIA Nemotron 3 Ultra (OpenRouter .env)</option>
+              <option value="ollama">Local: Ollama (qwen2.5vl:3b + qwen2.5:7b)</option>
+            </select>
+            {#if provider === 'openrouter'}
+              <span class="field-hint">Reads <code>OPENROUTER_API_KEY</code> from local <code>.env</code> file.</span>
+            {/if}
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="limit-input">BATCH LIMIT</label>
+              <input
+                id="limit-input"
+                type="number"
+                bind:value={limit}
+                min="1"
+                max="50"
+                class="form-input"
+                disabled={isRunning}
+              />
+            </div>
+
+            <div class="form-group half checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" bind:checked={dryRun} disabled={isRunning} />
+                <span>DRY RUN ONLY (Preview list)</span>
+              </label>
+            </div>
+          </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group half">
-            <label for="limit-input">BATCH LIMIT</label>
+        <div class="action-strip">
+          <button
+            type="button"
+            class="btn-run"
+            class:running={isRunning}
+            onclick={startSync}
+            disabled={isRunning}
+          >
+            {isRunning ? 'EXTRACTION RUNNING...' : dryRun ? 'RUN DRY-RUN PREVIEW ➔' : 'INITIATE EXTRACTION BATCH ➔'}
+          </button>
+        </div>
+
+        <!-- Terminal Output Display -->
+        <div class="terminal-shell">
+          <div class="terminal-bar">
+            <span>TERMINAL IPC STREAM // stdout & stderr</span>
+            {#if terminalLogs}
+              <button type="button" class="btn-clear" onclick={() => (terminalLogs = '')}>CLEAR</button>
+            {/if}
+          </div>
+          <pre class="terminal-pre"><code>{terminalLogs || 'Ready to execute. Click button above to initiate.'}</code></pre>
+        </div>
+
+        <!-- Post-Sync Modal Dialogue Alert -->
+        {#if showEmbedPrompt}
+          <div class="post-sync-dialogue">
+            <div class="dialogue-header">
+              <span class="dialogue-icon">⬡</span>
+              <span class="dialogue-title">DOCUMENT EXTRACTION COMPLETED!</span>
+            </div>
+            <p class="dialogue-desc">
+              Would you like to initiate the <strong>Vector Embedding Pipeline</strong> now?
+              This will run <code>scripts/embed.py</code> with <strong>embeddinggemma-2:270m</strong> to update
+              <code>static/vectors.json</code> and enable dense semantic search across your documents.
+            </p>
+            <div class="dialogue-actions">
+              <button
+                type="button"
+                class="btn-dialogue-confirm"
+                onclick={() => {
+                  activeTab = 'embed';
+                  showEmbedPrompt = false;
+                  startEmbedding();
+                }}
+              >
+                ⬡ INITIATE EMBEDDING PIPELINE NOW ➔
+              </button>
+              <button
+                type="button"
+                class="btn-dialogue-cancel"
+                onclick={() => (showEmbedPrompt = false)}
+              >
+                DISMISS
+              </button>
+            </div>
+          </div>
+        {/if}
+
+      {:else}
+        <!-- EMBEDDING TAB -->
+        <h2 class="modal-title">VECTOR EMBEDDING PIPELINE</h2>
+        <p class="modal-deck">
+          Executes <code>scripts/embed.py</code> locally using Ollama <code>{embedModel}</code>.
+          Generates dense semantic vectors and writes <code>static/vectors.json</code> for client-side search.
+        </p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="embed-model">OLLAMA EMBEDDING MODEL</label>
             <input
-              id="limit-input"
-              type="number"
-              bind:value={limit}
-              min="1"
-              max="50"
+              id="embed-model"
+              type="text"
+              bind:value={embedModel}
               class="form-input"
-              disabled={isRunning}
+              disabled={isEmbedding}
             />
+            <span class="field-hint">Google EmbeddingGemma 2 (270M parameters text backbone)</span>
           </div>
 
-          <div class="form-group half checkbox-group">
-            <label class="checkbox-label">
-              <input type="checkbox" bind:checked={dryRun} disabled={isRunning} />
-              <span>DRY RUN ONLY (Preview list without writing files)</span>
-            </label>
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="dim-select">MRL OUTPUT DIMENSION</label>
+              <select id="dim-select" bind:value={embedDim} class="form-select" disabled={isEmbedding}>
+                <option value={128}>128 Dimensions (Ultra-compact, ~25KB)</option>
+                <option value={256}>256 Dimensions (Recommended, ~50KB, High accuracy)</option>
+                <option value={512}>512 Dimensions (Higher fidelity, ~100KB)</option>
+                <option value={768}>768 Dimensions (Full native uncompressed)</option>
+              </select>
+            </div>
+
+            <div class="form-group half checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" bind:checked={embedForce} disabled={isEmbedding} />
+                <span>FORCE RE-EMBED ALL (Ignore cached vectors)</span>
+              </label>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="action-strip">
-        <button
-          type="button"
-          class="btn-run"
-          class:running={isRunning}
-          onclick={startSync}
-          disabled={isRunning}
-        >
-          {isRunning ? 'PIPELINE EXECUTING...' : dryRun ? 'RUN DRY-RUN PREVIEW ➔' : 'INITIATE EXTRACTION BATCH ➔'}
-        </button>
-      </div>
-
-      <!-- Terminal Output Display -->
-      <div class="terminal-shell">
-        <div class="terminal-bar">
-          <span>TERMINAL IPC STREAM // stdout & stderr</span>
-          {#if terminalLogs}
-            <button type="button" class="btn-clear" onclick={() => (terminalLogs = '')}>CLEAR</button>
-          {/if}
+        <div class="action-strip">
+          <button
+            type="button"
+            class="btn-run btn-embed"
+            class:running={isEmbedding}
+            onclick={startEmbedding}
+            disabled={isEmbedding}
+          >
+            {isEmbedding ? 'EMBEDDING PIPELINE RUNNING...' : `GENERATE VECTORS (${embedDim}D) ➔`}
+          </button>
         </div>
-        <pre class="terminal-pre"><code>{terminalLogs || 'Ready to execute. Click button above to initiate.'}</code></pre>
-      </div>
+
+        {#if embedSuccess}
+          <div class="success-banner">
+            ✓ <code>static/vectors.json</code> SUCCESSFULLY GENERATED! Client-side semantic search is ready.
+          </div>
+        {/if}
+
+        <div class="terminal-shell">
+          <div class="terminal-bar">
+            <span>EMBEDDING IPC STREAM // stdout & stderr</span>
+            {#if embedLogs}
+              <button type="button" class="btn-clear" onclick={() => (embedLogs = '')}>CLEAR</button>
+            {/if}
+          </div>
+          <pre class="terminal-pre"><code>{embedLogs || 'Click "GENERATE VECTORS" to build client-side vector database.'}</code></pre>
+        </div>
+      {/if}
     </div>
   </div>
 </div>
@@ -128,7 +309,7 @@
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(18, 18, 18, 0.8);
+    background-color: rgba(18, 18, 18, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,8 +323,8 @@
     border: var(--border-heavy);
     box-shadow: var(--shadow-hard-lg);
     width: 100%;
-    max-width: 820px;
-    max-height: 90vh;
+    max-width: 860px;
+    max-height: 92vh;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -157,6 +338,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid var(--color-red-primary);
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .header-badge {
@@ -165,6 +348,28 @@
     font-weight: 700;
     color: var(--color-gold);
     letter-spacing: 0.08em;
+  }
+
+  .tab-pills {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .tab-pill {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--color-gold);
+    background-color: transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .tab-pill.active {
+    background-color: var(--color-gold);
+    color: var(--color-black);
   }
 
   .close-btn {
@@ -239,11 +444,7 @@
   .field-hint {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--color-red-primary);
-  }
-
-  .field-hint code {
-    font-weight: 700;
+    color: var(--color-gray-dark);
   }
 
   .form-row {
@@ -305,6 +506,107 @@
     cursor: wait;
   }
 
+  .btn-embed {
+    background-color: var(--color-black);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  .btn-embed:hover:not(:disabled) {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  .success-banner {
+    background-color: #E8F5E9;
+    border: 2px solid #2E7D32;
+    color: #1B5E20;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  /* Post-Sync Dialogue Banner */
+  .post-sync-dialogue {
+    margin-top: 1.5rem;
+    background-color: #FFF9E6;
+    border: 3px solid var(--color-gold);
+    box-shadow: var(--shadow-hard-md);
+    padding: 1.25rem;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .dialogue-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dialogue-icon {
+    color: var(--color-red-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .dialogue-title {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-black);
+    letter-spacing: 0.05em;
+  }
+
+  .dialogue-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem;
+  }
+
+  .dialogue-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-dialogue-confirm {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .btn-dialogue-confirm:hover {
+    background-color: var(--color-red-dark);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-hard-md);
+  }
+
+  .btn-dialogue-cancel {
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid var(--color-black);
+    cursor: pointer;
+  }
+
   /* Terminal */
   .terminal-shell {
     background-color: #121212;
@@ -341,7 +643,7 @@
     font-family: var(--font-mono);
     font-size: 0.8rem;
     line-height: 1.5;
-    color: #33FF33; /* Classic terminal phosphor green */
+    color: #33FF33;
     white-space: pre-wrap;
     word-break: break-all;
   }

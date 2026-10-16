@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import CitationModal from '$lib/components/CitationModal.svelte';
+  import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
 
   let { data } = $props();
 
@@ -149,9 +150,9 @@
 
   <!-- Workspace Container: TOC Sidebar + Editorial Prose + Split PDF Pane -->
   <div class="reader-workspace" class:split-active={showPdfSplit}>
-    <!-- Sticky Table of Contents Sidebar -->
-    {#if headings.length > 0}
-      <aside class="toc-sidebar" aria-label="Table of Contents">
+    <!-- Sticky Table of Contents & Related Resolutions Sidebar -->
+    <aside class="toc-sidebar" aria-label="Table of Contents and Related Documents">
+      {#if headings.length > 0}
         <div class="toc-sticky-box">
           <div class="toc-title-stamp">DOCUMENT SECTIONS</div>
           <nav class="toc-list">
@@ -167,8 +168,11 @@
             {/each}
           </nav>
         </div>
-      </aside>
-    {/if}
+      {/if}
+
+      <!-- Semantically Similar Resolutions (EmbeddingGemma-2) -->
+      <SimilarDocuments currentSlug={data.meta.slug} />
+    </aside>
 
     <!-- Main Editorial Reading Canvas -->
     <main class="reading-canvas">

@@ -29,9 +29,10 @@ Build a static, offline-capable, richly navigable web archive of official docume
 
 ## Standard Commands
 - **Setup Python env**: `python3 -m venv .venv && source .venv/bin/activate && pip install -r scripts/requirements.txt`
-- **Pull local models (Ollama)**: `ollama pull qwen2.5vl:3b && ollama pull qwen2.5:7b`
+- **Pull local models (Ollama)**: `ollama pull qwen2.5vl:3b && ollama pull qwen2.5:7b && ollama pull embeddinggemma-2:270m`
 - **Run incremental sync with local Ollama**: `python scripts/sync.py --limit 3`
 - **Run sync with OpenRouter Nemotron fallback**: `OPENROUTER_API_KEY="sk-or-..." python scripts/sync.py --provider openrouter --limit 3`
+- **Run local semantic embedding pipeline**: `python scripts/embed.py --dim 256`
 - **Install web deps**: `npm install`
 - **Run dev server**: `npm run dev`
 - **Build static site + Pagefind index**: `npm run build`

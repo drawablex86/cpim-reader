@@ -1,13 +1,20 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import CitationModal from '$lib/components/CitationModal.svelte';
+  import SemanticResultsPanel from '$lib/components/SemanticResultsPanel.svelte';
   import type { DocumentMeta } from '$lib/documents';
+  import {
+    semanticSearch,
+    loadEmbeddingModel,
+    onModelProgress,
+    type SearchResult
+  } from '$lib/semantic-search';
 
   let { data } = $props();
 
   let selectedCategory = $state('All');
   let searchQuery = $state('');
-  let searchMode = $state<'all' | 'titles'>('all');
+  let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
   let activeCiteDoc = $state<DocumentMeta | null>(null);
 
@@ -17,6 +24,13 @@
   let isWasmSearching = $state(false);
   let wasmError = $state<string | null>(null);
   let pagefindMatches = $state<Map<string, { excerpt: string; score: number }>>(new Map());
+
+  // EmbeddingGemma 2 Semantic Search state
+  let semanticResults = $state<SearchResult[]>([]);
+  let isSemanticSearching = $state(false);
+  let semanticProgress = $state(0);
+  let semanticStatus = $state<'idle' | 'initializing' | 'downloading' | 'ready' | 'error'>('idle');
+  let semanticModelError = $state<string | null>(null);
 
   const categories = ['All', 'CC Documents', 'Party Congress', 'Issues', 'Left View'];
 
@@ -88,6 +102,51 @@
     return () => clearTimeout(debounceTimer);
   });
 
+  async function activateSemanticMode() {
+    searchMode = 'semantic';
+    semanticModelError = null;
+
+    if (semanticStatus === 'idle') {
+      onModelProgress((p, s) => {
+        semanticProgress = p;
+        semanticStatus = s as any;
+      });
+      try {
+        await loadEmbeddingModel();
+      } catch (err: any) {
+        console.error('Embedding model initialization warning:', err);
+        semanticModelError = err?.message || 'Failed to initialize local model';
+      }
+    }
+  }
+
+  // Debounced EmbeddingGemma-2 semantic search effect
+  let semanticTimer: any;
+  $effect(() => {
+    const q = searchQuery.trim();
+    if (searchMode !== 'semantic' || !q) {
+      semanticResults = [];
+      isSemanticSearching = false;
+      return;
+    }
+
+    clearTimeout(semanticTimer);
+    isSemanticSearching = true;
+
+    semanticTimer = setTimeout(async () => {
+      try {
+        semanticResults = await semanticSearch(q, 15);
+      } catch (err: any) {
+        console.error('Semantic search error:', err);
+        semanticModelError = err?.message || 'Search execution error';
+      } finally {
+        isSemanticSearching = false;
+      }
+    }, 350);
+
+    return () => clearTimeout(semanticTimer);
+  });
+
   // Filter and sort documents based on metadata + Pagefind WASM results
   const filteredDocs = $derived.by(() => {
     const q = searchQuery.toLowerCase().trim();
@@ -154,6 +213,10 @@
           <span class="stat-num">WASM</span>
           <span class="stat-txt">OFFLINE FULL-TEXT SEARCH</span>
         </div>
+        <div class="stat-pill">
+          <span class="stat-num">256D</span>
+          <span class="stat-txt">EMBEDDINGGEMMA-2 VECTOR SEARCH</span>
+        </div>
       </div>
     </div>
   </section>
@@ -180,16 +243,16 @@
       <!-- Search Field & View Switcher -->
       <div class="search-and-views">
         <div class="search-box">
-          <span class="search-icon" aria-hidden="true">⌕</span>
+          <span class="search-icon" aria-hidden="true">{searchMode === 'semantic' ? '⬡' : '⌕'}</span>
           <input
             type="search"
             bind:value={searchQuery}
-            placeholder={searchMode === 'all' ? "Search across titles, resolutions & full text (WASM)..." : "Search titles, authors, dates..."}
+            placeholder={searchMode === 'semantic' ? "Search by meaning: e.g. agrarian crisis, anti-imperialism, workers..." : searchMode === 'all' ? "Search across titles, resolutions & full text (WASM)..." : "Search titles, authors, dates..."}
             class="search-input"
             aria-label="Search documents"
           />
-          {#if isWasmSearching}
-            <span class="search-spinner" title="Querying WASM index...">●</span>
+          {#if isWasmSearching || isSemanticSearching}
+            <span class="search-spinner" title="Searching index...">●</span>
           {/if}
           {#if searchQuery}
             <button
@@ -222,6 +285,15 @@
             >
               METADATA
             </button>
+            <button
+              type="button"
+              class="mode-toggle-btn semantic-toggle"
+              class:active={searchMode === 'semantic'}
+              onclick={activateSemanticMode}
+              title="Dense semantic vector similarity search via Google EmbeddingGemma-2"
+            >
+              ⬡ SEMANTIC
+            </button>
           </div>
         </div>
 
@@ -249,12 +321,30 @@
     </div>
   </section>
 
+  <!-- Model Loading Banner (Semantic Search Initialization) -->
+  {#if searchMode === 'semantic' && (semanticStatus === 'downloading' || semanticStatus === 'initializing')}
+    <div class="model-loading-strip">
+      <div class="loading-info">
+        <span class="loading-stamp">⬡ LOCAL VECTOR ENGINE // INITIALIZING EMBEDDINGGEMMA-2</span>
+        <span class="loading-pct">{semanticProgress}%</span>
+      </div>
+      <div class="loading-track">
+        <div class="loading-fill" style={`width: ${Math.max(6, semanticProgress)}%`}></div>
+      </div>
+      <div class="loading-hint">Loading quantized model into browser cache. Stored locally for instant offline reuse.</div>
+    </div>
+  {/if}
+
   <!-- Results Count Strip -->
   <div class="results-meta-bar">
     <div class="results-inner">
       <div class="results-left">
         <span class="results-count">
-          SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
+          {#if searchMode === 'semantic' && searchQuery.trim()}
+            SEMANTIC VECTOR RANKING // <strong>{semanticResults.length}</strong> DOCUMENTS
+          {:else}
+            SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
+          {/if}
         </span>
         {#if searchQuery && searchMode === 'all'}
           <span class="wasm-status-badge">
@@ -266,6 +356,16 @@
               WASM ENGINE READY
             {:else if wasmError}
               TITLES ONLY (WASM OFFLINE)
+            {/if}
+          </span>
+        {:else if searchMode === 'semantic'}
+          <span class="wasm-status-badge semantic-badge">
+            {#if isSemanticSearching}
+              CALCULATING DENSE VECTORS...
+            {:else if semanticStatus === 'ready'}
+              EMBEDDINGGEMMA-2 ONLINE
+            {:else if semanticModelError}
+              MODEL INITIALIZING / FALLBACK
             {/if}
           </span>
         {/if}
@@ -287,6 +387,14 @@
 
   <!-- Document Explorer Results -->
   <div class="catalog-viewport">
+    {#if searchMode === 'semantic'}
+      <SemanticResultsPanel
+        results={semanticResults}
+        query={searchQuery}
+        loading={isSemanticSearching}
+        oncite={openCite}
+      />
+    {/if}
     {#if filteredDocs.length === 0}
       <div class="empty-state">
         <div class="empty-box">
@@ -638,6 +746,69 @@
   .mode-toggle-btn.active {
     background-color: var(--color-black);
     color: #FFFFFF;
+  }
+
+  .mode-toggle-btn.semantic-toggle {
+    color: var(--color-red-primary);
+  }
+
+  .mode-toggle-btn.semantic-toggle.active {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
+  /* Model Loading Strip */
+  .model-loading-strip {
+    background-color: #FFFDF9;
+    border: 2px solid var(--color-black);
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .loading-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .loading-stamp {
+    color: var(--color-red-primary);
+    letter-spacing: 0.05em;
+  }
+
+  .loading-pct {
+    color: var(--color-black);
+  }
+
+  .loading-track {
+    height: 8px;
+    background-color: var(--color-paper-dark);
+    border: 1.5px solid var(--color-black);
+    overflow: hidden;
+    margin-bottom: 0.35rem;
+  }
+
+  .loading-fill {
+    height: 100%;
+    background-color: var(--color-red-primary);
+    transition: width 0.2s ease;
+  }
+
+  .loading-hint {
+    font-size: 0.75rem;
+    color: var(--color-gray-dark);
+    font-family: var(--font-mono);
+  }
+
+  .wasm-status-badge.semantic-badge {
+    background-color: #121212;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
   }
 
   .view-toggles {
