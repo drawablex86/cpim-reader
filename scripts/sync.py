@@ -33,7 +33,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 DEFAULT_VLM_MODEL = "qwen2.5vl:3b"
 DEFAULT_TEXT_MODEL = "qwen2.5:7b"
-NEMOTRON_TEXT_MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
+NEMOTRON_TEXT_MODEL = "nvidia/nemotron-3-super-120b-a12b:free"
 NEMOTRON_VL_MODEL = "nvidia/nemotron-3.5-super-vl:free"
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -88,6 +88,8 @@ def sanitize_model_markdown(raw: str) -> str:
         cleaned = cleaned[3:].lstrip()
     if cleaned.endswith("```"):
         cleaned = cleaned[:-3].rstrip()
+    # Strip raw LaTeX multicolumn tags that models sometimes emit for spans (e.g. \multicolumn{4}{c}{Membership})
+    cleaned = re.sub(r"\\multicolumn\{\d+\}\{[^}]*\}\{([^}]+)\}", r"\1", cleaned)
     return cleaned.strip()
 
 
@@ -314,10 +316,20 @@ def extract_pdf(pdf_path: Path, client: httpx.Client, provider: str = "ollama", 
         page_chunks.append(clean_letterhead_regex(md_text))
 
     combined_md = "\n\n".join(chunk for chunk in page_chunks if chunk)
-    if provider != "none" and not used_vlm and len(combined_md) < 15000:
-        combined_md = normalize_markdown(client, combined_md, provider=provider, api_key=api_key)
+    used_norm = False
+    if provider != "none" and not used_vlm and len(combined_md) < 25000:
+        normalized = normalize_markdown(client, combined_md, provider=provider, api_key=api_key)
+        if normalized and normalized != combined_md:
+            combined_md = normalized
+            used_norm = True
 
-    method = f"hybrid-{provider}" if used_vlm else "pymupdf4llm"
+    if used_vlm:
+        method = f"vlm-{provider}"
+    elif used_norm:
+        method = f"{provider}-normalized"
+    else:
+        method = "pymupdf4llm"
+
     return combined_md, page_count, method
 
 

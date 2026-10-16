@@ -2,13 +2,13 @@
 title: "24th Congress Report on Organisation"
 slug: "2025-12-05-24th-congress-report-on-organisation"
 date: "2025-12-05"
-category: "Party Congress"
+category: "CC Documents"
 author: "Central Committee, Communist Party of India (Marxist)"
 publisher: "Communist Party of India (Marxist)"
 source_pdf_url: "https://cpim.org/wp-content/uploads/2025/12/Report-on-Organisation-adopted-by-24th-Congress.pdf"
-source_post_url: "https://cpim.org/24th-congress-report-on-organisation/"
+source_post_url: ""
 page_count: 88
-extraction_method: "pymupdf4llm"
+extraction_method: "vlm-openrouter"
 sha256: "03626f87430bf946315013c71c00e00b816d7eb6c5aeaa5be2ba4fa4b3a0d835"
 ---
 
@@ -425,26 +425,26 @@ To address this challenge, it is essential to develop strategies and methods sui
 
 20
 
-# **Social Media** 
+# Social Media
 
-Since the last Party Congress in 2022, the Party’s social media work has expanded significantly in scope and quality of content. Reporting from the states has improved and the Party’s social media handles are responding more promptly to political and social issues. Many of the states have also improved their presence on social media. Our impact picked up particularly in the run-up to elections, both in terms of frequency, quality and reach. 
+Since the last Party Congress in 2022, the Party’s social media work has expanded significantly in scope and quality of content. Reporting from the states has improved and the Party’s social media handles are responding more promptly to political and social issues. Many of the states have also improved their presence on social media. Our impact picked up particularly in the run-up to elections, both in terms of frequency, quality and reach.
 
-Despite these improvements, there has been only a minor increase in the overall follower base of our social media handles in the past three years. The following table summarises the growth of our follower base since the last Party Congress. 
+Despite these improvements, there has been only a minor increase in the overall follower base of our social media handles in the past three years. The following table summarises the growth of our follower base since the last Party Congress.
 
-|Year|Facebook|Twitter|Instagram|YouTube|
-|---|---|---|---|---|
-|2022|5,34,000|4,24,000|1,10,000|8,036|
-|2025|5,56,259|4,69,896|1,66,812|21,941|
+| Year | Facebook | Twitter | Instagram | YouTube |
+| :--- | :--- | :--- | :--- | :--- |
+| 2022 | 5,34,000 | 4,24,000 | 1,10,000 | 8,036 |
+| 2025 | 5,56,259 | 4,69,896 | 1,66,812 | 21,941 |
 
-A major reason for the slow growth is the change in the algorithms of these platforms which reduces the reach of organic or unpaid content. It has become very difficult to reach out to new users on these platforms without resorting to paid pushes. Our follower base has more than doubled on YouTube, though we started from a much smaller base. Videos are one of the formats that we can use to reach more people. However, we have been unable to produce videos on a regular basis for YouTube and other platforms due to the lack of comrades with high-end video editing skills. 
+A major reason for the slow growth is the change in the algorithms of these platforms which reduces the reach of organic or unpaid content. It has become very difficult to reach out to new users on these platforms without resorting to paid pushes. Our follower base has more than doubled on YouTube, though we started from a much smaller base. Videos are one of the formats that we can use to reach more people. However, we have been unable to produce videos on a regular basis for YouTube and other platforms due to the lack of comrades with high-end video editing skills.
 
-In the past four years, the Central social media team has conducted workshops with many state teams. The states include: Himachal Pradesh, Jammu and Kashmir, Punjab and Rajasthan. Apart from this, an all-India technical workshop on social media, AI and digital tools was held for members of the CPI(M) state social media teams in February 2024. 
+In the past four years, the Central social media team has conducted workshops with many state teams. The states include: Himachal Pradesh, Jammu and Kashmir, Punjab and Rajasthan. Apart from this, an all-India technical workshop on social media, AI and digital tools was held for members of the CPI(M) state social media teams in February 2024.
 
-A team comprising four members worked full time for more than a year at AKG Bhavan for the 2024 Lok Sabha elections. This team was able to produce high-quality content during the Lok Sabha elections, as well as systematise the posting of updates from states. 
+A team comprising four members worked full time for more than a year at AKG Bhavan for the 2024 Lok Sabha elections. This team was able to produce high-quality content during the Lok Sabha elections, as well as systematise the posting of updates from states.
 
-The Central social media team also assisted in creating and organising election surveys in Tripura and two assembly constituencies in Rajasthan. It also set up an online survey for West Bengal. 
+The Central social media team also assisted in creating and organising election surveys in Tripura and two assembly constituencies in Rajasthan. It also set up an online survey for West Bengal.
 
-The Party website – cpim.org – was redesigned and the new look website launched in 2023. 
+The Party website – cpim.org – was redesigned and the new look website launched in 2023.
 
 21
 
@@ -728,249 +728,239 @@ A mid-term review of the implementation of these tasks shall be undertaken by th
 
 35
 
-# **Statement of Party Membership** 
+# Statement of Party Membership
+## (After 23<sup>rd</sup> Congress)
 
-# **(After 23**<sup>**rd**</sup> **Congress)** 
+| Name of State | Membership |
+| :--- | :---: | :---: | :---: | :---: |
+| | 2021 | 2022 | 2023 | 2024 |
+| Andaman & Nicobar | 163 | 175 | 244 | 301 |
+| Andhra Pradesh | 23,130 | 22,604 | 22,096 | 23,026 |
+| Assam | 11,644 | 11,605 | 11,221 | 10,973 |
+| Bihar | 19,400 | 19,617 | 19,786 | 20,221 |
+| Chattisgarh | 1,344 | 1,355 | 1,408 | 1,383 |
+| Delhi | 2,213 | 2,246 | 1,979 | 2,032 |
+| Goa | 45 | 45 | 45 | 45 |
+| Gujarat | 3,724 | 3,803 | 3,824 | 3,869 |
+| Haryana | 2,191 | 1,999 | 1,941 | 2,016 |
+| Himachal Pradesh | 2,205 | 2,212 | 2,029 | 2,056 |
+| Jammu & Kashmir | 1,660 | 1,692 | 2,030 | 1,886 |
+| Jharkhand | 5,185 | 5,289 | 5,224 | 5,505 |
+| Karnataka | 8,052 | 8,037 | 8,596 | 8,704 |
+| Kerala | 5,27,174 | 5,74,261 | 5,67,123 | 5,64,895 |
+| Madhya Pradesh | 2,608 | 2,561 | 2,163 | 2,158 |
+| Maharashtra | 12,807 | 13,374 | 13,691 | 14,406 |
+| Manipur | 451 | 501 | 714 | 827 |
+| Odisha | 3,647 | 3,448 | 3,352 | 3,465 |
+| Puducherry | -- | -- | 786 | 812 |
+| Punjab | 8,389 | 8,410 | 8,429 | 8,699 |
+| Rajasthan | 5,218 | 5,609 | 5,464 | 5,232 |
+| Tamilnadu | 93,982 | 92,349 | 91,422 | 93,823 |
+| Telangana | 32,177 | 38,581 | 39,395 | 38,143 |
+| Tripura | 50,612 | 49,386 | 44,381 | 39,626 |
+| Uttarakhand | 1,451 | 1,455 | 1,507 | 1,519 |
+| Uttar Pradesh | 5,368 | 5,257 | 5,064 | 5,146 |
+| West Bengal | 1,60,827 | 1,54,322 | 1,57,047 | 1,58,143 |
+| CC Centre | 90 | 89 | 96 | 98 |
+| **Total** | **9,85,757** | **10,30,282** | **10,21,057** | **10,19,009** |
 
-|**Name of State**||**Memb**|**ership**||
-|---|---|---|---|---|
-||**2021**|**2022**|**2023**|**2024**|
-|Andaman & Nicobar|163|175|244|301|
-|Andhra Pradesh|23,130|22,604|22,096|23,026|
-|Assam|11,644|11,605|11,221|10,973|
-|Bihar|19,400|19,617|19,786|20,221|
-|Chattisgarh|1,344|1,355|1,408|1,383|
-|Delhi|2,213|2,246|1,979|2,032|
-|Goa|45|45|45|45|
-|Gujarat|3,724|3,803|3,824|3,869|
-|Haryana|2,191|1,999|1,941|2,016|
-|Himachal Pradesh|2,205|2,212|2,029|2,056|
-|Jammu & Kashmir|1,660|1,692|2,030|1,886|
-|Jharkhand|5,185|5,289|5,224|5,505|
-|Karnataka|8,052|8,037|8,596|8,704|
-|Kerala|5,27,174|5,74,261|5,67,123|5,64,895|
-|Madhya Pradesh|2,608|2,561|2,163|2,158|
-|Maharashtra|12,807|13,374|13,691|14,406|
-|Manipur|451|501|714|827|
-|Odisha|3,647|3,448|3,352|3,465|
-|Puducherry|--|--|786|812|
-|Punjab|8,389|8,410|8,429|8,699|
-|Rajasthan|5,218|5,609|5,464|5,232|
-|Tamilnadu|93,982|92,349|91,422|93,823|
-|Telangana|32,177|38,581|39,395|38,143|
-|Tripura|50,612|49,386|44,381|39,626|
-|Uttarakhand|1,451|1,455|1,507|1,519|
-|Uttar Pradesh|5,368|5,257|5,064|5,146|
-|West Bengal|1,60,827|1,54,322|1,57,047|1,58,143|
-|CC Centre|90|89|96|98|
-|**Total**|**9,85,757**|**10,30,282**|**10,21,057**|**10,19,009**|
+# Membership of TU Front
+**(After 23<sup>rd</sup> Congress)**
 
-36
-
-# **Membership of TU Front (After 23**<sup>**rd**</sup> **Congress)** 
-
-|**Name of State**|**2020**|**2021**|**2022**|**2023**|
-|---|---|---|---|---|
-|Andaman & Nicobar|6,454|6,572|7,557|8,393|
-|Andhra Pradesh|4,50,050|4,89,165|3,92,969|4,13,147|
-|Assam|96,110|1,01,093|1,01,215|1,03,250|
-|Bihar|11,680|52,771|31,008|20,150|
-|Chattisgarh|18,587|23,071|25,596|28,696|
-|Delhi|26,200|20,878|19,126|17,191|
-|Goa|145|151|392|--|
-|Gujarat|17,391|20,621|28,252|32,709|
-|Haryana|55,455|65,240|48,776|55,014|
-|Himachal Pradesh|45,761|48,965|46,551|31,230|
-|Jammu & Kashmir|4,474|13,306|13,270|8,630|
-|Jharkhand|51,143|56,564|67,963|23,724|
-|Karnataka|2,16,307|2,54,420|2,20,829|2,04,543|
-|Kerala|23,84,727|27,45,343|30,04,886|31,06,762|
-|Madhya Pradesh|45,085|46,252|46,936|44,113|
-|Maharashtra|1,69,735|1,74,843|1,72,591|1,73,394|
-|Manipur||14|--|--|
-|Mizoram||--|2,556|--|
-|Odisha|71,041|67,361|63,674|56,978|
-|Puducherry|3,701|4,416|3,819|4,699|
-|Punjab|53,598|63,077|84,219|87,598|
-|Rajasthan|56,732|59,713|55,443|55,767|
-|Tamilnadu|5,43,457|5,44,341|5,21,754|5,05,136|
-|Telangana|1,50,533|2,70,636|2,44,012|2,09,225|
-|Tripura|86,152|94,473|97,024|89,107|
-|Uttarakhand|12,559|14,890|17,511|18,950|
-|Uttar Pradesh|14,975|16,326|18,619|17,690|
-|West Bengal|9,25,995|10,58,782|9,82,560|10,25,431|
-|**Total**|**55,18,047**|**63,13,284**|**63,19,108**|**63,41,527**|
+| Name of State | 2020 | 2021 | 2022 | 2023 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andaman & Nicobar | 6,454 | 6,572 | 7,557 | 8,393 |
+| Andhra Pradesh | 4,50,050 | 4,89,165 | 3,92,969 | 4,13,147 |
+| Assam | 96,110 | 1,01,093 | 1,01,215 | 1,03,250 |
+| Bihar | 11,680 | 52,771 | 31,008 | 20,150 |
+| Chattisgarh | 18,587 | 23,071 | 25,596 | 28,696 |
+| Delhi | 26,200 | 20,878 | 19,126 | 17,191 |
+| Goa | 145 | 151 | 392 | -- |
+| Gujarat | 17,391 | 20,621 | 28,252 | 32,709 |
+| Haryana | 55,455 | 65,240 | 48,776 | 55,014 |
+| Himachal Pradesh | 45,761 | 48,965 | 46,551 | 31,230 |
+| Jammu & Kashmir | 4,474 | 13,306 | 13,270 | 8,630 |
+| Jharkhand | 51,143 | 56,564 | 67,963 | 23,724 |
+| Karnataka | 2,16,307 | 2,54,420 | 2,20,829 | 2,04,543 |
+| Kerala | 23,84,727 | 27,45,343 | 30,04,886 | 31,06,762 |
+| Madhya Pradesh | 45,085 | 46,252 | 46,936 | 44,113 |
+| Maharashtra | 1,69,735 | 1,74,843 | 1,72,591 | 1,73,394 |
+| Manipur | | 14 | -- | -- |
+| Mizoram | | -- | 2,556 | -- |
+| Odisha | 71,041 | 67,361 | 63,674 | 56,978 |
+| Puducherry | 3,701 | 4,416 | 3,819 | 4,699 |
+| Punjab | 53,598 | 63,077 | 84,219 | 87,598 |
+| Rajasthan | 56,732 | 59,713 | 55,443 | 55,767 |
+| Tamilnadu | 5,43,457 | 5,44,341 | 5,21,754 | 5,05,136 |
+| Telangana | 1,50,533 | 2,70,636 | 2,44,012 | 2,09,225 |
+| Tripura | 86,152 | 94,473 | 97,024 | 89,107 |
+| Uttarakhand | 12,559 | 14,890 | 17,511 | 18,950 |
+| Uttar Pradesh | 14,975 | 16,326 | 18,619 | 17,690 |
+| West Bengal | 9,25,995 | 10,58,782 | 9,82,560 | 10,25,431 |
+| **Total** | **55,18,047** | **63,13,284** | **63,19,108** | **63,41,527** |
 
 37
 
-# **Membership of Kisan Front** 
+# Membership of Kisan Front
+## (After 23<sup>rd</sup> Congress)
 
-# **(After 23**<sup>**rd**</sup> **Congress)** 
+| Name of State | 2020-21 | 2021-22 | 2022-23 | 2023-24 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andaman & Nicobar | 455 | 500 | 900 | 2,300 |
+| Andhra Pradesh | 1,32,140 | 1,73,159 | 1,66,120 | 1,57,518 |
+| Assam | 66,506 | 1,07,915 | 1,30,246 | 1,10,062 |
+| Bihar | 1,25,194 | 2,64,910 | 2,82,583 | 2,81,572 |
+| Chattisgarh | 4,012 | 12,075 | 13,169 | 9,110 |
+| Delhi | | | 2,219 | 2,238 |
+| Goa | | | 167 | 138 |
+| Gujarat | 41,239 | 50,198 | 47,697 | 50,600 |
+| Haryana | 28,540 | 48,851 | 54,311 | 56,400 |
+| Himachal Pradesh | 27,093 | 30,000 | 23,810 | 31,008 |
+| Jammu & Kashmir | 30,000 | 25,000 | 40,000 | 39,276 |
+| Jharkhand | 48,630 | 57,392 | 79,028 | 1,08,280 |
+| Karnataka | 89,301 | 1,66,935 | 1,40,184 | 1,32,298 |
+| Kerala | 52,60,505 | 57,76,682 | 63,05,781 | 67,70,940 |
+| Madhya Pradesh | 21,374 | 31,536 | 44,552 | 49,333 |
+| Maharashtra | 1,85,656 | 3,09,544 | 2,93,243 | 3,00,476 |
+| Manipur | 785 | 1,441 | 1,966 | 2,221 |
+| Odisha | 41,615 | 54,966 | 69,650 | 53,015 |
+| Puducherry | | | 5,350 | 5,750 |
+| Punjab | 78,249 | 85,250 | 90,705 | 1,18,080 |
+| Rajasthan | 1,76,046 | 3,28,505 | 2,51,843 | 1,12,101 |
+| Tamilnadu | 5,76,391 | 8,00,146 | 8,16,466 | 9,82,394 |
+| Telangana | 2,75,015 | 4,02,115 | 4,23,286 | 4,24,398 |
+| Tripura | 2,56,626 | 2,45,722 | 2,36,980 | 1,70,008 |
+| Uttarakhand | 11,986 | 16,120 | 10,352 | 10,582 |
+| Uttar Pradesh | 1,95,220 | 2,51,586 | 2,16,066 | 2,22,500 |
+| West Bengal | 40,68,922 | 44,38,175 | 46,22,685 | 44,85,584 |
+| AIKS Centre | 13 | 12 | 12 | 12 |
+| **Total** | **1,17,41,513** | **1,36,78,735** | **1,43,69,371** | **1,46,88,194** |
 
-|**Name of State**|**2020-21**|**2021-22**|**2022-23**|**2023-24**|
-|---|---|---|---|---|
-|Andaman & Nicobar|455|500|900|2,300|
-|Andhra Pradesh|1,32,140|1,73,159|1,66,120|1,57,518|
-|Assam|66,506|1,07,915|1,30,246|1,10,062|
-|Bihar<br>|1,25,194|2,64,910|2,82,583|2,81,572|
-|Chattisgarh|4,012|12,075|13,169|9,110|
-|Delhi|||2,219|2,238|
-|Goa|||167|138|
-|Gujarat|41,239|50,198|47,697|50,600|
-|Haryana|28,540|48,851|54,311|56,400|
-|Himachal Pradesh|27,093|30,000|23,810|31,008|
-|Jammu & Kashmir|30,000|25,000|40,000|39,276|
-|Jharkhand|48,630|57,392|79,028|1,08,280|
-|Karnataka|89,301|1,66,935|1,40,184|1,32,298|
-|Kerala|52,60,505|57,76,682|63,05,781|67,70,940|
-|Madhya Pradesh|21,374|31,536|44,552|49,333|
-|Maharashtra|1,85,656|3,09,544|2,93,243|3,00,476|
-|Manipur|785|1,441|1,966|2,221|
-|Odisha|41,615|54,966|69,650|53,015|
-|Puducherry|||5,350|5,750|
-|Punjab|78,249|85,250|90,705|1,18,080|
-|Rajasthan|1,76,046|3,28,505|2,51,843|1,12,101|
-|Tamilnadu|5,76,391|8,00,146|8,16,466|9,82,394|
-|Telangana|2,75,015|4,02,115|4,23,286|4,24,398|
-|Tripura|2,56,626|2,45,722|2,36,980|1,70,008|
-|Uttarakhand|11,986|16,120|10,352|10,582|
-|Uttar Pradesh|1,95,220|2,51,586|2,16,066|2,22,500|
-|West Bengal|40,68,922|44,38,175|46,22,685|44,85,584|
-|AIKS Centre|13|12|12|12|
-|**Total**|**1,17,41,513**|**1,36,78,735**|**1,43,69,371**|**1,46,88,194**|
+# Membership of Agricultural Workers Union Front
+## (After 23<sup>rd</sup> Congress)
 
-38
+| Name of State | 2020-21 | 2021-22 | 2022-23 | 2023-24 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andhra Pradesh | 4,77,155 | 4,84,156 | 4,91,893 | 4,97,655 |
+| Assam | -- | -- | 2,326 | 2,420 |
+| Bihar | 1,35,042 | 1,42,108 | 1,43,495 | 1,14,273 |
+| Haryana | 21,542 | 26,782 | 17,510 | 21,040 |
+| Jharkhand | 3,227 | 4,125 | -- | -- |
+| Karnataka | 2,28,194 | 3,02,671 | 3,23,175 | 3,39,875 |
+| Kerala | 25,03,380 | 25,60,237 | 26,47,970 | 27,07,404 |
+| Madhya Pradesh | 1,109 | 1,600 | 3,782 | 4,782 |
+| Maharashtra | 58,018 | 60,177 | 70,664 | 62,282 |
+| Odisha | 18,200 | 21,180 | 22,400 | 20,380 |
+| Puducherry | -- | -- | 7,000 | 10,000 |
+| Punjab | 2,30,600 | 2,23,187 | 2,54,392 | 2,37,424 |
+| Rajasthan | 31,700 | 32,907 | 33,209 | 34,771 |
+| Tamilnadu | 4,47,103 | 6,13,825 | 6,80,521 | 7,31,114 |
+| Telangana | 9,11,516 | 11,04,006 | 11,49,548 | 10,25,561 |
+| Tripura | 96,646 | 1,06,060 | 1,05,060 | 81,648 |
+| Uttar Pradesh | 1,31,568 | 1,68,244 | 1,78,071 | 2,00,008 |
+| West Bengal | 15,10,031 | 17,05,573 | 18,29,910 | 15,36,935 |
+| All India Centre | 7 | 6 | 6 | 6 |
+| **Total** | **68,05,038** | **75,56,844** | **79,60,932** | **76,27,578** |
 
-# **Membership of Agricultural Workers Union Front (After 23**<sup>**rd**</sup> **Congress)** 
+# Membership of Women's Front
+**(After 23<sup>rd</sup> Congress)**
 
-|**Name of State**|**2020-21**|**2021-22**|**2022-23**|**2023-24**|
-|---|---|---|---|---|
-|Andhra Pradesh|4,77,155|4,84,156|4,91,893|4,97,655|
-|Assam|--|--|2,326|2,420|
-|Bihar|1,35,042|1,42,108|1,43,495|1,14,273|
-|Haryana|21,542|26,782|17,510|21,040|
-|Jharkhand|3,227|4,125|--|--|
-|Karnataka|2,28,194|3,02,671|3,23,175|3,39,875|
-|Kerala|25,03,380|25,60,237|26,47,970|27,07,404|
-|Madhya Pradesh|1,109|1,600|3,782|4,782|
-|Maharashtra|58,018|60,177|70,664|62,282|
-|Odisha|18,200|21,180|22,400|20,380|
-|Puducherry|--|--|7,000|10,000|
-|Punjab|2,30,600|2,23,187|2,54,392|2,37,424|
-|Rajasthan|31,700|32,907|33,209|34,771|
-|Tamilnadu|4,47,103|6,13,825|6,80,521|7,31,114|
-|Telangana|9,11,516|11,04,006|11,49,548|10,25,561|
-|Tripura|96,646|1,06,060|1,05,060|81,648|
-|Uttar Pradesh|1,31,568|1,68,244|1,78,071|2,00,008|
-|West Bengal|15,10,031|17,05,573|18,29,910|15,36,935|
-|All India Centre|7|6|6|6|
-|**Total**|**68,05,038**|**75,56,844**|**79,60,932**|**76,27,578**|
+| Name of State | 2021 | 2022 | 2023 | 2024 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andaman & Nicobar | -- | -- | 250 | 250 |
+| Andhra Pradesh | 1,67,497 | 1,88,760 | 2,08,852 | 2,17,329 |
+| Assam | 52,591 | 59,084 | 83,431 | 80,707 |
+| Bihar | 68,524 | 40,000 | 37,906 | 41,000 |
+| Chattisgarh | 2,100 | -- | -- | 450 |
+| Delhi | 50,810 | 44,199 | 44,943 | 31,273 |
+| Gujarat | 8,544 | 10,304 | 6,520 | 16,571 |
+| Haryana | 34,000 | 28,160 | 32,668 | 35,000 |
+| Himachal Pradesh | 12,142 | 11,240 | 6,747 | 7,792 |
+| Jammu & Kashmir | -- | -- | -- | 700 |
+| Jharkhand | 65,460 | 49,000 | 43,020 | 48,621 |
+| Karnataka | 87,869 | 89,082 | 94,640 | 90,031 |
+| Kerala | 54,50,944 | 56,90,296 | 59,32,863 | 59,87,483 |
+| Madhya Pradesh | 12,750 | 12,332 | 7,095 | 9,766 |
+| Maharashtra | 1,07,478 | 1,11,412 | 1,15,227 | 1,18,147 |
+| Manipur | 2,859 | 4,119 | 1,153 | 2,117 |
+| Odisha | 30,075 | 29,000 | 29,100 | 38,065 |
+| Puducherry | -- | -- | 11,945 | 14,164 |
+| Punjab | 20,106 | 16,250 | 18,000 | 21,560 |
+| Rajasthan | 19,402 | 20,410 | 17,732 | 17,315 |
+| Tamilnadu | 7,15,490 | 6,74,200 | 6,83,755 | 7,04,960 |
+| Telangana | 2,40,000 | 3,23,000 | 3,20,000 | 3,53,000 |
+| Tripura | 1,35,656 | 1,37,798 | 95,740 | 1,10,264 |
+| Uttarakhand | 6,705 | 7,576 | 3,385 | 4,655 |
+| Uttar Pradesh | 39,600 | 41,148 | 43,444 | 45,338 |
+| West Bengal | 23,00,514 | 24,66,684 | 25,10,328 | 25,24,884 |
+| **Total** | **96,31,116** | **1,00,54,054** | **1,03,48,744** | **1,05,21,442** |
 
-39
+# Membership of Youth Front
+(After 23<sup>rd</sup> Congress)
 
-# **Membership of Women’s Front (After 23**<sup>**rd**</sup> **Congress)** 
+| Name of State | 2021 | 2022 | 2023 | 2024 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andhra Pradesh | 75,550 | 55,000 | 62,400 | 75,000 |
+| Assam | 6,100 | 14,562 | 12,556 | 12,787 |
+| Bihar | 40,115 | 48,144 | 44,400 | 44,700 |
+| Chattisgarh | 1,200 | -- | -- | -- |
+| Delhi | 7,000 | 5,000 | 7,230 | 5,000 |
+| Gujarat | -- | -- | 5,078 | 4,332 |
+| Haryana | 5,206 | 3,442 | 3,500 | 3,300 |
+| Himachal Pradesh | 2,661 | 1,713 | 1,678 | 869 |
+| Jammu & Kashmir | 5,000 | 5,640 | 5,500 | 6,000 |
+| Jharkhand | 40,745 | 40,090 | -- | -- |
+| Karnataka | 17,051 | 32,029 | 24,300 | 20,507 |
+| Kerala | 51,99,585 | 52,27,423 | 52,12,108 | 52,16,494 |
+| Madhya Pradesh | 4,923 | 2,127 | 3,791 | 5,344 |
+| Maharashtra | 1,58,807 | 1,44,500 | 1,53,408 | 1,37,823 |
+| Odisha | 20,000 | 23,715 | 17,984 | 19,191 |
+| Puducherry | -- | 4,200 | -- | 2,400 |
+| Punjab | 45,000 | 42,600 | 40,000 | 43,800 |
+| Rajasthan | 46,000 | 40,000 | 36,000 | 39,743 |
+| Sikkim | 300 | -- | -- | -- |
+| Tamilnadu | 7,14,731 | 5,03,928 | 5,67,784 | 5,62,820 |
+| Telangana | 1,20,816 | 1,21,800 | 1,30,100 | 1,42,550 |
+| Tripura | 1,82,250 | 1,64,673 | 95,079 | 1,13,757 |
+| Uttarakhand | 4,923 | -- | -- | -- |
+| Uttar Pradesh | 27,206 | 22,269 | 17,328 | 20,786 |
+| West Bengal | 29,13,960 | 30,03,720 | 30,92,886 | 31,44,673 |
+| Centre | 6 | 3 | 3 | 3 |
+| **Total** | **96,39,135** | **95,06,578** | **95,33,113** | **96,21,879** |
 
-|**Name of State**|**2021**|**2022**|**2023**|**2024**|
-|---|---|---|---|---|
-|Andaman & Nicobar|**--**|**--**|250|250|
-|Andhra Pradesh|1,67,497|1,88,760|2,08,852|2,17,329|
-|Assam|52,591|59,084|83,431|80,707|
-|Bihar|68,524|40,000|37,906|41,000|
-|Chattisgarh|2,100|--|--|450|
-|Delhi|50,810|44,199|44,943|31,273|
-|Gujarat|8,544|10,304|6,520|16,571|
-|Haryana|34,000|28,160|32,668|35,000|
-|Himachal Pradesh|12,142|11,240|6,747|7,792|
-|Jammu & Kashmir|--|--|--|700|
-|Jharkhand|65,460|49,000|43,020|48,621|
-|Karnataka|87,869|89,082|94,640|90,031|
-|Kerala|54,50,944|56,90,296|59,32,863|59,87,483|
-|Madhya Pradesh|12,750|12,332|7,095|9,766|
-|Maharashtra|1,07,478|1,11,412|1,15,227|1,18,147|
-|Manipur|2,859|4,119|1,153|2,117|
-|Odisha|30,075|29,000|29,100|38,065|
-|Puducherry|--|--|11,945|14,164|
-|Punjab|20,106|16,250|18,000|21,560|
-|Rajasthan|19,402|20,410|17,732|17,315|
-|Tamilnadu|7,15,490|6,74,200|6,83,755|7,04,960|
-|Telangana|2,40,000|3,23,000|3,20,000|3,53,000|
-|Tripura|1,35,656|1,37,798|95,740|1,10,264|
-|Uttarakhand|6,705|7,576|3,385|4,655|
-|Uttar Pradesh|39,600|41,148|43,444|45,338|
-|West Bengal|23,00,514|24,66,684|25,10,328|25,24,884|
-|**Total**|**96,31,116**|**1,00,54,054**|**1,03,48,744**|**1,05,21,442**|
+# Membership of Student Front
+**(After 23<sup>rd</sup> Congress)**
 
-40
-
-# **Membership of Youth Front (After 23**<sup>**rd**</sup> **Congress)** 
-
-|**Name of State**|**2021**|**2022**|**2023**|**2024**|
-|---|---|---|---|---|
-|Andhra Pradesh|75,550|55,000|62,400|75,000|
-|Assam|6,100|14,562|12,556|12,787|
-|Bihar|40,115|48,144|44,400|44,700|
-|Chattisgarh|1,200|--|--|--|
-|Delhi|7,000|5,000|7,230|5,000|
-|Gujarat|--|--|5,078|4,332|
-|Haryana|5,206|3,442|3,500|3,300|
-|Himachal Pradesh|2,661|1,713|1,678|869|
-|Jammu & Kashmir|5,000|5,640|5,500|6,000|
-|Jharkhand|40,745|40,090|--|--|
-|Karnataka|17,051|32,029|24,300|20,507|
-|Kerala|51,99,585|52,27,423|52,12,108|52,16,494|
-|Madhya Pradesh|4,923|2,127|3,791|5,344|
-|Maharashtra|1,58,807|1,44,500|1,53,408|1,37,823|
-|Odisha|20,000|23,715|17,984|19,191|
-|Puducherry|--|4,200|--|2,400|
-|Punjab|45,000|42,600|40,000|43,800|
-|Rajasthan|46,000|40,000|36,000|39,743|
-|Sikkim|300|--|--|--|
-|Tamilnadu|7,14,731|5,03,928|5,67,784|5,62,820|
-|Telangana|1,20,816|1,21,800|1,30,100|1,42,550|
-|Tripura|1,82,250|1,64,673|95,079|1,13,757|
-|Uttarakhand|4,923|--|--|--|
-|Uttar Pradesh|27,206|22,269|17,328|20,786|
-|West Bengal|29,13,960|30,03,720|30,92,886|31,44,673|
-|Centre|6|3|3|3|
-|**Total**|**96,39,135**|**95,06,578**|**95,33,113**|**96,21,879**|
-
-41
-
-# **Membership of Student Front (After 23**<sup>**rd**</sup> **Congress)** 
-
-|**Name of State**|**2020-21**|**2021-22**|**2022-23**|**2023-24**|
-|---|---|---|---|---|
-|Andhra Pradesh|62,751|4,17,242|3,70,321|4,24,444|
-|Assam|4,851|13,075|12,199|13,000|
-|Bihar<br>|12,705|12,000|14,922<br>|12,005<br>|
-|Chattisgarh<br>|--|--|870|721|
-|Delhi|1,624|3,062|7,760|4,545|
-|Gujarat|1,410|6,120|4,920|3,450|
-|Haryana|3,370|2,670|5,789|8,265|
-|Himachal Pradesh|5,218|15,604|16,172|15,038|
-|Jammu & Kashmir|--|500|1,590|1,725|
-|Jharkhand|--|425|613|520|
-|Karnataka|25,036|33,000|39,118|32,000|
-|Kerala|14,90,568|15,48,192|15,93,873|16,63,865|
-|Madhya Pradesh|1,206|5,152|7,019|7,177|
-|Maharashtra|4,400|30,013|34,341|35,165|
-|Odisha|--|1,323|2,042|1,919|
-|Puducherry|--|--|1,950|4,329|
-|Punjab|--|1,565|750|--|
-|Rajasthan|42,725|96,204|91,171|76,352|
-|Tamilnadu|1,07,000|2,90,354|3,54,418|3,82,969|
-|Telangana|30,000|5,12,684|4,17,965|512,684|
-|Tripura|20,502|22,018|27,164|13,081|
-|Uttarakhand|850|1,478|1,875|1,178|
-|Uttar Pradesh|1,613|3,768|3,124|3,608|
-|West Bengal|5,13,019|7,44,306|8,39,185|8,30,849|
-|Progressive|--||136|124|
-|Students Forum|||||
-|UK& Ireland|--|70|230|253|
-|CEC|6|6|7|7|
-|**Total**|**23,28,854**|**37,60,831**|**38,49,524**|**40,49,273**|
-
-42
+| Name of State | 2020-21 | 2021-22 | 2022-23 | 2023-24 |
+| :--- | :--- | :--- | :--- | :--- |
+| Andhra Pradesh | 62,751 | 4,17,242 | 3,70,321 | 4,24,444 |
+| Assam | 4,851 | 13,075 | 12,199 | 13,000 |
+| Bihar | 12,705 | 12,000 | 14,922 | 12,005 |
+| Chattisgarh | -- | -- | 870 | 721 |
+| Delhi | 1,624 | 3,062 | 7,760 | 4,545 |
+| Gujarat | 1,410 | 6,120 | 4,920 | 3,450 |
+| Haryana | 3,370 | 2,670 | 5,789 | 8,265 |
+| Himachal Pradesh | 5,218 | 15,604 | 16,172 | 15,038 |
+| Jammu & Kashmir | -- | 500 | 1,590 | 1,725 |
+| Jharkhand | -- | 425 | 613 | 520 |
+| Karnataka | 25,036 | 33,000 | 39,118 | 32,000 |
+| Kerala | 14,90,568 | 15,48,192 | 15,93,873 | 16,63,865 |
+| Madhya Pradesh | 1,206 | 5,152 | 7,019 | 7,177 |
+| Maharashtra | 4,400 | 30,013 | 34,341 | 35,165 |
+| Odisha | -- | 1,323 | 2,042 | 1,919 |
+| Puducherry | -- | -- | 1,950 | 4,329 |
+| Punjab | -- | 1,565 | 750 | -- |
+| Rajasthan | 42,725 | 96,204 | 91,171 | 76,352 |
+| Tamilnadu | 1,07,000 | 2,90,354 | 3,54,418 | 3,82,969 |
+| Telangana | 30,000 | 5,12,684 | 4,17,965 | 512,684 |
+| Tripura | 20,502 | 22,018 | 27,164 | 13,081 |
+| Uttarakhand | 850 | 1,478 | 1,875 | 1,178 |
+| Uttar Pradesh | 1,613 | 3,768 | 3,124 | 3,608 |
+| West Bengal | 5,13,019 | 7,44,306 | 8,39,185 | 8,30,849 |
+| Progressive Students Forum | -- | | 136 | 124 |
+| UK& Ireland | -- | 70 | 230 | 253 |
+| CEC | 6 | 6 | 7 | 7 |
+| **Total** | **23,28,854** | **37,60,831** | **38,49,524** | **40,49,273** |
 
 # **Part-II** 
 
