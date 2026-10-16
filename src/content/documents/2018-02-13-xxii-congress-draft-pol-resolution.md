@@ -1,15 +1,16 @@
 ---
-title: "XXII Congress — Draft Pol. Resolution"
-slug: "2018-02-13-xxii-congress-draft-pol-resolution"
-date: "2018-02-13"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/22-cong-draft-pol-res.pdf"
-source_post_url: "https://cpim.org/documents-xxii-congress-draft-pol-resolution/"
+title: XXII Congress — Draft Pol. Resolution
+slug: 2018-02-13-xxii-congress-draft-pol-resolution
+date: '2018-02-13'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/22-cong-draft-pol-res.pdf
+source_post_url: https://cpim.org/documents-xxii-congress-draft-pol-resolution/
 page_count: 53
-extraction_method: "pymupdf4llm"
-sha256: "617ed0a5d5be3cb066436c7873e59f0b33a70d572bfd0650231650dcbc2f3eac"
+extraction_method: pymupdf4llm
+sha256: 617ed0a5d5be3cb066436c7873e59f0b33a70d572bfd0650231650dcbc2f3eac
+language: en
 ---
 
 # **Draft Political Resolution for 22**<sup>**nd**</sup> **Congress (Adopted at the Central Committee Meeting held on January 19-21, 2018 at Kolkata)** 

@@ -1,17 +1,17 @@
 ---
-title: "Perspective & Action Agenda on Health Issues"
-slug: "2026-07-20-perspective-action-agenda-on-health-issues"
-date: "2026-07-20"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2026/07/20260309_Perspective-Action-Agenda-on-Health-Issues.pdf"
-source_post_url: "https://cpim.org/perspective-action-agenda-on-health-issues/"
+title: Perspective & Action Agenda on Health Issues
+slug: 2026-07-20-perspective-action-agenda-on-health-issues
+date: '2026-07-20'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2026/07/20260309_Perspective-Action-Agenda-on-Health-Issues.pdf
+source_post_url: https://cpim.org/perspective-action-agenda-on-health-issues/
 page_count: 24
-extraction_method: "html-archive"
-sha256: "40be7c699e831c9604c42b1f8ab9abfd60a8b37ceef3586875bf4ba3f0e65383"
+extraction_method: html-archive
+sha256: 40be7c699e831c9604c42b1f8ab9abfd60a8b37ceef3586875bf4ba3f0e65383
+language: en
 ---
-
 
 ### Communist Party of India (Marxist)
 

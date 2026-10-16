@@ -1,15 +1,16 @@
 ---
-title: "Democracy Under Attack: Testimonies from Tripura"
-slug: "2018-11-19-democracy-under-attack-testimonies-from-tripura"
-date: "2018-11-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/tripura_nov._2018.pdf"
-source_post_url: "https://cpim.org/democracy-under-attack-testimonies-tripura/"
+title: 'Democracy Under Attack: Testimonies from Tripura'
+slug: 2018-11-19-democracy-under-attack-testimonies-from-tripura
+date: '2018-11-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/tripura_nov._2018.pdf
+source_post_url: https://cpim.org/democracy-under-attack-testimonies-tripura/
 page_count: 29
-extraction_method: "pymupdf4llm"
-sha256: "d7ddca783a43cdab8661eb910d45f4628d2387419b4acc2e540526d1608ef6d3"
+extraction_method: pymupdf4llm
+sha256: d7ddca783a43cdab8661eb910d45f4628d2387419b4acc2e540526d1608ef6d3
+language: en
 ---
 
 # **Introduction** 

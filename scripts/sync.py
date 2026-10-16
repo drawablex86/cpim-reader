@@ -156,11 +156,14 @@ def discover_documents(client: httpx.Client) -> list[dict]:
             continue
         seen_identifiers.add(identifier)
 
-        # Skip regional translated reprints; canonical English documents are ingested
-        # Translations are provided on-demand via the reader's neural translation pipeline
+        # Strict filter: Skip all regional translation reprints (canonical English is published originally)
         lower_id = identifier.lower()
         lower_title = title.lower()
-        if any(k in lower_title or k in lower_id for k in ["hindi", "हिंदी", "bengali", "urdu", "tamil"]):
+        regional_keywords = [
+            "hindi", "हिंदी", "bengali", "bangla", "urdu", "tamil", "malayalam", "telugu",
+            "kannada", "gujarati", "punjabi", "marathi", "oriya", "assamese"
+        ]
+        if any(k in lower_title or k in lower_id for k in regional_keywords):
             continue
 
         # Categorization heuristic
@@ -481,12 +484,11 @@ def main():
                 pages = max(1, len(body_md) // 2500)
                 method = "html-archive"
 
-            # Language detection: check title, URL, or body
-            is_hindi = any(
-                k in item["title"].lower() or k in (item["source_pdf_url"] or "").lower()
-                for k in ["hindi", "हिंदी", "रफाल", "घोषणापत्र", "समीक्षा"]
-            )
-            lang_code = "hi" if is_hindi else "en"
+            # Safety assertion: Ensure document is genuine canonical English
+            has_devanagari = any("\u0900" <= c <= "\u097F" for c in body_md[:2000])
+            if has_devanagari:
+                print(f"  [skip] Skipping regional document containing Indic script: {item['title']}")
+                continue
 
             safe_title = item["title"].replace('"', "'")
             frontmatter = (
@@ -497,7 +499,7 @@ def main():
                 f'category: "{item["category"]}"\n'
                 'author: "Central Committee, Communist Party of India (Marxist)"\n'
                 'publisher: "Communist Party of India (Marxist)"\n'
-                f'language: "{lang_code}"\n'
+                'language: "en"\n'
                 f'source_pdf_url: "{item["source_pdf_url"] or ""}"\n'
                 f'source_post_url: "{item["source_post_url"] or ""}"\n'
                 f"page_count: {pages}\n"
@@ -513,7 +515,7 @@ def main():
                 "title": item["title"],
                 "date": item["date"],
                 "category": item["category"],
-                "language": lang_code,
+                "language": "en",
                 "page_count": pages,
                 "sha256": sha256_hash,
                 "extraction_method": method,

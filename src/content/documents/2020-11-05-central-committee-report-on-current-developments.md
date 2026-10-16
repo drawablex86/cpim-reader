@@ -1,15 +1,16 @@
 ---
-title: "Central Committee Report on Current Developments"
-slug: "2020-11-05-central-committee-report-on-current-developments"
-date: "2020-11-05"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2020-oct-cc-report.pdf"
-source_post_url: "https://cpim.org/central-committee-report-current-developments/"
+title: Central Committee Report on Current Developments
+slug: 2020-11-05-central-committee-report-on-current-developments
+date: '2020-11-05'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2020-oct-cc-report.pdf
+source_post_url: https://cpim.org/central-committee-report-current-developments/
 page_count: 26
-extraction_method: "pymupdf4llm"
-sha256: "7191cff8815ed198cdb8814957eb006e6fea4235642d71dd15f43b3bb16dd3f7"
+extraction_method: pymupdf4llm
+sha256: 7191cff8815ed198cdb8814957eb006e6fea4235642d71dd15f43b3bb16dd3f7
+language: en
 ---
 
 # Communist Party of India (Marxist) **Report on Current Developments (Adopted at the Central Committee Meeting October 30-31, 2020)** 

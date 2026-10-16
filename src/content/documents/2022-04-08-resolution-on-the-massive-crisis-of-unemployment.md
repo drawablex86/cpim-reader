@@ -1,15 +1,16 @@
 ---
-title: "Resolution on the Massive Crisis of Unemployment"
-slug: "2022-04-08-resolution-on-the-massive-crisis-of-unemployment"
-date: "2022-04-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/resolution_on_unemployment.pdf"
-source_post_url: "https://cpim.org/documents-resolution-massive-crisis-unemployment/"
+title: Resolution on the Massive Crisis of Unemployment
+slug: 2022-04-08-resolution-on-the-massive-crisis-of-unemployment
+date: '2022-04-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/resolution_on_unemployment.pdf
+source_post_url: https://cpim.org/documents-resolution-massive-crisis-unemployment/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "7fb873dcf0e346404d53daec6c30b68577e5fd505eeee9792aed6f9207507340"
+extraction_method: pymupdf4llm
+sha256: 7fb873dcf0e346404d53daec6c30b68577e5fd505eeee9792aed6f9207507340
+language: en
 ---
 
 # Communist Party of India (Marxist) 

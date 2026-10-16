@@ -1,15 +1,16 @@
 ---
-title: "Modi’s Rafalegate"
-slug: "2018-11-01-modis-rafalegate"
-date: "2018-11-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rafale_deal_-_english_text.pdf"
-source_post_url: "https://cpim.org/modis-rafalegate/"
+title: Modi’s Rafalegate
+slug: 2018-11-01-modis-rafalegate
+date: '2018-11-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rafale_deal_-_english_text.pdf
+source_post_url: https://cpim.org/modis-rafalegate/
 page_count: 7
-extraction_method: "pymupdf4llm"
-sha256: "fce94cf097bbc9fcd9125ba7706638c8b5de1cce18e94591ed19e7b9981b5aec"
+extraction_method: pymupdf4llm
+sha256: fce94cf097bbc9fcd9125ba7706638c8b5de1cce18e94591ed19e7b9981b5aec
+language: en
 ---
 
 # **Rafale Deal: Modi in the Dock** 

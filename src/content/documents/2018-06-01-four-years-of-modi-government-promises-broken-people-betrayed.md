@@ -1,15 +1,16 @@
 ---
-title: "Four Years of Modi Government : Promises Broken, People Betrayed"
-slug: "2018-06-01-four-years-of-modi-government-promises-broken-people-betrayed"
-date: "2018-06-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/booklet_no_3.pdf"
-source_post_url: "https://cpim.org/four-years-modi-government-promises-broken-people-betrayed/"
+title: 'Four Years of Modi Government : Promises Broken, People Betrayed'
+slug: 2018-06-01-four-years-of-modi-government-promises-broken-people-betrayed
+date: '2018-06-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/booklet_no_3.pdf
+source_post_url: https://cpim.org/four-years-modi-government-promises-broken-people-betrayed/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "685240bc7f2c7f2024ff78d1bb64cf1adb0529203522825811f7e53f54ffe186"
+extraction_method: pymupdf4llm
+sha256: 685240bc7f2c7f2024ff78d1bb64cf1adb0529203522825811f7e53f54ffe186
+language: en
 ---
 
 ## **3** 

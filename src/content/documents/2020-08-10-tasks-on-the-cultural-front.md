@@ -1,15 +1,16 @@
 ---
-title: "Tasks on the Cultural Front"
-slug: "2020-08-10-tasks-on-the-cultural-front"
-date: "2020-08-10"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2019-oct-cultural-document.pdf"
-source_post_url: "https://cpim.org/tasks-cultural-front/"
+title: Tasks on the Cultural Front
+slug: 2020-08-10-tasks-on-the-cultural-front
+date: '2020-08-10'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2019-oct-cultural-document.pdf
+source_post_url: https://cpim.org/tasks-cultural-front/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "1ff843dda79c4dc8293b5c97699cbe4e4ccab1b0d0ad3301cbd61902ab6c4d8b"
+extraction_method: pymupdf4llm
+sha256: 1ff843dda79c4dc8293b5c97699cbe4e4ccab1b0d0ad3301cbd61902ab6c4d8b
+language: en
 ---
 
 # **Communist Party of India (Marxist)** 

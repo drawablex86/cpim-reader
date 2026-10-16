@@ -1,15 +1,16 @@
 ---
-title: "24th Congress Political Resolution"
-slug: "2025-12-05-24th-congress-political-resolution"
-date: "2025-12-05"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/12/Political-Resolution-adopted-by-24th-Congress.pdf"
-source_post_url: "https://cpim.org/24th-congress-political-resolution/"
+title: 24th Congress Political Resolution
+slug: 2025-12-05-24th-congress-political-resolution
+date: '2025-12-05'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/12/Political-Resolution-adopted-by-24th-Congress.pdf
+source_post_url: https://cpim.org/24th-congress-political-resolution/
 page_count: 45
-extraction_method: "pymupdf4llm"
-sha256: "11ed53c3400f103ab9213efd9ca1bad7061037e44f78594dc25ef342266f23c7"
+extraction_method: pymupdf4llm
+sha256: 11ed53c3400f103ab9213efd9ca1bad7061037e44f78594dc25ef342266f23c7
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

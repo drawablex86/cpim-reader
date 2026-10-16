@@ -1,15 +1,16 @@
 ---
-title: "Defend Dalit Rights Modiwadi = Manuwadi"
-slug: "2019-03-30-defend-dalit-rights-modiwadi-manuwadi"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/defend_dalit_right.pdf"
-source_post_url: "https://cpim.org/defend-dalit-rights-modiwadi-manuwadi/"
+title: Defend Dalit Rights Modiwadi = Manuwadi
+slug: 2019-03-30-defend-dalit-rights-modiwadi-manuwadi
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/defend_dalit_right.pdf
+source_post_url: https://cpim.org/defend-dalit-rights-modiwadi-manuwadi/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "0d976640cce34b41d51809f3dcdce8c8497ae0e9d00a036d42ccd0241dc5f003"
+extraction_method: pymupdf4llm
+sha256: 0d976640cce34b41d51809f3dcdce8c8497ae0e9d00a036d42ccd0241dc5f003
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

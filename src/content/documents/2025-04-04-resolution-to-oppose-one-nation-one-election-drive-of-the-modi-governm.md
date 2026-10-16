@@ -1,15 +1,16 @@
 ---
-title: "Resolution to Oppose ‘One Nation, One Election’ Drive of the Modi Government"
-slug: "2025-04-04-resolution-to-oppose-one-nation-one-election-drive-of-the-modi-governm"
-date: "2025-04-04"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: ""
-source_post_url: "https://cpim.org/resolution-to-oppose-one-nation-one-election-drive-of-the-modi-government/"
+title: Resolution to Oppose ‘One Nation, One Election’ Drive of the Modi Government
+slug: 2025-04-04-resolution-to-oppose-one-nation-one-election-drive-of-the-modi-governm
+date: '2025-04-04'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: ''
+source_post_url: https://cpim.org/resolution-to-oppose-one-nation-one-election-drive-of-the-modi-government/
 page_count: 2
-extraction_method: "html-archive"
-sha256: "305064d480c02fb0444d5c030e7f7115af2d871f260e7d292dceccd64f1e3c18"
+extraction_method: html-archive
+sha256: 305064d480c02fb0444d5c030e7f7115af2d871f260e7d292dceccd64f1e3c18
+language: en
 ---
 
 The resolution was adopted by the 24th Party Congress of CPI(M) The 24 th Congress of the Communist Party of India (Marxist) strongly opposes the ` One Nation, One Election’ drive of the RSS-BJP, which wants to create a centralized unitarian State. It is an extension of their slogan of ‘One Nation, One Religion, One Language, One Culture, One Leader’. They have lifted and modified this slogan from Hitler’s fascist era. BJP leaders are using their hackneyed arguments that simultaneous elections will save a lot of money, and they will prevent the frequent disruption of developmental work. For the 2024 parliamentary elections, the total allocation made by Parliament to the Election Commission of India (ECI) was Rs 466 crore. Some more amount is spent by the States for logistical requirements. But all this is not a very huge amount. For other years the expense is much less. As regards development, periodic and frequent elections have been held in India since 1967 till today. There is no evidence to prove that they have stopped the developmental momentum. The ` One Nation, One Election’ (ONOE) model undermines two basic features of the Constitution – democracy and federalism. The Supreme Court decision in the Kesavananda Bharati case, says that Parliament does not have the power to alter the basic structure of the Constitution. And yet prime minister Narendra Modi has pushed this idea ever since he came to power, declaring in 2020 that ONOE “is not a matter of debate but a necessity for India”. Actually, the ONOE proposal amounts to truncating the life of some legislative assemblies to align them with the Lok Sabha election. Further, if a state government falls and the assembly is to be dissolved, then the mid-term election held will be only for the remaining term of the assembly. All this violates the right of the people to elect their representatives for a term of five years as envisaged in the Constitution. The attack on federalism is all the more evident with the move to hold simultaneous election to all panchayats and municipal bodies. This is centralization with a vengeance and goes against the very purpose of decentralized decision-making local bodies under the state governments. To hold the Lok Sabha and Vidhan Sabha elections together would require a major overhaul of the Constitution. There will have to be amendments to the Constitution in Article 83 (duration of House), Article 85 (dissolution of the Lok Sabha), Article 172 (duration of state legislatures), Article 174 (dissolution of state legislatures), Article 356 (failure of Constitutional machinery), apart from amendments to the Representation of the People Act and other Rules. The 24 th Congress of the CPI(M) is totally opposed to any artificial attempt to bring about simultaneous elections, and it strongly opposes any move to amend the Constitution for this purpose. All political parties and organisations who value democracy, pluralism and federalism, should come out firmly in opposition and unitedly thwart this pernicious move. The CPI(M) calls upon the people of India to oppose this anti-democratic and anti-federal drive.

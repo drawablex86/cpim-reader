@@ -1,0 +1,300 @@
+---
+title: "Report On Political Developments"
+slug: "2009-09-12-report-on-political-developments"
+date: "2009-09-12"
+category: "CC Documents"
+author: "Central Committee, Communist Party of India (Marxist)"
+publisher: "Communist Party of India (Marxist)"
+language: "en"
+source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2001-may-cc-report.pdf"
+source_post_url: "https://cpim.org/report-political-developments-14/"
+page_count: 13
+extraction_method: "pymupdf4llm"
+sha256: "12833d18eaa81de38d4885f6959667c2d2a4ef9deaaeaaaf478e83a36a398eb9"
+---
+
+# **Report on Political Developments Adopted At The August 11-12, 2001 Meeting Of The Central Committee** 
+
+# **International** 
+
+The last Central Committee meeting was held on May 31-June 1, 2001. In the report adopted at the meeting some of the major international developments were taken note of. Since then, the developments which have taken place continue to exhibit the major trends which we have analysed in the last two reports. 
+
+# **World Economic Crisis** 
+
+The crisis of the world capitalist system has got further aggravated in the last two and a half months. The depth of the crisis and its spread is now a cause for worry for all the major capitalist centres and institutions like the IMF and the World Bank. In the United States, the slow down of the economy continues with industrial production falling for nine consecutive months, the longest decline since 1983. The economic situation is as bad as the 1991-92 recession. Despite interest rates having been slashed six times this year, capital spending has reached the lowest level in the decade. Unemployment rate has touched 4.5% and since July last year and factory sector alone has lost 7,85,000 jobs. Not only manufacturing but the IT sector and the services sector have been adversely affected. The economy barely grew in the three months ending June. 
+
+The second most powerful economy, Japan has passed from one recession to another in two years. Industrial production declined by about 20% in the second quarter of this year. Despite zero interest rates, there are no signs of the economy picking up. The unemployment rate stands at 4.8%. The economic slowdown is not confined to the most powerful advanced capitalist economies, it is steadily spreading to the developing countries. In Argentina, one of the bigger Latin American economies, the country is faced with default in its debt and the prescriptions of the IMF and the World Bank have failed to redress the ills. The unemployment rate stands at 15%. A short term solution of exchanging the debts for bonds has been begun but the bonds will carry an interest of 15%. Argentina's difficulties are bound to affect the other economies in the region particularly Brazil. 
+
+In Turkey, similar debt problems have led to the steep fall in the value of its currency, the Lira and the collapse in the stock markets. Here again the IMF has been trying to bail out the economy. What the neo-liberal economists call as the crisis of the "emerging markets" is now poised to spread. Indonesia is now in the throes of a debt crisis and falling production. Singapore, one of the miracles of East Asia is now under recession. 
+
+The contagion has spread through the fall in trade and the panic among investors in the financial markets. 
+
+In 1997-98, the East Asian crisis erupted followed by the financial crisis in Russia and Brazil. The difference between that crisis and now is that in 1998 the US economy was performing well. Now with the crisis spreading in the "emerging markets", the United States itself is in bad shape and this is bound to aggravate the crisis of the world capitalist system. 
+
+During the East Asia crisis it was found that China was by and large immune to that crisis. Now also while Japan is in recession and the economic difficulties are spreading in East and South Asia, China has registered a growth rate of 7.9% in the first six months. This has been grudgingly noted by the ideologues of neo- 
+
+1
+
+liberalisation. 
+
+With both the United States and Japan suffering from a slow down, it is bound to have a serous world wide effect. Output in the United States and Japan account for roughly two-fifth of the world's domestic product and if both fall into recession this year, it would be the first time since 1974 that such a shrinkage of the two most powerful capitalist economies takes place simultaneously. 
+
+Capitalist countries in Europe cannot escape the effects of this combined US-Japan slow down. The second quarter of the year has now witnessed a slow down in the European economies. The growth of the German economy for 2001 is forecast to be a mere 1%. Joblessness in Italy, Spain, Greece and Germany has reached serious proportions. 
+
+The logic of imperialist globalisation is now unfolding. The huge concentration of finance capital and its global mobility is ensuring that the contagion spreads rapidly around the world. This first worldwide crisis of the 21st Century will also effectively put paid to the myths about a IT driven new economy. The collapse of the NASDAQ and the value of the IT stocks has dramatically illustrated this. 
+
+The crisis means large scale retrenchment of workers in manufacturing and the employees in the services sector. The effects of the slow down will have a harmful impact for the third world countries in particular where rising unemployment and fall in incomes will add to mass poverty. 
+
+The attacks on the working people all around the world will be intensified due to this crisis. We can foresee a period of rising mass discontent and increasing struggles against the policies of liberalisation and privatisation around the world. 
+
+# **Widening Protest Against Globalisation** 
+
+The world-wide protests against globalisation has been gathering strength after every international meeting of the world capitalist leaders. The process which began in Seattle in 1999 has now acquired unprecedented momentum. Since our last Central Committee meeting two such protests have taken place. The first one was at Gothenburg, Sweden in January where the leaders of the European Union met. Around 70,000 protesters gathered representing a coalition of forces ranged against imperialist globalisation. The attempts to suppress the protests led to three young persons being shot and injured. A much bigger mass protest took place at Genoa when the G8 summit was held in July. For three days around 300,000 people staged protests on a range of issues. The presence of American President also led to the focus of protests on the NMD and the stand against the Kyoto protocol on environment protection. The Italian police unleashed brutal repression and a 23 year old protester was shot dead, the first martyr in the international protest against globalisation. 
+
+Increasingly, more and more people in the advanced capitalist countries are able to see the vicious effects of the current imperialist offensive. The widening inequalities in their own countries and the plight of the third world is being increasingly recognised as a direct outcome of the rapacious grip of multinational corporations and the governments of powerful capitalist countries. 
+
+# **China-Russia Treaty** 
+
+A significant event in this period has been the treaty signed between China and Russia. This has come in the background of the NMD threat posed by the USA. The visit of President Jiang Zemin to Moscow led to the treaty called the " **Good Neighbourly Treaty of Friendship and Cooperation** ". The last treaty of friendship signed between the two countries was the 1950 Sino-Soviet treaty of friendship. The current treaty does not have a military component. Both countries have agreed to 
+
+2
+
+resolve issues in accordance with the UN charter and the norms of international law. They have pledged not to use nuclear weapons against each other or target strategic missiles at each other. The treaty provides that the two countries will promptly contact each other in case a situation arises that can in the opinion of either party threaten peace or affect their security interests. The growing convergence of views between the two countries is significant In the light of the new aggressive postures adopted by the Bush administration. China has fully supported Moscow's stand on Chechenya while Russia has endorsed China's position on Taiwan. Both countries have spoken out against the new missile defence system proposal being advocated by Bush and the scrapping of the 1972 ABM Treaty. 
+
+The treaty between the two countries can be seen therefore as an expression of the joint resolve of the two countries to resist American efforts at global hegemony. The contrast with the Indian Government's position cannot be more glaring with the Vajpayee government having cravenly welcomed the NMD plan of Bush. 
+
+# **US Hegemonic Efforts & Resistance** 
+
+As noted in our last report, Bush administration, in the past seven months since taking office, has embarked on a more aggressive and brazen effort to impose US hegemony. Three major issues in this period illustrate this. Firstly, the plan for a new missile defence system and upgrading it to a star wars system with weapons in space threatening to upset the arms control agreements and threatening to unleash a new nuclear arms race in the world. Secondly, the US government threatens the Yugoslav government that $1.2 billion worth of aid would not be forthcoming unless the former President, Slobadan Milosevic is handed over for trial at the "international war crimes tribunal" set up in Geneva. The Serbian government, the Yugoslav cabinet, shamelessly succumbed to this pressure and illegally violating the decision of the constitutional court spirited away Milosevic to Geneva to face trial. Thirdly, the United States unilaterally rejected the Kyoto Treaty protocol on controlling green house emissions of gases. Bush while announcing the rejection of the Kyoto Treaty concealed the real reason of protecting the interests of US oil majors, who made big contributions to his election fund. Instead, Bush cited the reason that China and India are being allowed to get away with exemptions on checking its emissions which is unacceptable to the US. 
+
+President Bush in his recent tour of Europe has been assiduously pursuing its European allies to agree to the new missile defence systems. Some of the right wing governments in Europe like in Spain and Italy have lined up in support. But still the major countries like Germany and France have not given in to the pressure. 
+
+The Kyoto protocol which is endangered by the US refusal to accept the terms has now gone ahead with an agreement by 186 countries in Bonn, Germany. Meeting under UN auspices, the conference came to an agreement upon how to proceed to make the Kyoto protocol into an international treaty. Despite all efforts by the United States it was thoroughly isolated and even the closest allies of America went ahead to arrive at an agreement. The Bush administration which openly advocates the interests of the energy companies is against any controls on emissions. The Bonn agreement would mark the beginning in the difficult task of ensuring that an international treaty comes into being. 
+
+Whether it be on the question of NMD or the Kyoto protocol or human rights, the United states is finding it difficult to rally sufficient support including among its allies to target countries which refuse to advance its narrow hegemonic interests or to target countries which refuse to fall in line with its approach. 
+
+3
+
+# **Palestine Struggle** 
+
+A ceasefire under US auspices was agreed to by Israel and the Palestinian authority in mid-June to try and end the continuous clashes and Israeli attacks. The ceasefire led to a decrease in the clashes and the death toll but in a few weeks the situation deteriorated again. Efforts to make the Mitchell report the basis for further negotiations also could not progress due to Israeli intransigence. Provocative actions from the Israeli side particularly those by the illegal settlers provided the initial spark. This was followed by suicide bomb attacks on Israeli targets. The Israeli government unleashed its military power to assassinate individual Palestinian security officers and Hamas and Fateh leaders. Such attacks have led to widespread condemnation around the world. Even the United States was forced to criticise the Israeli tactics. The Palestinians have stepped up their call for posting of international observers in the sensitive areas, a demand which has now found support among the European Union. The US which is the main ally and protector of Israel is trying to persuade Ariel Sharon to agree to observers being sent to the trouble spots in the West Bank and Gaza. 
+
+# **Nepal** 
+
+The gruesome massacre of the entire family of King Birendra came as a sudden shock to the people of Nepal. There was widespread controversy and speculation about how this massacre took place. The official enquiry conducted has pinpointed the responsibility to crown Prince Dipendra who committed suicide after the killings. The brother of King Birendra, Gyanendra has taken over as the new king. The goings on in the monarchy has to some extent discredited the myths surrounding the divinity of the royal personage. 
+
+The violent end of the Birendra family took place in the background of the mounting insurgency launched by the Maoists in some of the rural parts of the country. The Koirala government was getting increasingly discredited with corruption scandals and its anti-people measures. One of the fall outs of the upheaval has been the resignation of Koirala as Prime Minister. The new Prime Minister Sher Bahadur Deuba is seeking to hold negotiations with the Maoist leadership to try and come to some settlement. 
+
+Given its strategic position, Nepal is increasingly becoming a base for imperialist agencies and the ISI. All efforts must be made to maintain close and normal relations between India and Nepal. The problems which have been existing connected with the Indo-Nepal Treaty and other issues such as trade and power projects must be dealt with patiently so that anti-India feelings are not raised among the people by the reactionary forces. 
+
+# **National** 
+
+# **Musharraf Visit to India** 
+
+The Vajpayee government had announced simultaneously the withdrawal of the ceasefire in Jammu and Kashmir and the invitation to President Musharraf to visit India for talks. Our Party had welcomed the invitation and resumption of dialogue between the two countries. Our Party had also pointed out that the Agra summit talks would be only a beginning in the process of bilateral dialogue to resolve outstanding issues between the two countries. 
+
+The Agra Summit raised a lot of expectations among the people of both countries that a serious effort is being made to address the problems between the two countries. While it must be recognised that Kashmir has been the most contentious issue between the two countries, there are also other related questions, which need to be 
+
+4
+
+taken up. Especially after both countries have gone nuclear, it is imperative that steps are taken for averting a nuclear confrontation and defusing tensions. It would also be in the interest of both countries to develop trade, economic and cultural ties so that the process of normalisation is advanced. Our Party conveyed these views in the meeting convened by the Government of all parties collectively and individually. 
+
+The Agra summit which was held on 15-16th July did not yield even the expected result which was a joint agreement to identify and tackle the outstanding issues through the mechanism of future talks. Pakistan insisted on making Kashmir the central issue and linking it to the wishes of the Kashmiri people as was made clear by Musharraf in his press conference. The Indian side while accepting Kashmir as an issue wanted to link it to the question of cross border terrorism. Whatever drafts were prepared, the agreement broke down on how the Kashmir issue and cross border terrorism was to be formulated. The Pakistan side refused to accept any reference to cross-border terrorism. 
+
+Despite the failure to come to an agreed declaration, we have stressed the necessity to carry on the dialogue between the two countries. There is scope for continuation of the dialogue in the coming months at different venues --the UN General Assembly in September in New York and the forthcoming SAARC summit. There is also the invitation to Vajpayee to visit Islamabad which was accepted. 
+
+The disappointing outcome of the Agra summit can be traced to the lack of preparatory groundwork for such a high-level meeting. First of all the summit was held a little over a month after the invitation was extended. There was no prior discussion at the officers level or an attempt to arrive at an agreed agenda for the talks. The Vajpayee government cannot escape its responsibility by stating that the Pakistani side was not prepared for such preparations. This itself indicated the necessity to negotiate some agreed framework before entering into summit talks. 
+
+Hawks on both sides will now try to utilise the failure of the summit to harden positions. Within India, the RSS and its outfits will seek to mount anti-Pakistan propaganda which would also be used to whip up anti-Muslim feelings. It is important, therefore, to stress the necessity to continue the bilateral dialogue and warn against any attempts to allow third party intervention through US efforts. 
+
+Soon after the Agra Summit the extremists have stepped up their attacks in Jammu & Kashmir. There have been two gruesome massacres of the Hindus in the Doda region in Jammu. Within the valley also there was an attack on the Amarnath pilgrims and firing across the Line of Control has been stepped up. 
+
+At this juncture, it must be emphasised that the problem in Jammu & Kashmir has to be taken up firstly within the domestic arena. The BJP-led government has no democratic approach to the solution of the problems. They summarily rejected the resolution calling for greater autonomy adopted by the Jammu & Kashmir assembly. 
+
+After Musharraf's visit, Home Minister, L.K. Advani has once again rejected categorically the provision of autonomy to J&K in parliament. This will only worsen the situation and help the fundamentalists and separatist forces who argue that the Kashmiri people cannot get a just settlement within the Indian Union. Only by providing maximum autonomy within the ambit of Article 370 can a democratic solution be found. 
+
+The people of the country must be alerted to the dangerous proposal to trifurcate the state of Jammu & Kashmir on a communal basis. The separation of the Hindu portion of Jammu and the Buddhist part of Ladhak from the Muslim parts of the state, will only play into the hands of the religious fundamentalists and US imperialist designs. With such a move, the Kashmir valley will go into the hands of the Islamic 
+
+5
+
+fundamentalists. Breaking up the composite state of J&K will have serious consequences for the secular Indian State. 
+
+The Party should take up the question of provision of maximum autonomy to Jammu & Kashmir as the key to the solution of the problem, to the people all over the country, as part of our political campaign. 
+
+# **Economic Situation** 
+
+The economic crisis in the country continues to get aggravated. The Central Statistical Organisation has estimated the GDP growth at 5.2% for 2000-2001 as against 6% announced by the Finance Minister while presenting the budget. This is a sharp decline from the growth rate of 6.4% in 1999-200. The manufacturing sector growth fell from 6.8 to 5.6% while agricultural output grew by a meagre 0.2% as against the estimate of 0.9%. In 1999-2000 it had grown by merely 0.7%. 
+
+While these revised estimates for the last financial year confirm our critique of the reform process, what is worrisome is the sharp decline in the first quarter of this year. The core sector of the economy consisting of six (crude oil, refinery, coal, electricity, cement and steel) registered a growth of a mere 1% compared to 9.3% in the first quarter of last year. 
+
+Clearly, the economy is going through a very deep recession. The CPI(M) had all along pointed out that these economic reforms are mainly aimed at providing quick profits for the capitalist class and at the same time mortgaging our economy to foreign capital. As a result the economic conditions of the vast mass of the people are sharply deteriorating. The squeezing of the people is resulting in aggregate demand contraction in the economy. This in turn is leading to recession. The net result of this would be growing unemployment and misery. The government has officially admitted that for the year 1999-2000 employment grew by 0% in the public sector and 0.11% in the private sector. 
+
+The misery of the people is further compounded by the abject surrender to imperialist interests. The withdrawal of the quantitative restrictions has resulted in the ruination of millions of farmers consequent to cheaper imports. Instead of protecting the farmers by higher import duties, the government has in fact reduced the duty on palm oil by 10% recently following the Prime Minister's visit to Malaysia. Reports of starvation deaths and distress suicides are on the rise. 
+
+In sum, during the first four years of the 9<sup>th</sup> five year plan the average growth for agriculture was 1,4% as against the target of 4.0%. For industry it was 4.7% as against the target of 8%. Clearly, in order to appease the IMF/World Bank/WTO, the government has been contracting all public expenditure and investment which is triggering an overall slow down of the economy with consequent burdens imposed on the people. 
+
+With foodgrain stocks in the FCI godowns crossing six crore (60 million) tonnes, it is shocking that the Vajpayee government is still refusing to supply foodgrains free to the drought affect areas. While it has reduced the issue price of rice and wheat for people above the poverty line by Rs 3.00 and Rs. 2.20 per kg respectively, it has refused to reduce the price for people below the poverty line. 
+
+The loot of the economy and the people continues to take place through the process of disinvestment that this BJP government is relentlessly pursuing. After selling off Modern Foods and BALCO for a song, the government is planning now to push through disinvestment of major profit earning public sector undertakings like Air India etc. This, however, appears to have entered rough weather with only a single bidder i.e. Tata Singapore Airlines left in the fray. The Union budget however, has earmarked Rs.12,000 crores from disinvestment this year. In addition over Rs. 2000 
+
+6
+
+crores of shortfall in the revised estimates last year would also have to be covered. This means that in the coming days, a concentrated effort would be made to dispose off public assets. 
+
+The biggest shock for the middle class came from the recent scam of the UTIs flagship scheme, US 64. Apart from robbing millions of small investors of their live time savings, this scheme has exposed the deviousness of the financial system put in place during this decade of reforms. Lakhs of crores of public savings, mobilised by financial institutions instead of being put at the disposal of economic development is being siphoned off for speculative profit. While scamsters and corporate houses siphon off these profits, it is the small investor and crores of middle class that suffer. 
+
+The CPI(M) had earlier pointed out that the Mauritius route is being utilised to siphon capital out of the country without paying any taxes. By now it is clear that thousands of crores of rupees are being taken out of the country through this route which is being officially protected by the government. For instance, it has been shown that five companies which brought in Rs 777 crores have repatriated profits worth Rs. 3677 crores within two years ending March 2001. 
+
+During this decade of reforms two stock market scams and two UTI scams, including the current one, have resulted in a massive loot of the Indian people. The current scam of the UTI is threatening to engulf the entire financial sector with other institutions like the IDBI, IFCI, LIC, GIC -- all reporting pressures on their investments. The corrupt bureaucrat-businessman-politician nexus has crippled the system. This BJP government far from taking any action or measures to prevent the recurrence of such schemes, is busy protecting their near and dear companies and favouring them with large investments from public financial institutions. 
+
+Despite opening up the core sector, particularly power to foreign capital with counter guarantees, the situation has not improved. In fact, in many ways it has deteriorated. The Enron experience in Maharashtra clearly shows how foreign capital is permitted to rake in super profits at the expense of the Indian consumer. The CPI(M) had since the inception of such policies stoutly opposed this as being against national interest and blatantly favouring multinational capital. The current crisis clearly indicates that the only way out is to ask Enron to quit and take over the management of the power project. The fiasco of the reforms in the power sector can also be seen by the US multinational AES packing up and leaving Orissa. Orissa was the first state to initiate privatisation in the power sector. 
+
+In sum, the economic situation a decade after the reforms appears worse than what it was before. With falling growth rates, growing unemployment, merciless loot of the people's savings, mercenary sale of public assets, the conditions of the people are sharply deteriorating. 
+
+# **Deep Links with US** 
+
+The Vajpayee government is consistently pursuing its pro-US line. It has openly declared its intention to be a strategic ally of the USA. After Jaswant Singh's visit in April to the USA, the contacts between the two governments at all levels have increased. When Brajesh Mishra visited the United States just before the Indo-Pak summit, he had a meeting with the CIA Director. This is the first time such an official and open meeting has been held between a high level functionary such as the Prime Minister's principal secretary and National Security Adviser with the CIA boss. 
+
+The Chairman of the US Joint Chiefs Staff, Shelton, who is the highest ranking military officer in the US visited India in July. This is the first time that the Chief of the overall armed forces in the US has visited India. Earlier regular visits were being 
+
+7
+
+made by the Pacific Area Commander. Steps are being taken to restore military ties between the two countries as per the 1995 military cooperation pact which was halted after the Pokhran tests. America is now willing to resume military ties. This will involve reviving the joint steering committees between the three wings of the armed forces, the navy, army and the air force; the apex coordination body of the defence secretaries of India and US is also to be revived. The US is pressing for access to sensitive military installations in the border areas. Jaswant Singh during his visit to Australia in May inadvertently admitted that America utilising India's military bases can be considered at a future date. 
+
+The United States is not willing to remove the sanctions on India acquiring sophisticated technology and military equipment from the US. However, it is keen to resume military exchange programmes and joint training so that it can penetrate the Indian armed forces, have access to military personnel and monitor developments within the armed forces. This American access will have dangerous implications for the integrity of the armed forces. 
+
+We have already strongly opposed the Vajpayee government's support to the National Missile Defence plan. As a result of this pro-imperialist policy, the US is able to increasingly influence India's policies in various spheres. We should take up as a priority, a campaign against this dangerous collaboration between India and the USA. 
+
+# **Naga Ceasefire & Manipur Crisis** 
+
+A serious situation developed in Manipur after the announcement of the ceasefire accord between the central government and the NSCN (I-M). This was an extension of the earlier ceasefire accord but an important provision which was added stated that the ceasefire is now applicable to all Naga areas outside the state of Nagaland. There is a Naga population in the hills of Manipur and they have a presence in Assam, Meghalaya and Arunachal Pradesh too. Since the NSCN(I-M) has been advocating a Greater Nagaland from the outset, in Manipur there has always been total opposition to any acceptance of this concept in any official agreement. The Meitei population of Manipur has always suspected the NSCN(I-M) claim to be a conspiracy to break up Manipur and destroy its identity. 
+
+The ceasefire decision was taken without consulting the state governments of the other North-Eastern states. The Polit Bureau statement strongly protested against this and so did the Tripura government. The Assam Chief Minister also strongly protested against this decision. 
+
+The Central government knew very well the strong feelings in Manipur. Despite this, it went ahead with accepting the NSCN(I-M) demand. This led to widespread disturbances. In protests, the legislative building was burnt down and MLAs attacked. Twelve people died in the police firing in Imphal. The people refused to tolerate any of the leaders unless they got the accord revised. 
+
+Faced with the popular upsurge, the central government was forced to announce a review of the accord. The agitation in Manipur continued demanding the scrapping of the territorial extension of the ceasefire. Finally, after consulting the Chief Ministers of the North Eastern states, the Centre announced that the clause extending the ceasefire outside Nagaland would be deleted. 
+
+While continuing talks with the NSCN(I-M) leadership, it is necessary to insist that the NSCN stop assisting the extremist groups outside Nagaland such as the NLFT in Tripura and the ULFA in Assam. 
+
+During the popular agitation in Manipur a Left parties MPs team visited the state in the beginning of July. The CPI(M) and CPI took a firm position against the extension of the ceasefire outside Nagaland and this stand has been appreciated by the people 
+
+8
+
+# in Manipur. 
+
+# **Tamilnadu Developments** 
+
+The arrest of Karunanidhi, former Chief Minister on corruption charges snowballed into a major issue. The manner in which he was arrested in the middle of the night led to widespread condemnation. Our Party disapproved of the manner of the arrest and said that it smacked of vindictive action. At the same time we also stated that cases of corruption should be pursued strictly through the legal process. All other parties which allied with AIADMK Jayalalitha during the elections -- TMC, CPI and PMK -- also came out condemning the arrest of Karunanidhi. The way the Jayalalitha government effected the arrest, and prior to that, the way the media was tackled, provided a handle to the central government and the NDA. The DMK sought to use the arrest of Karunanidhi to generate sympathy and to recover some ground after its rout in the last assembly elections. 
+
+The arrest of Union ministers, Murasoli Maran and Balu were utilised as the pretext for intervention. Since the Vajpayee government knew very well that Article 356 could not be utilised they chose the path of first removing the Governor in a blatant act of partisanship and proceeded to send a directive to the state government to take action against the erring police officers. The situation was defused when the two central ministers were released and the charges dropped against them. 
+
+Within the NDA, there was vociferous demand for action against the state government. By its act of recalling the Governor, Fathema Beevi, the BJP-led government has once again shown its contempt for federal norms. 
+
+The state government has constituted an enquiry commission with a retired judge. The DMK has announced that it will boycott the enquiry. Under the pressure of the DMK, the Central government requisitioned the services of three police officers belonging to the IPS cadre. They include the Commissioner of Police of Chennai city. This unilateral action of the Centre has been done transgressing the rules which require concurrence of the state government for transferring such officials. The Tamilnadu government has refused to accede to the request. This act of the Vajpayee government is another violation of the federal principle which has not found support among even those who criticise the state government for its act of arresting Karunanidhi. 
+
+# **Strains in NDA alliance** 
+
+The tussle between the BJP and the Samata on who should form the Manipur government presented a sordid spectacle before the people. The Samata had been able to form a government earlier after mass defections from the Congress to the party. Subsequently, the Koijam ministry became a minority when these defectors again defected to the BJP. The BJP was willing to go ahead to form the government but the Samata Party threatened to withdraw from the NDA itself if such an event occurred. Finally, the compromise was that neither would try to form the government and the state was put under President's rule utilising Article 356. The CPI(M) and other opposition parties demanded the immediate dissolution of the assembly and the holding of fresh elections as the only democratic option. 
+
+Apart from the BJP-Samata quarrel, another controversy erupted between the Shiv Sena and the BJP. The Shiv Sena MP, Sanjay Nirupam's specific charges of PMO's involvement in the UTI scam upset the BJP. It demanded an apology from the MP (which has now been rendered) and threatened to break the alliance in Maharashtra if this was not done. Vajpayee enacted a drama by threatening to resign. This was meant to shore up the unity of the NDA before the parliament session and ensure that the allies fall in line. 
+
+9
+
+The NDA had seen the desertions of the PMK and the Trinamul Congress before the assembly elections in West Bengal and Tamilnadu. After the defeat of the Trinamul and the PMK's parting of ways with the AIADMK, both these parties are now seeking to reenter into the NDA. Vajpayee as the Prime Minister is keen to get as many parties in the NDA to shore up the numbers in parliament. But the spectacle of parties walking in and out of the NDA and only opportunism ruling has further eroded the image of the ruling alliance. 
+
+# **Tripura: Extremist Attacks** 
+
+In the past month, the NLFT has intensified its attacks on CPI(M) and Gana Mukti Parishad cadres. As the tribal people have witnessed the bankruptcy of the IPFT leadership in the Autonomous District Council, their patrons, the NLFT, sensing the IPFT's isolation, is stepping into target CPI(M) tribal leaders. In the course of a week, six important leaders of the CPI(M) and the GMP and the wife of one of the comrades were assassinated by the terrorist gangs. The tribal people are responding to the Party and defying the NLFT-IPFT's threats and this is the reason for the desperate and inhuman tactics of the extremists. 
+
+# **Uttar Pradesh Situation** 
+
+The atmosphere in UP is geared towards the forthcoming assembly elections which will most probably be held in end February -- early March next year. 
+
+Rajnath Singh has announced that the government will allot separate quotas for the most backward among the OBCs and the scheduled castes. For this a committee has been set up. The BJP hopes this will create divisions within the OBCs and SCs and benefit it. In the last three months, UP has witnessed a series of brutal attacks on dalits. In such attacks five dalits were killed in Aligarh district and five members of a family beaten to death in Fathehpur district. A shocking fact is that there have been rapes of 400 dalit women in the last year. UP alone accounts for more than half of the number of rapes of dalit women in the entire country. Under BJP-rule, the most naked form of upper caste terror has been unleashed. 
+
+The BJP has so far failed to recover lost ground despite various efforts made by the Chief Minister Rajnath Singh. The BJP decided to enter into an understanding with Ajit Singh's party and has inducted him into the Union cabinet to try and bolster its position in western UP. As it stands now, amongst the opposition, the Samajwadi Party is the front runner followed by the BSP. The Congress is not in a position to make any significant dent. 
+
+# **People's Front** 
+
+At the time of the last C.C. meeting, the People's Front had released a common minimum programme. Since then at the initiative of the Samajwadi Party four rallies of the People's Front have been held in Uttar Pradesh in Banda, Barielly, Jhansi and Muzzafarnagar. Though these were held on the platform of the Peoples Front, it has been the Samajwadi Party which took the decision to hold these rallies and made all the organisational preparations. We have participated in these rallies. 
+
+# **Communal Attacks** 
+
+The BJP-RSS combine and its various outfits continue to exploit any issue or dispute to create communal tensions and conflicts. In Rajasthan, an old mosque was demolished by a mob in Asind in Bhilwara district and an idol placed there for a temple. The police and district authorities did not intervene in time despite sufficient advance indications. 
+
+In U.P. during this period there have been communal attacks on minorities in 
+
+10
+
+Sidharthnagar, Moradabad and Muzzafarnagar districts. The RSS is intent on creating communal polarisation in view of the assembly elections. 
+
+There is a recurrence of attacks on Christians. A nun was shot and badly injured near Ujjain in Madhya Pradesh. A priest was severely assaulted in Thane, Maharashtra by the Bajrang Dal. The BJP leadership openly patronises and encourages the Bajrang Dal. Recently, Uma Bharati, a minister in the Union cabinet announced she would become a member of the Dal. 
+
+# **Communalising Education** 
+
+The Vajpayee government has not relaxed its drive to introduce communal and obscurantist values in the education system. The University Grants Commission has decreed that astrology and vedic rituals can be taught as courses in the universities. 26 universities have decided to take astrology as a subject as a result. 
+
+The naked way in which the RSS is using institutions of higher education came out in the open with the sacking of M.L. Sondhi as Chairman of the Indian Council of Social Science Research. Though a BJP man, Sondhi has gone on record that it is the RSS hardliners appointed in the council who are responsible for his removal as he refused to follow their diktat. 
+
+The efforts to push through **a "National Curriculum Framework for School Education** " without the approval of the Central Advisory Board of Education has been opposed by all the non-NDA state education ministers. 
+
+# **Coercive Population Policy** 
+
+While the central government has decided to do away with targets for population control, the approach of the central government and other state governments are still undemocratic and repressive in this regard. The governments of Andhra Pradesh, Uttar Pradesh, Rajasthan, Madhya Pradesh, Gujarat and Maharashtra have declared population policies which in some way or the other deprive the poor of their rights because they do not observe the two-child norm. In these states, punishment for those with more than two children include denial of ration cards, ineligibility for government jobs, denial of benefits under anti-poverty schemes, denial of loans and the right to receive land from the government. Another feature of such legislation is that panchayat funds for welfare will be cut off for a particular village if the two-child norm is not observed. Some states like Haryana, Punjab and Delhi have already adopted legislation to disqualify those with more than two children as candidates for elections at the panchayat level. 
+
+Such coercive measures target those who are victims of poverty. It is well known that the poorer families have more children since there is no guarantee how many of them would live with the abysmal health facilities and nutritional standards leading to very high infant mortality rates. All the democratic forces must oppose such measures which are meant to deprive the people of their basic rights. Family planning programmes must be popularised through widespread campaigns and voluntary community participation. 
+
+# **UN Conference in Durban** 
+
+The UN Commission on Human Rights is holding a "World Conference on Racism, Racial Discrimination, Xenophobia and Related Intolerance" at Durban in South Africa in end August-September. 
+
+In connection with this, numerous dalit organisations and democratic rights groups in India have been demanding that the Indian government take up the question of caste oppression as part of the agenda. 
+
+The CPI(M) has supported this demand. While caste cannot be equated with race or 
+
+11
+
+casteism with racism, discrimination based on birth (descent) and occupation falls under the purview of the theme of the conference. Caste oppression is an affront to basic human dignity and its practice in India and elsewhere is a fit subject for a conference of the type convened by the UN Commission on Human Rights. 
+
+The stand of the BJP-led government is wrong. It cannot seek to suppress the issue by claiming it is an "internal" or "national" issue. 
+
+# **Flood Damage** 
+
+With the monsoons, the perennial problem of floods have badly affected some states. In Kerala, heavy rains caused severe damage. 105 people were killed and thousands of houses destroyed. The agriculture and plantation sector alone suffered a loss of Rs. 150 crore. The total loss is estimated at over Rs. 500 crore. The Central Government announced a paltry Rs. 26 crore from the Calamity Relief Fund which is totally inadequate. 
+
+Orissa has been subjected to severe floods, the worst since independence. The entire delta area of the Mahanadi river and its tributaries have been flooded. 82 lakh people have been badly affected. The state government failed to tackle the situation. Even weeks after the floods there are insufficient motorised boats. The BJD-BJP government which should have drawn from the experience of the cyclone relief work has utterly failed to set up an effective disaster management agency. 
+
+In Bihar too floods have ravaged 15 districts affecting 7 lakh people. 
+
+Such regular flood havoc calls for implementing a comprehensive flood control plan. This cannot be a state based scheme and has to be national in character. The central government must initiate a coordinated flood control project in consultation with the states most affected. 
+
+# **All India Protest Action** 
+
+The Central trade unions consisting of the CITU, AITUC, HMS and others gave a united call to campaign on a five point charter of demands and to prepare for an all India strike. The BMS and the INTUC which has so far not been joining such united platforms were also party to the joint call. Following this call, state level conventions have been held in many states. This was followed by joint demonstrations all over the country on 24th July. However, the BMS and the INTUC have so far not agreed to a date for an all India strike call. 
+
+All efforts should be made to step up the united campaign and to call for a national convention where the issue of strike can be decided. The effort is to see that all the central trade unions unitedly move for a general strike. A powerful campaign would help mobilise all sections of the workers and build pressure from below for the strike. 
+
+A significant protest action was the one-day strike on July 25 by the state government employees and sections of central government staff. The call was against privatisation and downsizing of government services and met with a good response in many states. Such united strike struggles must be carried forward. 
+
+The effort should be to see that the united trade union call becomes a powerful all India mass action with the participation of all other mass organisations representing the peasantry, women, youth, students and employees. 
+
+# **Tasks** 
+
+1. Given the serious economic crisis and its adverse impact on the people and the BJP-led government's implementation of anti-people policies and the spate of 
+
+12
+
+financial scandals, the Party should conduct its own independent campaign to expose the BJP-led government's economic policies and to mobilise people against it. 
+
+2. Given the dangerous pro-imperialist orientation of the BJP-led government in foreign policy, military collaboration and succumbing to US influence, it is necessary for the Party to conduct an all-India campaign to arouse the people against this danger. 
+
+3. The efforts for an all-India united protest action by all the trade unions and mass organisations should be fully supported and the Party should gear up to make such an all-India action a success. 
+
+The Central Committee decided to launch a countrywide campaign on the slogan " **Scrap these Policies or Quit** ". The month of September should be utilised to mount a powerful campaign against the anti-people, anti-national economic policies, the pro-imperialist stance of the Vajpayee government; its patronage and involvement in corruption scandals and financial scams and the communalisation of education and attacks on minorities. 
+
+The Central Committee calls upon the entire Party to conduct this fortnight long campaign from 7th to 21st September throughout the country. 
+
+The Party will mobilise workers, peasants, youth, students, women, artisans and all sections of the working people to picket central government offices and court arrest between September 25 to 27. 
+
+13

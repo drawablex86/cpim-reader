@@ -1,15 +1,16 @@
 ---
-title: "Save Farmers and Rural Workers"
-slug: "2019-03-30-save-farmers-and-rural-workers"
-date: "2019-03-30"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/save_farmers_and_rural_workers.pdf"
-source_post_url: "https://cpim.org/save-farmers-and-rural-workers/"
+title: Save Farmers and Rural Workers
+slug: 2019-03-30-save-farmers-and-rural-workers
+date: '2019-03-30'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/save_farmers_and_rural_workers.pdf
+source_post_url: https://cpim.org/save-farmers-and-rural-workers/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "5f7921c12f0c2ad8fc4cb7640411ad770e5e60a6d5a8dfa38d4bba4e591747fb"
+extraction_method: pymupdf4llm
+sha256: 5f7921c12f0c2ad8fc4cb7640411ad770e5e60a6d5a8dfa38d4bba4e591747fb
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

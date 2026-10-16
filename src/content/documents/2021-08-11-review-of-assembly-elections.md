@@ -1,15 +1,16 @@
 ---
-title: "Review of Assembly Elections"
-slug: "2021-08-11-review-of-assembly-elections"
-date: "2021-08-11"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2021-august-assemblies-election-review-cc.pdf"
-source_post_url: "https://cpim.org/review-assembly-elections-0/"
+title: Review of Assembly Elections
+slug: 2021-08-11-review-of-assembly-elections
+date: '2021-08-11'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2021-august-assemblies-election-review-cc.pdf
+source_post_url: https://cpim.org/review-assembly-elections-0/
 page_count: 26
-extraction_method: "pymupdf4llm"
-sha256: "03766625740db08b5289252a822f9bfa828158324c578603714f0d0719379a15"
+extraction_method: pymupdf4llm
+sha256: 03766625740db08b5289252a822f9bfa828158324c578603714f0d0719379a15
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

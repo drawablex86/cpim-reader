@@ -1,15 +1,17 @@
 ---
-title: "Inaugural speech by Comrade Sitaram Yechury, General Secretary, at 23rd Party Congress of CPI(M)"
-slug: "2022-04-06-inaugural-speech-by-comrade-sitaram-yechury-general-secretary-at-23rd-"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/comrade_sitaram_yechury_delivers_inaugural_address.pdf"
-source_post_url: "https://cpim.org/documents-inaugural-speech-comrade-sitaram-yechury-general-secretary-23rd-party-congress-cpim/"
+title: Inaugural speech by Comrade Sitaram Yechury, General Secretary, at 23rd Party
+  Congress of CPI(M)
+slug: 2022-04-06-inaugural-speech-by-comrade-sitaram-yechury-general-secretary-at-23rd-
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/comrade_sitaram_yechury_delivers_inaugural_address.pdf
+source_post_url: https://cpim.org/documents-inaugural-speech-comrade-sitaram-yechury-general-secretary-23rd-party-congress-cpim/
 page_count: 6
-extraction_method: "pymupdf4llm"
-sha256: "3505a1788ea6d794501b4acce9ac308c0eedb02d1670e715ee95e613a16bfc0a"
+extraction_method: pymupdf4llm
+sha256: 3505a1788ea6d794501b4acce9ac308c0eedb02d1670e715ee95e613a16bfc0a
+language: en
 ---
 
 # Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

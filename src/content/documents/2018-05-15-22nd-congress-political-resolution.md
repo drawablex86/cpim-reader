@@ -1,15 +1,16 @@
 ---
-title: "22nd Congress Political Resolution"
-slug: "2018-05-15-22nd-congress-political-resolution"
-date: "2018-05-15"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2018-18cong-pol-res-adopted.pdf"
-source_post_url: "https://cpim.org/documents-22nd-congress-political-resolution/"
+title: 22nd Congress Political Resolution
+slug: 2018-05-15-22nd-congress-political-resolution
+date: '2018-05-15'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2018-18cong-pol-res-adopted.pdf
+source_post_url: https://cpim.org/documents-22nd-congress-political-resolution/
 page_count: 55
-extraction_method: "pymupdf4llm"
-sha256: "ca0d1ca82ed3ed5edc3e425740c744962968020b21a70a900d647bc96aca4ae9"
+extraction_method: pymupdf4llm
+sha256: ca0d1ca82ed3ed5edc3e425740c744962968020b21a70a900d647bc96aca4ae9
+language: en
 ---
 
 # **Political Resolution Adopted by the 22**<sup>**nd**</sup> **Congress Of the Communist Party of India (Marxist) Hyderabad, April 18-22, 2018** 

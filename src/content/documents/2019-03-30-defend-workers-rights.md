@@ -1,15 +1,16 @@
 ---
-title: "Defend Workers’ Rights"
-slug: "2019-03-30-defend-workers-rights"
-date: "2019-03-30"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/defend_workers_ri.pdf"
-source_post_url: "https://cpim.org/defend-workers’-rights/"
+title: Defend Workers’ Rights
+slug: 2019-03-30-defend-workers-rights
+date: '2019-03-30'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/defend_workers_ri.pdf
+source_post_url: https://cpim.org/defend-workers’-rights/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "7392405da75c818636cde3d18ed4d27a3e87ae8f1ccac06e39573f78e404c892"
+extraction_method: pymupdf4llm
+sha256: 7392405da75c818636cde3d18ed4d27a3e87ae8f1ccac06e39573f78e404c892
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

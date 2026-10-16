@@ -1,15 +1,16 @@
 ---
-title: "For a Secular, United India"
-slug: "2019-03-30-for-a-secular-united-india"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/for_the_secular_un.pdf"
-source_post_url: "https://cpim.org/secular-united-india/"
+title: For a Secular, United India
+slug: 2019-03-30-for-a-secular-united-india
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/for_the_secular_un.pdf
+source_post_url: https://cpim.org/secular-united-india/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "e9deeeab4fcdb4c1d2b67f0c65fb3ee4b7e2ec1140f7e968a7e620adf5a296fe"
+extraction_method: pymupdf4llm
+sha256: e9deeeab4fcdb4c1d2b67f0c65fb3ee4b7e2ec1140f7e968a7e620adf5a296fe
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

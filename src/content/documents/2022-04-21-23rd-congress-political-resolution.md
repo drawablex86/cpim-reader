@@ -1,15 +1,16 @@
 ---
-title: "23rd Congress Political Resolution"
-slug: "2022-04-21-23rd-congress-political-resolution"
-date: "2022-04-21"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2022-23congress-pol-resolution.pdf"
-source_post_url: "https://cpim.org/documents-23rd-congress-political-resolution/"
+title: 23rd Congress Political Resolution
+slug: 2022-04-21-23rd-congress-political-resolution
+date: '2022-04-21'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2022-23congress-pol-resolution.pdf
+source_post_url: https://cpim.org/documents-23rd-congress-political-resolution/
 page_count: 41
-extraction_method: "pymupdf4llm"
-sha256: "6ae3af86d2ed9395f6aac2b03e43af632c372a05847095bb6ea282d75e4b90e2"
+extraction_method: pymupdf4llm
+sha256: 6ae3af86d2ed9395f6aac2b03e43af632c372a05847095bb6ea282d75e4b90e2
+language: en
 ---
 
 # **Political Resolution** 

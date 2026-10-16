@@ -1,15 +1,16 @@
 ---
-title: "Resolution Calling for Nationwide Protest Against Petrol and Diesel Price Hikes"
-slug: "2022-04-07-resolution-calling-for-nationwide-protest-against-petrol-and-diesel-pr"
-date: "2022-04-07"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/resolution.pdf"
-source_post_url: "https://cpim.org/documents-resolution-calling-nationwide-protest-against-petrol-and-diesel-price-hikes/"
+title: Resolution Calling for Nationwide Protest Against Petrol and Diesel Price Hikes
+slug: 2022-04-07-resolution-calling-for-nationwide-protest-against-petrol-and-diesel-pr
+date: '2022-04-07'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/resolution.pdf
+source_post_url: https://cpim.org/documents-resolution-calling-nationwide-protest-against-petrol-and-diesel-price-hikes/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "f4d92e6f8520c6f14b144bb1aed175a836c68609c06d5a25647b0314efd11177"
+extraction_method: pymupdf4llm
+sha256: f4d92e6f8520c6f14b144bb1aed175a836c68609c06d5a25647b0314efd11177
+language: en
 ---
 
 Resolution Calling for Nationwide Protest Against Petrol and Diesel Price Hikes (Adopted by the 23rd Congress on April 7, 2022) 

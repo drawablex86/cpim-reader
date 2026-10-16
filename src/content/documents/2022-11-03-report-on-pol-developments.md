@@ -1,15 +1,16 @@
 ---
-title: "Report on Pol. Developments"
-slug: "2022-11-03-report-on-pol-developments"
-date: "2022-11-03"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/october2022-cc-report.pdf"
-source_post_url: "https://cpim.org/report-pol-developments/"
+title: Report on Pol. Developments
+slug: 2022-11-03-report-on-pol-developments
+date: '2022-11-03'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/october2022-cc-report.pdf
+source_post_url: https://cpim.org/report-pol-developments/
 page_count: 23
-extraction_method: "pymupdf4llm"
-sha256: "0bfa6f59f2a7d0a6613353cabe9b489fe70aa0e0a7da20b20c5ad779461190cd"
+extraction_method: pymupdf4llm
+sha256: 0bfa6f59f2a7d0a6613353cabe9b489fe70aa0e0a7da20b20c5ad779461190cd
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

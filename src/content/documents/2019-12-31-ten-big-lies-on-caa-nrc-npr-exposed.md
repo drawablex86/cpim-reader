@@ -1,15 +1,16 @@
 ---
-title: "Ten Big Lies on CAA, NRC & NPR Exposed"
-slug: "2019-12-31-ten-big-lies-on-caa-nrc-npr-exposed"
-date: "2019-12-31"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2019-dec-caa-npr-nrc-booklet.pdf"
-source_post_url: "https://cpim.org/ten-big-lies-caa-nrc-npr-exposed/"
+title: Ten Big Lies on CAA, NRC & NPR Exposed
+slug: 2019-12-31-ten-big-lies-on-caa-nrc-npr-exposed
+date: '2019-12-31'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2019-dec-caa-npr-nrc-booklet.pdf
+source_post_url: https://cpim.org/ten-big-lies-caa-nrc-npr-exposed/
 page_count: 8
-extraction_method: "pymupdf4llm"
-sha256: "94a1c770343ad921cfd774c6bc40aa89484e39073f34ae1ee2842b3c1b6f1e2e"
+extraction_method: pymupdf4llm
+sha256: 94a1c770343ad921cfd774c6bc40aa89484e39073f34ae1ee2842b3c1b6f1e2e
+language: en
 ---
 
 **Booklet** 

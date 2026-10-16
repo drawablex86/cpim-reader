@@ -1,15 +1,16 @@
 ---
-title: "Messages of Greetings from Fraternal Parties for the 24th CPI(M) Party Congress"
-slug: "2025-04-02-messages-of-greetings-from-fraternal-parties-for-the-24th-cpi-m-party-"
-date: "2025-04-02"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/04/Greetings-Combined.pdf"
-source_post_url: "https://cpim.org/messages-of-greetings-from-fraternal-parties/"
+title: Messages of Greetings from Fraternal Parties for the 24th CPI(M) Party Congress
+slug: 2025-04-02-messages-of-greetings-from-fraternal-parties-for-the-24th-cpi-m-party-
+date: '2025-04-02'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/04/Greetings-Combined.pdf
+source_post_url: https://cpim.org/messages-of-greetings-from-fraternal-parties/
 page_count: 48
-extraction_method: "pymupdf4llm"
-sha256: "1db16e10cde5e7ddded6d28242141c6517b1b694da5e8ade554acc09f0cc7c78"
+extraction_method: pymupdf4llm
+sha256: 1db16e10cde5e7ddded6d28242141c6517b1b694da5e8ade554acc09f0cc7c78
+language: en
 ---
 
 Communist Party of India (Marxist) 24<sup>th</sup> Congress, Sitaram yechury nagar, Madurai, tamilnadu April 02-06, 2025 

@@ -1,15 +1,16 @@
 ---
-title: "Kashmir Betrayed"
-slug: "2019-08-26-kashmir-betrayed"
-date: "2019-08-26"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20190826-kashmir-booklet.pdf"
-source_post_url: "https://cpim.org/kashmir-betrayed/"
+title: Kashmir Betrayed
+slug: 2019-08-26-kashmir-betrayed
+date: '2019-08-26'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20190826-kashmir-booklet.pdf
+source_post_url: https://cpim.org/kashmir-betrayed/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "57499f18c33533244f30e0078cc5fbf23d623bc8230ca52eb1fd8c31e168d60d"
+extraction_method: pymupdf4llm
+sha256: 57499f18c33533244f30e0078cc5fbf23d623bc8230ca52eb1fd8c31e168d60d
+language: en
 ---
 
 # Fraud on Constitution 

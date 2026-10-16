@@ -1,15 +1,16 @@
 ---
-title: "23rd Congress: Draft Political Resolution"
-slug: "2022-02-04-23rd-congress-draft-political-resolution"
-date: "2022-02-04"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20220204-dpr-23-congress.pdf"
-source_post_url: "https://cpim.org/documents-23rd-congress-draft-political-resolution/"
+title: '23rd Congress: Draft Political Resolution'
+slug: 2022-02-04-23rd-congress-draft-political-resolution
+date: '2022-02-04'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20220204-dpr-23-congress.pdf
+source_post_url: https://cpim.org/documents-23rd-congress-draft-political-resolution/
 page_count: 41
-extraction_method: "pymupdf4llm"
-sha256: "55b4f8767a64ebd23d36dd17c40831bae0f016425c21f1315c93f01120af309a"
+extraction_method: pymupdf4llm
+sha256: 55b4f8767a64ebd23d36dd17c40831bae0f016425c21f1315c93f01120af309a
+language: en
 ---
 
 # **Draft Political Resolution for 23**<sup>**rd**</sup> **Congress** 

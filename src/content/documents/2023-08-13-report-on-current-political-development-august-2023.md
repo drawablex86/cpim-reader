@@ -1,15 +1,16 @@
 ---
-title: "Report on Current Political Development: August 2023"
-slug: "2023-08-13-report-on-current-political-development-august-2023"
-date: "2023-08-13"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/202308-cc-report.pdf"
-source_post_url: "https://cpim.org/report-current-political-development-august-2023/"
+title: 'Report on Current Political Development: August 2023'
+slug: 2023-08-13-report-on-current-political-development-august-2023
+date: '2023-08-13'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/202308-cc-report.pdf
+source_post_url: https://cpim.org/report-current-political-development-august-2023/
 page_count: 25
-extraction_method: "pymupdf4llm"
-sha256: "5bff80fb8543a3753949674d39cdc884126e3e242702b470c453e4b978ce6975"
+extraction_method: pymupdf4llm
+sha256: 5bff80fb8543a3753949674d39cdc884126e3e242702b470c453e4b978ce6975
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

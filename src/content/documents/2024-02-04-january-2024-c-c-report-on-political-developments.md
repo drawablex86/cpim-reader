@@ -1,15 +1,16 @@
 ---
-title: "January 2024 C.C. Report on Political Developments"
-slug: "2024-02-04-january-2024-c-c-report-on-political-developments"
-date: "2024-02-04"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2024-january-report_on_some_political_developments.adopted.pdf"
-source_post_url: "https://cpim.org/documents-january-2024-cc-report-political-developments/"
+title: January 2024 C.C. Report on Political Developments
+slug: 2024-02-04-january-2024-c-c-report-on-political-developments
+date: '2024-02-04'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2024-january-report_on_some_political_developments.adopted.pdf
+source_post_url: https://cpim.org/documents-january-2024-cc-report-political-developments/
 page_count: 27
-extraction_method: "pymupdf4llm"
-sha256: "45e0c6507405b1a46a7d1e00324bd47e25881c67bbb2410f71bfba49d7fa8299"
+extraction_method: pymupdf4llm
+sha256: 45e0c6507405b1a46a7d1e00324bd47e25881c67bbb2410f71bfba49d7fa8299
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

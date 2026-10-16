@@ -1,15 +1,16 @@
 ---
-title: "Save Adivasis’ Jal, Jangal, Zameen"
-slug: "2019-03-30-save-adivasis-jal-jangal-zameen"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/save_adivasis.pdf"
-source_post_url: "https://cpim.org/save-adivasis’-jal-jangal-zameen/"
+title: Save Adivasis’ Jal, Jangal, Zameen
+slug: 2019-03-30-save-adivasis-jal-jangal-zameen
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/save_adivasis.pdf
+source_post_url: https://cpim.org/save-adivasis’-jal-jangal-zameen/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "bde64a09bfd207414def510d6be33e9a4322d454da3d7a20fb85731fabcb975d"
+extraction_method: pymupdf4llm
+sha256: bde64a09bfd207414def510d6be33e9a4322d454da3d7a20fb85731fabcb975d
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

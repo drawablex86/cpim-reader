@@ -1,15 +1,16 @@
 ---
-title: "Report on Political Developments"
-slug: "2018-12-21-report-on-political-developments"
-date: "2018-12-21"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20181212-pol-dev-report.pdf"
-source_post_url: "https://cpim.org/report-political-developments-22/"
+title: Report on Political Developments
+slug: 2018-12-21-report-on-political-developments
+date: '2018-12-21'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20181212-pol-dev-report.pdf
+source_post_url: https://cpim.org/report-political-developments-22/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "5cc54fe8124375ffa6df780b2441f479418b1e02656f908d375eaaef2e7d8e0d"
+extraction_method: pymupdf4llm
+sha256: 5cc54fe8124375ffa6df780b2441f479418b1e02656f908d375eaaef2e7d8e0d
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

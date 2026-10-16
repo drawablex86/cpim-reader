@@ -1,15 +1,16 @@
 ---
-title: "24th Congress Report on Organisation"
-slug: "2025-12-05-24th-congress-report-on-organisation"
-date: "2025-12-05"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/12/Report-on-Organisation-adopted-by-24th-Congress.pdf"
-source_post_url: ""
+title: 24th Congress Report on Organisation
+slug: 2025-12-05-24th-congress-report-on-organisation
+date: '2025-12-05'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/12/Report-on-Organisation-adopted-by-24th-Congress.pdf
+source_post_url: ''
 page_count: 88
-extraction_method: "vlm-openrouter"
-sha256: "03626f87430bf946315013c71c00e00b816d7eb6c5aeaa5be2ba4fa4b3a0d835"
+extraction_method: vlm-openrouter
+sha256: 03626f87430bf946315013c71c00e00b816d7eb6c5aeaa5be2ba4fa4b3a0d835
+language: en
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436** 

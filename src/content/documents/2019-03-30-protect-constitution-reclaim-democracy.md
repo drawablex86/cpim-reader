@@ -1,15 +1,16 @@
 ---
-title: "Protect Constitution, Reclaim Democracy"
-slug: "2019-03-30-protect-constitution-reclaim-democracy"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/protect_constitutition_reclaim.pdf"
-source_post_url: "https://cpim.org/protect-constitution-reclaim-democracy/"
+title: Protect Constitution, Reclaim Democracy
+slug: 2019-03-30-protect-constitution-reclaim-democracy
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/protect_constitutition_reclaim.pdf
+source_post_url: https://cpim.org/protect-constitution-reclaim-democracy/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "8226ead03ad9bc6193df82513700e5d4b1be96d4ebaf459449a794959ee07ef2"
+extraction_method: pymupdf4llm
+sha256: 8226ead03ad9bc6193df82513700e5d4b1be96d4ebaf459449a794959ee07ef2
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

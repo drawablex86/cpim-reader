@@ -1,15 +1,16 @@
 ---
-title: "Stop Sale Of Education"
-slug: "2019-03-30-stop-sale-of-education"
-date: "2019-03-30"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/stop_sale_of_education.pdf"
-source_post_url: "https://cpim.org/stop-sale-education/"
+title: Stop Sale Of Education
+slug: 2019-03-30-stop-sale-of-education
+date: '2019-03-30'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/stop_sale_of_education.pdf
+source_post_url: https://cpim.org/stop-sale-education/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "2688b6a808338edab0af8bf87a87c0ba36a09e6e3466606ecf848c8b591f607a"
+extraction_method: pymupdf4llm
+sha256: 2688b6a808338edab0af8bf87a87c0ba36a09e6e3466606ecf848c8b591f607a
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

@@ -1,15 +1,16 @@
 ---
-title: "Election Manifesto: 17th Lok Sabha 2019"
-slug: "2019-04-03-election-manifesto-17th-lok-sabha-2019"
-date: "2019-04-03"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2019-ls-elc-manifesto.pdf"
-source_post_url: "https://cpim.org/election-manifesto-17th-lok-sabha-2019/"
+title: 'Election Manifesto: 17th Lok Sabha 2019'
+slug: 2019-04-03-election-manifesto-17th-lok-sabha-2019
+date: '2019-04-03'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2019-ls-elc-manifesto.pdf
+source_post_url: https://cpim.org/election-manifesto-17th-lok-sabha-2019/
 page_count: 35
-extraction_method: "pymupdf4llm"
-sha256: "7ddb955c3e9da7a5c01f7c915137219337adc1d015b7a0fe9d338657552ea1ed"
+extraction_method: pymupdf4llm
+sha256: 7ddb955c3e9da7a5c01f7c915137219337adc1d015b7a0fe9d338657552ea1ed
+language: en
 ---
 
 # Communist Party of India (Marxist) Election Manifesto 17<sup>th</sup> Lok Sabha 2019 

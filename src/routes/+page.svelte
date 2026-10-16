@@ -13,7 +13,6 @@
   let { data } = $props();
 
   let selectedCategory = $state('All');
-  let selectedLanguage = $state<'all' | 'en' | 'hi'>('all');
   let searchQuery = $state('');
   let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
@@ -158,10 +157,6 @@
           selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
         if (!matchesCategory) return false;
 
-        const isHindi = doc.language === 'hi' || doc.title.toLowerCase().includes('hindi');
-        if (selectedLanguage === 'hi' && !isHindi) return false;
-        if (selectedLanguage === 'en' && isHindi) return false;
-
         if (!q) return true;
 
         const matchesMeta =
@@ -243,37 +238,6 @@
             {cat.toUpperCase()}
           </button>
         {/each}
-
-        <!-- Constructivist Language Toggle -->
-        <div class="lang-toggle-group" role="group" aria-label="Language Filter">
-          <button
-            type="button"
-            class="lang-pill-btn"
-            class:active={selectedLanguage === 'all'}
-            onclick={() => (selectedLanguage = 'all')}
-            title="Show all documents"
-          >
-            ALL
-          </button>
-          <button
-            type="button"
-            class="lang-pill-btn"
-            class:active={selectedLanguage === 'en'}
-            onclick={() => (selectedLanguage = 'en')}
-            title="English documents only"
-          >
-            EN
-          </button>
-          <button
-            type="button"
-            class="lang-pill-btn"
-            class:active={selectedLanguage === 'hi'}
-            onclick={() => (selectedLanguage = 'hi')}
-            title="Hindi (हिंदी) documents only"
-          >
-            HI (हिंदी)
-          </button>
-        </div>
       </div>
 
       <!-- Search Field & View Switcher -->
@@ -479,11 +443,7 @@
 
             <div class="card-footer">
               <div class="card-badges">
-                {#if doc.language === 'hi' || doc.title.toLowerCase().includes('hindi')}
-                  <span class="badge-tag lang-hi">HI</span>
-                {:else}
-                  <span class="badge-tag">EN</span>
-                {/if}
+                <span class="badge-tag">EN</span>
                 {#if doc.page_count}
                   <span class="badge-tag">{doc.page_count} PP</span>
                 {/if}
@@ -529,9 +489,6 @@
                 <td class="mono-cell">{doc.date}</td>
                 <td>
                   <span class="category-stamp">{doc.category}</span>
-                  {#if doc.language === 'hi' || doc.title.toLowerCase().includes('hindi')}
-                    <span class="badge-tag lang-hi" style="margin-left: 0.25rem;">HI</span>
-                  {/if}
                 </td>
                 <td>
                   <a href={`/docs/${doc.slug}`} class="table-title-link">

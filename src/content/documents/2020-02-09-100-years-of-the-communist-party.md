@@ -1,15 +1,16 @@
 ---
-title: "100 Years of the Communist Party"
-slug: "2020-02-09-100-years-of-the-communist-party"
-date: "2020-02-09"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/100_year_of_formation-booklet.pdf"
-source_post_url: "https://cpim.org/100-years-communist-party/"
+title: 100 Years of the Communist Party
+slug: 2020-02-09-100-years-of-the-communist-party
+date: '2020-02-09'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/100_year_of_formation-booklet.pdf
+source_post_url: https://cpim.org/100-years-communist-party/
 page_count: 28
-extraction_method: "pymupdf4llm"
-sha256: "df5364cb3b5b5011d90238f24ed1d1c144188c42fb68bf7eb46a7283c3c1cc3a"
+extraction_method: pymupdf4llm
+sha256: df5364cb3b5b5011d90238f24ed1d1c144188c42fb68bf7eb46a7283c3c1cc3a
+language: en
 ---
 
 # **Introduction** 

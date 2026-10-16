@@ -1,15 +1,16 @@
 ---
-title: "Report Adopted by Polit Bureau"
-slug: "2020-06-08-report-adopted-by-polit-bureau"
-date: "2020-06-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2020-june-pb-report.pdf"
-source_post_url: "https://cpim.org/report-adopted-polit-bureau/"
+title: Report Adopted by Polit Bureau
+slug: 2020-06-08-report-adopted-by-polit-bureau
+date: '2020-06-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2020-june-pb-report.pdf
+source_post_url: https://cpim.org/report-adopted-polit-bureau/
 page_count: 29
-extraction_method: "pymupdf4llm"
-sha256: "ac73066259e290f55380f468f2925247a21ee535d8abd2eb18d34d2431ff2996"
+extraction_method: pymupdf4llm
+sha256: ac73066259e290f55380f468f2925247a21ee535d8abd2eb18d34d2431ff2996
+language: en
 ---
 
 Communist Party of India (Marxist) 

@@ -1,15 +1,16 @@
 ---
-title: "Report on Political Developments"
-slug: "2023-02-06-report-on-political-developments"
-date: "2023-02-06"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2023-jan-cc-report_0.pdf"
-source_post_url: "https://cpim.org/report-political-developments-25/"
+title: Report on Political Developments
+slug: 2023-02-06-report-on-political-developments
+date: '2023-02-06'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2023-jan-cc-report_0.pdf
+source_post_url: https://cpim.org/report-political-developments-25/
 page_count: 21
-extraction_method: "pymupdf4llm"
-sha256: "d60f77a00c6a44f0b91cc24a5e4420570ad51fea5184a937d167db6e2f109216"
+extraction_method: pymupdf4llm
+sha256: d60f77a00c6a44f0b91cc24a5e4420570ad51fea5184a937d167db6e2f109216
+language: en
 ---
 
 # **Tel. 23344918,23747435 23363692, 23747436** 

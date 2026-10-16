@@ -1,15 +1,16 @@
 ---
-title: "Greetings from Left parties for the 23rd CPI(M) Party Congress"
-slug: "2022-04-06-greetings-from-left-parties-for-the-23rd-cpi-m-party-congress"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/greetings_from_left_parties.pdf"
-source_post_url: "https://cpim.org/documents-greetings-left-parties-23rd-cpim-party-congress/"
+title: Greetings from Left parties for the 23rd CPI(M) Party Congress
+slug: 2022-04-06-greetings-from-left-parties-for-the-23rd-cpi-m-party-congress
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/greetings_from_left_parties.pdf
+source_post_url: https://cpim.org/documents-greetings-left-parties-23rd-cpim-party-congress/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "35eac6258d5664671d7fbfa258ca8304d21b02dbe27806b51678aa75a0c3b073"
+extraction_method: pymupdf4llm
+sha256: 35eac6258d5664671d7fbfa258ca8304d21b02dbe27806b51678aa75a0c3b073
+language: en
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

@@ -1,15 +1,17 @@
 ---
-title: "Communist Parties of China, Cuba, Korea, Vietnam and Laos greet the 23rd Party Congress of the CPI(M)"
-slug: "2022-04-06-communist-parties-of-china-cuba-korea-vietnam-and-laos-greet-the-23rd-"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/greetings_from_communist_parties.pdf"
-source_post_url: "https://cpim.org/documents-communist-parties-china-cuba-korea-vietnam-and-laos-greet-23rd-party-congress-cpim/"
+title: Communist Parties of China, Cuba, Korea, Vietnam and Laos greet the 23rd Party
+  Congress of the CPI(M)
+slug: 2022-04-06-communist-parties-of-china-cuba-korea-vietnam-and-laos-greet-the-23rd-
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/greetings_from_communist_parties.pdf
+source_post_url: https://cpim.org/documents-communist-parties-china-cuba-korea-vietnam-and-laos-greet-23rd-party-congress-cpim/
 page_count: 5
-extraction_method: "pymupdf4llm"
-sha256: "a15f25a3fcfd48cab4c65b9a2b32d6a09a69d515d4e85beaefb3b061ff24e130"
+extraction_method: pymupdf4llm
+sha256: a15f25a3fcfd48cab4c65b9a2b32d6a09a69d515d4e85beaefb3b061ff24e130
+language: en
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

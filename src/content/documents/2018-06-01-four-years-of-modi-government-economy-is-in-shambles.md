@@ -1,15 +1,16 @@
 ---
-title: "Four Years of Modi Government : Economy is in shambles"
-slug: "2018-06-01-four-years-of-modi-government-economy-is-in-shambles"
-date: "2018-06-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/booklet_no._1.pdf"
-source_post_url: "https://cpim.org/four-years-modi-government-economy-shambles/"
+title: 'Four Years of Modi Government : Economy is in shambles'
+slug: 2018-06-01-four-years-of-modi-government-economy-is-in-shambles
+date: '2018-06-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/booklet_no._1.pdf
+source_post_url: https://cpim.org/four-years-modi-government-economy-shambles/
 page_count: 20
-extraction_method: "pymupdf4llm"
-sha256: "58a4e7bd60d88ea0146b42c6c04a0a5643b3fe9336c1cb180bd3ffea36ce1410"
+extraction_method: pymupdf4llm
+sha256: 58a4e7bd60d88ea0146b42c6c04a0a5643b3fe9336c1cb180bd3ffea36ce1410
+language: en
 ---
 
 ## **1** 

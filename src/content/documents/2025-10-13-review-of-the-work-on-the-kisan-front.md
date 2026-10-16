@@ -1,15 +1,16 @@
 ---
-title: "Review of the Work on the Kisan Front"
-slug: "2025-10-13-review-of-the-work-on-the-kisan-front"
-date: "2025-10-13"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/10/Review-of-the-Work-on-the-Kisan-Front-Adopted.pdf"
-source_post_url: "https://cpim.org/review-of-the-work-on-the-kisan-front/"
+title: Review of the Work on the Kisan Front
+slug: 2025-10-13-review-of-the-work-on-the-kisan-front
+date: '2025-10-13'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/10/Review-of-the-Work-on-the-Kisan-Front-Adopted.pdf
+source_post_url: https://cpim.org/review-of-the-work-on-the-kisan-front/
 page_count: 37
-extraction_method: "pymupdf4llm"
-sha256: "aade28462e8cf3d2f65e0e2443d7a87a31f16a5a1ed6445f491217525c9b52db"
+extraction_method: pymupdf4llm
+sha256: aade28462e8cf3d2f65e0e2443d7a87a31f16a5a1ed6445f491217525c9b52db
+language: en
 ---
 
 ## **Tel. 23344918,23747435 23363692, 23747436** 

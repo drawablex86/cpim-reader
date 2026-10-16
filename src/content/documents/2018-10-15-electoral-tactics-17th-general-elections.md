@@ -1,15 +1,16 @@
 ---
-title: "Electoral Tactics — 17th General Elections"
-slug: "2018-10-15-electoral-tactics-17th-general-elections"
-date: "2018-10-15"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2018-oct-cc-electoral-tactics.pdf"
-source_post_url: "https://cpim.org/electoral-tactics-17th-general-elections/"
+title: Electoral Tactics — 17th General Elections
+slug: 2018-10-15-electoral-tactics-17th-general-elections
+date: '2018-10-15'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2018-oct-cc-electoral-tactics.pdf
+source_post_url: https://cpim.org/electoral-tactics-17th-general-elections/
 page_count: 6
-extraction_method: "pymupdf4llm"
-sha256: "484260f8e8acad6d015096ead170d58563dd9e087f156792fb80596bfc912ef3"
+extraction_method: pymupdf4llm
+sha256: 484260f8e8acad6d015096ead170d58563dd9e087f156792fb80596bfc912ef3
+language: en
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

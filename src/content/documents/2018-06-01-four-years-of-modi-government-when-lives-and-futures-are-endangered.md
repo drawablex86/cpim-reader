@@ -1,15 +1,16 @@
 ---
-title: "Four Years of Modi Government : When Lives and Futures are Endangered"
-slug: "2018-06-01-four-years-of-modi-government-when-lives-and-futures-are-endangered"
-date: "2018-06-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/booklet_no._4.pdf"
-source_post_url: "https://cpim.org/four-years-modi-government-when-lives-and-futures-are-endangered/"
+title: 'Four Years of Modi Government : When Lives and Futures are Endangered'
+slug: 2018-06-01-four-years-of-modi-government-when-lives-and-futures-are-endangered
+date: '2018-06-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/booklet_no._4.pdf
+source_post_url: https://cpim.org/four-years-modi-government-when-lives-and-futures-are-endangered/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "a97d424c0b075a6a03f7c6aff2cfc0152ec01b2d00429b685873b56ed1289e1f"
+extraction_method: pymupdf4llm
+sha256: a97d424c0b075a6a03f7c6aff2cfc0152ec01b2d00429b685873b56ed1289e1f
+language: en
 ---
 
 ## **4** 

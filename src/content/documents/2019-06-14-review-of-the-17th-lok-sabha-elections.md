@@ -1,15 +1,16 @@
 ---
-title: "Review of the 17th Lok Sabha Elections"
-slug: "2019-06-14-review-of-the-17th-lok-sabha-elections"
-date: "2019-06-14"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2019-ls-election-review_0.pdf"
-source_post_url: "https://cpim.org/review-17th-lok-sabha-elections/"
+title: Review of the 17th Lok Sabha Elections
+slug: 2019-06-14-review-of-the-17th-lok-sabha-elections
+date: '2019-06-14'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2019-ls-election-review_0.pdf
+source_post_url: https://cpim.org/review-17th-lok-sabha-elections/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "9e2081d97c58f524ab7d1c8697f544f11a1aa16272fa15366be86b4091a48a8d"
+extraction_method: pymupdf4llm
+sha256: 9e2081d97c58f524ab7d1c8697f544f11a1aa16272fa15366be86b4091a48a8d
+language: en
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

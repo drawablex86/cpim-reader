@@ -1,15 +1,17 @@
 ---
-title: "Intervening Application in Writ Petition Challenging Validity of the Places of Worship"
-slug: "2024-12-09-intervening-application-in-writ-petition-challenging-validity-of-the-p"
-date: "2024-12-09"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2024/12/Intervening-Application-Writ-Petition-CPIM.pdf"
-source_post_url: "https://cpim.org/intervening-application-in-writ-petition-challenging-validity-of-the-places-of-worship/"
+title: Intervening Application in Writ Petition Challenging Validity of the Places
+  of Worship
+slug: 2024-12-09-intervening-application-in-writ-petition-challenging-validity-of-the-p
+date: '2024-12-09'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2024/12/Intervening-Application-Writ-Petition-CPIM.pdf
+source_post_url: https://cpim.org/intervening-application-in-writ-petition-challenging-validity-of-the-places-of-worship/
 page_count: 17
-extraction_method: "pymupdf4llm"
-sha256: "20206327bc8a084771c59eb93e31b56b37c43de463b8252d32438b625e0318d8"
+extraction_method: pymupdf4llm
+sha256: 20206327bc8a084771c59eb93e31b56b37c43de463b8252d32438b625e0318d8
+language: en
 ---
 
 <!-- Start of picture text -->

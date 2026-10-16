@@ -1,15 +1,16 @@
 ---
-title: "2023 April C.C. Report"
-slug: "2023-05-12-2023-april-c-c-report"
-date: "2023-05-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/april-2023-cc-report_on_certain_political_developments.adopted.pdf"
-source_post_url: "https://cpim.org/documents-2023-april-cc-report/"
+title: 2023 April C.C. Report
+slug: 2023-05-12-2023-april-c-c-report
+date: '2023-05-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/april-2023-cc-report_on_certain_political_developments.adopted.pdf
+source_post_url: https://cpim.org/documents-2023-april-cc-report/
 page_count: 24
-extraction_method: "pymupdf4llm"
-sha256: "f54e3464b3f2e12a87382b0ee8d8564cd71103ffc5d39e670e2e0b34b77e4ac1"
+extraction_method: pymupdf4llm
+sha256: f54e3464b3f2e12a87382b0ee8d8564cd71103ffc5d39e670e2e0b34b77e4ac1
+language: en
 ---
 
 # **_Tel. 23344918,23747435_** 

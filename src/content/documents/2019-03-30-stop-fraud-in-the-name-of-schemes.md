@@ -1,15 +1,16 @@
 ---
-title: "Stop Fraud In The Name Of Schemes"
-slug: "2019-03-30-stop-fraud-in-the-name-of-schemes"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/stop_fraud_in_the_name_of_schemes.pdf"
-source_post_url: "https://cpim.org/stop-fraud-name-schemes/"
+title: Stop Fraud In The Name Of Schemes
+slug: 2019-03-30-stop-fraud-in-the-name-of-schemes
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/stop_fraud_in_the_name_of_schemes.pdf
+source_post_url: https://cpim.org/stop-fraud-name-schemes/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "2dfb2e36a2d675440d5f1067001f3357b8171bfc6217b0464c5942ac2552a5f9"
+extraction_method: pymupdf4llm
+sha256: 2dfb2e36a2d675440d5f1067001f3357b8171bfc6217b0464c5942ac2552a5f9
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

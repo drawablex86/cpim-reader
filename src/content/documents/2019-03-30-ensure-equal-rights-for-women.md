@@ -1,15 +1,16 @@
 ---
-title: "Ensure Equal Rights For Women"
-slug: "2019-03-30-ensure-equal-rights-for-women"
-date: "2019-03-30"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/ensure_equal_right.pdf"
-source_post_url: "https://cpim.org/ensure-equal-rights-women/"
+title: Ensure Equal Rights For Women
+slug: 2019-03-30-ensure-equal-rights-for-women
+date: '2019-03-30'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/ensure_equal_right.pdf
+source_post_url: https://cpim.org/ensure-equal-rights-women/
 page_count: 7
-extraction_method: "pymupdf4llm"
-sha256: "cd04f3fb737e5447eaa8299aff64e6191764384356256aa2dfc7dead5120dca6"
+extraction_method: pymupdf4llm
+sha256: cd04f3fb737e5447eaa8299aff64e6191764384356256aa2dfc7dead5120dca6
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

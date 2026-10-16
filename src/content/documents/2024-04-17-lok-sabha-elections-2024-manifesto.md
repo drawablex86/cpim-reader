@@ -1,15 +1,16 @@
 ---
-title: "Lok Sabha Elections 2024: Manifesto"
-slug: "2024-04-17-lok-sabha-elections-2024-manifesto"
-date: "2024-04-17"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/election_manifesto_english_april_2024.pdf"
-source_post_url: "https://cpim.org/documents-lok-sabha-elections-2024-manifesto/"
+title: 'Lok Sabha Elections 2024: Manifesto'
+slug: 2024-04-17-lok-sabha-elections-2024-manifesto
+date: '2024-04-17'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/election_manifesto_english_april_2024.pdf
+source_post_url: https://cpim.org/documents-lok-sabha-elections-2024-manifesto/
 page_count: 68
-extraction_method: "pymupdf4llm"
-sha256: "1857da331ee900f379931c34196a81eabf07ea219f3ff39d3d4990e73b82df23"
+extraction_method: pymupdf4llm
+sha256: 1857da331ee900f379931c34196a81eabf07ea219f3ff39d3d4990e73b82df23
+language: en
 ---
 
 ### **Communist Party of India (Marxist)** 

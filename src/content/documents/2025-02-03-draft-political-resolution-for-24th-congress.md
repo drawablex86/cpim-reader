@@ -1,15 +1,16 @@
 ---
-title: "Draft Political Resolution for 24th Congress"
-slug: "2025-02-03-draft-political-resolution-for-24th-congress"
-date: "2025-02-03"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/02/Draft-Political-Resolution-for-24th-Congress.pdf"
-source_post_url: "https://cpim.org/draft-political-resolution-for-24th-congress/"
+title: Draft Political Resolution for 24th Congress
+slug: 2025-02-03-draft-political-resolution-for-24th-congress
+date: '2025-02-03'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/02/Draft-Political-Resolution-for-24th-Congress.pdf
+source_post_url: https://cpim.org/draft-political-resolution-for-24th-congress/
 page_count: 64
-extraction_method: "pymupdf4llm"
-sha256: "3c1881b19211ad2065706d8c1399bfb87c47f746acf62d70f9d5731a5d1ba702"
+extraction_method: pymupdf4llm
+sha256: 3c1881b19211ad2065706d8c1399bfb87c47f746acf62d70f9d5731a5d1ba702
+language: en
 ---
 
 # **Draft** 

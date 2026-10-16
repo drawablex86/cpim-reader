@@ -1,15 +1,16 @@
 ---
-title: "The Committees of the 23rd CPI(M) Party Congress"
-slug: "2022-04-06-the-committees-of-the-23rd-cpi-m-party-congress"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/committees_of_the_23rd_party_congress.pdf"
-source_post_url: "https://cpim.org/documents-committees-23rd-cpim-party-congress/"
+title: The Committees of the 23rd CPI(M) Party Congress
+slug: 2022-04-06-the-committees-of-the-23rd-cpi-m-party-congress
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/committees_of_the_23rd_party_congress.pdf
+source_post_url: https://cpim.org/documents-committees-23rd-cpim-party-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "2591bd1999f8161ae4b54292795ce2163293844b6a0e39200fcd18c69a5ae9e0"
+extraction_method: pymupdf4llm
+sha256: 2591bd1999f8161ae4b54292795ce2163293844b6a0e39200fcd18c69a5ae9e0
+language: en
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

@@ -1,15 +1,16 @@
 ---
-title: "Jobs, Not Jumlas For Youth"
-slug: "2019-03-30-jobs-not-jumlas-for-youth"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/jobs_not_jumlas_f.pdf"
-source_post_url: "https://cpim.org/jobs-not-jumlas-youth/"
+title: Jobs, Not Jumlas For Youth
+slug: 2019-03-30-jobs-not-jumlas-for-youth
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/jobs_not_jumlas_f.pdf
+source_post_url: https://cpim.org/jobs-not-jumlas-youth/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "b6c89e00aa3cf7c301f6c965807b88de23eafe46f2ee0f83b98ff71a70cec0b7"
+extraction_method: pymupdf4llm
+sha256: b6c89e00aa3cf7c301f6c965807b88de23eafe46f2ee0f83b98ff71a70cec0b7
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

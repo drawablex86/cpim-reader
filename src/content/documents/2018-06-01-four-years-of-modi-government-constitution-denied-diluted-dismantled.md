@@ -1,15 +1,16 @@
 ---
-title: "Four Years of Modi Government : Constitution : Denied, Diluted, Dismantled"
-slug: "2018-06-01-four-years-of-modi-government-constitution-denied-diluted-dismantled"
-date: "2018-06-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/booklet_no._2.pdf"
-source_post_url: "https://cpim.org/four-years-modi-government-constitution-denied-diluted-dismantled/"
+title: 'Four Years of Modi Government : Constitution : Denied, Diluted, Dismantled'
+slug: 2018-06-01-four-years-of-modi-government-constitution-denied-diluted-dismantled
+date: '2018-06-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/booklet_no._2.pdf
+source_post_url: https://cpim.org/four-years-modi-government-constitution-denied-diluted-dismantled/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "a3bc14a64e07857403fb390b9d21dcaa1b2f101ff14c4c9bf67c230298ee0ef6"
+extraction_method: pymupdf4llm
+sha256: a3bc14a64e07857403fb390b9d21dcaa1b2f101ff14c4c9bf67c230298ee0ef6
+language: en
 ---
 
 ## **2** 

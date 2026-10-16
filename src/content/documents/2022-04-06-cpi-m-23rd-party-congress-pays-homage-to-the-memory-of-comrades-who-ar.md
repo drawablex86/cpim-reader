@@ -1,15 +1,17 @@
 ---
-title: "CPI(M) 23rd Party Congress pays homage to the memory of comrades who are no more"
-slug: "2022-04-06-cpi-m-23rd-party-congress-pays-homage-to-the-memory-of-comrades-who-ar"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/condolence_resolution.pdf"
-source_post_url: "https://cpim.org/documents-cpim-23rd-party-congress-pays-homage-memory-comrades-who-are-no-more/"
+title: CPI(M) 23rd Party Congress pays homage to the memory of comrades who are no
+  more
+slug: 2022-04-06-cpi-m-23rd-party-congress-pays-homage-to-the-memory-of-comrades-who-ar
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/condolence_resolution.pdf
+source_post_url: https://cpim.org/documents-cpim-23rd-party-congress-pays-homage-memory-comrades-who-are-no-more/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "baa1dadfd342f533327a6eff597b58036a106e2ebe5c1c42d688fcb44b10cf82"
+extraction_method: pymupdf4llm
+sha256: baa1dadfd342f533327a6eff597b58036a106e2ebe5c1c42d688fcb44b10cf82
+language: en
 ---
 
 # Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

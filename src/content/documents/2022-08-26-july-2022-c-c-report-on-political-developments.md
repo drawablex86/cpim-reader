@@ -1,15 +1,16 @@
 ---
-title: "July 2022 C.C. – Report on Political Developments"
-slug: "2022-08-26-july-2022-c-c-report-on-political-developments"
-date: "2022-08-26"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2022-july-report_on_political_development-adopted.pdf"
-source_post_url: "https://cpim.org/july-2022-cc-report-political-developments/"
+title: July 2022 C.C. – Report on Political Developments
+slug: 2022-08-26-july-2022-c-c-report-on-political-developments
+date: '2022-08-26'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2022-july-report_on_political_development-adopted.pdf
+source_post_url: https://cpim.org/july-2022-cc-report-political-developments/
 page_count: 18
-extraction_method: "pymupdf4llm"
-sha256: "f976ae614348ed303aa969330dacd104f76a80a9503d52ce772e8485e40e5921"
+extraction_method: pymupdf4llm
+sha256: f976ae614348ed303aa969330dacd104f76a80a9503d52ce772e8485e40e5921
+language: en
 ---
 
 # **Tel. 23344918,23747435 23363692, 23747436** 

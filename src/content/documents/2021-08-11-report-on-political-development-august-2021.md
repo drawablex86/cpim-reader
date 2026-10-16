@@ -1,15 +1,16 @@
 ---
-title: "Report on Political Development: August 2021"
-slug: "2021-08-11-report-on-political-development-august-2021"
-date: "2021-08-11"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2021-august-cc-pol-report.pdf"
-source_post_url: "https://cpim.org/report-political-development-august-2021/"
+title: 'Report on Political Development: August 2021'
+slug: 2021-08-11-report-on-political-development-august-2021
+date: '2021-08-11'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2021-august-cc-pol-report.pdf
+source_post_url: https://cpim.org/report-political-development-august-2021/
 page_count: 32
-extraction_method: "pymupdf4llm"
-sha256: "95fe23a1b7bd0b4d0c4054a4d2caf3144559fbda6df32c4a21b7cc0d7e4b96c2"
+extraction_method: pymupdf4llm
+sha256: 95fe23a1b7bd0b4d0c4054a4d2caf3144559fbda6df32c4a21b7cc0d7e4b96c2
+language: en
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

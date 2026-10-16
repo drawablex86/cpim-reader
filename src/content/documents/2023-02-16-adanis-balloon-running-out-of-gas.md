@@ -1,15 +1,16 @@
 ---
-title: "Adani’s Balloon Running out of Gas"
-slug: "2023-02-16-adanis-balloon-running-out-of-gas"
-date: "2023-02-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/adani-february-2023.pdf"
-source_post_url: "https://cpim.org/adani’s-balloon-running-out-gas/"
+title: Adani’s Balloon Running out of Gas
+slug: 2023-02-16-adanis-balloon-running-out-of-gas
+date: '2023-02-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/adani-february-2023.pdf
+source_post_url: https://cpim.org/adani’s-balloon-running-out-gas/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "4e5b1ab3b55dfa4d6664c90a8df2355c1284768d99abad362799eb96640b02d4"
+extraction_method: pymupdf4llm
+sha256: 4e5b1ab3b55dfa4d6664c90a8df2355c1284768d99abad362799eb96640b02d4
+language: en
 ---
 
 # **Introduction** 

@@ -1,17 +1,17 @@
 ---
-title: "The Annihilation of Caste: A Marxist Perspective"
-slug: "2026-07-20-the-annihilation-of-caste-a-marxist-perspective"
-date: "2026-07-20"
-category: "Issues"
-author: "B. V. Raghavulu (Preface by Prakash Karat)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf"
-source_post_url: "https://cpim.org/the-annihilation-of-caste-a-marxist-perspective/"
+title: 'The Annihilation of Caste: A Marxist Perspective'
+slug: 2026-07-20-the-annihilation-of-caste-a-marxist-perspective
+date: '2026-07-20'
+category: Issues
+author: B. V. Raghavulu (Preface by Prakash Karat)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf
+source_post_url: https://cpim.org/the-annihilation-of-caste-a-marxist-perspective/
 page_count: 36
-extraction_method: "html-archive"
-sha256: "7dae3b6efcabbd0fbd07177a15a0168bc178bef430c3f11238300b4b9488b272"
+extraction_method: html-archive
+sha256: 7dae3b6efcabbd0fbd07177a15a0168bc178bef430c3f11238300b4b9488b272
+language: en
 ---
-
 
 ### Preface
 

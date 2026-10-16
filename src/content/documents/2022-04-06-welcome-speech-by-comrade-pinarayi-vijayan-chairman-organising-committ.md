@@ -1,15 +1,17 @@
 ---
-title: "Welcome speech by Comrade Pinarayi Vijayan, Chairman, Organising Committee of 23rd CPI(M) Party Congress"
-slug: "2022-04-06-welcome-speech-by-comrade-pinarayi-vijayan-chairman-organising-committ"
-date: "2022-04-06"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/comrade_pinarayi_vijayan_speaks_at_23rd_party_congress.pdf"
-source_post_url: "https://cpim.org/documents-welcome-speech-comrade-pinarayi-vijayan-chairman-organising-committee-23rd-cpim-party/"
+title: Welcome speech by Comrade Pinarayi Vijayan, Chairman, Organising Committee
+  of 23rd CPI(M) Party Congress
+slug: 2022-04-06-welcome-speech-by-comrade-pinarayi-vijayan-chairman-organising-committ
+date: '2022-04-06'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/comrade_pinarayi_vijayan_speaks_at_23rd_party_congress.pdf
+source_post_url: https://cpim.org/documents-welcome-speech-comrade-pinarayi-vijayan-chairman-organising-committee-23rd-cpim-party/
 page_count: 8
-extraction_method: "pymupdf4llm"
-sha256: "1b698f54bfaa03416bf22628038f26dde0887039705502595a97dabad9736305"
+extraction_method: pymupdf4llm
+sha256: 1b698f54bfaa03416bf22628038f26dde0887039705502595a97dabad9736305
+language: en
 ---
 
 # **WELCOME SPEECH** 

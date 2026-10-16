@@ -1,15 +1,16 @@
 ---
-title: "Review of Assembly Election Results – July 2026"
-slug: "2026-07-27-review-of-assembly-election-results-july-2026"
-date: "2026-07-27"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf"
-source_post_url: "https://cpim.org/review-of-assembly-election-results-july-2026/"
+title: Review of Assembly Election Results – July 2026
+slug: 2026-07-27-review-of-assembly-election-results-july-2026
+date: '2026-07-27'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf
+source_post_url: https://cpim.org/review-of-assembly-election-results-july-2026/
 page_count: 20
-extraction_method: "ollama-normalized"
-sha256: "a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc"
+extraction_method: ollama-normalized
+sha256: a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc
+language: en
 ---
 
 ## Review of Assembly Election Results (Adopted at Central Committee Meeting; July 11-13, 2026)

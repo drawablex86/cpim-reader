@@ -1,15 +1,16 @@
 ---
-title: "CPI(M) Response to NEP-2020"
-slug: "2020-08-07-cpi-m-response-to-nep-2020"
-date: "2020-08-07"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20200807-nep2020.pdf"
-source_post_url: "https://cpim.org/cpim-response-nep-2020/"
+title: CPI(M) Response to NEP-2020
+slug: 2020-08-07-cpi-m-response-to-nep-2020
+date: '2020-08-07'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20200807-nep2020.pdf
+source_post_url: https://cpim.org/cpim-response-nep-2020/
 page_count: 9
-extraction_method: "pymupdf4llm"
-sha256: "9714a6e85be9d7897872aa865905f21b9f170a68b296338caa06621990414161"
+extraction_method: pymupdf4llm
+sha256: 9714a6e85be9d7897872aa865905f21b9f170a68b296338caa06621990414161
+language: en
 ---
 
 # **CPI (M) response to New Education Policy 2020 (NEP)** 

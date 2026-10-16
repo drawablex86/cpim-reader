@@ -1,15 +1,16 @@
 ---
-title: "Corruption, Cronyism Uninterrupted Modi Hai to Mumkin Hai"
-slug: "2019-03-30-corruption-cronyism-uninterrupted-modi-hai-to-mumkin-hai"
-date: "2019-03-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/corruption_and_cronyism.pdf"
-source_post_url: "https://cpim.org/corruption-cronyism-uninterrupted-modi-hai-mumkin-hai/"
+title: Corruption, Cronyism Uninterrupted Modi Hai to Mumkin Hai
+slug: 2019-03-30-corruption-cronyism-uninterrupted-modi-hai-to-mumkin-hai
+date: '2019-03-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/corruption_and_cronyism.pdf
+source_post_url: https://cpim.org/corruption-cronyism-uninterrupted-modi-hai-mumkin-hai/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "5aed4ac2c3d81be14092397d803d5d6e2c90cb093c42f4862f31555210b23f34"
+extraction_method: pymupdf4llm
+sha256: 5aed4ac2c3d81be14092397d803d5d6e2c90cb093c42f4862f31555210b23f34
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

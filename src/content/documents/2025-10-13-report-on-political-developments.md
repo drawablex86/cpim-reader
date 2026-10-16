@@ -1,15 +1,16 @@
 ---
-title: "Report on Political Developments"
-slug: "2025-10-13-report-on-political-developments"
-date: "2025-10-13"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2025/10/Report-on-Political-Developments-Adopted.pdf"
-source_post_url: "https://cpim.org/report-on-political-developments-2/"
+title: Report on Political Developments
+slug: 2025-10-13-report-on-political-developments
+date: '2025-10-13'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2025/10/Report-on-Political-Developments-Adopted.pdf
+source_post_url: https://cpim.org/report-on-political-developments-2/
 page_count: 15
-extraction_method: "ollama-normalized"
-sha256: "07b7645f7767ed14dad96111360e418d2dca69e0e632eeac2aacff56bd3ad3ed"
+extraction_method: ollama-normalized
+sha256: 07b7645f7767ed14dad96111360e418d2dca69e0e632eeac2aacff56bd3ad3ed
+language: en
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) Central Committee** 

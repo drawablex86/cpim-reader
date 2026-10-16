@@ -1,15 +1,16 @@
 ---
-title: "Review of the 18th Lok Sabha Elections – June 2024 CC Report"
-slug: "2024-07-04-review-of-the-18th-lok-sabha-elections-june-2024-cc-report"
-date: "2024-07-04"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/2024/07/Review-of-the-18th-LS-Elections-Adopted.pdf"
-source_post_url: "https://cpim.org/review-of-the-18th-lok-sabha-elections-june-2024-cc-report/"
+title: Review of the 18th Lok Sabha Elections – June 2024 CC Report
+slug: 2024-07-04-review-of-the-18th-lok-sabha-elections-june-2024-cc-report
+date: '2024-07-04'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/2024/07/Review-of-the-18th-LS-Elections-Adopted.pdf
+source_post_url: https://cpim.org/review-of-the-18th-lok-sabha-elections-june-2024-cc-report/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "55682e0e9900713180df0954d524485fb6e8a6cd741b7ea91bedb86be89640e6"
+extraction_method: pymupdf4llm
+sha256: 55682e0e9900713180df0954d524485fb6e8a6cd741b7ea91bedb86be89640e6
+language: en
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

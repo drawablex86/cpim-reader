@@ -1,15 +1,16 @@
 ---
-title: "Make Health A Fundamental Right"
-slug: "2019-03-30-make-health-a-fundamental-right"
-date: "2019-03-30"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/make_health_a_fund.pdf"
-source_post_url: "https://cpim.org/make-health-fundamental-right/"
+title: Make Health A Fundamental Right
+slug: 2019-03-30-make-health-a-fundamental-right
+date: '2019-03-30'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/make_health_a_fund.pdf
+source_post_url: https://cpim.org/make-health-fundamental-right/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "cae2bcae1609e5be610e01fd13efb7f7dcf83772d52378d3822a3092eb23567e"
+extraction_method: pymupdf4llm
+sha256: cae2bcae1609e5be610e01fd13efb7f7dcf83772d52378d3822a3092eb23567e
+language: en
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

@@ -1,15 +1,16 @@
 ---
-title: "Resolution on Solidarity with Palestine"
-slug: "2022-04-08-resolution-on-solidarity-with-palestine"
-date: "2022-04-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/resolution_on_solidarity_with_palestine.pdf"
-source_post_url: "https://cpim.org/documents-resolution-solidarity-palestine/"
+title: Resolution on Solidarity with Palestine
+slug: 2022-04-08-resolution-on-solidarity-with-palestine
+date: '2022-04-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/resolution_on_solidarity_with_palestine.pdf
+source_post_url: https://cpim.org/documents-resolution-solidarity-palestine/
 page_count: 3
-extraction_method: "pymupdf4llm"
-sha256: "17c3f14ca1e223168fe139728153da1c835e9c7485a5f3502a43303413bc7398"
+extraction_method: pymupdf4llm
+sha256: 17c3f14ca1e223168fe139728153da1c835e9c7485a5f3502a43303413bc7398
+language: en
 ---
 
 Communist Party of India (Marxist) 23<sup>rd</sup> Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 
