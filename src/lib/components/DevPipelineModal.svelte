@@ -2,7 +2,11 @@
   let { onclose, initialTab = 'sync' } = $props<{ onclose: () => void; initialTab?: 'sync' | 'embed' }>();
 
   // Mode: 'sync' or 'embed'
-  let activeTab = $state<'sync' | 'embed'>(initialTab);
+  let activeTab = $state<'sync' | 'embed'>('sync');
+
+  $effect(() => {
+    activeTab = initialTab;
+  });
 
   // Sync state
   let provider = $state<'none' | 'openrouter' | 'ollama'>('none');
