@@ -4,6 +4,7 @@
 
   let { children } = $props();
   let showDevModal = $state(false);
+  let devModalTab = $state<'sync' | 'embed'>('sync');
 </script>
 
 <div class="app-shell">
@@ -15,13 +16,28 @@
           <span class="dev-pill">⚡ DEV ENVIRONMENT</span>
           <span class="dev-text">LOCAL PIPELINE CONTROL (EXCLUDED FROM PRODUCTION BUILD)</span>
         </div>
-        <button
-          type="button"
-          class="btn-trigger-pipeline"
-          onclick={() => (showDevModal = true)}
-        >
-          ⚙ INITIATE PIPELINE (SYNC) ➔
-        </button>
+        <div class="dev-btn-group">
+          <button
+            type="button"
+            class="btn-trigger-pipeline btn-sync"
+            onclick={() => {
+              devModalTab = 'sync';
+              showDevModal = true;
+            }}
+          >
+            ⚙ INITIATE SYNC (EXTRACTION) ➔
+          </button>
+          <button
+            type="button"
+            class="btn-trigger-pipeline btn-embed"
+            onclick={() => {
+              devModalTab = 'embed';
+              showDevModal = true;
+            }}
+          >
+            ⬡ INITIATE VECTOR EMBEDDING (OLLAMA) ➔
+          </button>
+        </div>
       </div>
     </div>
   {/if}
@@ -65,7 +81,7 @@
 
   <!-- Dev Pipeline Modal (Dev Only) -->
   {#if dev && showDevModal}
-    <DevPipelineModal onclose={() => (showDevModal = false)} />
+    <DevPipelineModal initialTab={devModalTab} onclose={() => (showDevModal = false)} />
   {/if}
 
   <!-- Main Viewport Content -->
@@ -156,22 +172,44 @@
     letter-spacing: 0.04em;
   }
 
+  .dev-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
   .btn-trigger-pipeline {
-    background-color: var(--color-red-primary);
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    padding: 0.25rem 0.75rem;
+    padding: 0.28rem 0.75rem;
     cursor: pointer;
     box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.1s ease;
   }
 
-  .btn-trigger-pipeline:hover {
+  .btn-trigger-pipeline.btn-sync {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+  }
+
+  .btn-trigger-pipeline.btn-sync:hover {
     background-color: var(--color-red-dark);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+  }
+
+  .btn-trigger-pipeline.btn-embed {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+  }
+
+  .btn-trigger-pipeline.btn-embed:hover {
+    background-color: #d8a005;
     transform: translate(-1px, -1px);
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
   }

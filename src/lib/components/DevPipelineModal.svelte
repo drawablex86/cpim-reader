@@ -1,8 +1,8 @@
 <script lang="ts">
-  let { onclose } = $props<{ onclose: () => void }>();
+  let { onclose, initialTab = 'sync' } = $props<{ onclose: () => void; initialTab?: 'sync' | 'embed' }>();
 
   // Mode: 'sync' or 'embed'
-  let activeTab = $state<'sync' | 'embed'>('sync');
+  let activeTab = $state<'sync' | 'embed'>(initialTab);
 
   // Sync state
   let provider = $state<'none' | 'openrouter' | 'ollama'>('none');

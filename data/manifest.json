@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T14:30:20.103687+00:00",
+  "last_synced": "2026-10-16T14:33:36.790391+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -104,12 +104,23 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T14:10:13.936662+00:00"
+    },
+    "https://cpim.org/wp-content/uploads/2025/10/Report-on-Political-Developments-Adopted.pdf": {
+      "slug": "2025-10-13-report-on-political-developments",
+      "title": "Report on Political Developments",
+      "date": "2025-10-13",
+      "category": "CC Documents",
+      "page_count": 15,
+      "sha256": "07b7645f7767ed14dad96111360e418d2dca69e0e632eeac2aacff56bd3ad3ed",
+      "extraction_method": "ollama-normalized",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:33:36.790036+00:00"
     }
   },
   "embedding": {
     "model": "embeddinggemma-2:270m",
     "dim": 256,
-    "doc_count": 7,
-    "generated_at": "2026-10-16T13:53:51.425940+00:00"
+    "doc_count": 9,
+    "generated_at": "2026-10-16T14:36:36.996735+00:00"
   }
 }
