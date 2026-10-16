@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { dev } from '$app/environment';
+  import DevPipelineModal from '$lib/components/DevPipelineModal.svelte';
+
   let { children } = $props();
+  let showDevModal = $state(false);
 </script>
 
 <div class="app-shell">
+  <!-- Dev-Only Pipeline Control Ribbon (Stripped in Production Build) -->
+  {#if dev}
+    <div class="dev-control-ribbon">
+      <div class="dev-ribbon-inner">
+        <div class="dev-badge-group">
+          <span class="dev-pill">⚡ DEV ENVIRONMENT</span>
+          <span class="dev-text">LOCAL PIPELINE CONTROL (EXCLUDED FROM PRODUCTION BUILD)</span>
+        </div>
+        <button
+          type="button"
+          class="btn-trigger-pipeline"
+          onclick={() => (showDevModal = true)}
+        >
+          ⚙ INITIATE PIPELINE (SYNC) ➔
+        </button>
+      </div>
+    </div>
+  {/if}
+
   <!-- Top Cadmium / Revolutionary Red Accent Bar -->
   <div class="top-accent-bar" aria-hidden="true"></div>
 
@@ -39,6 +62,11 @@
       </div>
     </div>
   </header>
+
+  <!-- Dev Pipeline Modal (Dev Only) -->
+  {#if dev && showDevModal}
+    <DevPipelineModal onclose={() => (showDevModal = false)} />
+  {/if}
 
   <!-- Main Viewport Content -->
   <main class="main-content">
@@ -86,6 +114,66 @@
     flex-direction: column;
     background-color: var(--color-paper);
     color: var(--color-black);
+  }
+
+  /* Dev Control Ribbon */
+  .dev-control-ribbon {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    border-bottom: 2px solid var(--color-gold);
+    padding: 0.45rem 1.5rem;
+  }
+
+  .dev-ribbon-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .dev-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+  }
+
+  .dev-pill {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .dev-text {
+    font-size: 0.75rem;
+    color: #CCCCCC;
+    letter-spacing: 0.04em;
+  }
+
+  .btn-trigger-pipeline {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.1s ease;
+  }
+
+  .btn-trigger-pipeline:hover {
+    background-color: var(--color-red-dark);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
   }
 
   .top-accent-bar {

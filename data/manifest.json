@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T18:14:00Z",
+  "last_synced": "2026-10-16T13:11:06.091578Z",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -40,6 +40,39 @@
       "extraction_method": "html-archive",
       "status": "completed",
       "processed_at": "2026-10-16T18:14:00Z"
+    },
+    "https://cpim.org/wp-content/uploads/2026/07/Report-on-Political-Developments-Adopted.pdf": {
+      "slug": "2026-07-20-report-on-political-developments-may-2026",
+      "title": "Report on Political Developments – May 2026",
+      "date": "2026-07-20",
+      "category": "CC Documents",
+      "page_count": 26,
+      "sha256": "7647effeeb861c3d63cf9d1be7f695db24ae3c4dcd5bc0219e68197c8a6c45b2",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T13:10:21.778046Z"
+    },
+    "https://cpim.org/wp-content/uploads/2026/02/Report-on-Political-Developments-Adopted-Jan2026.pdf": {
+      "slug": "2026-02-20-report-on-political-developments-jan-2026",
+      "title": "Report on Political Developments – Jan 2026",
+      "date": "2026-02-20",
+      "category": "CC Documents",
+      "page_count": 28,
+      "sha256": "25eeb2157d359c64fc4af16c53706ac9be09750c02319d0de5ef5a4129d37902",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T13:10:33.113000Z"
+    },
+    "https://cpim.org/wp-content/uploads/2025/12/Report-on-Organisation-adopted-by-24th-Congress.pdf": {
+      "slug": "2025-12-05-24th-congress-report-on-organisation",
+      "title": "24th Congress Report on Organisation",
+      "date": "2025-12-05",
+      "category": "Party Congress",
+      "page_count": 88,
+      "sha256": "03626f87430bf946315013c71c00e00b816d7eb6c5aeaa5be2ba4fa4b3a0d835",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T13:11:06.091521Z"
     }
   }
 }

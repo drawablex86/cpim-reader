@@ -16,11 +16,11 @@ import json
 import os
 import re
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
 
-import fitz  # PyMuPDF
+import pymupdf as fitz
 import httpx
 import pymupdf4llm
 from bs4 import BeautifulSoup
@@ -41,6 +41,23 @@ MANIFEST_PATH = ROOT_DIR / "data" / "manifest.json"
 PDF_CACHE_DIR = ROOT_DIR / ".cache" / "pdfs"
 OUTPUT_MD_DIR = ROOT_DIR / "src" / "content" / "documents"
 
+
+def load_env_file():
+    """Loads key-value pairs from .env into os.environ if not already present."""
+    env_file = ROOT_DIR / ".env"
+    if env_file.exists():
+        for line in env_file.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip('"').strip("'")
+                if k and k not in os.environ:
+                    os.environ[k] = v
+
+
+load_env_file()
+
 LETTERHEAD_PATTERNS = [
     r"A\.?\s*K\.?\s*Gopalan\s*Bhawan.*?(?:New\s*Delhi|110\s*001).*?\n",
     r"27-29,?\s*Bhai\s*Vir\s*Singh\s*Marg.*?(?:\n|$)",
@@ -57,7 +74,7 @@ def load_manifest() -> dict:
 
 def save_manifest(manifest: dict) -> None:
     MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
-    manifest["last_synced"] = datetime.utcnow().isoformat() + "Z"
+    manifest["last_synced"] = datetime.now(timezone.utc).isoformat()
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
@@ -388,7 +405,7 @@ def main():
                 "sha256": sha256_hash,
                 "extraction_method": method,
                 "status": "completed",
-                "processed_at": datetime.utcnow().isoformat() + "Z",
+                "processed_at": datetime.now(timezone.utc).isoformat(),
             }
             save_manifest(manifest)
             time.sleep(1.0)
