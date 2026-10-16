@@ -8,33 +8,29 @@ publisher: "Communist Party of India (Marxist)"
 source_pdf_url: "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf"
 source_post_url: "https://cpim.org/review-of-assembly-election-results-july-2026/"
 page_count: 20
-extraction_method: "pymupdf4llm"
+extraction_method: "ollama-normalized"
 sha256: "a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc"
 ---
 
-# **Communist Party of India (Marxist)** 
+## Review of Assembly Election Results (Adopted at Central Committee Meeting; July 11-13, 2026)
 
-# **Review of Assembly Election Results (Adopted at Central Committee Meeting; July 11-13, 2026)** 
+1. A preliminary review of the Assembly elections held in Assam, Keralam, Puducherry, Tamilnadu, and West Bengal in April 2026 was conducted in the Central Committee held on 22-24 May 2026. The CC noted two major features of the election results: ‘the serious setback to the Left Democratic Front (LDF) in Keralam and the victory of the BJP in West Bengal’. We have also noted that the ‘ascendancy of right-wing communal forces led by the BJP’, in West Bengal and Assam are ‘a matter of deep concern for all secular, progressive and democratic forces’.
 
-1. A preliminary review of the Assembly elections held in Assam, Keralam, Puducherry, Tamilnadu, and West Bengal in April 2026 was conducted in the Central Committee held on 22-24 May 2026. The CC noted two major features of the election results: ‘the serious setback to the Left Democratic Front (LDF) in Keralam and the victory of the BJP in West Bengal’. We have also noted that the ‘ascendancy of right-wing communal forces led by the BJP’, in West Bengal and Assam are ‘a matter of deep concern for all secular, progressive and democratic forces’. 
+2. The other features of these election results noted by the May CC meeting are – the defeat of the DMK-led alliance in Tamilnadu, where the TVK led by Vijay emerged as the single largest party and formed the government; the re-election of the BJP government in Assam with an increased vote share and majority; and BJP’s victory in Puducherry, along with the NR Congress, which is the major partner.
 
-2. The other features of these election results noted by the May CC meeting are – the defeat of the DMK-led alliance in Tamilnadu, where the TVK led by Vijay emerged as the single largest party and formed the government; the re-election of the BJP government in Assam with an increased vote share and majority; and BJP’s victory in Puducherry, along with the NR Congress, which is the major partner. 
+3. The SIR process conducted by the ECI had a big influence on the voter turnout in these elections. All the states witnessed huge voter turnouts. The fear that voters might lose their right to vote if they did not cast their ballots in these elections, also contributed to the high voter turnout, among various other reasons.
 
-3. The SIR process conducted by the ECI had a big influence on the voter turnout in these elections. All the states witnessed huge voter turnouts. The fear that voters might lose their right to vote if they did not cast their ballots in these elections, also contributed to the high voter turnout, among various other reasons. 
+4. The CC decided that the Party must undertake an “in-depth analysis of the reasons behind the continued growth of the BJP and how it is utilising the State machinery to achieve its objectives. Only such an analysis will help us devise correct tactics to confront and stop the rise of RSS-BJP-led Hindutva communal forces”.
 
-4. The CC decided that the Party must undertake an “in-depth analysis of the reasons behind the continued growth of the BJP and how it is utilising the State machinery to achieve its objectives. Only such an analysis will help us devise correct tactics to confront and stop the rise of RSS-BJP-led Hindutva communal forces”. 
+5. The CC also decided to undertake a detailed review after all the states conclude their reviews and on that basis, identify the reasons for our defeat, our weaknesses and initiate a rectification process from the top to bottom to overcome them. For doing this the CC decided to advance the time of the CC meeting. The four concerned state committees conducted a review of the elections after the CC met by eliciting opinions from our committees down to the local and area committees.
 
-5. The CC also decided to undertake a detailed review after all the states conclude their reviews and on that basis, identify the reasons for our defeat, our weaknesses and initiate a rectification process from the top to bottom to overcome them. For doing this the CC decided to advance the time of the CC meeting. The four concerned state committees conducted a review of the elections after the CC met by eliciting opinions from our committees down to the local and area committees. 
+6. **Keralam**: In Keralam, the overall voting saw a marginal increase in 2026 and was 78.03 percent. The LDF was defeated in Keralam after ten years of continuous rule. The LDF secured 37.44 percent in 2026, as against 44.44 percent in 2021. The UDF vote share increased from 38.88 percent in 2021 to 46.55 percent in 2026. The LDF won only 35 seats in 2026, as against 99 in 2021. The UDF increased its seat tally from 40 in 2021 to 102 in 2026. The BJP was able to win three seats, while it had none in 2021. In six seats, it was second.
 
-6. **Keralam** : In Keralam, the overall voting saw a marginal increase in 2026 and was 78.03 percent. The LDF was defeated in Keralam after ten years of continuous rule. The LDF secured 37.44 percent in 2026, as against 44.44 percent in 2021. The UDF vote share increased from 38.88 percent in 2021 to 46.55 percent in 
+7. Our Party's vote share fell from 25.38 percent in 2021 to 21.77 percent in 2026, while the Congress vote share increased from 25.12 percent to 28.79 percent in the same period. Our vote share fell to its lowest in the past forty years, which is a matter of serious concern. Our Party won only 26 seats, which is a drastic reduction from the 64+3 seats (+ independents) we had won in 2021. These numbers show the gravity of the defeat suffered by the Party and the LDF.
 
-1
+8. The Party fought these elections in an extremely hostile situation, where the BJP-led Union government used all the agencies in its hands to discriminate, intimidate and starve the LDF government of funds. Hence despite our best efforts, we were unable to reverse the trend.
 
-2026. The LDF won only 35 seats in 2026, as against 99 in 2021. The UDF increased its seat tally from 40 in 2021 to 102 in 2026. The BJP was able to win three seats, while it had none in 2021. In six seats, it was second. 
-
-7. Our Party's vote share fell from 25.38 percent in 2021 to 21.77 percent in 2026, while the Congress vote share increased from 25.12 percent to 28.79 percent in the same period. Our vote share fell to its lowest in the past forty years, which is a matter of serious concern. Our Party won only 26 seats, which is a drastic reduction from the 64+3 seats (+ independents) we had won in 2021. These numbers show the gravity of the defeat suffered by the Party and the LDF. 
-
-8. The Party fought these elections in an extremely hostile situation, where the BJP-led Union government used all the agencies in its hands to discriminate, intimidate and starve the LDF government of funds. Hence despite our best efforts, the government was unable to implement certain schemes intended for the benefit of the poor and needy. Even within these limitations, the government was able to eliminate extreme poverty and implement various pro-people initiatives, which is a commendable achievement. 
+efforts, the government was unable to implement certain schemes intended for the benefit of the poor and needy. Even within these limitations, the government was able to eliminate extreme poverty and implement various pro-people initiatives, which is a commendable achievement. 
 
 9. The Congress-led UDF campaigned by spreading lies targeting the Chief Minister and the Party. They were able to unite all the right-wing forces against our Party and LDF in these elections. Reactionary and sectarian forces like the Jamaat-e-Islami and their Welfare Party openly campaigned for the UDF and helped to mobilise minorities against the LDF. The corporate media played a partisan role by largely blacking out our government’s achievements and the activities of our Party. This was done deliberately to benefit the pro-corporate Congress, the UDF and the BJP. 
 

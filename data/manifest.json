@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T14:10:13.936714+00:00",
+  "last_synced": "2026-10-16T14:30:20.103687+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -9,9 +9,9 @@
       "category": "CC Documents",
       "page_count": 20,
       "sha256": "a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc",
-      "extraction_method": "pymupdf4llm",
+      "extraction_method": "ollama-normalized",
       "status": "completed",
-      "processed_at": "2026-10-16T14:09:41.052252+00:00"
+      "processed_at": "2026-10-16T14:30:20.103408+00:00"
     },
     "https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf": {
       "slug": "2026-07-20-the-annihilation-of-caste-a-marxist-perspective",

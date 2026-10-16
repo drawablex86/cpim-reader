@@ -7,7 +7,7 @@
   // Sync state
   let provider = $state<'none' | 'openrouter' | 'ollama'>('none');
   let limit = $state(3);
-  let dryRun = $state(true);
+  let dryRun = $state(false);
   let isRunning = $state(false);
   let terminalLogs = $state('');
 

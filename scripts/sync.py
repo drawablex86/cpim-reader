@@ -264,6 +264,7 @@ def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollam
             "temperature": 0.0,
         }
         try:
+            print(f"  -> Structuring document with OpenRouter ({NEMOTRON_TEXT_MODEL})...")
             resp = client.post(OPENROUTER_URL, headers=headers, json=payload, timeout=120.0)
             resp.raise_for_status()
             raw_text = resp.json()["choices"][0]["message"].get("content") or ""
@@ -272,20 +273,29 @@ def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollam
             print(f"  [warn] OpenRouter Nemotron cleanup failed ({exc}); using regex-cleaned text.")
             return raw_md
 
-    # Default to Local Ollama
+    # Default to Local Ollama (qwen2.5:7b or qwen2.5:3b)
+    # On M1 Air (16GB), 3,500 characters is optimal for snappy 15-20s header/structure cleaning without OOM or timeout
+    chunk_to_clean = raw_md[:3500]
     payload = {
         "model": DEFAULT_TEXT_MODEL,
         "system": system_prompt,
-        "prompt": raw_md[:12000],
+        "prompt": chunk_to_clean,
         "stream": False,
         "keep_alive": "5m",
-        "options": {"temperature": 0.0, "num_ctx": 8192},
+        "options": {"temperature": 0.0, "num_ctx": 4096},
     }
     try:
-        resp = client.post(OLLAMA_URL, json=payload, timeout=120.0)
+        print(f"  -> Structuring document with Local Ollama ({DEFAULT_TEXT_MODEL})...")
+        resp = client.post(OLLAMA_URL, json=payload, timeout=240.0)
         resp.raise_for_status()
-        raw_resp = resp.json().get("response") or raw_md
-        return sanitize_model_markdown(raw_resp) or raw_md
+        raw_resp = resp.json().get("response") or ""
+        cleaned = sanitize_model_markdown(raw_resp)
+        if cleaned:
+            # If document is longer than chunk_to_clean, splice the cleaned header/preamble with remainder
+            if len(raw_md) > len(chunk_to_clean):
+                return cleaned + "\n\n" + raw_md[len(chunk_to_clean):]
+            return cleaned
+        return raw_md
     except Exception as exc:
         print(f"  [warn] Local Ollama cleanup skipped ({exc}); using regex-cleaned text.")
         return raw_md
@@ -317,7 +327,7 @@ def extract_pdf(pdf_path: Path, client: httpx.Client, provider: str = "ollama", 
 
     combined_md = "\n\n".join(chunk for chunk in page_chunks if chunk)
     used_norm = False
-    if provider != "none" and not used_vlm and len(combined_md) < 25000:
+    if provider != "none" and not used_vlm:
         normalized = normalize_markdown(client, combined_md, provider=provider, api_key=api_key)
         if normalized and normalized != combined_md:
             combined_md = normalized
