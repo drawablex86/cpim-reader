@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T16:12:17.955941+00:00",
+  "last_synced": "2026-10-16T18:35:22.608809+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -522,17 +522,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:03:17.799353+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/cpim_election_manifesto_april_2024.pdf": {
-      "slug": "2024-04-17-manifesto-2024-lok-sabha-elections-in-hindi",
-      "title": "Manifesto: 2024 Lok Sabha Elections in Hindi",
-      "date": "2024-04-17",
-      "category": "CC Documents",
-      "page_count": 68,
-      "sha256": "950d9bfa3e1839ba307d7c792459ef4def04de7176eaa8568ab8821c07256a5e",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:03:38.657525+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/2024-january-report_on_some_political_developments.adopted.pdf": {
       "slug": "2024-02-04-january-2024-c-c-report-on-political-developments",
       "title": "January 2024 C.C. Report on Political Developments",
@@ -620,17 +609,6 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T15:04:44.400119+00:00"
-    },
-    "https://cpim.org/wp-content/uploads/old/documents/political_report_hindi_april_2022_final.pdf": {
-      "slug": "2022-04-28-23rd-congress-political-resolution-hindi",
-      "title": "23rd Congress Political Resolution – Hindi",
-      "date": "2022-04-28",
-      "category": "Party Congress",
-      "page_count": 41,
-      "sha256": "7580b2d96edcd2027f1e924a0ae007de0d4d619c8d1975d83032c68b05c42dd3",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:05:02.337356+00:00"
     },
     "https://cpim.org/wp-content/uploads/old/documents/2022-23congress-pol-resolution.pdf": {
       "slug": "2022-04-21-23rd-congress-political-resolution",
@@ -786,17 +764,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:05:55.690345+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/feb-2022-pol-res-hindi-23-cong.pdf": {
-      "slug": "2022-02-17-23rd-congress-draft-pol-resolution-hindi",
-      "title": "23rd Congress: Draft Pol. Resolution-Hindi",
-      "date": "2022-02-17",
-      "category": "Party Congress",
-      "page_count": 41,
-      "sha256": "58385e3404b6eeb81792f72006b40bd23ef9e5236d4ac1f30c490c916a8f23f4",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:06:13.441572+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/20220204-dpr-23-congress.pdf": {
       "slug": "2022-02-04-23rd-congress-draft-political-resolution",
       "title": "23rd Congress: Draft Political Resolution",
@@ -863,17 +830,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:07:29.935346+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/2020-july-cc-hindi-report.pdf": {
-      "slug": "2020-08-12-report-adopted-by-july-2020-cc-meeting-hindi",
-      "title": "Report Adopted by July 2020 CC Meeting – Hindi",
-      "date": "2020-08-12",
-      "category": "CC Documents",
-      "page_count": 26,
-      "sha256": "09575a09adf6ed980e7fe7cd7668055fd92e33c67f2d8e56437989267510e392",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:07:42.274109+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/2019-oct-cultural-document.pdf": {
       "slug": "2020-08-10-tasks-on-the-cultural-front",
       "title": "Tasks on the Cultural Front",
@@ -895,17 +851,6 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T15:07:54.033308+00:00"
-    },
-    "https://cpim.org/wp-content/uploads/old/documents/2020602-pb-report-hindi.pdf": {
-      "slug": "2020-06-24-hindi-political-report-of-p-b-june-2-2020",
-      "title": "Hindi- Political Report Of P.B: June 2, 2020",
-      "date": "2020-06-24",
-      "category": "CC Documents",
-      "page_count": 25,
-      "sha256": "14064dcd0c4aa01242ac133a1f606d6f491d612e260cc49e878b07f82e5f2c8a",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:08:03.742448+00:00"
     },
     "https://cpim.org/wp-content/uploads/old/documents/2020-june-pb-report.pdf": {
       "slug": "2020-06-08-report-adopted-by-polit-bureau",
@@ -940,17 +885,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:08:39.493368+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/2019-dec-caa-nrc-npr-hindi.pdf": {
-      "slug": "2019-12-31-hindi-booklet-on-caa-npr-nrc",
-      "title": "Hindi Booklet on CAA/NPR/NRC",
-      "date": "2019-12-31",
-      "category": "CC Documents",
-      "page_count": 9,
-      "sha256": "607824014f7e94b8cf75b6a8397faa1b0279abe7fc7f90d0d76a96c2beef2b50",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:08:44.585356+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/2019-dec-caa-npr-nrc-booklet.pdf": {
       "slug": "2019-12-31-ten-big-lies-on-caa-nrc-npr-exposed",
       "title": "Ten Big Lies on CAA, NRC & NPR Exposed",
@@ -984,17 +918,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:09:04.758189+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/17_loksabha-elec-review-hindi.pdf": {
-      "slug": "2019-06-24-election-review-hindi-version",
-      "title": "Election Review – Hindi Version",
-      "date": "2019-06-24",
-      "category": "CC Documents",
-      "page_count": 40,
-      "sha256": "2f2aac03c887464f26203ec538e01a3d770c5387cfd009a378c2dae86a5ca668",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:09:20.507185+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/2019-ls-election-review_0.pdf": {
       "slug": "2019-06-14-review-of-the-17th-lok-sabha-elections",
       "title": "Review of the 17th Lok Sabha Elections",
@@ -1005,17 +928,6 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T15:09:30.368523+00:00"
-    },
-    "https://cpim.org/wp-content/uploads/old/documents/2019_ls-cpim_manifesto-hindi.pdf": {
-      "slug": "2019-04-16-election-manifesto-hindi",
-      "title": "Election Manifesto – Hindi",
-      "date": "2019-04-16",
-      "category": "CC Documents",
-      "page_count": 48,
-      "sha256": "ee72a537fba5c8079ac1f45f440bcd4c64ebbfbd70790f4544ba8c30c75ad81a",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:09:47.027610+00:00"
     },
     "https://cpim.org/wp-content/uploads/old/documents/2019-ls-elc-manifesto.pdf": {
       "slug": "2019-04-03-election-manifesto-17th-lok-sabha-2019",
@@ -1193,18 +1105,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:11:32.450631+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/rafale_deal_hindi_text.pdf": {
-      "slug": "2018-11-01-modis-rafalegate-hindi",
-      "title": "Modi’s Rafalegate (Hindi)",
-      "date": "2018-11-01",
-      "category": "CC Documents",
-      "language": "hi",
-      "page_count": 9,
-      "sha256": "2fdb01459e0480a6239d89a4f46f779ef623401417efa1583bf10d92fbcfb5b5",
-      "extraction_method": "vlm-openrouter",
-      "status": "completed",
-      "processed_at": "2026-10-16T16:12:19Z"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/rafale_deal_-_english_text.pdf": {
       "slug": "2018-11-01-modis-rafalegate",
       "title": "Modi’s Rafalegate",
@@ -1293,17 +1193,6 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:12:37.857230+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/20180525-pol-res-22-cong-hindi.pdf": {
-      "slug": "2018-05-26-22nd-congress-pol-resolution-hindi",
-      "title": "22nd Congress Pol. Resolution-Hindi",
-      "date": "2018-05-26",
-      "category": "Party Congress",
-      "page_count": 38,
-      "sha256": "27f03f92e1208dfc8356ac17283256494f7cfaaf58ace069ed0775a41682c894",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:12:55.803316+00:00"
-    },
     "https://cpim.org/wp-content/uploads/old/documents/2018-18cong-pol-res-adopted.pdf": {
       "slug": "2018-05-15-22nd-congress-political-resolution",
       "title": "22nd Congress Political Resolution",
@@ -1314,17 +1203,6 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T15:13:17.715314+00:00"
-    },
-    "https://cpim.org/wp-content/uploads/old/documents/22-cong-draft-pol-res-hindi.pdf": {
-      "slug": "2018-02-13-xxii-congress-draft-pol-res-hindi",
-      "title": "XXII Congress — Draft Pol. Res. – Hindi",
-      "date": "2018-02-13",
-      "category": "Party Congress",
-      "page_count": 48,
-      "sha256": "ca89a9a426837e7ce6725dd6e231d3cdc11a78c135697572c2b618ed6719783e",
-      "extraction_method": "pymupdf4llm",
-      "status": "completed",
-      "processed_at": "2026-10-16T15:13:37.151132+00:00"
     },
     "https://cpim.org/wp-content/uploads/old/documents/22-cong-draft-pol-res.pdf": {
       "slug": "2018-02-13-xxii-congress-draft-pol-resolution",
@@ -1337,16 +1215,41 @@
       "status": "completed",
       "processed_at": "2026-10-16T15:14:00.150424+00:00"
     },
-    "https://cpim.org/wp-content/uploads/old/documents/tripura_hindi_booklet_.pdf": {
-      "slug": "2017-12-07-tripura-a-people-first-model-hindi",
-      "title": "Tripura : A People-First Model; Hindi",
+    "https://cpim.org/wp-content/uploads/old/documents/tripura_english_booklet.pdf": {
+      "slug": "2017-12-07-tripura-a-people-first-model",
+      "title": "Tripura : A People-First Model",
       "date": "2017-12-07",
       "category": "CC Documents",
+      "language": "en",
       "page_count": 21,
-      "sha256": "6f91e671c891e067472fd3e648003237c0a8835aedb2770ba0e7cb385388cfb6",
+      "sha256": "6f13b58a6aaa68edb0e3668483936663e2f90a416325df79d5851cf0c3659083",
       "extraction_method": "pymupdf4llm",
       "status": "completed",
-      "processed_at": "2026-10-16T15:14:15.527863+00:00"
+      "processed_at": "2026-10-16T18:32:44.486702+00:00"
+    },
+    "https://cpim.org/legacy-russian-revolution-still-relevant-today/": {
+      "slug": "2017-11-05-is-the-legacy-of-the-russian-revolution-still-relevant-today",
+      "title": "Is the Legacy of the Russian Revolution still Relevant Today",
+      "date": "2017-11-05",
+      "category": "CC Documents",
+      "language": "en",
+      "page_count": 18,
+      "sha256": "acad7dd176b4c68995af8ffdc36ee35793d4b4594fbb7c6c93b85897b4ecd34b",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T18:35:14.432128+00:00"
+    },
+    "https://cpim.org/wp-content/uploads/old/documents/20170329-cc-pol-report-adopted.pdf": {
+      "slug": "2017-08-24-report-on-political-developments",
+      "title": "Report on Political Developments",
+      "date": "2017-08-24",
+      "category": "CC Documents",
+      "language": "en",
+      "page_count": 19,
+      "sha256": "9e704e7be2f93eb198f79447e3c2cafabe278d0e8f621a39dab3d03a9a70bfbe",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T18:35:22.608752+00:00"
     }
   },
   "embedding": {

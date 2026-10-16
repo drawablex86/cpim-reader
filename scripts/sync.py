@@ -154,9 +154,15 @@ def discover_documents(client: httpx.Client) -> list[dict]:
             continue
         seen_identifiers.add(identifier)
 
+        # Skip regional translated reprints; canonical English documents are ingested
+        # Translations are provided on-demand via the reader's neural translation pipeline
+        lower_id = identifier.lower()
+        lower_title = title.lower()
+        if any(k in lower_title or k in lower_id for k in ["hindi", "हिंदी", "bengali", "urdu", "tamil"]):
+            continue
+
         # Categorization heuristic
         category = "CC Documents"
-        lower_title = title.lower()
         if "congress" in lower_title:
             category = "Party Congress"
         elif any(k in lower_title for k in ["caste", "health", "education", "kisan", "women", "worker"]):
