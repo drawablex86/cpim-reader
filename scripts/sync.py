@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
 
+os.environ["ORT_DISABLE_TELEMETRY"] = "1"
+
 import pymupdf as fitz
 import httpx
 import pymupdf4llm

@@ -14,6 +14,24 @@
   let dryRun = $state(false);
   let isRunning = $state(false);
   let terminalLogs = $state('');
+  let syncStatus = $state<{ total_count: number; latest_processed: any } | null>(null);
+
+  async function fetchSyncStatus() {
+    try {
+      const res = await fetch('/api/dev/sync-status');
+      if (res.ok) {
+        syncStatus = await res.json();
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  $effect(() => {
+    fetchSyncStatus();
+    const interval = setInterval(fetchSyncStatus, 3000);
+    return () => clearInterval(interval);
+  });
 
   // Embed prompt / state
   let showEmbedPrompt = $state(false);
@@ -318,6 +336,17 @@
             </div>
           </div>
         </div>
+
+        {#if syncStatus}
+          <div class="manifest-status-banner">
+            <span class="manifest-badge">CATALOG MANIFEST: {syncStatus.total_count} INGESTED</span>
+            {#if syncStatus.latest_processed}
+              <span class="manifest-latest" title={syncStatus.latest_processed.title}>
+                LATEST: <strong>{syncStatus.latest_processed.title}</strong> ({syncStatus.latest_processed.date})
+              </span>
+            {/if}
+          </div>
+        {/if}
 
         <div class="action-strip">
           <button
@@ -904,6 +933,36 @@
     width: 1.25rem;
     height: 1.25rem;
     accent-color: var(--color-red-primary);
+  }
+
+  .manifest-status-banner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    margin-bottom: 1.25rem;
+    background-color: var(--color-paper-dark);
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .manifest-badge {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    padding: 0.2rem 0.5rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+
+  .manifest-latest {
+    color: var(--color-black);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 480px;
   }
 
   .action-strip {

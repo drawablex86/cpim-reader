@@ -13,6 +13,29 @@ function devSyncPlugin(): Plugin {
 		name: 'dev-sync-plugin',
 		apply: 'serve',
 		configureServer(server) {
+			// Status endpoint to check active sync status & progress
+			server.middlewares.use('/api/dev/sync-status', async (req, res) => {
+				res.setHeader('Content-Type', 'application/json');
+				try {
+					const manifestPath = path.resolve('data/manifest.json');
+					let manifest = { documents: {} };
+					if (fs.existsSync(manifestPath)) {
+						manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+					}
+					const docs = Object.values(manifest.documents || {}) as any[];
+					docs.sort((a, b) => (b.processed_at || '').localeCompare(a.processed_at || ''));
+					res.end(
+						JSON.stringify({
+							total_count: docs.length,
+							latest_processed: docs[0] || null
+						})
+					);
+				} catch (err: any) {
+					res.statusCode = 500;
+					res.end(JSON.stringify({ error: err.message }));
+				}
+			});
+
 			server.middlewares.use('/api/dev/sync', async (req, res) => {
 				if (req.method !== 'POST') {
 					res.statusCode = 405;
@@ -58,7 +81,11 @@ function devSyncPlugin(): Plugin {
 
 					const child = spawn(pythonBin, args, {
 						cwd: process.cwd(),
-						env: process.env
+						env: {
+							...process.env,
+							ORT_DISABLE_TELEMETRY: '1',
+							PYTHONUNBUFFERED: '1'
+						}
 					});
 
 					child.stdout.on('data', (data) => {
@@ -435,5 +462,15 @@ function devTranslatePlugin(): Plugin {
 }
 
 export default defineConfig({
+	server: {
+		watch: {
+			ignored: [
+				'**/src/content/documents/**',
+				'**/src/content/translations/**',
+				'**/.cache/**',
+				'**/data/**'
+			]
+		}
+	},
 	plugins: [sveltekit(), devSyncPlugin(), devEmbedPlugin(), devTranslatePlugin()]
 });
