@@ -1,19 +1,17 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T13:37:51.695624+00:00",
+  "last_synced": "2026-10-16T14:10:13.936714+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
       "title": "Review of Assembly Election Results – July 2026",
       "date": "2026-07-27",
       "category": "CC Documents",
-      "author": "Central Committee, Communist Party of India (Marxist)",
-      "page_count": 18,
-      "source_pdf_url": "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf",
-      "source_post_url": "https://cpim.org/review-of-assembly-election-results-july-2026/",
-      "extraction_method": "html-archive",
+      "page_count": 20,
+      "sha256": "a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc",
+      "extraction_method": "pymupdf4llm",
       "status": "completed",
-      "processed_at": "2026-10-16T18:14:00Z"
+      "processed_at": "2026-10-16T14:09:41.052252+00:00"
     },
     "https://cpim.org/wp-content/uploads/2026/07/20260615_Annihilation-of-Caste-A-Marxist-Perspective.pdf": {
       "slug": "2026-07-20-the-annihilation-of-caste-a-marxist-perspective",
@@ -95,6 +93,17 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T13:27:20.606195+00:00"
+    },
+    "https://cpim.org/wp-content/uploads/2025/12/Political-Resolution-adopted-by-24th-Congress.pdf": {
+      "slug": "2025-12-05-24th-congress-political-resolution",
+      "title": "24th Congress Political Resolution",
+      "date": "2025-12-05",
+      "category": "Party Congress",
+      "page_count": 45,
+      "sha256": "11ed53c3400f103ab9213efd9ca1bad7061037e44f78594dc25ef342266f23c7",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:10:13.936662+00:00"
     }
   },
   "embedding": {
