@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T13:11:06.091578Z",
+  "last_synced": "2026-10-16T13:18:26.302287+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -73,6 +73,17 @@
       "extraction_method": "pymupdf4llm",
       "status": "completed",
       "processed_at": "2026-10-16T13:11:06.091521Z"
+    },
+    "https://cpim.org/wp-content/uploads/old/documents/2008_nuclear-notes.pdf": {
+      "slug": "2008-10-01-2008-nuclear-notes",
+      "title": "2008 Nuclear Notes",
+      "date": "2008-10-01",
+      "category": "CC Documents",
+      "page_count": 206,
+      "sha256": "c2942e80f751336fae677d3c4c4ca93df18c342897558f9e916013c3dbbf2f45",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T13:18:26.302234+00:00"
     }
   }
 }

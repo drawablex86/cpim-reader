@@ -66,6 +66,31 @@ LETTERHEAD_PATTERNS = [
 ]
 
 
+def sanitize_model_markdown(raw: str) -> str:
+    """
+    Strips model thinking streams (<think>...</think>, [THINKING]...[/THINKING]),
+    unnecessary markdown code fence wrappers (```markdown ... ```), and preamble.
+    Guarantees pure verbatim Markdown content.
+    """
+    if not raw:
+        return ""
+    # Strip <think>...</think> tags and internal reasoning tokens
+    cleaned = re.sub(r"(?is)<\s*think\s*>.*?<\s*/\s*think\s*>", "", raw)
+    # Strip [THINKING]...[/THINKING] tags
+    cleaned = re.sub(r"(?is)\[THINKING\].*?\[/THINKING\]", "", cleaned)
+    # Strip leading preamble like 'Here is the extracted markdown:' or 'Thinking Process:'
+    cleaned = re.sub(r"(?i)^(?:Here is (?:the|a) (?:clean |verbatim )?markdown.*?:|Thinking Process:.*?)\n+", "", cleaned.strip())
+    # Strip outer ```markdown ... ``` fence if model enclosed the whole document in code blocks
+    cleaned = cleaned.strip()
+    if cleaned.startswith("```markdown"):
+        cleaned = cleaned[len("```markdown"):].lstrip()
+    elif cleaned.startswith("```"):
+        cleaned = cleaned[3:].lstrip()
+    if cleaned.endswith("```"):
+        cleaned = cleaned[:-3].rstrip()
+    return cleaned.strip()
+
+
 def load_manifest() -> dict:
     if MANIFEST_PATH.exists():
         return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -210,7 +235,8 @@ def ocr_page_with_openrouter(client: httpx.Client, page: fitz.Page, api_key: str
     resp = client.post(OPENROUTER_URL, headers=headers, json=payload, timeout=120.0)
     resp.raise_for_status()
     data = resp.json()
-    return data["choices"][0]["message"]["content"].strip()
+    raw_content = data["choices"][0]["message"].get("content") or ""
+    return sanitize_model_markdown(raw_content)
 
 
 def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollama", api_key: str = None) -> str:
@@ -218,7 +244,7 @@ def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollam
         "You are an archival document transcription engine for the Communist Party of India (Marxist). "
         "Strict rules: 1. Preserved text must be 100% verbatim. Do NOT summarize or omit words. "
         "2. Convert primary Roman numeral sections (e.g. Part I, I., II.) into '## ' headings. "
-        "3. Strip recurring publisher address letterhead noise and standalone page numbers. Output Markdown ONLY."
+        "3. Strip recurring publisher address letterhead noise and standalone page numbers. Output Markdown ONLY. Do not explain or include thinking."
     )
 
     if provider == "openrouter" and api_key:
@@ -238,7 +264,8 @@ def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollam
         try:
             resp = client.post(OPENROUTER_URL, headers=headers, json=payload, timeout=120.0)
             resp.raise_for_status()
-            return resp.json()["choices"][0]["message"]["content"].strip()
+            raw_text = resp.json()["choices"][0]["message"].get("content") or ""
+            return sanitize_model_markdown(raw_text) or raw_md
         except Exception as exc:
             print(f"  [warn] OpenRouter Nemotron cleanup failed ({exc}); using regex-cleaned text.")
             return raw_md
@@ -255,7 +282,8 @@ def normalize_markdown(client: httpx.Client, raw_md: str, provider: str = "ollam
     try:
         resp = client.post(OLLAMA_URL, json=payload, timeout=120.0)
         resp.raise_for_status()
-        return resp.json().get("response", raw_md).strip()
+        raw_resp = resp.json().get("response") or raw_md
+        return sanitize_model_markdown(raw_resp) or raw_md
     except Exception as exc:
         print(f"  [warn] Local Ollama cleanup skipped ({exc}); using regex-cleaned text.")
         return raw_md
@@ -330,6 +358,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="List new documents without downloading")
     parser.add_argument("--provider", choices=["ollama", "openrouter", "none"], default="ollama", help="Inference provider")
     parser.add_argument("--vlm-model", default=DEFAULT_VLM_MODEL, help="Local VLM model tag (e.g. qwen2.5vl:3b, glm-ocr)")
+    parser.add_argument("--target-url", help="Process a specific document by its direct PDF or post URL")
     parser.add_argument("--force", action="store_true", help="Re-process even if already in manifest")
     args = parser.parse_args()
 
@@ -343,14 +372,28 @@ def main():
     manifest = load_manifest()
 
     with httpx.Client(follow_redirects=True, headers={"User-Agent": "CPIM-Archive-Sync/2.0"}) as client:
-        docs = discover_documents(client)
-        print(f"Discovered {len(docs)} documents on {BASE_URL}")
+        if args.target_url:
+            print(f"Targeting single document URL: {args.target_url}")
+            is_pdf = args.target_url.lower().endswith(".pdf") or "wp-content/uploads" in args.target_url
+            target_slug = Path(args.target_url.split("?")[0]).stem.replace("%20", "-")
+            title_guess = target_slug.replace("-", " ").replace("_", " ").title()
+            new_docs = [{
+                "title": title_guess,
+                "date": "2008-10-01" if "2008" in args.target_url else "2010-01-01",
+                "category": "CC Documents",
+                "source_pdf_url": args.target_url if is_pdf else None,
+                "source_post_url": args.target_url if not is_pdf else None,
+                "has_direct_pdf": is_pdf,
+            }]
+        else:
+            docs = discover_documents(client)
+            print(f"Discovered {len(docs)} documents on {BASE_URL}")
 
-        new_docs = [
-            d for d in docs
-            if args.force or (d["source_pdf_url"] or d["source_post_url"]) not in manifest["documents"]
-        ]
-        print(f"New/pending documents to process: {len(new_docs)}")
+            new_docs = [
+                d for d in docs
+                if args.force or (d["source_pdf_url"] or d["source_post_url"]) not in manifest["documents"]
+            ]
+            print(f"New/pending documents to process: {len(new_docs)}")
 
         if args.dry_run:
             for d in new_docs[: args.limit]:
@@ -365,10 +408,17 @@ def main():
 
             if item["has_direct_pdf"]:
                 pdf_file = PDF_CACHE_DIR / f"{slug}.pdf"
-                pdf_resp = client.get(item["source_pdf_url"], timeout=60.0)
-                pdf_resp.raise_for_status()
-                pdf_file.write_bytes(pdf_resp.content)
-                sha256_hash = hashlib.sha256(pdf_resp.content).hexdigest()
+                if pdf_file.exists() and pdf_file.stat().st_size > 0:
+                    print(f"  -> Reusing cached PDF: {pdf_file.name} ({pdf_file.stat().st_size // 1024} KB)")
+                    pdf_bytes = pdf_file.read_bytes()
+                else:
+                    print(f"  -> Downloading PDF: {item['source_pdf_url']}")
+                    pdf_resp = client.get(item["source_pdf_url"], timeout=60.0)
+                    pdf_resp.raise_for_status()
+                    pdf_bytes = pdf_resp.content
+                    pdf_file.write_bytes(pdf_bytes)
+
+                sha256_hash = hashlib.sha256(pdf_bytes).hexdigest()
                 body_md, pages, method = extract_pdf(
                     pdf_file, client, provider=args.provider, api_key=openrouter_key, vlm_model=args.vlm_model
                 )
