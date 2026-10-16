@@ -1,8 +1,8 @@
 <script lang="ts">
-  let { onclose, initialTab = 'sync' } = $props<{ onclose: () => void; initialTab?: 'sync' | 'embed' }>();
+  let { onclose, initialTab = 'sync' } = $props<{ onclose: () => void; initialTab?: 'sync' | 'embed' | 'translate' }>();
 
-  // Mode: 'sync' or 'embed'
-  let activeTab = $state<'sync' | 'embed'>('sync');
+  // Mode: 'sync' | 'embed' | 'translate'
+  let activeTab = $state<'sync' | 'embed' | 'translate'>('sync');
 
   $effect(() => {
     activeTab = initialTab;
@@ -23,6 +23,84 @@
   let embedModel = $state('embeddinggemma-2:270m');
   let embedForce = $state(false);
   let embedSuccess = $state(false);
+
+  // Translate state (Singular Focus: English -> Malayalam)
+  let translateSlug = $state('2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza');
+  let translateEngine = $state<'ct2' | 'ollama' | 'indictrans2' | 'openrouter'>('ct2');
+  let translateLang = $state('ml');
+  let isTranslating = $state(false);
+  let translateLogs = $state('');
+  let translateSuccess = $state(false);
+  let isLoadingModels = $state(false);
+  let modelStatus = $state<{
+    ct2?: { status: string; path: string; architecture: string; size: string; speed: string };
+    ollama?: { status: string; models: string[]; hasQwen: boolean; hasIndicTransInOllama: boolean; indicOllamaNote: string };
+    indictrans2?: { status: string; path: string; architecture: string; size: string };
+    openrouter?: { status: string; model: string };
+  } | null>(null);
+
+  async function fetchModelStatus() {
+    isLoadingModels = true;
+    try {
+      const res = await fetch('/api/dev/models');
+      if (res.ok) {
+        modelStatus = await res.json();
+      }
+    } catch (err) {
+      console.warn('Failed to fetch dev model status:', err);
+    } finally {
+      isLoadingModels = false;
+    }
+  }
+
+  $effect(() => {
+    if (activeTab === 'translate' && !modelStatus && !isLoadingModels) {
+      fetchModelStatus();
+    }
+  });
+
+  async function startTranslation() {
+    isTranslating = true;
+    translateSuccess = false;
+    translateLogs = 'Connecting to translation backend worker...\n';
+
+    try {
+      const response = await fetch('/api/dev/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          slug: translateSlug,
+          engine: translateEngine,
+          lang: translateLang,
+          save: true
+        })
+      });
+
+      if (!response.body) {
+        translateLogs += '\n[ERROR]: No response body stream received.';
+        isTranslating = false;
+        return;
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        const text = decoder.decode(value, { stream: true });
+        translateLogs += text;
+      }
+
+      if (translateLogs.includes('[PROCESS TERMINATED WITH CODE 0]')) {
+        translateSuccess = true;
+      }
+    } catch (err: any) {
+      translateLogs += `\n[NETWORK ERROR]: ${err.message}`;
+    } finally {
+      isTranslating = false;
+    }
+  }
 
   async function startSync() {
     isRunning = true;
@@ -130,6 +208,17 @@
         >
           2. VECTOR EMBEDDING
         </button>
+        <button
+          type="button"
+          class="tab-pill"
+          class:active={activeTab === 'translate'}
+          onclick={() => {
+            activeTab = 'translate';
+            if (!modelStatus) fetchModelStatus();
+          }}
+        >
+          3. TRANSLATE (MALAYALAM DEV)
+        </button>
       </div>
       <button type="button" class="close-btn" onclick={onclose} aria-label="Close modal">✕</button>
     </div>
@@ -236,7 +325,7 @@
           </div>
         {/if}
 
-      {:else}
+      {:else if activeTab === 'embed'}
         <!-- EMBEDDING TAB -->
         <h2 class="modal-title">VECTOR EMBEDDING PIPELINE</h2>
         <p class="modal-deck">
@@ -303,6 +392,144 @@
             {/if}
           </div>
           <pre class="terminal-pre"><code>{embedLogs || 'Click "GENERATE VECTORS" to build client-side vector database.'}</code></pre>
+        </div>
+
+      {:else}
+        <!-- MALAYALAM TRANSLATION WORKER TAB -->
+        <div class="translate-tab-header">
+          <div>
+            <h2 class="modal-title">MALAYALAM TRANSLATION WORKER</h2>
+            <p class="modal-deck">
+              Singular focus dev environment: Translates official CPI(M) resolutions from English into publication-grade
+              <strong>Malayalam (മലയാളം)</strong>. Enforces party ideological vocabulary via
+              <code>scripts/glossary/marxist_indic.json</code> and tracks model readiness in real-time.
+            </p>
+          </div>
+          <button type="button" class="btn-refresh-models" onclick={fetchModelStatus} disabled={isLoadingModels}>
+            {isLoadingModels ? 'CHECKING...' : '↻ REFRESH MODEL STATUS'}
+          </button>
+        </div>
+
+        <!-- Model Health & Discovery Matrix -->
+        <div class="model-matrix">
+          <div class="model-card featured-model-card">
+            <div class="model-card-header">
+              <span class="model-tag">⚡ CTRANSLATE2 INT8 (FAST)</span>
+              <span class="status-badge" class:online={modelStatus?.ct2?.status === 'installed'}>
+                {modelStatus?.ct2?.status === 'installed' ? '● INSTALLED (807 MB)' : '○ MISSING'}
+              </span>
+            </div>
+            <div class="model-card-body">
+              <div class="model-name">IndicTrans2 200M (CT2 INT8)</div>
+              <div class="model-desc">
+                Sub-second inference (~0.4s/chunk) via Apple Silicon C++ NEON engine. <strong>Recommended</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="model-card">
+            <div class="model-card-header">
+              <span class="model-tag">LOCAL OLLAMA</span>
+              <span class="status-badge" class:online={modelStatus?.ollama?.status === 'online'}>
+                {modelStatus?.ollama?.status === 'online' ? '● ONLINE' : '○ OFFLINE'}
+              </span>
+            </div>
+            <div class="model-card-body">
+              <div class="model-name">qwen2.5:7b (7.6B / Q4_K_M)</div>
+              <div class="model-desc">
+                Generative causal LLM in Ollama. Slower (~1-2m/chunk).
+              </div>
+            </div>
+          </div>
+
+          <div class="model-card">
+            <div class="model-card-header">
+              <span class="model-tag">CLOUD FALLBACK</span>
+              <span class="status-badge" class:online={modelStatus?.openrouter?.status === 'configured'}>
+                {modelStatus?.openrouter?.status === 'configured' ? '● READY (.env)' : '○ NO API KEY'}
+              </span>
+            </div>
+            <div class="model-card-body">
+              <div class="model-name">NVIDIA Nemotron 3 Ultra (Free)</div>
+              <div class="model-desc">
+                Zero local RAM fallback via OpenRouter API.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="translate-slug">TARGET DOCUMENT SLUG (SINGULAR FOCUS)</label>
+            <input
+              id="translate-slug"
+              type="text"
+              bind:value={translateSlug}
+              class="form-input"
+              disabled={isTranslating}
+            />
+            <span class="field-hint">Source document in <code>src/content/documents/</code></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="translate-engine">INFERENCE ENGINE</label>
+              <select id="translate-engine" bind:value={translateEngine} class="form-select" disabled={isTranslating}>
+                <option value="ct2">⚡ CTranslate2 INT8 200M [Recommended / Sub-second ~3s]</option>
+                <option value="ollama">Ollama Local (qwen2.5:7b) [Generative LLM]</option>
+                <option value="indictrans2">AI4Bharat IndicTrans2 1B (Full PyTorch Seq2Seq)</option>
+                <option value="openrouter">OpenRouter Free (NVIDIA Nemotron 3 Ultra)</option>
+              </select>
+            </div>
+
+            <div class="form-group half">
+              <label for="translate-lang">TARGET LANGUAGE</label>
+              <input
+                id="translate-lang"
+                type="text"
+                value="Malayalam (മലയാളം - ml)"
+                class="form-input readonly-input"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="action-strip">
+          <button
+            type="button"
+            class="btn-run btn-translate"
+            class:running={isTranslating}
+            onclick={startTranslation}
+            disabled={isTranslating}
+          >
+            {isTranslating ? 'TRANSLATING DOCUMENT TO MALAYALAM...' : 'TRANSLATE DOCUMENT TO MALAYALAM ➔'}
+          </button>
+        </div>
+
+        {#if translateSuccess}
+          <div class="success-banner translate-success">
+            <div class="success-text">
+              ✓ <strong>TRANSLATION COMPLETE!</strong> Document saved to <code>src/content/translations/ml/{translateSlug}.md</code> and indexed in <code>data/manifest.json</code>.
+            </div>
+            <a
+              href="/docs/{translateSlug}?lang=ml"
+              class="btn-view-doc"
+              onclick={onclose}
+            >
+              READ IN MALAYALAM (OR TOGGLE BILINGUAL) ➔
+            </a>
+          </div>
+        {/if}
+
+        <div class="terminal-shell">
+          <div class="terminal-bar">
+            <span>TRANSLATION IPC STREAM // stdout & stderr</span>
+            {#if translateLogs}
+              <button type="button" class="btn-clear" onclick={() => (translateLogs = '')}>CLEAR</button>
+            {/if}
+          </div>
+          <pre class="terminal-pre"><code>{translateLogs || 'Select engine and click "TRANSLATE DOCUMENT TO MALAYALAM" to initiate.'}</code></pre>
         </div>
       {/if}
     </div>
@@ -650,5 +877,155 @@
     color: #33FF33;
     white-space: pre-wrap;
     word-break: break-all;
+  }
+
+  /* Translate Tab Specifics */
+  .translate-tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-refresh-models {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.4rem 0.75rem;
+    background-color: var(--color-paper-dark);
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.1s ease;
+  }
+
+  .btn-refresh-models:hover:not(:disabled) {
+    background-color: var(--color-gold);
+  }
+
+  .model-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .model-card {
+    background-color: #FFFFFF;
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    padding: 0.75rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .model-card.featured-model-card {
+    border: 2px solid var(--color-red-primary);
+    background-color: #FFFDF9;
+  }
+
+  .model-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--color-gray-light);
+    padding-bottom: 0.35rem;
+  }
+
+  .model-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-gray-dark);
+    letter-spacing: 0.05em;
+  }
+
+  .status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #999999;
+  }
+
+  .status-badge.online {
+    color: #008800;
+  }
+
+  .model-name {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+
+  .model-desc {
+    font-size: 0.75rem;
+    color: var(--color-gray-dark);
+    line-height: 1.35;
+  }
+
+  .model-note {
+    font-size: 0.7rem;
+    color: #555555;
+    background-color: #FFF9E6;
+    border: 1px solid var(--color-gold);
+    padding: 0.3rem 0.4rem;
+    margin-top: 0.2rem;
+    line-height: 1.3;
+  }
+
+  .readonly-input {
+    background-color: var(--color-paper-dark) !important;
+    color: var(--color-black);
+    font-weight: 600;
+    cursor: default;
+  }
+
+  .btn-translate {
+    background-color: var(--color-red-primary);
+  }
+
+  .btn-translate:hover:not(:disabled) {
+    background-color: var(--color-red-dark);
+  }
+
+  .translate-success {
+    background-color: #E6F4EA;
+    border: 2px solid #137333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .success-text {
+    font-size: 0.85rem;
+    color: #137333;
+    line-height: 1.4;
+  }
+
+  .btn-view-doc {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.55rem 0.85rem;
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    transition: transform 0.1s ease;
+  }
+
+  .btn-view-doc:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-hard-md);
   }
 </style>

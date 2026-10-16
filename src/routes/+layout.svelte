@@ -4,7 +4,7 @@
 
   let { children } = $props();
   let showDevModal = $state(false);
-  let devModalTab = $state<'sync' | 'embed'>('sync');
+  let devModalTab = $state<'sync' | 'embed' | 'translate'>('sync');
 </script>
 
 <div class="app-shell">
@@ -25,7 +25,7 @@
               showDevModal = true;
             }}
           >
-            ⚙ INITIATE SYNC (EXTRACTION) ➔
+            ⚙ INITIATE SYNC ➔
           </button>
           <button
             type="button"
@@ -35,7 +35,17 @@
               showDevModal = true;
             }}
           >
-            ⬡ INITIATE VECTOR EMBEDDING (OLLAMA) ➔
+            ⬡ VECTOR EMBEDDING ➔
+          </button>
+          <button
+            type="button"
+            class="btn-trigger-pipeline btn-translate"
+            onclick={() => {
+              devModalTab = 'translate';
+              showDevModal = true;
+            }}
+          >
+            🌐 TRANSLATE (MALAYALAM DEV) ➔
           </button>
         </div>
       </div>
@@ -210,6 +220,18 @@
 
   .btn-trigger-pipeline.btn-embed:hover {
     background-color: #d8a005;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+  }
+
+  .btn-trigger-pipeline.btn-translate {
+    background-color: #1a472a;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+  }
+
+  .btn-trigger-pipeline.btn-translate:hover {
+    background-color: #235d37;
     transform: translate(-1px, -1px);
     box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
   }

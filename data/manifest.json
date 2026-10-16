@@ -323,7 +323,20 @@
       "sha256": "3d1df2bec0a5fccdaa464b0e2aab41f89ad71de61534f174407ce2f3bbdcdfca",
       "extraction_method": "html-archive",
       "status": "completed",
-      "processed_at": "2026-10-16T15:01:45.426697+00:00"
+      "processed_at": "2026-10-16T15:01:45.426697+00:00",
+      "translations": {
+        "ml": {
+          "status": "completed",
+          "engine": "ct2",
+          "file": "src/content/translations/ml/2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza.md",
+          "updated_at": "2026-10-16T17:51:57.062098+00:00"
+        },
+        "hi": {
+          "status": "completed",
+          "file": "src/content/translations/hi/2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza.md",
+          "updated_at": "2026-10-16T16:26:41.804939+00:00"
+        }
+      }
     },
     "https://cpim.org/resolution-to-oppose-one-nation-one-election-drive-of-the-modi-government/": {
       "slug": "2025-04-04-resolution-to-oppose-one-nation-one-election-drive-of-the-modi-governm",

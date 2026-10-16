@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>CPI(M) Official Documents Archive & Research Environment</title>
 		
-		<!-- Typography: Soviet Constructivist Display + Scholarly Editorial Prose + Archival Mono + Indic Editorial Serif -->
+		<!-- Typography: Soviet Constructivist Display + Scholarly Editorial Prose + Archival Mono + Indic Editorial Serifs -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;500;600;700&family=Noto+Serif+Telugu:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 		<style>
 			:root {
@@ -49,7 +49,33 @@
 				/* FONTS */
 				--font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 				--font-prose: 'Newsreader', 'Noto Serif Devanagari', Georgia, serif;
+				--font-prose-hi: 'Noto Serif Devanagari', 'Newsreader', serif;
+				--font-prose-ml: 'Noto Serif Malayalam', 'Newsreader', serif;
+				--font-prose-bn: 'Noto Serif Bengali', 'Newsreader', serif;
+				--font-prose-ta: 'Noto Serif Tamil', 'Newsreader', serif;
+				--font-prose-te: 'Noto Serif Telugu', 'Newsreader', serif;
 				--font-mono: 'JetBrains Mono', 'Courier New', monospace;
+			}
+
+			:lang(ml), [lang="ml"], .indic-prose-ml {
+				font-family: var(--font-prose-ml);
+				line-height: 1.95 !important;
+			}
+			:lang(hi), [lang="hi"], .indic-prose-hi {
+				font-family: var(--font-prose-hi);
+				line-height: 1.88 !important;
+			}
+			:lang(bn), [lang="bn"], .indic-prose-bn {
+				font-family: var(--font-prose-bn);
+				line-height: 1.90 !important;
+			}
+			:lang(ta), [lang="ta"], .indic-prose-ta {
+				font-family: var(--font-prose-ta);
+				line-height: 1.95 !important;
+			}
+			:lang(te), [lang="te"], .indic-prose-te {
+				font-family: var(--font-prose-te);
+				line-height: 1.95 !important;
 			}
 
 			*, *::before, *::after {

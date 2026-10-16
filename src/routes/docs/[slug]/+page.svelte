@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
+  import LanguageSelector from '$lib/components/LanguageSelector.svelte';
 
   let { data } = $props();
 
@@ -10,6 +11,53 @@
   let readProgress = $state(0);
   let activeHeadingId = $state<string>('');
   let headings = $state<Array<{ id: string; text: string; level: number }>>([]);
+
+  // Multilingual State
+  let currentLang = $state<string>('en');
+  let isBilingualView = $state(false);
+
+  // References for synchronized bilingual scrolling
+  let masterPaneEl: HTMLElement | null = $state(null);
+  let transPaneEl: HTMLElement | null = $state(null);
+  let isSyncingScroll = false;
+
+  const availableTranslations = $derived(data.meta.translations || {});
+  const activeTranslation = $derived(
+    currentLang === 'en' ? null : availableTranslations[currentLang]
+  );
+
+  const displayTitle = $derived(
+    activeTranslation?.title || data.meta.title
+  );
+
+  // Active translation Svelte component
+  const ActiveTransComponent = $derived(
+    currentLang !== 'en' && data.translationComponents ? data.translationComponents[currentLang] : null
+  );
+
+  function handleSelectLang(lang: string) {
+    currentLang = lang;
+    tick().then(() => {
+      refreshHeadings();
+    });
+  }
+
+  function handleToggleBilingual() {
+    isBilingualView = !isBilingualView;
+    if (isBilingualView) {
+      showPdfSplit = false; // prioritize bilingual view
+      if (currentLang === 'en') {
+        // default to first available translation
+        const availableKeys = Object.keys(availableTranslations);
+        if (availableKeys.length > 0) {
+          currentLang = availableKeys[0];
+        }
+      }
+    }
+    tick().then(() => {
+      refreshHeadings();
+    });
+  }
 
   function updateScroll() {
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -28,25 +76,22 @@
     }
   }
 
-  onMount(() => {
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    updateScroll();
+  function refreshHeadings() {
+    const selector = isBilingualView
+      ? '.bilingual-pane.trans-pane h1, .bilingual-pane.trans-pane h2, .bilingual-pane.trans-pane h3'
+      : '.reading-canvas .markdown-prose h1, .reading-canvas .markdown-prose h2, .reading-canvas .markdown-prose h3';
 
-    // Query headings from rendered markdown prose (support h1, h2, h3)
-    const elements = document.querySelectorAll('.markdown-prose h1, .markdown-prose h2, .markdown-prose h3');
+    const elements = document.querySelectorAll(selector);
     const collected: Array<{ id: string; text: string; level: number }> = [];
     const seenSlugs = new Map<string, number>();
 
     elements.forEach((el) => {
       const headingEl = el as HTMLElement;
       let rawText = headingEl.innerText.replace(/^#+\s*/, '').trim();
-
-      // Clean markdown formatting if present in text
       rawText = rawText.replace(/\*\*/g, '').replace(/\*/g, '').replace(/__+/g, '').trim();
 
-      // Skip empty or generic document title if it repeats page title at the very top
       if (!rawText) return;
-      if (headingEl.tagName === 'H1' && rawText.toLowerCase() === (data.meta.title || '').toLowerCase()) {
+      if (headingEl.tagName === 'H1' && rawText.toLowerCase() === (displayTitle || '').toLowerCase()) {
         return;
       }
 
@@ -60,7 +105,7 @@
           .replace(/\s+/g, '-');
         const count = seenSlugs.get(base) || 0;
         seenSlugs.set(base, count + 1);
-        headingEl.id = count === 0 ? (base || `section-${headings.length + 1}`) : `${base}-${count}`;
+        headingEl.id = count === 0 ? (base || `section-${collected.length + 1}`) : `${base}-${count}`;
       } else {
         seenSlugs.set(headingEl.id, (seenSlugs.get(headingEl.id) || 0) + 1);
       }
@@ -73,43 +118,44 @@
     });
 
     headings = collected;
+  }
 
-    // IntersectionObserver to spy on active section
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            activeHeadingId = entry.target.id;
-            break;
-          }
-        }
-      },
-      { rootMargin: '-80px 0px -70% 0px' }
-    );
+  function handleMasterScroll() {
+    if (isSyncingScroll || !masterPaneEl || !transPaneEl) return;
+    isSyncingScroll = true;
+    const ratio = masterPaneEl.scrollTop / (masterPaneEl.scrollHeight - masterPaneEl.clientHeight || 1);
+    transPaneEl.scrollTop = ratio * (transPaneEl.scrollHeight - transPaneEl.clientHeight);
+    setTimeout(() => { isSyncingScroll = false; }, 50);
+  }
 
-    elements.forEach((el) => observer.observe(el));
+  function handleTransScroll() {
+    if (isSyncingScroll || !masterPaneEl || !transPaneEl) return;
+    isSyncingScroll = true;
+    const ratio = transPaneEl.scrollTop / (transPaneEl.scrollHeight - transPaneEl.clientHeight || 1);
+    masterPaneEl.scrollTop = ratio * (masterPaneEl.scrollHeight - masterPaneEl.clientHeight);
+    setTimeout(() => { isSyncingScroll = false; }, 50);
+  }
 
-    // If deep-linked with hash on page load, smooth scroll to it
-    if (window.location.hash) {
-      const hashId = decodeURIComponent(window.location.hash.substring(1));
-      setTimeout(() => {
-        const target = document.getElementById(hashId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          activeHeadingId = hashId;
-        }
-      }, 150);
+  onMount(() => {
+    // Check if query params request a language
+    const searchParams = new URLSearchParams(window.location.search);
+    const requestedLang = searchParams.get('lang');
+    if (requestedLang && availableTranslations[requestedLang]) {
+      currentLang = requestedLang;
     }
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+    refreshHeadings();
 
     return () => {
       window.removeEventListener('scroll', updateScroll);
-      observer.disconnect();
     };
   });
 </script>
 
 <svelte:head>
-  <title>{data.meta.title} — CPI(M) Official Archive</title>
+  <title>{displayTitle} — CPI(M) Official Archive</title>
 </svelte:head>
 
 <!-- Sticky Top Reading Progress Bar -->
@@ -134,9 +180,19 @@
         {#if data.meta.extraction_method}
           <span class="badge method">{data.meta.extraction_method.toUpperCase()}</span>
         {/if}
+        <span class="badge lang-tag" data-pagefind-filter="language">{currentLang.toUpperCase()}</span>
       </div>
 
-      <h1 class="document-headline">{data.meta.title}</h1>
+      <h1 class="document-headline" lang={currentLang} class:indic-prose-ml={currentLang === 'ml'} class:indic-prose-hi={currentLang === 'hi'}>
+        {displayTitle}
+      </h1>
+
+      {#if activeTranslation && activeTranslation.original_title}
+        <div class="original-title-sub">
+          <span class="sub-label">ORIGINAL ENGLISH TITLE:</span>
+          <span class="sub-text">{activeTranslation.original_title}</span>
+        </div>
+      {/if}
 
       <div class="author-byline">
         <span class="byline-label">OFFICIAL ISSUANCE:</span>
@@ -150,7 +206,10 @@
             type="button"
             class="tool-btn split-toggle"
             class:active={showPdfSplit}
-            onclick={() => (showPdfSplit = !showPdfSplit)}
+            onclick={() => {
+              showPdfSplit = !showPdfSplit;
+              if (showPdfSplit) isBilingualView = false;
+            }}
           >
             {showPdfSplit ? '✕ CLOSE ORIGINAL PDF' : '◫ VERIFY WITH ORIGINAL PDF (SPLIT VIEW)'}
           </button>
@@ -187,16 +246,31 @@
           </a>
         {/if}
       </div>
+
+      <!-- Constructivist Language Selector & Bilingual Controller -->
+      <LanguageSelector
+        {currentLang}
+        isBilingual={isBilingualView}
+        {availableTranslations}
+        onSelectLang={handleSelectLang}
+        onToggleBilingual={handleToggleBilingual}
+      />
     </div>
   </header>
 
   <!-- Workspace Container: TOC Sidebar + Editorial Prose + Split PDF Pane -->
-  <div class="reader-workspace" class:split-active={showPdfSplit}>
+  <div
+    class="reader-workspace"
+    class:split-active={showPdfSplit}
+    class:bilingual-active={isBilingualView}
+  >
     <!-- Sticky Table of Contents & Related Resolutions Sidebar -->
     <aside class="toc-sidebar" aria-label="Table of Contents and Related Documents">
       {#if headings.length > 0}
         <div class="toc-sticky-box">
-          <div class="toc-title-stamp">DOCUMENT SECTIONS</div>
+          <div class="toc-title-stamp">
+            {currentLang === 'ml' ? 'പ്രമേയ ഉള്ളടക്കം' : currentLang === 'hi' ? 'दस्तावेज़ की विषय-सूची' : 'DOCUMENT SECTIONS'}
+          </div>
           <nav class="toc-list">
             {#each headings as h}
               <a
@@ -220,19 +294,73 @@
     </aside>
 
     <!-- Main Editorial Reading Canvas -->
-    <main class="reading-canvas">
-      <div class="markdown-prose">
-        <data.content />
-      </div>
+    {#if !isBilingualView}
+      <!-- Single Column Standard Mode -->
+      <main
+        class="reading-canvas"
+        lang={currentLang}
+        class:indic-prose-ml={currentLang === 'ml'}
+        class:indic-prose-hi={currentLang === 'hi'}
+        class:indic-prose-bn={currentLang === 'bn'}
+      >
+        <div class="markdown-prose">
+          {#if currentLang !== 'en' && ActiveTransComponent}
+            <ActiveTransComponent />
+          {:else}
+            <data.content />
+          {/if}
+        </div>
 
-      <div class="end-of-document">
-        <div class="end-stamp">∎ END OF OFFICIAL ARCHIVAL RESOLUTION ∎</div>
-        <p class="end-meta">
-          Preserved in the CPI(M) Research Repository under SHA256 integrity hash:
-          <code>{data.meta.sha256 || 'verified-record'}</code>
-        </p>
+        <div class="end-of-document">
+          <div class="end-stamp">∎ END OF OFFICIAL ARCHIVAL RESOLUTION ∎</div>
+          <p class="end-meta">
+            Preserved in the CPI(M) Research Repository under SHA256 integrity hash:
+            <code>{data.meta.sha256 || 'verified-record'}</code>
+          </p>
+        </div>
+      </main>
+    {:else}
+      <!-- Parallel Bilingual Comparative Mode -->
+      <div class="bilingual-workspace" aria-label="Side-by-side Comparative Reading">
+        <!-- Left: English Master Text -->
+        <div
+          class="bilingual-pane master-pane"
+          bind:this={masterPaneEl}
+          onscroll={handleMasterScroll}
+        >
+          <div class="pane-header-stamp">
+            <span class="stamp-pill en">ENGLISH MASTER RESOLUTION</span>
+          </div>
+          <div class="markdown-prose master-prose">
+            <data.content />
+          </div>
+        </div>
+
+        <!-- Right: Indian Language Translation Text -->
+        <div
+          class="bilingual-pane trans-pane"
+          lang={currentLang}
+          class:indic-prose-ml={currentLang === 'ml'}
+          class:indic-prose-hi={currentLang === 'hi'}
+          class:indic-prose-bn={currentLang === 'bn'}
+          bind:this={transPaneEl}
+          onscroll={handleTransScroll}
+        >
+          <div class="pane-header-stamp">
+            <span class="stamp-pill indic">
+              {currentLang.toUpperCase()} VERIFIED TRANSLATION ({activeTranslation?.language_name || currentLang})
+            </span>
+          </div>
+          <div class="markdown-prose trans-prose">
+            {#if ActiveTransComponent}
+              <ActiveTransComponent />
+            {:else}
+              <p class="placeholder-msg">Translation not available in this language.</p>
+            {/if}
+          </div>
+        </div>
       </div>
-    </main>
+    {/if}
 
     <!-- Side-by-Side Split View PDF Pane -->
     {#if showPdfSplit && data.meta.source_pdf_url}
@@ -285,16 +413,17 @@
     transition: width 0.1s linear;
   }
 
+  /* Reader Page Layout */
   .reader-container {
-    background-color: var(--color-paper-light);
+    background-color: var(--reader-bg);
     min-height: 100vh;
   }
 
-  /* Document Header */
+  /* Document Header Section */
   .doc-header {
     background-color: var(--color-paper);
     border-bottom: var(--border-heavy);
-    padding: 2rem 1.5rem 1.5rem;
+    padding: 3rem 1.5rem 2.5rem;
   }
 
   .header-inner {
@@ -303,20 +432,26 @@
   }
 
   .nav-breadcrumbs {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .back-link {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
     font-weight: 700;
+    letter-spacing: 0.05em;
     color: var(--color-black);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--color-black);
-    padding-bottom: 0.15rem;
+    padding: 0.4rem 0.8rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    box-shadow: var(--shadow-hard-sm);
+    transition: all 0.1s ease;
+    display: inline-block;
   }
 
   .back-link:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-hard-md);
     color: var(--color-red-primary);
     border-color: var(--color-red-primary);
   }
@@ -348,6 +483,11 @@
     color: var(--color-black);
   }
 
+  .badge.lang-tag {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
   .meta-item {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -359,10 +499,33 @@
     font-family: var(--font-prose);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
     color: var(--color-black);
     margin: 0.5rem 0 1rem;
     max-width: 950px;
+  }
+
+  .original-title-sub {
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--color-paper-dark);
+    border-left: 3px solid var(--color-red-primary);
+    display: inline-block;
+  }
+
+  .sub-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-gray-dark);
+    margin-right: 0.5rem;
+  }
+
+  .sub-text {
+    font-family: var(--font-prose);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-black);
   }
 
   .author-byline {
@@ -451,6 +614,11 @@
     gap: 2rem;
   }
 
+  .reader-workspace.bilingual-active {
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+  }
+
   /* Sticky Table of Contents Sidebar */
   .toc-sidebar {
     position: sticky;
@@ -530,6 +698,49 @@
     width: 100%;
   }
 
+  /* Parallel Bilingual Workspace */
+  .bilingual-workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .bilingual-pane {
+    background: #FFFFFF;
+    border: var(--border-medium);
+    padding: 2rem;
+    box-shadow: var(--shadow-hard-sm);
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
+
+  .pane-header-stamp {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-black);
+  }
+
+  .stamp-pill {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-black);
+    display: inline-block;
+  }
+
+  .stamp-pill.en {
+    background: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .stamp-pill.indic {
+    background: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
   /* Editorial Markdown Prose Styles */
   :global(.markdown-prose) {
     font-family: var(--font-prose);
@@ -591,55 +802,11 @@
     font-style: italic;
   }
 
-  :global(.markdown-prose ul),
-  :global(.markdown-prose ol) {
-    margin: 0 0 1.75rem;
-    padding-left: 1.75rem;
-  }
-
-  :global(.markdown-prose li) {
-    margin-bottom: 0.65rem;
-  }
-
-  :global(.markdown-prose a) {
-    color: var(--color-red-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-  }
-
-  :global(.markdown-prose a:hover) {
-    color: var(--color-red-dark);
-  }
-
-  :global(.markdown-prose table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    font-size: 1rem;
-    border: 2px solid var(--color-black);
-  }
-
-  :global(.markdown-prose th) {
-    background-color: var(--color-black);
-    color: #FFFFFF;
-    font-weight: 700;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid #333333;
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-  }
-
-  :global(.markdown-prose td) {
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--color-gray-light);
-  }
-
   /* End of Document Stamp */
   .end-of-document {
-    border-top: 3px solid var(--color-black);
     margin-top: 4rem;
     padding-top: 2rem;
+    border-top: 2px dashed var(--color-gray-dark);
     text-align: center;
   }
 
@@ -649,38 +816,38 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     color: var(--color-red-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .end-meta {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-gray-dark);
-    margin: 0;
   }
 
   .end-meta code {
     background-color: var(--color-paper-dark);
-    padding: 0.15rem 0.4rem;
+    padding: 0.2rem 0.4rem;
     border: 1px solid var(--color-gray-light);
   }
 
-  /* Split PDF Pane */
+  /* Split PDF Verification Pane */
   .pdf-pane {
     position: sticky;
     top: 2rem;
     height: calc(100vh - 4rem);
-    background-color: var(--color-paper);
+    background-color: var(--color-surface-pure);
     border: var(--border-heavy);
     box-shadow: var(--shadow-hard-md);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .pdf-pane-header {
     background-color: var(--color-black);
     color: #FFFFFF;
-    padding: 0.65rem 1rem;
+    padding: 0.6rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -690,32 +857,42 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
+    letter-spacing: 0.05em;
   }
 
   .pdf-close-btn {
     background: transparent;
     border: none;
     color: #FFFFFF;
-    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
+    line-height: 1;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .pdf-close-btn:hover {
+    color: var(--color-red-primary);
   }
 
   .pdf-iframe {
     width: 100%;
-    flex: 1;
+    height: 100%;
     border: none;
   }
 
+  /* Responsive Adjustments */
   @media (max-width: 1024px) {
     .reader-workspace {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
+    .bilingual-workspace {
+      grid-template-columns: 1fr;
+    }
+
     .toc-sidebar {
-      display: none; /* Hide TOC sidebar on mobile/tablet */
+      display: none;
     }
 
     .reader-workspace.split-active {
@@ -723,8 +900,8 @@
     }
 
     .pdf-pane {
-      position: static;
       height: 600px;
+      position: static;
       margin-top: 2rem;
     }
   }
