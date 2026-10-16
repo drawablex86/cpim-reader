@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "last_synced": "2026-10-16T14:33:36.790391+00:00",
+  "last_synced": "2026-10-16T14:49:24.050448+00:00",
   "documents": {
     "https://cpim.org/wp-content/uploads/2026/07/20260725_Assembly-Election-Review-Adopted.pdf": {
       "slug": "2026-07-27-review-of-assembly-election-results-july-2026",
@@ -115,12 +115,122 @@
       "extraction_method": "ollama-normalized",
       "status": "completed",
       "processed_at": "2026-10-16T14:33:36.790036+00:00"
+    },
+    "https://cpim.org/wp-content/uploads/2025/10/Review-of-the-Work-on-the-Kisan-Front-Adopted.pdf": {
+      "slug": "2025-10-13-review-of-the-work-on-the-kisan-front",
+      "title": "Review of the Work on the Kisan Front",
+      "date": "2025-10-13",
+      "category": "Issues",
+      "page_count": 37,
+      "sha256": "aade28462e8cf3d2f65e0e2443d7a87a31f16a5a1ed6445f491217525c9b52db",
+      "extraction_method": "pymupdf4llm",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:10.825656+00:00"
+    },
+    "https://cpim.org/stop-communal-polarisation-and-restore-peace-in-manipur/": {
+      "slug": "2025-04-19-stop-communal-polarisation-and-restore-peace-in-manipur",
+      "title": "Stop Communal Polarisation and Restore Peace in Manipur",
+      "date": "2025-04-19",
+      "category": "CC Documents",
+      "page_count": 1,
+      "sha256": "a359062ea43cbc650b00a195bed2d87f1568a4e96e4d7d91f2c2144dd490deb6",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:12.547405+00:00"
+    },
+    "https://cpim.org/stop-attacks-on-lic-and-public-sector-general-insurance-companies/": {
+      "slug": "2025-04-19-stop-attacks-on-lic-and-public-sector-general-insurance-companies",
+      "title": "Stop Attacks on LIC and Public Sector General Insurance Companies",
+      "date": "2025-04-19",
+      "category": "CC Documents",
+      "page_count": 2,
+      "sha256": "332c2acb4f610f63e3180f698fdf6f1e7c1bf7a3d95ef9350a9883716a94e5af",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:13.983568+00:00"
+    },
+    "https://cpim.org/stop-surrendering-to-us-imperialist-interests-and-trumps-tariff-war-no-unequal-agreements-in-agriculture-dairy-fishing-in-the-name-of-free-trade/": {
+      "slug": "2025-04-19-stop-surrendering-to-us-imperialist-interests-and-trumps-tariff-war-no",
+      "title": "Stop Surrendering to US Imperialist Interests and Trump’s Tariff War; No Unequal Agreements in Agriculture, Dairy, Fishing in the Name of Free Trade",
+      "date": "2025-04-19",
+      "category": "CC Documents",
+      "page_count": 3,
+      "sha256": "9fa0c0c0559e442916bf423172e2bcab383126ce41470704af3543c6f190cad4",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:15.440724+00:00"
+    },
+    "https://cpim.org/new-central-committee-elected-at-the-24th-congress/": {
+      "slug": "2025-04-06-new-central-committee-elected-at-the-24th-congress",
+      "title": "New Central Committee Elected at the 24th Congress",
+      "date": "2025-04-06",
+      "category": "Party Congress",
+      "page_count": 1,
+      "sha256": "af3d0d160fe15637c70d222c69531648ecfa529c7619c0830623ebb509dc25be",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:16.880301+00:00"
+    },
+    "https://cpim.org/resolution-against-the-deep-sea-mining-policy-of-government-of-india/": {
+      "slug": "2025-04-05-resolution-against-the-deep-sea-mining-policy-of-government-of-india",
+      "title": "Resolution Against the Deep-Sea Mining Policy of Government of India",
+      "date": "2025-04-05",
+      "category": "CC Documents",
+      "page_count": 1,
+      "sha256": "085ba86e8efebc587f50affb63f1d1ab15e64bbb03b4cddc1a614c49884269f4",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:18.315549+00:00"
+    },
+    "https://cpim.org/resolution-to-ensure-dignity-and-justice-for-the-disabled/": {
+      "slug": "2025-04-05-resolution-to-ensure-dignity-and-justice-for-the-disabled",
+      "title": "Resolution to Ensure Dignity and Justice for the Disabled",
+      "date": "2025-04-05",
+      "category": "CC Documents",
+      "page_count": 2,
+      "sha256": "4e62e2396e4faa37637cc670d124f3266c47ddfbb8ec169190baf8e394ac0f83",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:19.753188+00:00"
+    },
+    "https://cpim.org/resolution-to-ensure-equal-rights-and-dignity-for-lgbtqi-individuals/": {
+      "slug": "2025-04-05-resolution-to-ensure-equal-rights-and-dignity-for-lgbtqi-individuals",
+      "title": "Resolution to Ensure Equal Rights and Dignity for LGBTQI+ Individuals",
+      "date": "2025-04-05",
+      "category": "CC Documents",
+      "page_count": 2,
+      "sha256": "cd19fa3a7459bd87f68d48cb2be38f33c4b521cf316c21583935538fff9c883d",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:21.199683+00:00"
+    },
+    "https://cpim.org/resolution-to-combat-drug-addiction-among-youngsters/": {
+      "slug": "2025-04-05-resolution-to-combat-drug-addiction-among-youngsters",
+      "title": "Resolution to Combat Drug Addiction among Youngsters",
+      "date": "2025-04-05",
+      "category": "CC Documents",
+      "page_count": 2,
+      "sha256": "8fb91482e33670266a5a5ee7ecb38afd07fe364750ca6d8dfe46800a0cc1fa48",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:22.620936+00:00"
+    },
+    "https://cpim.org/resolution-against-increasing-violence-on-women-and-children/": {
+      "slug": "2025-04-05-resolution-against-increasing-violence-on-women-and-children",
+      "title": "Resolution Against Increasing Violence on Women and Children",
+      "date": "2025-04-05",
+      "category": "Issues",
+      "page_count": 3,
+      "sha256": "2d303e827cd3cf931c804a3bb4388495ea9aaa48ff3022f5a846e356a963390a",
+      "extraction_method": "html-archive",
+      "status": "completed",
+      "processed_at": "2026-10-16T14:49:24.050405+00:00"
     }
   },
   "embedding": {
     "model": "embeddinggemma-2:270m",
     "dim": 256,
-    "doc_count": 9,
-    "generated_at": "2026-10-16T14:36:36.996735+00:00"
+    "doc_count": 19,
+    "generated_at": "2026-10-16T14:49:58.155643+00:00"
   }
 }
