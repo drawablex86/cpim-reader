@@ -104,31 +104,31 @@
     <div class="footer-inner">
       <div class="footer-left">
         <div class="footer-manifesto">
-          <strong>CPI(M) DOCUMENT ARCHIVE & RESEARCH ENVIRONMENT</strong>
+          <strong>CPI(M) DOCUMENT ARCHIVE & RESEARCH REPOSITORY</strong>
           <p>
-            An offline-capable, high-density archival research tool preserving Central Committee,
-            Party Congress, and ideological resolutions published at <code>https://cpim.org/</code>.
+            An open research archive preserving unabridged Central Committee resolutions,
+            Party Congress declarations, and ideological documents published at <code>https://cpim.org/</code>.
           </p>
         </div>
       </div>
       <div class="footer-right">
         <div class="footer-meta-block">
-          <span class="meta-label">EXTRACTION ENGINE</span>
-          <span class="meta-val">Hybrid PyMuPDF / VLM / Svelte 5</span>
+          <span class="meta-label">COLLECTION</span>
+          <span class="meta-val">Central Committee & Party Congress</span>
         </div>
         <div class="footer-meta-block">
-          <span class="meta-label">FULL-TEXT SEARCH</span>
-          <span class="meta-val">Client-Side WASM (Pagefind)</span>
+          <span class="meta-label">CITATION TOOLS</span>
+          <span class="meta-val">BibTeX, APA, Chicago & MLA</span>
         </div>
         <div class="footer-meta-block">
-          <span class="meta-label">DESIGN MOTIF</span>
-          <span class="meta-val">Soviet Constructivist & Editorial Prose</span>
+          <span class="meta-label">ORIGINAL RECORDS</span>
+          <span class="meta-val">Verified against Official Press Scans</span>
         </div>
       </div>
     </div>
     <div class="footer-bottom-bar">
       <span>OFFICIAL CPI(M) ARCHIVAL RECORDS • HISTORICAL MATERIALS HELD IN PUBLIC TRUST</span>
-      <span>OFFLINE STATIC BUILD</span>
+      <span>PUBLIC RESEARCH ARCHIVE</span>
     </div>
   </footer>
 </div>

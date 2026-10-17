@@ -230,29 +230,29 @@
   <!-- Constructivist Hero Banner -->
   <section class="hero-banner">
     <div class="hero-inner">
-      <div class="hero-stamp">OFFICIAL PARTY RESOLUTIONS • 2008 – 2026</div>
+      <div class="hero-stamp">OFFICIAL HISTORICAL RECORDS • 2008 – 2026</div>
       <h1 class="hero-title">CPI(M) DOCUMENT ARCHIVE</h1>
       <p class="hero-deck">
-        A static, searchable research repository containing verbatim Central Committee resolutions,
-        Party Congress declarations, and monographs published by the Communist Party of India (Marxist).
+        An open research repository preserving unabridged Central Committee resolutions,
+        Party Congress declarations, and ideological publications issued by the Communist Party of India (Marxist).
       </p>
 
       <div class="hero-stats-strip">
         <div class="stat-pill">
           <span class="stat-num">{data.documents.length}</span>
-          <span class="stat-txt">VERIFIED ARCHIVES LOADED</span>
+          <span class="stat-txt">DOCUMENTS PRESERVED</span>
         </div>
         <div class="stat-pill">
-          <span class="stat-num">273+</span>
-          <span class="stat-txt">CATALOGED ON LIVE SITE</span>
+          <span class="stat-num">2008 – 2026</span>
+          <span class="stat-txt">HISTORICAL TIMELINE</span>
         </div>
         <div class="stat-pill accent">
-          <span class="stat-num">WASM</span>
-          <span class="stat-txt">OFFLINE FULL-TEXT SEARCH</span>
+          <span class="stat-num">FULL TEXT</span>
+          <span class="stat-txt">INSTANT ARCHIVE SEARCH</span>
         </div>
         <div class="stat-pill">
-          <span class="stat-num">256D</span>
-          <span class="stat-txt">EMBEDDINGGEMMA-2 VECTOR SEARCH</span>
+          <span class="stat-num">VERIFIED</span>
+          <span class="stat-txt">ORIGINAL PRESS RECORDS</span>
         </div>
       </div>
     </div>
@@ -284,7 +284,7 @@
           <input
             type="search"
             bind:value={searchQuery}
-            placeholder={searchMode === 'semantic' ? "Search by meaning: e.g. agrarian crisis, anti-imperialism, workers..." : searchMode === 'all' ? "Search across titles, resolutions & full text (WASM)..." : "Search titles, authors, dates..."}
+            placeholder={searchMode === 'semantic' ? "Search by concept: e.g. agrarian crisis, secularism, labour rights..." : searchMode === 'all' ? "Search across titles, resolutions & full document text..." : "Search by title, author, or year..."}
             class="search-input"
             aria-label="Search documents"
           />
@@ -309,27 +309,27 @@
               class="mode-toggle-btn"
               class:active={searchMode === 'all'}
               onclick={() => (searchMode = 'all')}
-              title="Search entire verbatim resolutions using client-side WASM full-text index"
+              title="Search entire unabridged document text"
             >
-              ★ FULL TEXT (WASM)
+              ★ FULL TEXT
             </button>
             <button
               type="button"
               class="mode-toggle-btn"
               class:active={searchMode === 'titles'}
               onclick={() => (searchMode = 'titles')}
-              title="Fast filter by titles, authors, and dates only"
+              title="Filter by document titles, authors, and dates"
             >
-              METADATA
+              TITLES & DATES
             </button>
             <button
               type="button"
               class="mode-toggle-btn semantic-toggle"
               class:active={searchMode === 'semantic'}
               onclick={activateSemanticMode}
-              title="Dense semantic vector similarity search via Google EmbeddingGemma-2"
+              title="Semantic topic search: find documents by concept and meaning"
             >
-              ⬡ SEMANTIC
+              ⬡ TOPIC CONCEPTS
             </button>
           </div>
         </div>
@@ -419,13 +419,13 @@
   {#if searchMode === 'semantic' && (semanticStatus === 'downloading' || semanticStatus === 'initializing')}
     <div class="model-loading-strip">
       <div class="loading-info">
-        <span class="loading-stamp">⬡ LOCAL VECTOR ENGINE // INITIALIZING EMBEDDINGGEMMA-2</span>
+        <span class="loading-stamp">⬡ TOPIC SEARCH ENGINE // PREPARING IN-BROWSER MODEL</span>
         <span class="loading-pct">{semanticProgress}%</span>
       </div>
       <div class="loading-track">
         <div class="loading-fill" style={`width: ${Math.max(6, semanticProgress)}%`}></div>
       </div>
-      <div class="loading-hint">Loading quantized model into browser cache. Stored locally for instant offline reuse.</div>
+      <div class="loading-hint">Initializing topic similarity model. Runs locally in your browser for private, offline search.</div>
     </div>
   {/if}
 
@@ -435,7 +435,7 @@
       <div class="results-left">
         <span class="results-count">
           {#if searchMode === 'semantic' && searchQuery.trim()}
-            SEMANTIC VECTOR RANKING // <strong>{semanticResults.length}</strong> DOCUMENTS
+            CONCEPT MATCHES // <strong>{semanticResults.length}</strong> DOCUMENTS
           {:else}
             SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
           {/if}
@@ -443,23 +443,23 @@
         {#if searchQuery && searchMode === 'all'}
           <span class="wasm-status-badge">
             {#if isWasmSearching}
-              SEARCHING DEEP RESOLUTION TEXT...
+              SEARCHING COMPLETE TEXT...
             {:else if pagefindMatches.size > 0}
-              ⚡ {pagefindMatches.size} FULL-TEXT WASM MATCH{pagefindMatches.size === 1 ? '' : 'ES'}
+              ⚡ {pagefindMatches.size} FULL-TEXT MATCH{pagefindMatches.size === 1 ? '' : 'ES'}
             {:else if pagefindModule}
-              WASM ENGINE READY
+              FULL-TEXT READY
             {:else if wasmError}
-              TITLES ONLY (WASM OFFLINE)
+              TITLES ONLY
             {/if}
           </span>
         {:else if searchMode === 'semantic'}
           <span class="wasm-status-badge semantic-badge">
             {#if isSemanticSearching}
-              CALCULATING DENSE VECTORS...
+              FINDING RELATED RESOLUTIONS...
             {:else if semanticStatus === 'ready'}
-              EMBEDDINGGEMMA-2 ONLINE
+              CONCEPT ENGINE READY
             {:else if semanticModelError}
-              MODEL INITIALIZING / FALLBACK
+              INITIALIZING...
             {/if}
           </span>
         {/if}
@@ -528,7 +528,7 @@
 
             {#if doc.topics && doc.topics.length > 0}
               <div class="card-topics">
-                {#each doc.topics as t}
+                {#each doc.topics.slice(0, 3) as t}
                   <button
                     type="button"
                     class="topic-tag"
@@ -536,36 +536,39 @@
                       e.preventDefault();
                       selectedTopic = t;
                     }}
+                    title={`Filter by topic: ${getTopicLabel(t)}`}
                   >
                     #{getTopicLabel(t)}
                   </button>
                 {/each}
+                {#if doc.topics.length > 3}
+                  <span class="topic-tag-more" title={doc.topics.slice(3).map(getTopicLabel).join(', ')}>
+                    +{doc.topics.length - 3} more
+                  </span>
+                {/if}
               </div>
             {/if}
 
             {#if doc.author}
               <div class="card-author">
-                <span class="author-label">AUTHOR:</span> {doc.author}
+                <span class="author-label">ISSUANCE:</span> {doc.author}
               </div>
             {/if}
 
-            <!-- Deep WASM Excerpt Display (if term was matched in resolution body) -->
+            <!-- Search Match Excerpt Display (if term was matched in resolution body) -->
             {#if searchQuery && pagefindMatches.has(doc.slug)}
               <div class="search-excerpt">
-                <div class="excerpt-badge">MATCH IN FULL TEXT (PAGEFIND WASM):</div>
+                <div class="excerpt-badge">MATCH IN DOCUMENT TEXT:</div>
                 <div class="excerpt-text">{@html pagefindMatches.get(doc.slug)?.excerpt}</div>
               </div>
             {/if}
 
             <div class="card-footer">
-              <div class="card-badges">
-                <span class="badge-tag">EN</span>
+              <div class="card-meta-info">
                 {#if doc.page_count}
-                  <span class="badge-tag">{doc.page_count} PP</span>
-                {/if}
-                <span class="badge-tag uppercase">{doc.extraction_method || 'OFFICIAL'}</span>
-                {#if pagefindMatches.has(doc.slug)}
-                  <span class="badge-tag wasm-match-tag">WASM HIT</span>
+                  <span class="doc-page-count">{doc.page_count} PAGES</span>
+                {:else}
+                  <span class="doc-page-count">OFFICIAL RECORD</span>
                 {/if}
               </div>
 
@@ -1054,7 +1057,7 @@
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .doc-card {
@@ -1063,9 +1066,9 @@
     box-shadow: var(--shadow-hard-md);
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1.75rem;
     position: relative;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
   }
 
   .doc-card:hover {
@@ -1086,12 +1089,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     font-family: var(--font-mono);
   }
 
   .card-category {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     background-color: var(--color-black);
@@ -1108,13 +1111,15 @@
   .card-title {
     font-size: 1.35rem;
     font-weight: 700;
-    line-height: 1.3;
-    margin: 0 0 1rem;
+    line-height: 1.35;
+    margin: 0 0 0.85rem;
     flex: 1;
   }
 
   .card-title a {
     color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.1s ease;
   }
 
   .card-title a:hover {
@@ -1123,28 +1128,29 @@
   }
 
   .card-author {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--color-gray-dark);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
+    margin-bottom: 1.25rem;
+    line-height: 1.45;
   }
 
   .author-label {
     font-weight: 700;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--color-black);
+    letter-spacing: 0.04em;
   }
 
-  /* Deep WASM Full-Text Search Excerpt */
+  /* Deep Full-Text Search Excerpt */
   .search-excerpt {
-    margin: 0.5rem 0 1rem;
-    padding: 0.65rem 0.85rem;
+    margin: 0.25rem 0 1.25rem;
+    padding: 0.75rem 0.9rem;
     background-color: var(--color-paper);
     border-left: 3px solid var(--color-red-primary);
-    border-top: 1px dashed var(--color-gray-light);
-    border-right: 1px dashed var(--color-gray-light);
-    border-bottom: 1px dashed var(--color-gray-light);
+    border-top: 1px solid var(--color-gray-light);
+    border-right: 1px solid var(--color-gray-light);
+    border-bottom: 1px solid var(--color-gray-light);
   }
 
   .excerpt-badge {
@@ -1152,13 +1158,13 @@
     font-size: 0.65rem;
     font-weight: 700;
     color: var(--color-red-primary);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     margin-bottom: 0.35rem;
   }
 
   .excerpt-text {
     font-family: var(--font-prose);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.5;
     color: var(--reader-ink);
     font-style: italic;
@@ -1169,14 +1175,7 @@
     background-color: var(--color-gold-muted);
     color: var(--color-black);
     font-weight: 700;
-    padding: 0 0.2rem;
-  }
-
-  .wasm-match-tag {
-    background-color: var(--color-red-primary) !important;
-    color: #FFFFFF !important;
-    border-color: var(--color-red-dark) !important;
-    font-weight: 700;
+    padding: 0 0.25rem;
   }
 
   .table-excerpt {
@@ -1197,20 +1196,24 @@
     border-top: 1px solid var(--color-gray-light);
     padding-top: 1rem;
     margin-top: auto;
+    gap: 0.75rem;
   }
 
-  .card-badges {
+  .card-meta-info {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
 
-  .badge-tag {
+  .doc-page-count {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    border: 1px solid var(--color-black);
-    padding: 0.15rem 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-dark);
+    padding: 0.2rem 0.45rem;
     background-color: var(--color-paper);
+    border: 1px solid var(--color-gray-light);
   }
 
   .card-actions {
@@ -1219,14 +1222,18 @@
   }
 
   .action-btn {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    padding: 0.4rem 0.8rem;
+    padding: 0.45rem 0.85rem;
     border: 2px solid var(--color-black);
     cursor: pointer;
     box-shadow: var(--shadow-hard-sm);
     transition: all 0.1s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .action-btn:hover {
@@ -1506,6 +1513,18 @@
   .topic-tag:hover {
     background-color: var(--color-gold);
     color: #000000;
+  }
+
+  .topic-tag-more {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.2rem 0.45rem;
+    background-color: transparent;
+    border: 1px dashed var(--color-gray-dark);
+    color: var(--color-gray-dark);
+    display: inline-flex;
+    align-items: center;
   }
 
   .table-topics {
