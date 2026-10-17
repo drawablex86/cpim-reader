@@ -1,16 +1,23 @@
 ---
-title: "On Approach To Mass Organisations"
-slug: "2009-09-12-on-approach-to-mass-organisations"
-date: "2009-09-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2004-Mass-Organisations.pdf"
-source_post_url: "https://cpim.org/approach-mass-organisations/"
+title: On Approach To Mass Organisations
+slug: 2009-09-12-on-approach-to-mass-organisations
+date: '2009-09-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2004-Mass-Organisations.pdf
+source_post_url: https://cpim.org/approach-mass-organisations/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "c7a77e806260bcef8d5b31635856c5056d1140d2e83073f047477e4eff845739"
+extraction_method: pymupdf4llm
+sha256: c7a77e806260bcef8d5b31635856c5056d1140d2e83073f047477e4eff845739
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+geo:
+- national
+period: national-current
 ---
 
 # **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

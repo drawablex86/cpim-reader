@@ -1,16 +1,25 @@
 ---
-title: "Students Front Policy & Tasks"
-slug: "2009-09-14-students-front-policy-tasks"
-date: "2009-09-14"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/200701_marxist-student%20doc-cc.pdf"
-source_post_url: "https://cpim.org/students-front-policy-tasks/"
+title: Students Front Policy & Tasks
+slug: 2009-09-14-students-front-policy-tasks
+date: '2009-09-14'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/200701_marxist-student%20doc-cc.pdf
+source_post_url: https://cpim.org/students-front-policy-tasks/
 page_count: 21
-extraction_method: "pymupdf4llm"
-sha256: "b4876630ba1d1fa97b2d112b4d92f930ad06c2c254f79828377886421e441f58"
+extraction_method: pymupdf4llm
+sha256: b4876630ba1d1fa97b2d112b4d92f930ad06c2c254f79828377886421e441f58
+doc_type: report
+topics:
+- education-students
+- economy-public-sector
+- labour-workers
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 **The Marxist, Vol. XXIII, 1, January to March, 2007** 

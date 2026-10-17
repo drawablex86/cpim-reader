@@ -11,6 +11,16 @@ page_count: 20
 extraction_method: ollama-normalized
 sha256: a9e0c0d25dbfcae16c7684e5f2542eae57782fb888b8b3a8e3c84aad88a29ebc
 language: en
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- labour-workers
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 ## Review of Assembly Election Results (Adopted at Central Committee Meeting; July 11-13, 2026)

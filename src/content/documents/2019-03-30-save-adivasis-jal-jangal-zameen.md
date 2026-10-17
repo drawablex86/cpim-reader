@@ -11,6 +11,15 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: bde64a09bfd207414def510d6be33e9a4322d454da3d7a20fb85731fabcb975d
 language: en
+doc_type: campaign
+topics:
+- caste-social-justice
+- agriculture-farmers
+- economy-public-sector
+- environment-climate
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

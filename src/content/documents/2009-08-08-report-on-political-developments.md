@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments"
-slug: "2009-08-08-report-on-political-developments"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-oct-cc-report.pdf"
-source_post_url: "https://cpim.org/report-political-developments-3/"
+title: Report on Political Developments
+slug: 2009-08-08-report-on-political-developments
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-oct-cc-report.pdf
+source_post_url: https://cpim.org/report-political-developments-3/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "0e40a648778709a5823c4e38727bdf3b770a45e1c4493a7874f306c24d30cd6b"
+extraction_method: pymupdf4llm
+sha256: 0e40a648778709a5823c4e38727bdf3b770a45e1c4493a7874f306c24d30cd6b
+doc_type: report
+topics:
+- labour-workers
+- caste-social-justice
+- economy-public-sector
+- elections-democracy
+- palestine
+geo:
+- national
+period: national-current
 ---
 
 # **Report On Political Developments** 

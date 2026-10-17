@@ -1,16 +1,23 @@
 ---
-title: "Approach Paper on Centre-State Relations"
-slug: "2009-08-08-approach-paper-on-centre-state-relations"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-nov-centre-state%20relations.pdf"
-source_post_url: "https://cpim.org/approach-paper-centre-state-relations/"
+title: Approach Paper on Centre-State Relations
+slug: 2009-08-08-approach-paper-on-centre-state-relations
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-nov-centre-state%20relations.pdf
+source_post_url: https://cpim.org/approach-paper-centre-state-relations/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "7dcacd4653f009fb70431bd74ec7531fb6cfdeaa2a4f783c8ee6aac7de754162"
+extraction_method: pymupdf4llm
+sha256: 7dcacd4653f009fb70431bd74ec7531fb6cfdeaa2a4f783c8ee6aac7de754162
+doc_type: report
+topics:
+- federalism-states
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST)** 

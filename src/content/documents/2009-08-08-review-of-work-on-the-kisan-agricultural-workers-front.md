@@ -1,16 +1,26 @@
 ---
-title: "Review of Work On The Kisan & Agricultural Workers Front"
-slug: "2009-08-08-review-of-work-on-the-kisan-agricultural-workers-front"
-date: "2009-08-08"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2003_june_kisan_doc.pdf"
-source_post_url: "https://cpim.org/review-work-kisan-agricultural-workers-front/"
+title: Review of Work On The Kisan & Agricultural Workers Front
+slug: 2009-08-08-review-of-work-on-the-kisan-agricultural-workers-front
+date: '2009-08-08'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2003_june_kisan_doc.pdf
+source_post_url: https://cpim.org/review-work-kisan-agricultural-workers-front/
 page_count: 26
-extraction_method: "pymupdf4llm"
-sha256: "aee94bf97ee80e254180b4841eea52796f1281983e15d93cd67c6fd83f567715"
+extraction_method: pymupdf4llm
+sha256: aee94bf97ee80e254180b4841eea52796f1281983e15d93cd67c6fd83f567715
+doc_type: review
+topics:
+- agriculture-farmers
+- labour-workers
+- caste-social-justice
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

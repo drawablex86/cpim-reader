@@ -1,16 +1,24 @@
 ---
-title: "On Jammu & Kashmir Issue"
-slug: "2012-03-24-on-jammu-kashmir-issue"
-date: "2012-03-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2010-Nov-Kashmir_0.pdf"
-source_post_url: "https://cpim.org/jammu-kashmir-issue/"
+title: On Jammu & Kashmir Issue
+slug: 2012-03-24-on-jammu-kashmir-issue
+date: '2012-03-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2010-Nov-Kashmir_0.pdf
+source_post_url: https://cpim.org/jammu-kashmir-issue/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "df6601db1007ffbfbf9c075157406f61d6c1291bf49c6e1e2dc361f3bc154cac"
+extraction_method: pymupdf4llm
+sha256: df6601db1007ffbfbf9c075157406f61d6c1291bf49c6e1e2dc361f3bc154cac
+doc_type: report
+topics:
+- federalism-states
+- communalism-secularism
+geo:
+- jammu-kashmir
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

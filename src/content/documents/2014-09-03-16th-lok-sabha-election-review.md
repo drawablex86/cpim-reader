@@ -1,16 +1,23 @@
 ---
-title: "16th Lok Sabha Election Review"
-slug: "2014-09-03-16th-lok-sabha-election-review"
-date: "2014-09-03"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2014-June-Election-Review_0.pdf"
-source_post_url: "https://cpim.org/16th-lok-sabha-election-review/"
+title: 16th Lok Sabha Election Review
+slug: 2014-09-03-16th-lok-sabha-election-review
+date: '2014-09-03'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2014-June-Election-Review_0.pdf
+source_post_url: https://cpim.org/16th-lok-sabha-election-review/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "19a09496f99645a08af6639261a1ab55ebf7e24f0dc65608c8b403e35a334f1c"
+extraction_method: pymupdf4llm
+sha256: 19a09496f99645a08af6639261a1ab55ebf7e24f0dc65608c8b403e35a334f1c
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+geo:
+- national
+period: 2014-elections
 ---
 
 #### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

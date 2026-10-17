@@ -11,6 +11,15 @@ page_count: 6
 extraction_method: pymupdf4llm
 sha256: 484260f8e8acad6d015096ead170d58563dd9e087f156792fb80596bfc912ef3
 language: en
+doc_type: report
+topics:
+- elections-democracy
+- communalism-secularism
+- economy-public-sector
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

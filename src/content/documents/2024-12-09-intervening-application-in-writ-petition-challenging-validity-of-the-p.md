@@ -12,6 +12,12 @@ page_count: 17
 extraction_method: pymupdf4llm
 sha256: 20206327bc8a084771c59eb93e31b56b37c43de463b8252d32438b625e0318d8
 language: en
+doc_type: legal
+topics:
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 <!-- Start of picture text -->

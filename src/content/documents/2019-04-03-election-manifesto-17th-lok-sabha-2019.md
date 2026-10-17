@@ -11,6 +11,16 @@ page_count: 35
 extraction_method: pymupdf4llm
 sha256: 7ddb955c3e9da7a5c01f7c915137219337adc1d015b7a0fe9d338657552ea1ed
 language: en
+doc_type: manifesto
+topics:
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 2019-elections
 ---
 
 # Communist Party of India (Marxist) Election Manifesto 17<sup>th</sup> Lok Sabha 2019 

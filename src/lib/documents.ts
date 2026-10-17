@@ -8,6 +8,10 @@ export interface TranslationMeta {
   translated_at?: string;
   date?: string;
   category?: string;
+  doc_type?: string;
+  topics?: string[];
+  geo?: string[];
+  period?: string;
 }
 
 export interface DocumentMeta {
@@ -15,6 +19,10 @@ export interface DocumentMeta {
   slug: string;
   date: string;
   category: string;
+  doc_type?: string;
+  topics?: string[];
+  geo?: string[];
+  period?: string;
   language?: string;
   language_name?: string;
   author?: string;

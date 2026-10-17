@@ -11,6 +11,17 @@ page_count: 17
 extraction_method: pymupdf4llm
 sha256: 652f0bbc6cd4578fce43acb14ed53ad23ab234757fd546cf1b2dac35587e8be0
 language: en
+doc_type: report
+topics:
+- labour-workers
+- anti-imperialism
+- palestine
+- economy-public-sector
+- gender-womens-rights
+geo:
+- palestine
+- international
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

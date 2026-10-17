@@ -1,16 +1,23 @@
 ---
-title: "Plenum: Resolution on Organisation"
-slug: "2016-01-13-plenum-resolution-on-organisation"
-date: "2016-01-13"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-plenum-resolution-organisation.pdf"
-source_post_url: "https://cpim.org/plenum-resolution-organisation/"
+title: 'Plenum: Resolution on Organisation'
+slug: 2016-01-13-plenum-resolution-on-organisation
+date: '2016-01-13'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-plenum-resolution-organisation.pdf
+source_post_url: https://cpim.org/plenum-resolution-organisation/
 page_count: 8
-extraction_method: "pymupdf4llm"
-sha256: "f81406bae42d9c3cd56128f5ba067a4fb30b1e5627eb7edfa2ee0903a3eb809b"
+extraction_method: pymupdf4llm
+sha256: f81406bae42d9c3cd56128f5ba067a4fb30b1e5627eb7edfa2ee0903a3eb809b
+doc_type: resolution
+topics:
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: 21st-congress
 ---
 
 # **Resolution on Organisation** **_Adopted by the Plenum on Organization Kolkata, December 27-31, 2015_** 

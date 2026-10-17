@@ -11,6 +11,16 @@ page_count: 28
 extraction_method: pymupdf4llm
 sha256: df5364cb3b5b5011d90238f24ed1d1c144188c42fb68bf7eb46a7283c3c1cc3a
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+- anti-imperialism
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Introduction** 

@@ -11,6 +11,12 @@ page_count: 13
 extraction_method: pymupdf4llm
 sha256: 4e5b1ab3b55dfa4d6664c90a8df2355c1284768d99abad362799eb96640b02d4
 language: en
+doc_type: report
+topics:
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 # **Introduction** 

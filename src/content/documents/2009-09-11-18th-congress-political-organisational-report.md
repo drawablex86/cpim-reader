@@ -1,16 +1,26 @@
 ---
-title: "18th Congress Political-Organisational Report"
-slug: "2009-09-11-18th-congress-political-organisational-report"
-date: "2009-09-11"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2005-18cong-pol-org-rep.pdf"
-source_post_url: "https://cpim.org/18th-congress-political-organisational-report/"
+title: 18th Congress Political-Organisational Report
+slug: 2009-09-11-18th-congress-political-organisational-report
+date: '2009-09-11'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2005-18cong-pol-org-rep.pdf
+source_post_url: https://cpim.org/18th-congress-political-organisational-report/
 page_count: 121
-extraction_method: "pymupdf4llm"
-sha256: "78d4f1f82db966985174990296a359b5702bb7e792c991a0dd22915c95e08ac5"
+extraction_method: pymupdf4llm
+sha256: 78d4f1f82db966985174990296a359b5702bb7e792c991a0dd22915c95e08ac5
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 18th-congress
 ---
 
 # **Political-Organisational Report Adopted At The 18**<sup>**th**</sup> **Congress** 

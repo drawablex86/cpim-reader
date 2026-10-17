@@ -11,6 +11,14 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: 8226ead03ad9bc6193df82513700e5d4b1be96d4ebaf459449a794959ee07ef2
 language: en
+doc_type: report
+topics:
+- federalism-states
+- caste-social-justice
+- elections-democracy
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

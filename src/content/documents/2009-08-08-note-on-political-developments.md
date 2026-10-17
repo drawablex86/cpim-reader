@@ -1,16 +1,26 @@
 ---
-title: "Note on Political Developments"
-slug: "2009-08-08-note-on-political-developments"
-date: "2009-08-08"
-category: "Left View"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002_may_note_on_pol_dev.pdf"
-source_post_url: "https://cpim.org/note-political-developments/"
+title: Note on Political Developments
+slug: 2009-08-08-note-on-political-developments
+date: '2009-08-08'
+category: Left View
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002_may_note_on_pol_dev.pdf
+source_post_url: https://cpim.org/note-political-developments/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "6edfe4158c9f1443c7773d4fbe24de57b4cdde594fb4e46cdca43949c113974d"
+extraction_method: pymupdf4llm
+sha256: 6edfe4158c9f1443c7773d4fbe24de57b4cdde594fb4e46cdca43949c113974d
+doc_type: report
+topics:
+- communalism-secularism
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+geo:
+- palestine
+- international
+period: 17th-congress
 ---
 
 Communist Party of India (Marxist) Central Committee Office 

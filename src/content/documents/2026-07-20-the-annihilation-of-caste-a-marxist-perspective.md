@@ -11,6 +11,15 @@ page_count: 36
 extraction_method: html-archive
 sha256: 7dae3b6efcabbd0fbd07177a15a0168bc178bef430c3f11238300b4b9488b272
 language: en
+doc_type: publication
+topics:
+- caste-social-justice
+- environment-climate
+- labour-workers
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 ### Preface

@@ -11,6 +11,15 @@ page_count: 20
 extraction_method: pymupdf4llm
 sha256: 58a4e7bd60d88ea0146b42c6c04a0a5643b3fe9336c1cb180bd3ffea36ce1410
 language: en
+doc_type: campaign
+topics:
+- economy-public-sector
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 ## **1** 

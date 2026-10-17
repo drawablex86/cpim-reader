@@ -1,16 +1,24 @@
 ---
-title: "Review of 1996 General Elections"
-slug: "2009-09-17-review-of-1996-general-elections"
-date: "2009-09-17"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/1996-election-review.pdf"
-source_post_url: "https://cpim.org/review-1996-general-elections/"
+title: Review of 1996 General Elections
+slug: 2009-09-17-review-of-1996-general-elections
+date: '2009-09-17'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/1996-election-review.pdf
+source_post_url: https://cpim.org/review-1996-general-elections/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "58ec67f78b829d28f9949eafea0f3dbfd68eca7464dd2a6222e688051ac25331"
+extraction_method: pymupdf4llm
+sha256: 58ec67f78b829d28f9949eafea0f3dbfd68eca7464dd2a6222e688051ac25331
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: 1996-elections
 ---
 
 # **Review Report On 1996 General Elections Adopted By The Central Committee, July 27-29, 1996** 

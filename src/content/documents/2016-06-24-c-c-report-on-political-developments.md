@@ -1,16 +1,25 @@
 ---
-title: "C.C. Report on Political Developments"
-slug: "2016-06-24-c-c-report-on-political-developments"
-date: "2016-06-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2016-june-note_on_political_developments.pdf"
-source_post_url: "https://cpim.org/cc-report-political-developments/"
+title: C.C. Report on Political Developments
+slug: 2016-06-24-c-c-report-on-political-developments
+date: '2016-06-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2016-june-note_on_political_developments.pdf
+source_post_url: https://cpim.org/cc-report-political-developments/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "66cd17337c0e06c19a8a63c93fa7126acceb7bb22825692c7308a1b16a5bc6be"
+extraction_method: pymupdf4llm
+sha256: 66cd17337c0e06c19a8a63c93fa7126acceb7bb22825692c7308a1b16a5bc6be
+doc_type: report
+topics:
+- anti-imperialism
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+geo:
+- national
+period: national-current
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

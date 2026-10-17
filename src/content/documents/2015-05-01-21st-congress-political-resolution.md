@@ -1,16 +1,26 @@
 ---
-title: "21st Congress: Political Resolution"
-slug: "2015-05-01-21st-congress-political-resolution"
-date: "2015-05-01"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-April-21Cong-Pol-Res-Adopted.pdf"
-source_post_url: "https://cpim.org/21st-congress-political-resolution/"
+title: '21st Congress: Political Resolution'
+slug: 2015-05-01-21st-congress-political-resolution
+date: '2015-05-01'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-April-21Cong-Pol-Res-Adopted.pdf
+source_post_url: https://cpim.org/21st-congress-political-resolution/
 page_count: 36
-extraction_method: "pymupdf4llm"
-sha256: "34d6b0c20875543cf2bcbde96d548c2459f15fd719d23fd7442588c4e3c8166a"
+extraction_method: pymupdf4llm
+sha256: 34d6b0c20875543cf2bcbde96d548c2459f15fd719d23fd7442588c4e3c8166a
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 21th-congress
 ---
 
 # **Political Resolution Adopted at the 21**<sup>**st**</sup> **Congress Of The Communist Party of India (Marxist) Visakhapatnam, April 14-19, 2015** 

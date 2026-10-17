@@ -1,16 +1,25 @@
 ---
-title: "Keep the Promises Made to Andhra Pradesh and Telangana :21 Congress"
-slug: "2015-07-31-keep-the-promises-made-to-andhra-pradesh-and-telangana-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/AP-Telangana-final.pdf"
-source_post_url: "https://cpim.org/keep-promises-made-andhra-pradesh-and-telangana-21-congress/"
+title: Keep the Promises Made to Andhra Pradesh and Telangana :21 Congress
+slug: 2015-07-31-keep-the-promises-made-to-andhra-pradesh-and-telangana-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/AP-Telangana-final.pdf
+source_post_url: https://cpim.org/keep-promises-made-andhra-pradesh-and-telangana-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "e722dde878ce027b54379309f3466e7a472bdf09ec9c652d4be65422abe60a8a"
+extraction_method: pymupdf4llm
+sha256: e722dde878ce027b54379309f3466e7a472bdf09ec9c652d4be65422abe60a8a
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- andhra-pradesh
+- telangana
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

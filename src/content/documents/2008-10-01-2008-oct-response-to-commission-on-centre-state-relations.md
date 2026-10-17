@@ -1,16 +1,25 @@
 ---
-title: "2008 Oct Response To Commission On Centre State Relations"
-slug: "2008-10-01-2008-oct-response-to-commission-on-centre-state-relations"
-date: "2008-10-01"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-oct-response-to-commission-on-centre-state-relations.pdf"
-source_post_url: ""
+title: 2008 Oct Response To Commission On Centre State Relations
+slug: 2008-10-01-2008-oct-response-to-commission-on-centre-state-relations
+date: '2008-10-01'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-oct-response-to-commission-on-centre-state-relations.pdf
+source_post_url: ''
 page_count: 48
-extraction_method: "ollama-normalized"
-sha256: "9703cc740adabcd187d357979f9bf8ac975001e8e076b2eca806805188e3fa7b"
+extraction_method: ollama-normalized
+sha256: 9703cc740adabcd187d357979f9bf8ac975001e8e076b2eca806805188e3fa7b
+doc_type: report
+topics:
+- agriculture-farmers
+- federalism-states
+- economy-public-sector
+- environment-climate
+geo:
+- national
+period: national-current
 ---
 
 # **RESPONSE TO QUESTIONNAIRE FROM THE COMMISSION ON CENTRE - STATE RELATIONS, GOVERNMENT OF INDIA** 

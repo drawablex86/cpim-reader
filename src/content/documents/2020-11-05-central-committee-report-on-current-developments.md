@@ -11,6 +11,15 @@ page_count: 26
 extraction_method: pymupdf4llm
 sha256: 7191cff8815ed198cdb8814957eb006e6fea4235642d71dd15f43b3bb16dd3f7
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 # Communist Party of India (Marxist) **Report on Current Developments (Adopted at the Central Committee Meeting October 30-31, 2020)** 

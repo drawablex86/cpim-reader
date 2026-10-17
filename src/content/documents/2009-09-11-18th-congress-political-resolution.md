@@ -1,16 +1,27 @@
 ---
-title: "18th Congress Political Resolution"
-slug: "2009-09-11-18th-congress-political-resolution"
-date: "2009-09-11"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2005-18Cong-pol-res%20(1).pdf"
-source_post_url: "https://cpim.org/18th-congress-political-resolution/"
+title: 18th Congress Political Resolution
+slug: 2009-09-11-18th-congress-political-resolution
+date: '2009-09-11'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2005-18Cong-pol-res%20(1).pdf
+source_post_url: https://cpim.org/18th-congress-political-resolution/
 page_count: 41
-extraction_method: "pymupdf4llm"
-sha256: "084635ac4f0ac7f1a6b02bff60b886b23e43b1aed3c2ae98f954e19101bc25f5"
+extraction_method: pymupdf4llm
+sha256: 084635ac4f0ac7f1a6b02bff60b886b23e43b1aed3c2ae98f954e19101bc25f5
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- cuba
+- international
+period: 18th-congress
 ---
 
 # **POLITICAL RESOLUTION ADOPTED AT THE 18**<sup>**TH**</sup> **CONGRESS COMMUNIST PARTY OF INDIA (MARXIST) New Delhi - April 6 TO 11, 2005** 

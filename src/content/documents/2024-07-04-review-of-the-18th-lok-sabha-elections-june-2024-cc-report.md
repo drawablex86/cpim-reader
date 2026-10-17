@@ -11,6 +11,15 @@ page_count: 22
 extraction_method: pymupdf4llm
 sha256: 55682e0e9900713180df0954d524485fb6e8a6cd741b7ea91bedb86be89640e6
 language: en
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- labour-workers
+- agriculture-farmers
+geo:
+- national
+period: 2024-elections
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

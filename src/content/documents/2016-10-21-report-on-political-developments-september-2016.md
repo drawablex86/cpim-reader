@@ -1,16 +1,28 @@
 ---
-title: "Report on Political Developments — September 2016"
-slug: "2016-10-21-report-on-political-developments-september-2016"
-date: "2016-10-21"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2016-september-note_on_political_developments-adopted.pdf"
-source_post_url: "https://cpim.org/report-political-developments-september-2016/"
+title: Report on Political Developments — September 2016
+slug: 2016-10-21-report-on-political-developments-september-2016
+date: '2016-10-21'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2016-september-note_on_political_developments-adopted.pdf
+source_post_url: https://cpim.org/report-political-developments-september-2016/
 page_count: 38
-extraction_method: "pymupdf4llm"
-sha256: "3ba8a3f674a2db0389a7963771550ec26641879531cef453c7084c6a4499ccbb"
+extraction_method: pymupdf4llm
+sha256: 3ba8a3f674a2db0389a7963771550ec26641879531cef453c7084c6a4499ccbb
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- kerala
+- west-bengal
+- national
+period: 21st-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

@@ -1,16 +1,23 @@
 ---
-title: "October Revolution Centenary Celebrations"
-slug: "2016-10-24-october-revolution-centenary-celebrations"
-date: "2016-10-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20161016_october_revolution-booklet-final.pdf"
-source_post_url: "https://cpim.org/october-revolution-centenary-celebrations/"
+title: October Revolution Centenary Celebrations
+slug: 2016-10-24-october-revolution-centenary-celebrations
+date: '2016-10-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20161016_october_revolution-booklet-final.pdf
+source_post_url: https://cpim.org/october-revolution-centenary-celebrations/
 page_count: 9
-extraction_method: "pymupdf4llm"
-sha256: "7b74d81cf18eebf89ee7c9b894821fd337fc9c37292c81a7241ef2f88cd9e652"
+extraction_method: pymupdf4llm
+sha256: 7b74d81cf18eebf89ee7c9b894821fd337fc9c37292c81a7241ef2f88cd9e652
+doc_type: report
+topics:
+- labour-workers
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 # **October Revolution: A New Path for Humanity (Booklet on the occasion of the year long Centenary Celebrations 2016-17)** 

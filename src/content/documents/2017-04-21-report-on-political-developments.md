@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments"
-slug: "2017-04-21-report-on-political-developments"
-date: "2017-04-21"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20170420-report_on_political_developments_-_adopted.pdf"
-source_post_url: "https://cpim.org/report-political-developments-0/"
+title: Report on Political Developments
+slug: 2017-04-21-report-on-political-developments
+date: '2017-04-21'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20170420-report_on_political_developments_-_adopted.pdf
+source_post_url: https://cpim.org/report-political-developments-0/
 page_count: 23
-extraction_method: "pymupdf4llm"
-sha256: "31e5515d80a31633bdd14962eadb5b10c4ff0f8fe5dcd13425c4e9e10bee5e08"
+extraction_method: pymupdf4llm
+sha256: 31e5515d80a31633bdd14962eadb5b10c4ff0f8fe5dcd13425c4e9e10bee5e08
+doc_type: report
+topics:
+- communalism-secularism
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

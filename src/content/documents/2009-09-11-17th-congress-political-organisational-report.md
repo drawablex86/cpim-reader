@@ -1,16 +1,26 @@
 ---
-title: "17th Congress Political-Organisational Report"
-slug: "2009-09-11-17th-congress-political-organisational-report"
-date: "2009-09-11"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002-17Cong-pol-org-rep.pdf"
-source_post_url: "https://cpim.org/17th-congress-political-organisational-report/"
+title: 17th Congress Political-Organisational Report
+slug: 2009-09-11-17th-congress-political-organisational-report
+date: '2009-09-11'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002-17Cong-pol-org-rep.pdf
+source_post_url: https://cpim.org/17th-congress-political-organisational-report/
 page_count: 85
-extraction_method: "pymupdf4llm"
-sha256: "030b72114708d549937c489718f8e54ce36fb6f763665a60d5a2a7ca6890ca76"
+extraction_method: pymupdf4llm
+sha256: 030b72114708d549937c489718f8e54ce36fb6f763665a60d5a2a7ca6890ca76
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 17th-congress
 ---
 
 # **Political-Organisational Report Adopted At the 17**<sup>**th**</sup> **Congress Hyderabad, 2002** 

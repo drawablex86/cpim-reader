@@ -1,16 +1,23 @@
 ---
-title: "W. Bengal LF Govt, Panchayats, Municipalities & Tasks"
-slug: "2009-09-19-w-bengal-lf-govt-panchayats-municipalities-tasks"
-date: "2009-09-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/200801_marxist_wb-res.pdf"
-source_post_url: "https://cpim.org/w-bengal-lf-govt-panchayats-municipalities-tasks/"
+title: W. Bengal LF Govt, Panchayats, Municipalities & Tasks
+slug: 2009-09-19-w-bengal-lf-govt-panchayats-municipalities-tasks
+date: '2009-09-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/200801_marxist_wb-res.pdf
+source_post_url: https://cpim.org/w-bengal-lf-govt-panchayats-municipalities-tasks/
 page_count: 17
-extraction_method: "pymupdf4llm"
-sha256: "d5f50b2034ab8e48cc3bb6a6b6338ffdaed86409cd78cb65900157231ae08dbc"
+extraction_method: pymupdf4llm
+sha256: d5f50b2034ab8e48cc3bb6a6b6338ffdaed86409cd78cb65900157231ae08dbc
+doc_type: report
+topics:
+- agriculture-farmers
+geo:
+- west-bengal
+- national
+period: 19th-congress
 ---
 
 # **_The Marxist_** 

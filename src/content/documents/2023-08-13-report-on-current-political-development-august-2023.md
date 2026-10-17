@@ -11,6 +11,17 @@ page_count: 25
 extraction_method: pymupdf4llm
 sha256: 5bff80fb8543a3753949674d39cdc884126e3e242702b470c453e4b978ce6975
 language: en
+doc_type: report
+topics:
+- elections-democracy
+- anti-imperialism
+- communalism-secularism
+- federalism-states
+- disability-lgbtq
+geo:
+- manipur
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

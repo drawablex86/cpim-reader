@@ -1,16 +1,26 @@
 ---
-title: "Election Manifesto Lok Sabha Elections, 2009"
-slug: "2009-09-19-election-manifesto-lok-sabha-elections-2009"
-date: "2009-09-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/manifesto.pdf"
-source_post_url: "https://cpim.org/election-manifesto-lok-sabha-elections-2009/"
+title: Election Manifesto Lok Sabha Elections, 2009
+slug: 2009-09-19-election-manifesto-lok-sabha-elections-2009
+date: '2009-09-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/manifesto.pdf
+source_post_url: https://cpim.org/election-manifesto-lok-sabha-elections-2009/
 page_count: 31
-extraction_method: "pymupdf4llm"
-sha256: "376d1a263d47d77f4dc87ee68b405b166315ffa052ec82838e0621d0ae36a61a"
+extraction_method: pymupdf4llm
+sha256: 376d1a263d47d77f4dc87ee68b405b166315ffa052ec82838e0621d0ae36a61a
+doc_type: manifesto
+topics:
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 2009-elections
 ---
 
 **COMMUNIST PARTY OF INDIA (MARXIST)** 

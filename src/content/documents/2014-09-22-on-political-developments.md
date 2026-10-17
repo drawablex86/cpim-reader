@@ -1,16 +1,26 @@
 ---
-title: "On Political Developments"
-slug: "2014-09-22-on-political-developments"
-date: "2014-09-22"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2014-August-Adopted-report.pdf"
-source_post_url: "https://cpim.org/documents-political-developments-0/"
+title: On Political Developments
+slug: 2014-09-22-on-political-developments
+date: '2014-09-22'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2014-August-Adopted-report.pdf
+source_post_url: https://cpim.org/documents-political-developments-0/
 page_count: 18
-extraction_method: "pymupdf4llm"
-sha256: "d58d907e2ec9df63ad81f4e0414541222a9a22ff7bd44f0ec7eb6231e1287fa0"
+extraction_method: pymupdf4llm
+sha256: d58d907e2ec9df63ad81f4e0414541222a9a22ff7bd44f0ec7eb6231e1287fa0
+doc_type: report
+topics:
+- palestine
+- communalism-secularism
+- economy-public-sector
+- labour-workers
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 #### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

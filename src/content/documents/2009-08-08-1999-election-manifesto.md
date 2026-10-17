@@ -1,16 +1,26 @@
 ---
-title: "1999 Election Manifesto"
-slug: "2009-08-08-1999-election-manifesto"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/1999-Manifesto-LS-elec.pdf"
-source_post_url: "https://cpim.org/1999-election-manifesto/"
+title: 1999 Election Manifesto
+slug: 2009-08-08-1999-election-manifesto
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/1999-Manifesto-LS-elec.pdf
+source_post_url: https://cpim.org/1999-election-manifesto/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "7ee85714241458ad0df1e2c08c5b072a8c0885a8dcd6b2de29321ce4a7074c66"
+extraction_method: pymupdf4llm
+sha256: 7ee85714241458ad0df1e2c08c5b072a8c0885a8dcd6b2de29321ce4a7074c66
+doc_type: manifesto
+topics:
+- elections-democracy
+- communalism-secularism
+- economy-public-sector
+- anti-imperialism
+- gender-womens-rights
+geo:
+- national
+period: 1999-elections
 ---
 
 # **<u>Election Manifesto for the 1999 Lok Sbha Elections</u>** 

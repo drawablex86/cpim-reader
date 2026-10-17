@@ -11,6 +11,17 @@ page_count: 41
 extraction_method: pymupdf4llm
 sha256: 6ae3af86d2ed9395f6aac2b03e43af632c372a05847095bb6ea282d75e4b90e2
 language: en
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- jammu-kashmir
+- national
+period: 23th-congress
 ---
 
 # **Political Resolution** 

@@ -1,16 +1,24 @@
 ---
-title: "On the Custodial Killings of Under-Trial Prisoners in Telangana : 21 Congress"
-slug: "2015-07-31-on-the-custodial-killings-of-under-trial-prisoners-in-telangana-21-con"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/Telangana%20murder%20-1-.pdf"
-source_post_url: "https://cpim.org/custodial-killings-under-trial-prisoners-telangana-21-congress/"
+title: 'On the Custodial Killings of Under-Trial Prisoners in Telangana : 21 Congress'
+slug: 2015-07-31-on-the-custodial-killings-of-under-trial-prisoners-in-telangana-21-con
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/Telangana%20murder%20-1-.pdf
+source_post_url: https://cpim.org/custodial-killings-under-trial-prisoners-telangana-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "e9a5b0485e7c5de9a1c9ab9d7ff06c48c383c223ee633770c30eac5da2c90dc5"
+extraction_method: pymupdf4llm
+sha256: e9a5b0485e7c5de9a1c9ab9d7ff06c48c383c223ee633770c30eac5da2c90dc5
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- telangana
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

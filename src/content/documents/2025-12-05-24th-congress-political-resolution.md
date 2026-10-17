@@ -11,6 +11,16 @@ page_count: 45
 extraction_method: pymupdf4llm
 sha256: 11ed53c3400f103ab9213efd9ca1bad7061037e44f78594dc25ef342266f23c7
 language: en
+doc_type: resolution
+topics:
+- palestine
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 24th-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

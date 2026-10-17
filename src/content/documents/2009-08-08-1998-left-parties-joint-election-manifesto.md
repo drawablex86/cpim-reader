@@ -1,16 +1,26 @@
 ---
-title: "1998 Left Parties Joint Election Manifesto"
-slug: "2009-08-08-1998-left-parties-joint-election-manifesto"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/1998-left-parties-joint-election-manifesto.pdf"
-source_post_url: "https://cpim.org/1998-left-parties-joint-election-manifesto/"
+title: 1998 Left Parties Joint Election Manifesto
+slug: 2009-08-08-1998-left-parties-joint-election-manifesto
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/1998-left-parties-joint-election-manifesto.pdf
+source_post_url: https://cpim.org/1998-left-parties-joint-election-manifesto/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "716a059b3fde6248fb36a373936d4239a6e30a41cf46c39722727107a2fda88a"
+extraction_method: pymupdf4llm
+sha256: 716a059b3fde6248fb36a373936d4239a6e30a41cf46c39722727107a2fda88a
+doc_type: manifesto
+topics:
+- elections-democracy
+- communalism-secularism
+- economy-public-sector
+- labour-workers
+- gender-womens-rights
+geo:
+- national
+period: 1998-elections
 ---
 
 # **<u>MANIFESTO OF THE LEFT PARTIES FOR LOK SABHA ELECTIONS-- 1998</u>** 

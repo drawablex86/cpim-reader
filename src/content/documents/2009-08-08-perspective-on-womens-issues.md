@@ -1,16 +1,25 @@
 ---
-title: "Perspective on Women’s Issues"
-slug: "2009-08-08-perspective-on-womens-issues"
-date: "2009-08-08"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2005_dec_women.pdf"
-source_post_url: "https://cpim.org/perspective-womens-issues/"
+title: Perspective on Women’s Issues
+slug: 2009-08-08-perspective-on-womens-issues
+date: '2009-08-08'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2005_dec_women.pdf
+source_post_url: https://cpim.org/perspective-womens-issues/
 page_count: 29
-extraction_method: "pymupdf4llm"
-sha256: "551bb5ec2d9137e4708e434f3826ce36a4475104f598c434011a87b558061e24"
+extraction_method: pymupdf4llm
+sha256: 551bb5ec2d9137e4708e434f3826ce36a4475104f598c434011a87b558061e24
+doc_type: report
+topics:
+- gender-womens-rights
+- labour-workers
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

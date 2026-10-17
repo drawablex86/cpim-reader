@@ -1,16 +1,26 @@
 ---
-title: "Ideological Blinkers of the RSS"
-slug: "2016-01-16-ideological-blinkers-of-the-rss"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book_-_2.pdf"
-source_post_url: "https://cpim.org/ideological-blinkers-rss/"
+title: Ideological Blinkers of the RSS
+slug: 2016-01-16-ideological-blinkers-of-the-rss
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book_-_2.pdf
+source_post_url: https://cpim.org/ideological-blinkers-rss/
 page_count: 20
-extraction_method: "pymupdf4llm"
-sha256: "b6c8a2c661f2d5d7d64fc8248cc200d962724e7e2268ec62d617ae80a50a52a4"
+extraction_method: pymupdf4llm
+sha256: b6c8a2c661f2d5d7d64fc8248cc200d962724e7e2268ec62d617ae80a50a52a4
+doc_type: report
+topics:
+- communalism-secularism
+- caste-social-justice
+- labour-workers
+- agriculture-farmers
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 2 

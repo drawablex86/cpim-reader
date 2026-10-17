@@ -1,16 +1,25 @@
 ---
-title: "Political Tactical Line: Draft Review Report"
-slug: "2015-01-31-political-tactical-line-draft-review-report"
-date: "2015-01-31"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20150130-pol-tac-line-cc-adopted.pdf"
-source_post_url: "https://cpim.org/political-tactical-line-draft-review-report/"
+title: 'Political Tactical Line: Draft Review Report'
+slug: 2015-01-31-political-tactical-line-draft-review-report
+date: '2015-01-31'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20150130-pol-tac-line-cc-adopted.pdf
+source_post_url: https://cpim.org/political-tactical-line-draft-review-report/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "b9d1b98de7186374c8e30809ffcb98eed57c918837cff048eaf713a6a63ece55"
+extraction_method: pymupdf4llm
+sha256: b9d1b98de7186374c8e30809ffcb98eed57c918837cff048eaf713a6a63ece55
+doc_type: report
+topics:
+- communalism-secularism
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 <!-- Start of picture text -->

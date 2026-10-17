@@ -1,16 +1,24 @@
 ---
-title: "Protest Against the Massive Rigging of the Kolkata Municipal Elections : 21 Congress"
-slug: "2015-07-31-protest-against-the-massive-rigging-of-the-kolkata-municipal-elections"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/municipal%20election%20rigging%20in%20west%20bengal-final.pdf"
-source_post_url: "https://cpim.org/protest-against-massive-rigging-kolkata-municipal-elections-21-congress/"
+title: 'Protest Against the Massive Rigging of the Kolkata Municipal Elections : 21
+  Congress'
+slug: 2015-07-31-protest-against-the-massive-rigging-of-the-kolkata-municipal-elections
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/municipal%20election%20rigging%20in%20west%20bengal-final.pdf
+source_post_url: https://cpim.org/protest-against-massive-rigging-kolkata-municipal-elections-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "311d229b410bd9e877593542f419cd0b2f8a0b6fb649e7ecef1a49d8155a52d2"
+extraction_method: pymupdf4llm
+sha256: 311d229b410bd9e877593542f419cd0b2f8a0b6fb649e7ecef1a49d8155a52d2
+doc_type: report
+topics:
+- elections-democracy
+geo:
+- west-bengal
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

@@ -11,6 +11,15 @@ page_count: 15
 extraction_method: pymupdf4llm
 sha256: 5cc54fe8124375ffa6df780b2441f479418b1e02656f908d375eaaef2e7d8e0d
 language: en
+doc_type: report
+topics:
+- labour-workers
+- elections-democracy
+- agriculture-farmers
+- communalism-secularism
+geo:
+- national
+period: 22nd-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

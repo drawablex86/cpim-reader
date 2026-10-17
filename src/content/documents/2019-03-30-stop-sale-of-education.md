@@ -11,6 +11,14 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: 2688b6a808338edab0af8bf87a87c0ba36a09e6e3466606ecf848c8b591f607a
 language: en
+doc_type: campaign
+topics:
+- education-students
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

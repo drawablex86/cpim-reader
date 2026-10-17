@@ -1,16 +1,24 @@
 ---
-title: "Report on Current Political Developments"
-slug: "2009-08-31-report-on-current-political-developments"
-date: "2009-08-31"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/1999-may-pol-rep.pdf"
-source_post_url: "https://cpim.org/report-current-political-developments/"
+title: Report on Current Political Developments
+slug: 2009-08-31-report-on-current-political-developments
+date: '2009-08-31'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/1999-may-pol-rep.pdf
+source_post_url: https://cpim.org/report-current-political-developments/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "baf8d95fbbea0252d5687c7422a0f2f97406e4199c09d1c568c894416c7ca632"
+extraction_method: pymupdf4llm
+sha256: baf8d95fbbea0252d5687c7422a0f2f97406e4199c09d1c568c894416c7ca632
+doc_type: report
+topics:
+- communalism-secularism
+- elections-democracy
+- anti-imperialism
+geo:
+- national
+period: 2009-elections
 ---
 
 # **Report on Current Political Developments** 

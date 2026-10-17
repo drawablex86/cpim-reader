@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments — December 2013"
-slug: "2013-12-31-report-on-political-developments-december-2013"
-date: "2013-12-31"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2013-Dec-cc-report_0_0.pdf"
-source_post_url: "https://cpim.org/report-political-developments-december-2013/"
+title: Report on Political Developments — December 2013
+slug: 2013-12-31-report-on-political-developments-december-2013
+date: '2013-12-31'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2013-Dec-cc-report_0_0.pdf
+source_post_url: https://cpim.org/report-political-developments-december-2013/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "966289d205679df69d415cb64eaaefebf4cdd9dcedaeacc6f385805a6e6d029e"
+extraction_method: pymupdf4llm
+sha256: 966289d205679df69d415cb64eaaefebf4cdd9dcedaeacc6f385805a6e6d029e
+doc_type: report
+topics:
+- economy-public-sector
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+geo:
+- tripura
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918, 23747435 23363692, 23747436** 

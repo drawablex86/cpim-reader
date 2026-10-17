@@ -1,16 +1,25 @@
 ---
-title: "Neo-Liberal Policies & RSS-BJP"
-slug: "2016-01-16-neo-liberal-policies-rss-bjp"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book-4.pdf"
-source_post_url: "https://cpim.org/neo-liberal-policies-rss-bjp/"
+title: Neo-Liberal Policies & RSS-BJP
+slug: 2016-01-16-neo-liberal-policies-rss-bjp
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book-4.pdf
+source_post_url: https://cpim.org/neo-liberal-policies-rss-bjp/
 page_count: 17
-extraction_method: "pymupdf4llm"
-sha256: "12e7be19df5c5664988c4938a9a3b0e2b4502d214553552ee724fab99a5df9f6"
+extraction_method: pymupdf4llm
+sha256: 12e7be19df5c5664988c4938a9a3b0e2b4502d214553552ee724fab99a5df9f6
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+- labour-workers
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 4 

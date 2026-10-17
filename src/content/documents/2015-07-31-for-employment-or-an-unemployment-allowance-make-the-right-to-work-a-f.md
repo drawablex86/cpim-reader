@@ -1,16 +1,24 @@
 ---
-title: "For Employment or an Unemployment Allowance — Make the Right to Work a Fundamental Right :21 Congress"
-slug: "2015-07-31-for-employment-or-an-unemployment-allowance-make-the-right-to-work-a-f"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/unemployment-right-to-work.pdf"
-source_post_url: "https://cpim.org/employment-or-unemployment-allowance-make-right-work-fundamental-right-21-congress/"
+title: For Employment or an Unemployment Allowance — Make the Right to Work a Fundamental
+  Right :21 Congress
+slug: 2015-07-31-for-employment-or-an-unemployment-allowance-make-the-right-to-work-a-f
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/unemployment-right-to-work.pdf
+source_post_url: https://cpim.org/employment-or-unemployment-allowance-make-right-work-fundamental-right-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "cff7ae5b128e84f6afb6650c765339acd8e9cc8c40355b8f07de1f727a49a5f6"
+extraction_method: pymupdf4llm
+sha256: cff7ae5b128e84f6afb6650c765339acd8e9cc8c40355b8f07de1f727a49a5f6
+doc_type: report
+topics:
+- labour-workers
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

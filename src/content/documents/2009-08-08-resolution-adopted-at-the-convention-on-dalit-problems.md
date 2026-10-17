@@ -1,16 +1,25 @@
 ---
-title: "Resolution Adopted At the Convention on Dalit Problems"
-slug: "2009-08-08-resolution-adopted-at-the-convention-on-dalit-problems"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2006_feb_dalit_res.pdf"
-source_post_url: "https://cpim.org/resolution-adopted-convention-dalit-problems/"
+title: Resolution Adopted At the Convention on Dalit Problems
+slug: 2009-08-08-resolution-adopted-at-the-convention-on-dalit-problems
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2006_feb_dalit_res.pdf
+source_post_url: https://cpim.org/resolution-adopted-convention-dalit-problems/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "4a2353955b25c39b49ccf061a8604ec8e874b0b48816062810767694b1a181ff"
+extraction_method: pymupdf4llm
+sha256: 4a2353955b25c39b49ccf061a8604ec8e874b0b48816062810767694b1a181ff
+doc_type: resolution
+topics:
+- caste-social-justice
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST)** 

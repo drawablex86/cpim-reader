@@ -1,16 +1,23 @@
 ---
-title: "RSS & Its Communal Agenda"
-slug: "2016-01-16-rss-its-communal-agenda"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book_1.pdf"
-source_post_url: "https://cpim.org/rss-its-communal-agenda/"
+title: RSS & Its Communal Agenda
+slug: 2016-01-16-rss-its-communal-agenda
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book_1.pdf
+source_post_url: https://cpim.org/rss-its-communal-agenda/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "98359cfa18251f57f375a97e71e7fb185ed1673ee0238e3fb1eb08ea7ca4252a"
+extraction_method: pymupdf4llm
+sha256: 98359cfa18251f57f375a97e71e7fb185ed1673ee0238e3fb1eb08ea7ca4252a
+doc_type: report
+topics:
+- communalism-secularism
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 1 

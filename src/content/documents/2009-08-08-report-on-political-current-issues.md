@@ -1,16 +1,25 @@
 ---
-title: "Report On Political & Current Issues"
-slug: "2009-08-08-report-on-political-current-issues"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2004_oct_cc_rep.pdf"
-source_post_url: "https://cpim.org/report-political-current-issues/"
+title: Report On Political & Current Issues
+slug: 2009-08-08-report-on-political-current-issues
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2004_oct_cc_rep.pdf
+source_post_url: https://cpim.org/report-political-current-issues/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "7b4f85feb55f87c16f8f1768c067fa33932717a5290264d698bdbd7d14ea4a65"
+extraction_method: pymupdf4llm
+sha256: 7b4f85feb55f87c16f8f1768c067fa33932717a5290264d698bdbd7d14ea4a65
+doc_type: report
+topics:
+- communalism-secularism
+- palestine
+- economy-public-sector
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

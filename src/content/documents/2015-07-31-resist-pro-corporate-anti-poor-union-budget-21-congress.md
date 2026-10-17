@@ -1,16 +1,22 @@
 ---
-title: "Resist Pro-Corporate Anti-Poor Union Budget : 21 Congress"
-slug: "2015-07-31-resist-pro-corporate-anti-poor-union-budget-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/budget.pdf"
-source_post_url: "https://cpim.org/resist-pro-corporate-anti-poor-union-budget-21-congress/"
+title: 'Resist Pro-Corporate Anti-Poor Union Budget : 21 Congress'
+slug: 2015-07-31-resist-pro-corporate-anti-poor-union-budget-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/budget.pdf
+source_post_url: https://cpim.org/resist-pro-corporate-anti-poor-union-budget-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "9de587875f88b24da9d7e5244e55ce862ddec8dc29d7d98fc2c0c95b15d701a1"
+extraction_method: pymupdf4llm
+sha256: 9de587875f88b24da9d7e5244e55ce862ddec8dc29d7d98fc2c0c95b15d701a1
+doc_type: campaign
+topics:
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

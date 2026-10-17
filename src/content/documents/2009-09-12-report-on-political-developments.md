@@ -1,16 +1,26 @@
 ---
-title: "Report On Political Developments"
-slug: "2009-09-12-report-on-political-developments"
-date: "2009-09-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2001-may-cc-report.pdf"
-source_post_url: "https://cpim.org/report-political-developments-14/"
+title: Report On Political Developments
+slug: 2009-09-12-report-on-political-developments
+date: '2009-09-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2001-may-cc-report.pdf
+source_post_url: https://cpim.org/report-political-developments-14/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "12833d18eaa81de38d4885f6959667c2d2a4ef9deaaeaaaf478e83a36a398eb9"
+extraction_method: pymupdf4llm
+sha256: 12833d18eaa81de38d4885f6959667c2d2a4ef9deaaeaaaf478e83a36a398eb9
+doc_type: report
+topics:
+- labour-workers
+- caste-social-justice
+- economy-public-sector
+- elections-democracy
+- palestine
+geo:
+- national
+period: national-current
 ---
 
 # **Report on Political Developments Adopted At The August 11-12, 2001 Meeting Of The Central Committee** 

@@ -1,16 +1,22 @@
 ---
-title: "Report On Current Developments"
-slug: "2015-11-11-report-on-current-developments"
-date: "2015-11-11"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/201410-cc_report.pdf"
-source_post_url: "https://cpim.org/report-current-developments/"
+title: Report On Current Developments
+slug: 2015-11-11-report-on-current-developments
+date: '2015-11-11'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/201410-cc_report.pdf
+source_post_url: https://cpim.org/report-current-developments/
 page_count: 8
-extraction_method: "pymupdf4llm"
-sha256: "65c859335f2dcbbef57d6eddc49a950c140a15d254da4d138f9cb73ace6d7bf1"
+extraction_method: pymupdf4llm
+sha256: 65c859335f2dcbbef57d6eddc49a950c140a15d254da4d138f9cb73ace6d7bf1
+doc_type: report
+topics:
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

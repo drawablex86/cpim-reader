@@ -11,6 +11,16 @@ page_count: 37
 extraction_method: pymupdf4llm
 sha256: aade28462e8cf3d2f65e0e2443d7a87a31f16a5a1ed6445f491217525c9b52db
 language: en
+doc_type: review
+topics:
+- agriculture-farmers
+- labour-workers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ## **Tel. 23344918,23747435 23363692, 23747436** 

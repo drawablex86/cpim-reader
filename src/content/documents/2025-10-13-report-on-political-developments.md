@@ -11,6 +11,16 @@ page_count: 15
 extraction_method: ollama-normalized
 sha256: 07b7645f7767ed14dad96111360e418d2dca69e0e632eeac2aacff56bd3ad3ed
 language: en
+doc_type: report
+topics:
+- palestine
+- labour-workers
+- communalism-secularism
+- caste-social-justice
+geo:
+- palestine
+- international
+period: 24th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) Central Committee** 

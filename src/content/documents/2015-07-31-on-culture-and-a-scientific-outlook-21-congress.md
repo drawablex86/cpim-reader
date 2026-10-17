@@ -1,16 +1,22 @@
 ---
-title: "On Culture And A Scientific Outlook : 21 Congress"
-slug: "2015-07-31-on-culture-and-a-scientific-outlook-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/culture.pdf"
-source_post_url: "https://cpim.org/culture-and-scientific-outlook-21-congress/"
+title: 'On Culture And A Scientific Outlook : 21 Congress'
+slug: 2015-07-31-on-culture-and-a-scientific-outlook-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/culture.pdf
+source_post_url: https://cpim.org/culture-and-scientific-outlook-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "9e9898bcc0317f530fa5c56a6cb645a2f3d3c1b8261e3aa8a9efddc73ef7dacc"
+extraction_method: pymupdf4llm
+sha256: 9e9898bcc0317f530fa5c56a6cb645a2f3d3c1b8261e3aa8a9efddc73ef7dacc
+doc_type: report
+topics:
+- communalism-secularism
+geo:
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

@@ -11,6 +11,15 @@ page_count: 17
 extraction_method: pymupdf4llm
 sha256: 4bb61c97497094312c47a5416ee792cd191f8b07ad67737511bd4d710cdadceb
 language: en
+doc_type: report
+topics:
+- labour-workers
+- caste-social-justice
+- agriculture-farmers
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

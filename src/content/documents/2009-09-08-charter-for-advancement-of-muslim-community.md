@@ -1,16 +1,22 @@
 ---
-title: "Charter For Advancement of Muslim Community"
-slug: "2009-09-08-charter-for-advancement-of-muslim-community"
-date: "2009-09-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2007-charter-muslim-community.pdf"
-source_post_url: "https://cpim.org/charter-advancement-muslim-community/"
+title: Charter For Advancement of Muslim Community
+slug: 2009-09-08-charter-for-advancement-of-muslim-community
+date: '2009-09-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2007-charter-muslim-community.pdf
+source_post_url: https://cpim.org/charter-advancement-muslim-community/
 page_count: 3
-extraction_method: "pymupdf4llm"
-sha256: "3af4c0e14ea548d9cf8022be2161606429d19993feda6dde3223dd4a151667ea"
+extraction_method: pymupdf4llm
+sha256: 3af4c0e14ea548d9cf8022be2161606429d19993feda6dde3223dd4a151667ea
+doc_type: policy-programme
+topics:
+- communalism-secularism
+geo:
+- national
+period: national-current
 ---
 
 # **Justice Sachar Committee Report Findings:** 

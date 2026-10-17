@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments"
-slug: "2012-10-29-report-on-political-developments"
-date: "2012-10-29"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2012-Oct-CC-Report-Political.pdf"
-source_post_url: "https://cpim.org/report-political-developments-19/"
+title: Report on Political Developments
+slug: 2012-10-29-report-on-political-developments
+date: '2012-10-29'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2012-Oct-CC-Report-Political.pdf
+source_post_url: https://cpim.org/report-political-developments-19/
 page_count: 19
-extraction_method: "pymupdf4llm"
-sha256: "5d346e789ee577a7c794d1623c68e976ec1975c74670d94b5aa0ca82d4c258c7"
+extraction_method: pymupdf4llm
+sha256: 5d346e789ee577a7c794d1623c68e976ec1975c74670d94b5aa0ca82d4c258c7
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

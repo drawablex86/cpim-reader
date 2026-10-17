@@ -11,6 +11,16 @@ page_count: 15
 extraction_method: pymupdf4llm
 sha256: a3bc14a64e07857403fb390b9d21dcaa1b2f101ff14c4c9bf67c230298ee0ef6
 language: en
+doc_type: campaign
+topics:
+- communalism-secularism
+- anti-imperialism
+- federalism-states
+- palestine
+geo:
+- jammu-kashmir
+- national
+period: national-current
 ---
 
 ## **2** 

@@ -1,16 +1,26 @@
 ---
-title: "Review of Lok Sabha Elections"
-slug: "2009-08-08-review-of-lok-sabha-elections"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2004_ls_elections_review.pdf"
-source_post_url: "https://cpim.org/review-lok-sabha-elections/"
+title: Review of Lok Sabha Elections
+slug: 2009-08-08-review-of-lok-sabha-elections
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2004_ls_elections_review.pdf
+source_post_url: https://cpim.org/review-lok-sabha-elections/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "edde2f9914d1998f226a66d3a070c03f0b6f770a4875800daad280a08a7fa233"
+extraction_method: pymupdf4llm
+sha256: edde2f9914d1998f226a66d3a070c03f0b6f770a4875800daad280a08a7fa233
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- economy-public-sector
+- labour-workers
+- gender-womens-rights
+geo:
+- national
+period: 2009-elections
 ---
 
 **Review of the 1999 Lok Sabha Elections** Adopted at the Central Committee Meeting November 20-22, 1999 

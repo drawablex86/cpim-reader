@@ -11,6 +11,16 @@ page_count: 11
 extraction_method: pymupdf4llm
 sha256: 35eac6258d5664671d7fbfa258ca8304d21b02dbe27806b51678aa75a0c3b073
 language: en
+doc_type: solidarity
+topics:
+- anti-imperialism
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+geo:
+- kerala
+- national
+period: 23th-congress
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

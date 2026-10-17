@@ -11,6 +11,16 @@ page_count: 27
 extraction_method: pymupdf4llm
 sha256: 3cd715656bd32ed6ce532bff89c6da1b57f437e51378df2195cc2d1dd047aeb9
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

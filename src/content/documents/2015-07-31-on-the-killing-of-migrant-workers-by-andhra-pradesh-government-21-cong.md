@@ -1,16 +1,23 @@
 ---
-title: "On the Killing Of Migrant Workers by Andhra Pradesh Government : 21 Congress"
-slug: "2015-07-31-on-the-killing-of-migrant-workers-by-andhra-pradesh-government-21-cong"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/woodcutters-undertrials-180415.pdf"
-source_post_url: "https://cpim.org/killing-migrant-workers-andhra-pradesh-government-21-congress/"
+title: 'On the Killing Of Migrant Workers by Andhra Pradesh Government : 21 Congress'
+slug: 2015-07-31-on-the-killing-of-migrant-workers-by-andhra-pradesh-government-21-cong
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/woodcutters-undertrials-180415.pdf
+source_post_url: https://cpim.org/killing-migrant-workers-andhra-pradesh-government-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "cf0746577c9338397dd35dccf37a12da8ada16148454d77cc03814280d3a11e7"
+extraction_method: pymupdf4llm
+sha256: cf0746577c9338397dd35dccf37a12da8ada16148454d77cc03814280d3a11e7
+doc_type: report
+topics:
+- labour-workers
+geo:
+- andhra-pradesh
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

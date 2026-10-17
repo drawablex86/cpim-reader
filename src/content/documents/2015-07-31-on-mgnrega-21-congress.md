@@ -1,16 +1,23 @@
 ---
-title: "On MGNREGA : 21 Congress"
-slug: "2015-07-31-on-mgnrega-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/mnrega-150415_0.pdf"
-source_post_url: "https://cpim.org/mgnrega-21-congress/"
+title: 'On MGNREGA : 21 Congress'
+slug: 2015-07-31-on-mgnrega-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/mnrega-150415_0.pdf
+source_post_url: https://cpim.org/mgnrega-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "5e6a144a0782cc7a5e954c5bc8dd39aad74b1add529473afdacd1b00cb1547ec"
+extraction_method: pymupdf4llm
+sha256: 5e6a144a0782cc7a5e954c5bc8dd39aad74b1add529473afdacd1b00cb1547ec
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

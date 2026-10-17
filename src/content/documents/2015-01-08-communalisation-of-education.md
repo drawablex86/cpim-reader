@@ -1,16 +1,24 @@
 ---
-title: "Communalisation Of Education"
-slug: "2015-01-08-communalisation-of-education"
-date: "2015-01-08"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20141128-education-pamphlet.pdf"
-source_post_url: "https://cpim.org/communalisation-education/"
+title: Communalisation Of Education
+slug: 2015-01-08-communalisation-of-education
+date: '2015-01-08'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20141128-education-pamphlet.pdf
+source_post_url: https://cpim.org/communalisation-education/
 page_count: 8
-extraction_method: "pymupdf4llm"
-sha256: "2999670d454f1ca38cdbdeae9c17a4a83609219a40a69d74aa324ba2784cccdb"
+extraction_method: pymupdf4llm
+sha256: 2999670d454f1ca38cdbdeae9c17a4a83609219a40a69d74aa324ba2784cccdb
+doc_type: report
+topics:
+- communalism-secularism
+- education-students
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 # **Communalisation of Education** 

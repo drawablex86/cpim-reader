@@ -1,16 +1,22 @@
 ---
-title: "Assault on Science & History"
-slug: "2016-01-16-assault-on-science-history"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book-5.pdf"
-source_post_url: "https://cpim.org/assault-science-history/"
+title: Assault on Science & History
+slug: 2016-01-16-assault-on-science-history
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book-5.pdf
+source_post_url: https://cpim.org/assault-science-history/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "def4ba12ee67a44ae285e5438d1aff39c009f1ebdd0ee9cc1439fc5cdb4ab7ce"
+extraction_method: pymupdf4llm
+sha256: def4ba12ee67a44ae285e5438d1aff39c009f1ebdd0ee9cc1439fc5cdb4ab7ce
+doc_type: report
+topics:
+- communalism-secularism
+geo:
+- national
+period: national-current
 ---
 
 5 

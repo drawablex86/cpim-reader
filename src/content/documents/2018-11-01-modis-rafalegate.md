@@ -11,6 +11,12 @@ page_count: 7
 extraction_method: pymupdf4llm
 sha256: fce94cf097bbc9fcd9125ba7706638c8b5de1cce18e94591ed19e7b9981b5aec
 language: en
+doc_type: report
+topics:
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 # **Rafale Deal: Modi in the Dock** 

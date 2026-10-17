@@ -1,16 +1,25 @@
 ---
-title: "Casteist Organisations & Party, Kerala Document"
-slug: "2009-09-19-casteist-organisations-party-kerala-document"
-date: "2009-09-19"
-category: "Issues"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2003-castist-orgns-party.pdf"
-source_post_url: "https://cpim.org/casteist-organisations-party-kerala-document/"
+title: Casteist Organisations & Party, Kerala Document
+slug: 2009-09-19-casteist-organisations-party-kerala-document
+date: '2009-09-19'
+category: Issues
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2003-castist-orgns-party.pdf
+source_post_url: https://cpim.org/casteist-organisations-party-kerala-document/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "9650b1af990960119bd773be8f6677060e41ab55b802996705e60436421b4a73"
+extraction_method: pymupdf4llm
+sha256: 9650b1af990960119bd773be8f6677060e41ab55b802996705e60436421b4a73
+doc_type: report
+topics:
+- caste-social-justice
+- communalism-secularism
+- agriculture-farmers
+geo:
+- kerala
+- national
+period: national-current
 ---
 
 **The Marxist Oct-Dec. 2003** 

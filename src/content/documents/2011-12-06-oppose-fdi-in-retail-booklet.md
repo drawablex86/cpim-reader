@@ -1,16 +1,23 @@
 ---
-title: "Oppose FDI In Retail: Booklet"
-slug: "2011-12-06-oppose-fdi-in-retail-booklet"
-date: "2011-12-06"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2011-Dec-FDI-Retail.pdf"
-source_post_url: "https://cpim.org/oppose-fdi-retail-booklet/"
+title: 'Oppose FDI In Retail: Booklet'
+slug: 2011-12-06-oppose-fdi-in-retail-booklet
+date: '2011-12-06'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2011-Dec-FDI-Retail.pdf
+source_post_url: https://cpim.org/oppose-fdi-retail-booklet/
 page_count: 35
-extraction_method: "pymupdf4llm"
-sha256: "c23f26a2cd410ff49e3e1c953a0ee1eb9ba9b70fa25a7112d975a029409c5e0c"
+extraction_method: pymupdf4llm
+sha256: c23f26a2cd410ff49e3e1c953a0ee1eb9ba9b70fa25a7112d975a029409c5e0c
+doc_type: publication
+topics:
+- agriculture-farmers
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 # **December 6, 2011** 

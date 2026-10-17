@@ -11,6 +11,14 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: 7392405da75c818636cde3d18ed4d27a3e87ae8f1ccac06e39573f78e404c892
 language: en
+doc_type: report
+topics:
+- labour-workers
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

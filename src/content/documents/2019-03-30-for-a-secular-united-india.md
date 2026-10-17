@@ -11,6 +11,13 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: e9deeeab4fcdb4c1d2b67f0c65fb3ee4b7e2ec1140f7e968a7e620adf5a296fe
 language: en
+doc_type: report
+topics:
+- communalism-secularism
+geo:
+- jammu-kashmir
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

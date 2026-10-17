@@ -11,6 +11,12 @@ page_count: 8
 extraction_method: pymupdf4llm
 sha256: 94a1c770343ad921cfd774c6bc40aa89484e39073f34ae1ee2842b3c1b6f1e2e
 language: en
+doc_type: report
+topics:
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 **Booklet** 

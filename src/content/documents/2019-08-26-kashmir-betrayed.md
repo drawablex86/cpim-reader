@@ -11,6 +11,15 @@ page_count: 13
 extraction_method: pymupdf4llm
 sha256: 57499f18c33533244f30e0078cc5fbf23d623bc8230ca52eb1fd8c31e168d60d
 language: en
+doc_type: report
+topics:
+- federalism-states
+- communalism-secularism
+geo:
+- jammu-kashmir
+- andhra-pradesh
+- national
+period: national-current
 ---
 
 # Fraud on Constitution 

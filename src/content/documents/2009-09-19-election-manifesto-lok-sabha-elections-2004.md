@@ -1,16 +1,26 @@
 ---
-title: "Election Manifesto Lok Sabha Elections, 2004"
-slug: "2009-09-19-election-manifesto-lok-sabha-elections-2004"
-date: "2009-09-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/03162004_14ls_manifesto.pdf"
-source_post_url: "https://cpim.org/election-manifesto-lok-sabha-elections-2004/"
+title: Election Manifesto Lok Sabha Elections, 2004
+slug: 2009-09-19-election-manifesto-lok-sabha-elections-2004
+date: '2009-09-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/03162004_14ls_manifesto.pdf
+source_post_url: https://cpim.org/election-manifesto-lok-sabha-elections-2004/
 page_count: 19
-extraction_method: "pymupdf4llm"
-sha256: "a266e42ef26bb142d6b8b60431db832f21e44fb5789f0f489cb56e580db2375f"
+extraction_method: pymupdf4llm
+sha256: a266e42ef26bb142d6b8b60431db832f21e44fb5789f0f489cb56e580db2375f
+doc_type: manifesto
+topics:
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 2004-elections
 ---
 
 # **Communist Party of India (Marxist) Manifesto for the 14**<sup>**th**</sup> **Lok Sabha Elections, 2004** 

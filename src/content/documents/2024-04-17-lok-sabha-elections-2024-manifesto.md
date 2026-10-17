@@ -11,6 +11,16 @@ page_count: 68
 extraction_method: pymupdf4llm
 sha256: 1857da331ee900f379931c34196a81eabf07ea219f3ff39d3d4990e73b82df23
 language: en
+doc_type: manifesto
+topics:
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 2024-elections
 ---
 
 ### **Communist Party of India (Marxist)** 

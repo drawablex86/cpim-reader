@@ -1,16 +1,25 @@
 ---
-title: "Response to Questions from Comm. on Centre-State Relations"
-slug: "2009-08-08-response-to-questions-from-comm-on-centre-state-relations"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-oct-response-to-commission-on-centre-state-relations.pdf"
-source_post_url: "https://cpim.org/response-questions-comm-centre-state-relations/"
+title: Response to Questions from Comm. on Centre-State Relations
+slug: 2009-08-08-response-to-questions-from-comm-on-centre-state-relations
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-oct-response-to-commission-on-centre-state-relations.pdf
+source_post_url: https://cpim.org/response-questions-comm-centre-state-relations/
 page_count: 48
-extraction_method: "pymupdf4llm"
-sha256: "9703cc740adabcd187d357979f9bf8ac975001e8e076b2eca806805188e3fa7b"
+extraction_method: pymupdf4llm
+sha256: 9703cc740adabcd187d357979f9bf8ac975001e8e076b2eca806805188e3fa7b
+doc_type: report
+topics:
+- federalism-states
+- agriculture-farmers
+- economy-public-sector
+- environment-climate
+geo:
+- national
+period: national-current
 ---
 
 _Response to Questionnaire from CCSR_ 

@@ -11,6 +11,18 @@ page_count: 32
 extraction_method: pymupdf4llm
 sha256: 95fe23a1b7bd0b4d0c4054a4d2caf3144559fbda6df32c4a21b7cc0d7e4b96c2
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+- palestine
+- gender-womens-rights
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

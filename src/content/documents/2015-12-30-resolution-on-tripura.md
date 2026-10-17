@@ -1,16 +1,23 @@
 ---
-title: "Resolution on Tripura"
-slug: "2015-12-30-resolution-on-tripura"
-date: "2015-12-30"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: ""
-source_post_url: "https://cpim.org/resolution-tripura/"
+title: Resolution on Tripura
+slug: 2015-12-30-resolution-on-tripura
+date: '2015-12-30'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: ''
+source_post_url: https://cpim.org/resolution-tripura/
 page_count: 4
-extraction_method: "html-archive"
-sha256: "b224e4737734cdbb5ee2c5c6efb91d321ef18f0ef0f6ea0f3d84542667386426"
+extraction_method: html-archive
+sha256: b224e4737734cdbb5ee2c5c6efb91d321ef18f0ef0f6ea0f3d84542667386426
+doc_type: resolution
+topics:
+- federalism-states
+geo:
+- tripura
+- national
+period: national-current
 ---
 
 Resolution on Tripura Tripura, a small state in north-east, has evolved into an exemplary dynamic developing state under the Left Front government. With its pro-people policies, Left Front government has not only developed the quality of life of the people of the state, but also showed what alternative policies can be pursued even with limited resources. Tripura has had a Left Front government since 1978. In the first two terms of the Left Front government, there were two particularly major achievements: the implementation of land reforms and the setting up of the Tripura Tribal Areas Autonomous District Council under the sixth schedule of the constitution which empowered the tribal people. The break during 1988-93 after a rigged election and a period of semi-fascist terror, Left Front has come back and won all subsequent elections with greater confidence expressed by the people. The last 22 years have witnessed remarkable development of the state. Tripura has become a model for combating extremism and terrorism. Once mutilated by extremist violence, financed and promoted by imperialist agencies, Tripura has emerged an example of unity of the people and peace. This has been achieved not merely by administrative determination alone, but also with political mobilization of people and development activities in the tribal areas in particular. Deepening political democracy, with decentralized municipalities, panchayats, village committees in ADC area, has contributed to the enthusiastic participation of the people in development activities. The record of the Left Front government in many areas of development, particularly in human development is no less than outstanding. The literacy rate in the state has reached to 97 per cent, among the highest in the country. The female literacy rate is 95.71 per cent. With huge expansion of school education, free text books, free studies up to college level Tripura has virtually universalized education upto secondary stage. Other Human Development indices reflect people’s the better quality of life. Infant Mortality Rate in Tripura is 26 while the all-India average is 40. Birth rate in the state is 13.7 per cent while it is 21.4 per cent all-India, death rate has come down to 4.7 per cent while the national average is 7.0 per cent. All these have been achieved despite backward infrastructure and complex geography of the state. Tripura has achieved food security with all families covered under PDS. While majority of the population is being provided rice at Rs 2 per kg, all other families are provided rice at APL rate. Agriculture, forestry, fisheries, plantation and handicrafts have received tremendous boost with multifarious projects of the state government. Along with this, Tripura has retained its top position in implementing MNREGA . In 20123-14, average man days in Tripura were 88 while all India average was 46. In 2014-15, the average man days in Tripura was 88 again, while all India average has come down to 38 only. In a first of its kind, people belonging to BPL families in urban area are provided wage employment for at least 75 days a year. Tripura also tops in giving land rights under Forest Right Act. 124541 persons have been given land pattas , of whom 99 per cent are tribals. Despite severe difficulties, the Left Front government has taken long strides in infrastructural development.  More than 90 per cent of the total of 8,312 habitations is electrified. More than 95 per cent of irrigatable land has been brought under irrigation facilities. Road network has reached to remote areas making communications far more smoother than ever imagined. In the face of neo liberal attacks on peoples’ livelihood and scarce resources, the Left Front government has stood beside the poor workers of unorganized sector and the needy and vastly expanded social security. In Tripura, state government is administering 27 pension schemes including those for female domestic workers, disabled, widows, deserted women, rickshaw pullers, barbers, fishermen. It has also provided pension scheme for transgender persons, AIDS affected persons. Several development schemes are being implemented for SCs, OBCs and Muslim minorities. Number of women elected  is a high 57 per cent in the local bodies which is a reflection of women’s  increased participation in all spheres of public life. The sustained and planned efforts by the Left Front government has provided the youth of the state with better opportunities for education and employment, generating a visible new hope and pride among them. Left Front government, conscious of the fact that it is working within the limitations of all-India pro-corporate policies, unequal federal structure and financial constraints, has tried to provide and project alternative policies.  CPI(M), in its effort to provide pro-people alternative policies for a better India hails the initiatives of Left Front government in Tripura as inspiring. There is no room for complacency. Reactionary forces within and outside Tripura are out to create trouble through disturbing the tribal and non-tribal unity which is the bedrock of Tripura’s outstanding advancement.  Therefore, there is need of vigilance through mobilisation of masses to prevent any sort of conspiracy. The people of Tripura, both in rural and urban areas, have reposed great trust and confidence in the CPI(M) and Left Front in successive elections, including those in the recent past. The Plenum of CPI(M) expresses its solidarity with the people and Left Front government of Tripura and calls upon all Party units to project these achievements to people in every corner of the country. **

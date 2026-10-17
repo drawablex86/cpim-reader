@@ -1,16 +1,27 @@
 ---
-title: "Report On Political Developments"
-slug: "2009-11-05-report-on-political-developments"
-date: "2009-11-05"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2009-October-political-report.pdf"
-source_post_url: "https://cpim.org/report-political-developments-16/"
+title: Report On Political Developments
+slug: 2009-11-05-report-on-political-developments
+date: '2009-11-05'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2009-October-political-report.pdf
+source_post_url: https://cpim.org/report-political-developments-16/
 page_count: 26
-extraction_method: "pymupdf4llm"
-sha256: "fe81149198071b7850f1d523cb30429bc7ec0ee8b67c40cd0588d76bfff6cabf"
+extraction_method: pymupdf4llm
+sha256: fe81149198071b7850f1d523cb30429bc7ec0ee8b67c40cd0588d76bfff6cabf
+doc_type: report
+topics:
+- labour-workers
+- economy-public-sector
+- anti-imperialism
+- environment-climate
+- palestine
+geo:
+- palestine
+- international
+period: 19th-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

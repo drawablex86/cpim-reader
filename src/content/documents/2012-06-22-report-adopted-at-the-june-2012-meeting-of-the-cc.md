@@ -1,16 +1,22 @@
 ---
-title: "Report Adopted at the June 2012 Meeting of the CC"
-slug: "2012-06-22-report-adopted-at-the-june-2012-meeting-of-the-cc"
-date: "2012-06-22"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/201206-CC-Report.pdf"
-source_post_url: "https://cpim.org/report-adopted-june-2012-meeting-cc/"
+title: Report Adopted at the June 2012 Meeting of the CC
+slug: 2012-06-22-report-adopted-at-the-june-2012-meeting-of-the-cc
+date: '2012-06-22'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/201206-CC-Report.pdf
+source_post_url: https://cpim.org/report-adopted-june-2012-meeting-cc/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "a4ad9fe16520cb0c1519270d018e7fe1e3cd5d0711d5e0775b18c4740d77ac67"
+extraction_method: pymupdf4llm
+sha256: a4ad9fe16520cb0c1519270d018e7fe1e3cd5d0711d5e0775b18c4740d77ac67
+doc_type: report
+topics:
+- anti-imperialism
+geo:
+- national
+period: 20th-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

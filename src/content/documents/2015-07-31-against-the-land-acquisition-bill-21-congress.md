@@ -1,16 +1,22 @@
 ---
-title: "Against the Land Acquisition Bill :21 Congress"
-slug: "2015-07-31-against-the-land-acquisition-bill-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/land-grab-150415_0.pdf"
-source_post_url: "https://cpim.org/against-land-acquisition-bill-21-congress/"
+title: Against the Land Acquisition Bill :21 Congress
+slug: 2015-07-31-against-the-land-acquisition-bill-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/land-grab-150415_0.pdf
+source_post_url: https://cpim.org/against-land-acquisition-bill-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "3fb8b3d0ba4684a80ceb4770355596c19214376772fa7c6ab0deb10cd779a6b1"
+extraction_method: pymupdf4llm
+sha256: 3fb8b3d0ba4684a80ceb4770355596c19214376772fa7c6ab0deb10cd779a6b1
+doc_type: report
+topics:
+- agriculture-farmers
+geo:
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

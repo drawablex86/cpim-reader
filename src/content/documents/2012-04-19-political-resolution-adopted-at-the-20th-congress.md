@@ -1,16 +1,27 @@
 ---
-title: "Political Resolution Adopted at the 20th Congress"
-slug: "2012-04-19-political-resolution-adopted-at-the-20th-congress"
-date: "2012-04-19"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2012-April-20Congress-pol-res.pdf"
-source_post_url: "https://cpim.org/political-resolution-adopted-20th-congress/"
+title: Political Resolution Adopted at the 20th Congress
+slug: 2012-04-19-political-resolution-adopted-at-the-20th-congress
+date: '2012-04-19'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2012-April-20Congress-pol-res.pdf
+source_post_url: https://cpim.org/political-resolution-adopted-20th-congress/
 page_count: 46
-extraction_method: "pymupdf4llm"
-sha256: "9c4648d3cfdb9db03e7041941b3b16691c09762de2d4eeea990a7fa2685db285"
+extraction_method: pymupdf4llm
+sha256: 9c4648d3cfdb9db03e7041941b3b16691c09762de2d4eeea990a7fa2685db285
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- kerala
+- national
+period: 20th-congress
 ---
 
 # **Political Resolution** 

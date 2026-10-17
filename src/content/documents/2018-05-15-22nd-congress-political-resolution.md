@@ -11,6 +11,16 @@ page_count: 55
 extraction_method: pymupdf4llm
 sha256: ca0d1ca82ed3ed5edc3e425740c744962968020b21a70a900d647bc96aca4ae9
 language: en
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 22th-congress
 ---
 
 # **Political Resolution Adopted by the 22**<sup>**nd**</sup> **Congress Of the Communist Party of India (Marxist) Hyderabad, April 18-22, 2018** 

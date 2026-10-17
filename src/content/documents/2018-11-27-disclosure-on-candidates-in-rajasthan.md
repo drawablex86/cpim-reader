@@ -11,6 +11,13 @@ page_count: 15
 extraction_method: pymupdf4llm
 sha256: 5e108e19fc44d13e1caf7627a836415987bcaff99fd2bc54ab94419d22d676da
 language: en
+doc_type: publication
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- national
+period: national-current
 ---
 
 Scanned by CamScanner

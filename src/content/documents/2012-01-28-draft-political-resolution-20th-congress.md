@@ -1,16 +1,26 @@
 ---
-title: "Draft Political Resolution: 20th Congress"
-slug: "2012-01-28-draft-political-resolution-20th-congress"
-date: "2012-01-28"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2012-20Cong-Draft-Pol-Res.pdf"
-source_post_url: "https://cpim.org/draft-political-resolution-20th-congress/"
+title: 'Draft Political Resolution: 20th Congress'
+slug: 2012-01-28-draft-political-resolution-20th-congress
+date: '2012-01-28'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2012-20Cong-Draft-Pol-Res.pdf
+source_post_url: https://cpim.org/draft-political-resolution-20th-congress/
 page_count: 63
-extraction_method: "pymupdf4llm"
-sha256: "435e8ca9f6a6251afeff1a2062e46e123dc11117bea9d51a341d57ae3f8a55a8"
+extraction_method: pymupdf4llm
+sha256: 435e8ca9f6a6251afeff1a2062e46e123dc11117bea9d51a341d57ae3f8a55a8
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 20th-congress
 ---
 
 **Draft** 

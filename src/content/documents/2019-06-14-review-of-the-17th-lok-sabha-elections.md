@@ -11,6 +11,19 @@ page_count: 22
 extraction_method: pymupdf4llm
 sha256: 9e2081d97c58f524ab7d1c8697f544f11a1aa16272fa15366be86b4091a48a8d
 language: en
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- labour-workers
+- agriculture-farmers
+geo:
+- kerala
+- west-bengal
+- tripura
+- andhra-pradesh
+- national
+period: 2019-elections
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

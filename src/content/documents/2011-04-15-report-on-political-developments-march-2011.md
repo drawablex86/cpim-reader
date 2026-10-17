@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments, March 2011"
-slug: "2011-04-15-report-on-political-developments-march-2011"
-date: "2011-04-15"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2011-March-pol-rep-adopted.pdf"
-source_post_url: "https://cpim.org/report-political-developments-march-2011/"
+title: Report on Political Developments, March 2011
+slug: 2011-04-15-report-on-political-developments-march-2011
+date: '2011-04-15'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2011-March-pol-rep-adopted.pdf
+source_post_url: https://cpim.org/report-political-developments-march-2011/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "d50eb66e009c491d35ec6766381e398dd1f19d5b26de742f5fb7c7a7a1d6f085"
+extraction_method: pymupdf4llm
+sha256: d50eb66e009c491d35ec6766381e398dd1f19d5b26de742f5fb7c7a7a1d6f085
+doc_type: report
+topics:
+- labour-workers
+- economy-public-sector
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Report on Political Developments Since Last Central Committee Meeting (Adopted At The March 04-06, 2011 Meeting of the CPI(M) Central Committee)** 

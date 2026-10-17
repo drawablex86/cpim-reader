@@ -1,16 +1,23 @@
 ---
-title: "Election Commission – A Case For Reform"
-slug: "2009-09-12-election-commission-a-case-for-reform"
-date: "2009-09-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2006_aug_EC_reforms.pdf"
-source_post_url: "https://cpim.org/election-commission-case-reform/"
+title: Election Commission – A Case For Reform
+slug: 2009-09-12-election-commission-a-case-for-reform
+date: '2009-09-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2006_aug_EC_reforms.pdf
+source_post_url: https://cpim.org/election-commission-case-reform/
 page_count: 23
-extraction_method: "pymupdf4llm"
-sha256: "0fcf70dbee4deb026cbc2d76565482307f5ee4a6ee609a24f4f6316ad996da53"
+extraction_method: pymupdf4llm
+sha256: 0fcf70dbee4deb026cbc2d76565482307f5ee4a6ee609a24f4f6316ad996da53
+doc_type: report
+topics:
+- elections-democracy
+geo:
+- west-bengal
+- national
+period: national-current
 ---
 
 # **Introduction** 

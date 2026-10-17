@@ -1,16 +1,23 @@
 ---
-title: "14th Congress — On Certain Ideological Issues"
-slug: "2009-09-12-14th-congress-on-certain-ideological-issues"
-date: "2009-09-12"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/1992-14-Cong--ideological-issues.pdf"
-source_post_url: "https://cpim.org/14th-congress-certain-ideological-issues/"
+title: 14th Congress — On Certain Ideological Issues
+slug: 2009-09-12-14th-congress-on-certain-ideological-issues
+date: '2009-09-12'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/1992-14-Cong--ideological-issues.pdf
+source_post_url: https://cpim.org/14th-congress-certain-ideological-issues/
 page_count: 22
-extraction_method: "pymupdf4llm"
-sha256: "abfcd871105fe84333fcb482915e41343d6b297e2ea0301a7af3bc9b17178d74"
+extraction_method: pymupdf4llm
+sha256: abfcd871105fe84333fcb482915e41343d6b297e2ea0301a7af3bc9b17178d74
+doc_type: resolution
+topics:
+- labour-workers
+- anti-imperialism
+geo:
+- national
+period: 14th-congress
 ---
 
 # **ON CERTAIN IDEOLOGICAL ISSUES Resolution Adopted at the 14th Congress of the CPI(M) Madras, January 3-9, 1992** 

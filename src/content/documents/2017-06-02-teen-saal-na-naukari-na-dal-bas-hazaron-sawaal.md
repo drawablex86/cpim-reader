@@ -1,16 +1,27 @@
 ---
-title: "Teen Saal, Na Naukari, Na Dal, Bas Hazaron Sawaal"
-slug: "2017-06-02-teen-saal-na-naukari-na-dal-bas-hazaron-sawaal"
-date: "2017-06-02"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/booklet_june_17_cpm_final_english.pdf"
-source_post_url: "https://cpim.org/teen-saal-na-naukari-na-dal-bas-hazaron-sawaal/"
+title: Teen Saal, Na Naukari, Na Dal, Bas Hazaron Sawaal
+slug: 2017-06-02-teen-saal-na-naukari-na-dal-bas-hazaron-sawaal
+date: '2017-06-02'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/booklet_june_17_cpm_final_english.pdf
+source_post_url: https://cpim.org/teen-saal-na-naukari-na-dal-bas-hazaron-sawaal/
 page_count: 33
-extraction_method: "pymupdf4llm"
-sha256: "c5955bb11b00e69b0db762af79906ecb83d33f8d97e0c8ac76c3efa8363d1512"
+extraction_method: pymupdf4llm
+sha256: c5955bb11b00e69b0db762af79906ecb83d33f8d97e0c8ac76c3efa8363d1512
+doc_type: campaign
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- jammu-kashmir
+- national
+period: national-current
 ---
 
 # **Introduction** 

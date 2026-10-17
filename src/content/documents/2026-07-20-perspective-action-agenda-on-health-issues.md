@@ -11,6 +11,16 @@ page_count: 24
 extraction_method: html-archive
 sha256: 40be7c699e831c9604c42b1f8ab9abfd60a8b37ceef3586875bf4ba3f0e65383
 language: en
+doc_type: publication
+topics:
+- healthcare
+- economy-public-sector
+- labour-workers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### Communist Party of India (Marxist)

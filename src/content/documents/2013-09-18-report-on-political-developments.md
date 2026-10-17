@@ -1,16 +1,23 @@
 ---
-title: "Report on Political Developments"
-slug: "2013-09-18-report-on-political-developments"
-date: "2013-09-18"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2013-Aug-Report-Pol.pdf"
-source_post_url: "https://cpim.org/report-political-developments-21/"
+title: Report on Political Developments
+slug: 2013-09-18-report-on-political-developments
+date: '2013-09-18'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2013-Aug-Report-Pol.pdf
+source_post_url: https://cpim.org/report-political-developments-21/
 page_count: 18
-extraction_method: "pymupdf4llm"
-sha256: "db0679c3fd584574202624d3ac07085a1d23d0a908d8849064febfed4df2752f"
+extraction_method: pymupdf4llm
+sha256: db0679c3fd584574202624d3ac07085a1d23d0a908d8849064febfed4df2752f
+doc_type: report
+topics:
+- communalism-secularism
+- elections-democracy
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

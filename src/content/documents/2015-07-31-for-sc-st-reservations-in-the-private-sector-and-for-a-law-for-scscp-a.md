@@ -1,16 +1,24 @@
 ---
-title: "For SC/ST Reservations in the Private Sector and for a Law for SCSCP and TSP Funds : 21 Congress"
-slug: "2015-07-31-for-sc-st-reservations-in-the-private-sector-and-for-a-law-for-scscp-a"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/SC-ST-reservation_0.pdf"
-source_post_url: "https://cpim.org/scst-reservations-private-sector-and-law-scscp-and-tsp-funds-21-congress/"
+title: 'For SC/ST Reservations in the Private Sector and for a Law for SCSCP and TSP
+  Funds : 21 Congress'
+slug: 2015-07-31-for-sc-st-reservations-in-the-private-sector-and-for-a-law-for-scscp-a
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/SC-ST-reservation_0.pdf
+source_post_url: https://cpim.org/scst-reservations-private-sector-and-law-scscp-and-tsp-funds-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "9d916c4c4b6f6e290e53d4ed871167911aa937c52b068636d3aaf6d1adf8aaaf"
+extraction_method: pymupdf4llm
+sha256: 9d916c4c4b6f6e290e53d4ed871167911aa937c52b068636d3aaf6d1adf8aaaf
+doc_type: report
+topics:
+- caste-social-justice
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

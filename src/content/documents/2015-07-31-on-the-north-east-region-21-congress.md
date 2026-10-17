@@ -1,16 +1,22 @@
 ---
-title: "On the North East Region : 21 Congress"
-slug: "2015-07-31-on-the-north-east-region-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/North_East-160415.pdf"
-source_post_url: "https://cpim.org/north-east-region-21-congress/"
+title: 'On the North East Region : 21 Congress'
+slug: 2015-07-31-on-the-north-east-region-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/North_East-160415.pdf
+source_post_url: https://cpim.org/north-east-region-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "a7ecb2dd1b5c22100604ea1e4ba5e44fdd622a20ba3a4263328c963fa3db7da2"
+extraction_method: pymupdf4llm
+sha256: a7ecb2dd1b5c22100604ea1e4ba5e44fdd622a20ba3a4263328c963fa3db7da2
+doc_type: report
+topics:
+- communalism-secularism
+geo:
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

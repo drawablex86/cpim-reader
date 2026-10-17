@@ -11,6 +11,13 @@ page_count: 9
 extraction_method: pymupdf4llm
 sha256: 9714a6e85be9d7897872aa865905f21b9f170a68b296338caa06621990414161
 language: en
+doc_type: report
+topics:
+- education-students
+- communalism-secularism
+geo:
+- national
+period: national-current
 ---
 
 # **CPI (M) response to New Education Policy 2020 (NEP)** 

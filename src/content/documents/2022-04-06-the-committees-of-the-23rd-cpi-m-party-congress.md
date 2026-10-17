@@ -11,6 +11,14 @@ page_count: 2
 extraction_method: pymupdf4llm
 sha256: 2591bd1999f8161ae4b54292795ce2163293844b6a0e39200fcd18c69a5ae9e0
 language: en
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- kerala
+- national
+period: 23th-congress
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

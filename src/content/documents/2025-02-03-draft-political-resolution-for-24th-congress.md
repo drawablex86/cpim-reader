@@ -11,6 +11,16 @@ page_count: 64
 extraction_method: pymupdf4llm
 sha256: 3c1881b19211ad2065706d8c1399bfb87c47f746acf62d70f9d5731a5d1ba702
 language: en
+doc_type: resolution
+topics:
+- palestine
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 24th-congress
 ---
 
 # **Draft** 

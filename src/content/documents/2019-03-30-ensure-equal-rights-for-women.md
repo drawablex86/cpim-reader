@@ -11,6 +11,13 @@ page_count: 7
 extraction_method: pymupdf4llm
 sha256: cd04f3fb737e5447eaa8299aff64e6191764384356256aa2dfc7dead5120dca6
 language: en
+doc_type: report
+topics:
+- gender-womens-rights
+- communalism-secularism
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

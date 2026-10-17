@@ -1,16 +1,26 @@
 ---
-title: "17th Congress Political Resolution"
-slug: "2009-09-11-17th-congress-political-resolution"
-date: "2009-09-11"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002_17Cong_pol_resl.pdf"
-source_post_url: "https://cpim.org/17th-congress-political-resolution/"
+title: 17th Congress Political Resolution
+slug: 2009-09-11-17th-congress-political-resolution
+date: '2009-09-11'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002_17Cong_pol_resl.pdf
+source_post_url: https://cpim.org/17th-congress-political-resolution/
 page_count: 32
-extraction_method: "pymupdf4llm"
-sha256: "5d92005bb2b555a0b5535f387a41e16c01ebe7a08728b1940b8cf07b88d8b3fb"
+extraction_method: pymupdf4llm
+sha256: 5d92005bb2b555a0b5535f387a41e16c01ebe7a08728b1940b8cf07b88d8b3fb
+doc_type: resolution
+topics:
+- labour-workers
+- communalism-secularism
+- caste-social-justice
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: 17th-congress
 ---
 
 # **Political Resolution Adopted At The 17th Congress (Hyderabad: March 19-24, 2002)** 

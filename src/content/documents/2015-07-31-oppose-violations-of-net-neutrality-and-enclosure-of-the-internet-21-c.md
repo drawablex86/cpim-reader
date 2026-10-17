@@ -1,16 +1,23 @@
 ---
-title: "Oppose Violations of Net Neutrality and Enclosure of the Internet : 21 Congress"
-slug: "2015-07-31-oppose-violations-of-net-neutrality-and-enclosure-of-the-internet-21-c"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/Net%20neutrality.pdf"
-source_post_url: "https://cpim.org/oppose-violations-net-neutrality-and-enclosure-internet-21-congress/"
+title: 'Oppose Violations of Net Neutrality and Enclosure of the Internet : 21 Congress'
+slug: 2015-07-31-oppose-violations-of-net-neutrality-and-enclosure-of-the-internet-21-c
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/Net%20neutrality.pdf
+source_post_url: https://cpim.org/oppose-violations-net-neutrality-and-enclosure-internet-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "51e260bc58d585203e61359bbfee6dfc3541aeafb8596381d692c3b4a28dc6ee"
+extraction_method: pymupdf4llm
+sha256: 51e260bc58d585203e61359bbfee6dfc3541aeafb8596381d692c3b4a28dc6ee
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

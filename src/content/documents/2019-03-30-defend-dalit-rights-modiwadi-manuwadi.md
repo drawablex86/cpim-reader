@@ -11,6 +11,13 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: 0d976640cce34b41d51809f3dcdce8c8497ae0e9d00a036d42ccd0241dc5f003
 language: en
+doc_type: report
+topics:
+- caste-social-justice
+- communalism-secularism
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

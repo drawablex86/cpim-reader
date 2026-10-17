@@ -1,16 +1,27 @@
 ---
-title: "Report on Current Developments"
-slug: "2013-02-27-report-on-current-developments"
-date: "2013-02-27"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/201301-report-political-developments-adopted.pdf"
-source_post_url: "https://cpim.org/report-current-developments-6/"
+title: Report on Current Developments
+slug: 2013-02-27-report-on-current-developments
+date: '2013-02-27'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/201301-report-political-developments-adopted.pdf
+source_post_url: https://cpim.org/report-current-developments-6/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "81cd4510d0574205e3dce691e4115c663b8c1bae9df8928589387d127fe82030"
+extraction_method: pymupdf4llm
+sha256: 81cd4510d0574205e3dce691e4115c663b8c1bae9df8928589387d127fe82030
+doc_type: report
+topics:
+- palestine
+- labour-workers
+- communalism-secularism
+- economy-public-sector
+- gender-womens-rights
+geo:
+- palestine
+- international
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

@@ -1,16 +1,26 @@
 ---
-title: "Do Saal, Janta Behal"
-slug: "2016-06-24-do-saal-janta-behal"
-date: "2016-06-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2016-june-do_saal.pdf"
-source_post_url: "https://cpim.org/do-saal-janta-behal/"
+title: Do Saal, Janta Behal
+slug: 2016-06-24-do-saal-janta-behal
+date: '2016-06-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2016-june-do_saal.pdf
+source_post_url: https://cpim.org/do-saal-janta-behal/
 page_count: 45
-extraction_method: "pymupdf4llm"
-sha256: "38b9b74b2619ad807d10ac81a3eccf335e98abfe78c2b20b7169dc71b3f07b48"
+extraction_method: pymupdf4llm
+sha256: 38b9b74b2619ad807d10ac81a3eccf335e98abfe78c2b20b7169dc71b3f07b48
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **DO SAAL, JANATA BEHAAL** 

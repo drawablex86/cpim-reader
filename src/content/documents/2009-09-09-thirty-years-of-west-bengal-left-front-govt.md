@@ -1,16 +1,26 @@
 ---
-title: "Thirty Years of West Bengal Left Front Govt."
-slug: "2009-09-09-thirty-years-of-west-bengal-left-front-govt"
-date: "2009-09-09"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2007-LF-govt-30-years.pdf"
-source_post_url: "https://cpim.org/thirty-years-west-bengal-left-front-govt/"
+title: Thirty Years of West Bengal Left Front Govt.
+slug: 2009-09-09-thirty-years-of-west-bengal-left-front-govt
+date: '2009-09-09'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2007-LF-govt-30-years.pdf
+source_post_url: https://cpim.org/thirty-years-west-bengal-left-front-govt/
 page_count: 7
-extraction_method: "pymupdf4llm"
-sha256: "686f6c0cdfadc6e8e079275e70f54e9238e2c92dce64bdf3d1e97477305ea6a3"
+extraction_method: pymupdf4llm
+sha256: 686f6c0cdfadc6e8e079275e70f54e9238e2c92dce64bdf3d1e97477305ea6a3
+doc_type: report
+topics:
+- federalism-states
+- caste-social-justice
+- communalism-secularism
+- economy-public-sector
+geo:
+- west-bengal
+- national
+period: national-current
 ---
 
 # Thirty Years of the Left Front Government in West Bengal 

@@ -1,16 +1,26 @@
 ---
-title: "Political Resolution & Review Report Adopted At Extended CC"
-slug: "2010-09-03-political-resolution-review-report-adopted-at-extended-cc"
-date: "2010-09-03"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2010-August-pol-res-extended-cc.pdf"
-source_post_url: "https://cpim.org/political-resolution-review-report-adopted-extended-cc/"
+title: Political Resolution & Review Report Adopted At Extended CC
+slug: 2010-09-03-political-resolution-review-report-adopted-at-extended-cc
+date: '2010-09-03'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2010-August-pol-res-extended-cc.pdf
+source_post_url: https://cpim.org/political-resolution-review-report-adopted-extended-cc/
 page_count: 27
-extraction_method: "pymupdf4llm"
-sha256: "4497ef9be41be41c6bec899ce73ae0775254cf369b826f58e7aaa47b0f619d7e"
+extraction_method: pymupdf4llm
+sha256: 4497ef9be41be41c6bec899ce73ae0775254cf369b826f58e7aaa47b0f619d7e
+doc_type: resolution
+topics:
+- labour-workers
+- communalism-secularism
+- economy-public-sector
+- anti-imperialism
+- environment-climate
+geo:
+- national
+period: national-current
 ---
 
 # COMMUNIST PARTY OF INDIA (MARXIST) 

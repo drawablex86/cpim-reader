@@ -1,16 +1,26 @@
 ---
-title: "19th Congress Political Resolution"
-slug: "2009-08-08-19th-congress-political-resolution"
-date: "2009-08-08"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/19%20Congress.Political.Resolution.pdf"
-source_post_url: "https://cpim.org/19th-congress-political-resolution/"
+title: 19th Congress Political Resolution
+slug: 2009-08-08-19th-congress-political-resolution
+date: '2009-08-08'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/19%20Congress.Political.Resolution.pdf
+source_post_url: https://cpim.org/19th-congress-political-resolution/
 page_count: 47
-extraction_method: "pymupdf4llm"
-sha256: "990917deefcec6e68dd73f2ac9c997fce8af432b403555e42ea1545942abf596"
+extraction_method: pymupdf4llm
+sha256: 990917deefcec6e68dd73f2ac9c997fce8af432b403555e42ea1545942abf596
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 19th-congress
 ---
 
 # **_Political Resolution Adopted At the XIX Congress of the Communist Party of India (Marxist) March 29 to April 3, 2008 Coimbatore_** 

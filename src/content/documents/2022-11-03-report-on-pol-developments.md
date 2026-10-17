@@ -11,6 +11,15 @@ page_count: 23
 extraction_method: pymupdf4llm
 sha256: 0bfa6f59f2a7d0a6613353cabe9b489fe70aa0e0a7da20b20c5ad779461190cd
 language: en
+doc_type: report
+topics:
+- elections-democracy
+- federalism-states
+- labour-workers
+- agriculture-farmers
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

@@ -1,16 +1,24 @@
 ---
-title: "Against Intolerance"
-slug: "2016-01-16-against-intolerance"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book_-_6.pdf"
-source_post_url: "https://cpim.org/against-intolerance/"
+title: Against Intolerance
+slug: 2016-01-16-against-intolerance
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book_-_6.pdf
+source_post_url: https://cpim.org/against-intolerance/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "73662fa85ae25035c62b8a3327fd0295bdd5e014df8d09a2b6dc533e7f365448"
+extraction_method: pymupdf4llm
+sha256: 73662fa85ae25035c62b8a3327fd0295bdd5e014df8d09a2b6dc533e7f365448
+doc_type: report
+topics:
+- caste-social-justice
+- communalism-secularism
+- federalism-states
+geo:
+- national
+period: national-current
 ---
 
 6 

@@ -11,6 +11,15 @@ page_count: 29
 extraction_method: pymupdf4llm
 sha256: d7ddca783a43cdab8661eb910d45f4628d2387419b4acc2e540526d1608ef6d3
 language: en
+doc_type: report
+topics:
+- federalism-states
+- agriculture-farmers
+- education-students
+geo:
+- tripura
+- national
+period: national-current
 ---
 
 # **Introduction** 

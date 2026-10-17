@@ -1,16 +1,23 @@
 ---
-title: "On Certain Policy Matters"
-slug: "2009-09-12-on-certain-policy-matters"
-date: "2009-09-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2005-certain-policy-issues_0.pdf"
-source_post_url: "https://cpim.org/certain-policy-matters/"
+title: On Certain Policy Matters
+slug: 2009-09-12-on-certain-policy-matters
+date: '2009-09-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2005-certain-policy-issues_0.pdf
+source_post_url: https://cpim.org/certain-policy-matters/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "5c8197a108fee070eb937bd2199521c46791bb8a0664d4e51c124f6f11f34bb6"
+extraction_method: pymupdf4llm
+sha256: 5c8197a108fee070eb937bd2199521c46791bb8a0664d4e51c124f6f11f34bb6
+doc_type: report
+topics:
+- economy-public-sector
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

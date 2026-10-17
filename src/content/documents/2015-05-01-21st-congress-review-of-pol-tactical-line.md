@@ -1,16 +1,25 @@
 ---
-title: "21st Congress: Review of Pol-Tactical Line"
-slug: "2015-05-01-21st-congress-review-of-pol-tactical-line"
-date: "2015-05-01"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-April-21Cong-Pol-Tac-Line-Adopted.pdf"
-source_post_url: "https://cpim.org/21st-congress-review-pol-tactical-line/"
+title: '21st Congress: Review of Pol-Tactical Line'
+slug: 2015-05-01-21st-congress-review-of-pol-tactical-line
+date: '2015-05-01'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-April-21Cong-Pol-Tac-Line-Adopted.pdf
+source_post_url: https://cpim.org/21st-congress-review-pol-tactical-line/
 page_count: 17
-extraction_method: "pymupdf4llm"
-sha256: "522e39c149e84a4fce903f124e927532a4c035bc5f082a31fc793db8d37a8d5a"
+extraction_method: pymupdf4llm
+sha256: 522e39c149e84a4fce903f124e927532a4c035bc5f082a31fc793db8d37a8d5a
+doc_type: review
+topics:
+- communalism-secularism
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST )** 

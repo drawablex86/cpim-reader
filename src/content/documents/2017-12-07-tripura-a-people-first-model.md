@@ -1,16 +1,28 @@
 ---
-title: "Tripura : A People-First Model"
-slug: "2017-12-07-tripura-a-people-first-model"
-date: "2017-12-07"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/tripura_english_booklet.pdf"
-source_post_url: "https://cpim.org/tripura-people-first-model-english/"
+title: 'Tripura : A People-First Model'
+slug: 2017-12-07-tripura-a-people-first-model
+date: '2017-12-07'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/tripura_english_booklet.pdf
+source_post_url: https://cpim.org/tripura-people-first-model-english/
 page_count: 21
-extraction_method: "pymupdf4llm"
-sha256: "6f13b58a6aaa68edb0e3668483936663e2f90a416325df79d5851cf0c3659083"
+extraction_method: pymupdf4llm
+sha256: 6f13b58a6aaa68edb0e3668483936663e2f90a416325df79d5851cf0c3659083
+doc_type: report
+topics:
+- federalism-states
+- agriculture-farmers
+- education-students
+- healthcare
+- environment-climate
+geo:
+- kerala
+- tripura
+- national
+period: national-current
 ---
 
 ## **CONTENTS** 

@@ -3,6 +3,7 @@
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SemanticResultsPanel from '$lib/components/SemanticResultsPanel.svelte';
   import type { DocumentMeta } from '$lib/documents';
+  import { DOC_TYPES, TOPICS, GEOGRAPHY, getDocTypeLabel, getTopicLabel } from '$lib/taxonomy';
   import {
     semanticSearch,
     loadEmbeddingModel,
@@ -13,6 +14,8 @@
   let { data } = $props();
 
   let selectedCategory = $state('All');
+  let selectedDocType = $state('all');
+  let selectedTopic = $state('all');
   let searchQuery = $state('');
   let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
@@ -147,15 +150,49 @@
     return () => clearTimeout(semanticTimer);
   });
 
+  // Available document types with counts based on current category
+  const docTypeCounts = $derived.by(() => {
+    const counts: Record<string, number> = {};
+    for (const doc of data.documents as DocumentMeta[]) {
+      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
+      const t = doc.doc_type || 'report';
+      counts[t] = (counts[t] || 0) + 1;
+    }
+    return counts;
+  });
+
+  // Available topics with counts based on current category and doc_type
+  const topicCounts = $derived.by(() => {
+    const counts: Record<string, number> = {};
+    for (const doc of data.documents as DocumentMeta[]) {
+      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
+      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
+      if (doc.topics && Array.isArray(doc.topics)) {
+        for (const top of doc.topics) {
+          counts[top] = (counts[top] || 0) + 1;
+        }
+      }
+    }
+    return counts;
+  });
+
   // Filter and sort documents based on metadata + Pagefind WASM results
   const filteredDocs = $derived.by(() => {
     const q = searchQuery.toLowerCase().trim();
 
-    return data.documents
+    return (data.documents as DocumentMeta[])
       .filter((doc: DocumentMeta) => {
         const matchesCategory =
           selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
         if (!matchesCategory) return false;
+
+        const matchesDocType =
+          selectedDocType === 'all' || doc.doc_type === selectedDocType;
+        if (!matchesDocType) return false;
+
+        const matchesTopic =
+          selectedTopic === 'all' || (doc.topics && doc.topics.includes(selectedTopic));
+        if (!matchesTopic) return false;
 
         if (!q) return true;
 
@@ -319,6 +356,63 @@
         </div>
       </div>
     </div>
+
+    <!-- Faceted Discovery Strip (Document Types & Topic Badges) -->
+    <div class="facet-strip-container">
+      <!-- Doc Types Row -->
+      <div class="facet-row">
+        <span class="facet-label">FORMAT:</span>
+        <div class="facet-scroll">
+          <button
+            type="button"
+            class="facet-chip"
+            class:active={selectedDocType === 'all'}
+            onclick={() => (selectedDocType = 'all')}
+          >
+            ALL FORMATS ({data.documents.length})
+          </button>
+          {#each Object.entries(DOC_TYPES) as [typeKey, typeObj]}
+            {#if (docTypeCounts[typeKey] || 0) > 0}
+              <button
+                type="button"
+                class="facet-chip"
+                class:active={selectedDocType === typeKey}
+                onclick={() => (selectedDocType = selectedDocType === typeKey ? 'all' : typeKey)}
+              >
+                {typeObj.label.toUpperCase()} <span class="chip-count">({docTypeCounts[typeKey] || 0})</span>
+              </button>
+            {/if}
+          {/each}
+        </div>
+      </div>
+
+      <!-- Topics Row -->
+      <div class="facet-row">
+        <span class="facet-label">TOPIC:</span>
+        <div class="facet-scroll">
+          <button
+            type="button"
+            class="facet-chip topic-chip"
+            class:active={selectedTopic === 'all'}
+            onclick={() => (selectedTopic = 'all')}
+          >
+            ALL TOPICS
+          </button>
+          {#each Object.entries(TOPICS) as [topicKey, topicObj]}
+            {#if (topicCounts[topicKey] || 0) > 0}
+              <button
+                type="button"
+                class="facet-chip topic-chip"
+                class:active={selectedTopic === topicKey}
+                onclick={() => (selectedTopic = selectedTopic === topicKey ? 'all' : topicKey)}
+              >
+                #{topicObj.label} <span class="chip-count">({topicCounts[topicKey] || 0})</span>
+              </button>
+            {/if}
+          {/each}
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Model Loading Banner (Semantic Search Initialization) -->
@@ -419,13 +513,35 @@
           <article class="doc-card">
             <div class="card-top-rule"></div>
             <div class="card-header">
-              <span class="card-category">{doc.category}</span>
+              <div class="card-header-left">
+                <span class="card-category">{doc.category}</span>
+                {#if doc.doc_type}
+                  <span class="card-type-stamp">{getDocTypeLabel(doc.doc_type)}</span>
+                {/if}
+              </div>
               <time class="card-date" datetime={doc.date}>{doc.date}</time>
             </div>
 
             <h2 class="card-title">
               <a href={`/docs/${doc.slug}`}>{doc.title}</a>
             </h2>
+
+            {#if doc.topics && doc.topics.length > 0}
+              <div class="card-topics">
+                {#each doc.topics as t}
+                  <button
+                    type="button"
+                    class="topic-tag"
+                    onclick={(e) => {
+                      e.preventDefault();
+                      selectedTopic = t;
+                    }}
+                  >
+                    #{getTopicLabel(t)}
+                  </button>
+                {/each}
+              </div>
+            {/if}
 
             {#if doc.author}
               <div class="card-author">
@@ -489,11 +605,21 @@
                 <td class="mono-cell">{doc.date}</td>
                 <td>
                   <span class="category-stamp">{doc.category}</span>
+                  {#if doc.doc_type}
+                    <span class="category-stamp type-stamp">{getDocTypeLabel(doc.doc_type)}</span>
+                  {/if}
                 </td>
                 <td>
                   <a href={`/docs/${doc.slug}`} class="table-title-link">
                     {doc.title}
                   </a>
+                  {#if doc.topics && doc.topics.length > 0}
+                    <div class="table-topics">
+                      {#each doc.topics as t}
+                        <span class="table-topic-pill">#{getTopicLabel(t)}</span>
+                      {/each}
+                    </div>
+                  {/if}
                   {#if doc.author}
                     <div class="table-author">{doc.author}</div>
                   {/if}
@@ -1254,5 +1380,155 @@
     background-color: var(--color-black);
     color: #FFFFFF;
     cursor: pointer;
+  }
+
+  /* Faceted Discovery Strip Styles */
+  .facet-strip-container {
+    border-top: 2px solid var(--color-black);
+    padding-top: 1rem;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .facet-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .facet-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-dark);
+    min-width: 65px;
+    text-transform: uppercase;
+  }
+
+  .facet-scroll {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .facet-chip {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.65rem;
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    cursor: pointer;
+    box-shadow: 1px 1px 0px var(--color-black);
+    transition: all 0.1s ease;
+    white-space: nowrap;
+  }
+
+  .facet-chip:hover {
+    background-color: var(--color-red-light);
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0px var(--color-black);
+  }
+
+  .facet-chip.active {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+    box-shadow: none;
+  }
+
+  .facet-chip.topic-chip {
+    background-color: #FAF5EB;
+    border-color: #4A4A4A;
+  }
+
+  .facet-chip.topic-chip:hover {
+    background-color: var(--color-gold-muted);
+  }
+
+  .facet-chip.topic-chip.active {
+    background-color: var(--color-red-primary);
+    border-color: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .chip-count {
+    opacity: 0.75;
+    font-size: 0.65rem;
+    margin-left: 2px;
+  }
+
+  /* Card and Table Facet Tags */
+  .card-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card-type-stamp {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--color-black);
+  }
+
+  .card-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .topic-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--color-paper-dark);
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .topic-tag:hover {
+    background-color: var(--color-gold);
+    color: #000000;
+  }
+
+  .table-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: 0.3rem;
+  }
+
+  .table-topic-pill {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    background-color: var(--color-paper-dark);
+    border: 1px solid #777;
+    color: #222;
+  }
+
+  .category-stamp.type-stamp {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    margin-top: 0.25rem;
+    display: inline-block;
   }
 </style>

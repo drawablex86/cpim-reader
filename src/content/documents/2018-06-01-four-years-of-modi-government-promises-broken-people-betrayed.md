@@ -11,6 +11,16 @@ page_count: 16
 extraction_method: pymupdf4llm
 sha256: 685240bc7f2c7f2024ff78d1bb64cf1adb0529203522825811f7e53f54ffe186
 language: en
+doc_type: campaign
+topics:
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ## **3** 

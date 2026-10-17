@@ -1,16 +1,26 @@
 ---
-title: "Report On Political Developments"
-slug: "2011-08-14-report-on-political-developments"
-date: "2011-08-14"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2011-08-Pol-Rep.pdf"
-source_post_url: "https://cpim.org/report-political-developments-18/"
+title: Report On Political Developments
+slug: 2011-08-14-report-on-political-developments
+date: '2011-08-14'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2011-08-Pol-Rep.pdf
+source_post_url: https://cpim.org/report-political-developments-18/
 page_count: 19
-extraction_method: "pymupdf4llm"
-sha256: "21919a3e654548e004228631c5c8305c110ac52b0e7526bfcf6742d70e9d6cd2"
+extraction_method: pymupdf4llm
+sha256: 21919a3e654548e004228631c5c8305c110ac52b0e7526bfcf6742d70e9d6cd2
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+- anti-imperialism
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

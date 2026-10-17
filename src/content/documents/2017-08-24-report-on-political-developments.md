@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments"
-slug: "2017-08-24-report-on-political-developments"
-date: "2017-08-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20170329-cc-pol-report-adopted.pdf"
-source_post_url: "https://cpim.org/report-political-developments-1/"
+title: Report on Political Developments
+slug: 2017-08-24-report-on-political-developments
+date: '2017-08-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20170329-cc-pol-report-adopted.pdf
+source_post_url: https://cpim.org/report-political-developments-1/
 page_count: 19
-extraction_method: "pymupdf4llm"
-sha256: "9e704e7be2f93eb198f79447e3c2cafabe278d0e8f621a39dab3d03a9a70bfbe"
+extraction_method: pymupdf4llm
+sha256: 9e704e7be2f93eb198f79447e3c2cafabe278d0e8f621a39dab3d03a9a70bfbe
+doc_type: report
+topics:
+- agriculture-farmers
+- economy-public-sector
+- anti-imperialism
+- labour-workers
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Communist Party of India (Marxist)** 

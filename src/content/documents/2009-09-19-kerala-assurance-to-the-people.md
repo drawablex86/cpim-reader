@@ -1,16 +1,25 @@
 ---
-title: "Kerala: Assurance to the People"
-slug: "2009-09-19-kerala-assurance-to-the-people"
-date: "2009-09-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/200801_marxist_kerala-res.pdf"
-source_post_url: "https://cpim.org/kerala-assurance-people/"
+title: 'Kerala: Assurance to the People'
+slug: 2009-09-19-kerala-assurance-to-the-people
+date: '2009-09-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/200801_marxist_kerala-res.pdf
+source_post_url: https://cpim.org/kerala-assurance-people/
 page_count: 6
-extraction_method: "pymupdf4llm"
-sha256: "24da4a481198b6c702ea0a3e3644dbeda996a0fdf6897fe64a94d19a656355fc"
+extraction_method: pymupdf4llm
+sha256: 24da4a481198b6c702ea0a3e3644dbeda996a0fdf6897fe64a94d19a656355fc
+doc_type: report
+topics:
+- economy-public-sector
+- agriculture-farmers
+- education-students
+geo:
+- kerala
+- national
+period: national-current
 ---
 
 # **_The Marxist_** 

@@ -1,16 +1,26 @@
 ---
-title: "Review of 15th Lok Sabha Elections"
-slug: "2009-09-09-review-of-15th-lok-sabha-elections"
-date: "2009-09-09"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2009-15-ls-election-review.pdf"
-source_post_url: "https://cpim.org/review-15th-lok-sabha-elections/"
+title: Review of 15th Lok Sabha Elections
+slug: 2009-09-09-review-of-15th-lok-sabha-elections
+date: '2009-09-09'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2009-15-ls-election-review.pdf
+source_post_url: https://cpim.org/review-15th-lok-sabha-elections/
 page_count: 29
-extraction_method: "pymupdf4llm"
-sha256: "20c41d4bfbe7a9d3b2a67d6a3a806c76715ec3bf1906af9da1fddcb6fcf0bb03"
+extraction_method: pymupdf4llm
+sha256: 20c41d4bfbe7a9d3b2a67d6a3a806c76715ec3bf1906af9da1fddcb6fcf0bb03
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- caste-social-justice
+- anti-imperialism
+geo:
+- west-bengal
+- national
+period: 2009-elections
 ---
 
 ### Tel. 23344918,23747435 **23363692, 23747436 Fax: 23747483** 

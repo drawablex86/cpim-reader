@@ -11,6 +11,15 @@ page_count: 48
 extraction_method: pymupdf4llm
 sha256: 1db16e10cde5e7ddded6d28242141c6517b1b694da5e8ade554acc09f0cc7c78
 language: en
+doc_type: solidarity
+topics:
+- palestine
+- labour-workers
+- economy-public-sector
+- anti-imperialism
+geo:
+- international
+period: 24th-congress
 ---
 
 Communist Party of India (Marxist) 24<sup>th</sup> Congress, Sitaram yechury nagar, Madurai, tamilnadu April 02-06, 2025 

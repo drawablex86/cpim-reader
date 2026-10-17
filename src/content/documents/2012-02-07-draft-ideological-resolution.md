@@ -1,16 +1,25 @@
 ---
-title: "Draft Ideological Resolution"
-slug: "2012-02-07-draft-ideological-resolution"
-date: "2012-02-07"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2012-Draft%20Resolution%20on%20Some%20Ideological%20_.pdf"
-source_post_url: "https://cpim.org/draft-ideological-resolution/"
+title: Draft Ideological Resolution
+slug: 2012-02-07-draft-ideological-resolution
+date: '2012-02-07'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2012-Draft%20Resolution%20on%20Some%20Ideological%20_.pdf
+source_post_url: https://cpim.org/draft-ideological-resolution/
 page_count: 42
-extraction_method: "pymupdf4llm"
-sha256: "5d19e8181bc7e09caec567b275f474f7b2dad0c86f46d9a1caa0bd3ad7bd92b0"
+extraction_method: pymupdf4llm
+sha256: 5d19e8181bc7e09caec567b275f474f7b2dad0c86f46d9a1caa0bd3ad7bd92b0
+doc_type: resolution
+topics:
+- labour-workers
+- caste-social-justice
+- anti-imperialism
+- agriculture-farmers
+geo:
+- national
+period: national-current
 ---
 
 Draft Resolution on Some Ideological Issues **_(Adopted at the Central Committee Meeting held on January 17-20, 2012 at Kolkata)_**

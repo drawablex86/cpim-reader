@@ -1,20 +1,27 @@
 ---
-title: "ഗാസയിൽ ഇസ്രായേൽ നടത്തിയ വംശഹത്യ ആക്രമണങ്ങളെ അപലപിക്കാനുള്ള പ്രമേയം"
-slug: "2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza"
-date: "2025-04-04"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-source_pdf_url: ""
-source_post_url: "https://cpim.org/resolution-to-condemn-israels-genocidal-attacks-on-gaza/"
-page_count: "2"
-extraction_method: "html-archive"
-sha256: "3d1df2bec0a5fccdaa464b0e2aab41f89ad71de61534f174407ce2f3bbdcdfca"
-original_title: "Resolution to Condemn Israel’s Genocidal Attacks on Gaza"
-language: "ml"
-language_name: "മലയാളം"
-translated_via: "ct2-pipeline"
-translated_at: "2026-10-16T17:51:57.059548+00:00"
+title: ഗാസയിൽ ഇസ്രായേൽ നടത്തിയ വംശഹത്യ ആക്രമണങ്ങളെ അപലപിക്കാനുള്ള പ്രമേയം
+slug: 2025-04-04-resolution-to-condemn-israels-genocidal-attacks-on-gaza
+date: '2025-04-04'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+source_pdf_url: ''
+source_post_url: https://cpim.org/resolution-to-condemn-israels-genocidal-attacks-on-gaza/
+page_count: '2'
+extraction_method: html-archive
+sha256: 3d1df2bec0a5fccdaa464b0e2aab41f89ad71de61534f174407ce2f3bbdcdfca
+original_title: Resolution to Condemn Israel’s Genocidal Attacks on Gaza
+language: ml
+language_name: മലയാളം
+translated_via: ct2-pipeline
+translated_at: '2026-10-16T17:51:57.059548+00:00'
+doc_type: resolution
+topics:
+- palestine
+geo:
+- palestine
+- international
+period: 24th-congress
 ---
 
 സിപിഐ (എം) യുടെ 24-ാം പാർട്ടി കോൺഗ്രസ് ആണ് പ്രമേയം അംഗീകരിച്ചത്

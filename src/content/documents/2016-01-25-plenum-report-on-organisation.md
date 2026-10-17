@@ -1,16 +1,26 @@
 ---
-title: "Plenum: Report on Organisation"
-slug: "2016-01-25-plenum-report-on-organisation"
-date: "2016-01-25"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-dec-plenum_report_organisation.pdf"
-source_post_url: "https://cpim.org/plenum-report-organisation/"
+title: 'Plenum: Report on Organisation'
+slug: 2016-01-25-plenum-report-on-organisation
+date: '2016-01-25'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-dec-plenum_report_organisation.pdf
+source_post_url: https://cpim.org/plenum-report-organisation/
 page_count: 111
-extraction_method: "pymupdf4llm"
-sha256: "085a7b94150a21150e5b18dd8fda416ec54ee7ce790fb06db3d2a94fcc68c16d"
+extraction_method: pymupdf4llm
+sha256: 085a7b94150a21150e5b18dd8fda416ec54ee7ce790fb06db3d2a94fcc68c16d
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 #### **Tel. 23344918,23747435 23363692, 23747436** 

@@ -11,6 +11,13 @@ page_count: 2
 extraction_method: html-archive
 sha256: 3d1df2bec0a5fccdaa464b0e2aab41f89ad71de61534f174407ce2f3bbdcdfca
 language: en
+doc_type: resolution
+topics:
+- palestine
+geo:
+- palestine
+- international
+period: 24th-congress
 ---
 
 The resolution was adopted by the 24th Party Congress of CPI(M)

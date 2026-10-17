@@ -11,6 +11,13 @@ page_count: 16
 extraction_method: pymupdf4llm
 sha256: cae2bcae1609e5be610e01fd13efb7f7dcf83772d52378d3822a3092eb23567e
 language: en
+doc_type: report
+topics:
+- healthcare
+- economy-public-sector
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

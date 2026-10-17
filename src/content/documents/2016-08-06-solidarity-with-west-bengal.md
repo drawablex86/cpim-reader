@@ -1,16 +1,25 @@
 ---
-title: "Solidarity with West Bengal"
-slug: "2016-08-06-solidarity-with-west-bengal"
-date: "2016-08-06"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20160801-democracy_under_siege_in_west_bengal.pdf"
-source_post_url: "https://cpim.org/solidarity-west-bengal/"
+title: Solidarity with West Bengal
+slug: 2016-08-06-solidarity-with-west-bengal
+date: '2016-08-06'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20160801-democracy_under_siege_in_west_bengal.pdf
+source_post_url: https://cpim.org/solidarity-west-bengal/
 page_count: 20
-extraction_method: "pymupdf4llm"
-sha256: "8a7a56630a8bacbe8a7971e29bd909750b58c63038e5e95f44ce38d87d5cbda5"
+extraction_method: pymupdf4llm
+sha256: 8a7a56630a8bacbe8a7971e29bd909750b58c63038e5e95f44ce38d87d5cbda5
+doc_type: report
+topics:
+- federalism-states
+- labour-workers
+- gender-womens-rights
+geo:
+- west-bengal
+- national
+period: national-current
 ---
 
 # **DEMOCRACY UNDER SIEGE IN WEST BENGAL**

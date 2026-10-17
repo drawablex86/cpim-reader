@@ -11,6 +11,17 @@ page_count: 26
 extraction_method: pymupdf4llm
 sha256: 03766625740db08b5289252a822f9bfa828158324c578603714f0d0719379a15
 language: en
+doc_type: review
+topics:
+- elections-democracy
+- communalism-secularism
+- caste-social-justice
+- agriculture-farmers
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

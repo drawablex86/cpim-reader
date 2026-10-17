@@ -1,16 +1,27 @@
 ---
-title: "Review of 2001 May Assembly Elections"
-slug: "2009-09-12-review-of-2001-may-assembly-elections"
-date: "2009-09-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2001-aug-assembly-elc-review.pdf"
-source_post_url: "https://cpim.org/review-2001-may-assembly-elections/"
+title: Review of 2001 May Assembly Elections
+slug: 2009-09-12-review-of-2001-may-assembly-elections
+date: '2009-09-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2001-aug-assembly-elc-review.pdf
+source_post_url: https://cpim.org/review-2001-may-assembly-elections/
 page_count: 9
-extraction_method: "pymupdf4llm"
-sha256: "35fa581cb98a74ad9fbadb99633b8b00d5971d8e7e4900370238251854f50570"
+extraction_method: pymupdf4llm
+sha256: 35fa581cb98a74ad9fbadb99633b8b00d5971d8e7e4900370238251854f50570
+doc_type: review
+topics:
+- elections-democracy
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 # **Review of the May 2001 Assembly Elections Adopted in the August 11-12, 2001 Meeting of the Central Committee** 

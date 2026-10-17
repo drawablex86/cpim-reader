@@ -1,16 +1,26 @@
 ---
-title: "On massive crop losses due to unseasonal rains and hailstorms : 21 Congress"
-slug: "2015-07-31-on-massive-crop-losses-due-to-unseasonal-rains-and-hailstorms-21-congr"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/Crop_loss_.pdf"
-source_post_url: "https://cpim.org/massive-crop-losses-due-unseasonal-rains-and-hailstorms-21-congress/"
+title: 'On massive crop losses due to unseasonal rains and hailstorms : 21 Congress'
+slug: 2015-07-31-on-massive-crop-losses-due-to-unseasonal-rains-and-hailstorms-21-congr
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/Crop_loss_.pdf
+source_post_url: https://cpim.org/massive-crop-losses-due-unseasonal-rains-and-hailstorms-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "ee49c09e5b088bedc48f653d72cf7023d3b91dd9f3624e8eef44169284154999"
+extraction_method: pymupdf4llm
+sha256: ee49c09e5b088bedc48f653d72cf7023d3b91dd9f3624e8eef44169284154999
+doc_type: report
+topics:
+- agriculture-farmers
+geo:
+- west-bengal
+- jammu-kashmir
+- andhra-pradesh
+- telangana
+- national
+period: 21th-congress
 ---
 
 ## **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

@@ -12,6 +12,13 @@ page_count: 8
 extraction_method: pymupdf4llm
 sha256: 1b698f54bfaa03416bf22628038f26dde0887039705502595a97dabad9736305
 language: en
+doc_type: speech
+topics:
+- labour-workers
+geo:
+- kerala
+- national
+period: 23th-congress
 ---
 
 # **WELCOME SPEECH** 

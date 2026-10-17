@@ -1,16 +1,26 @@
 ---
-title: "Review Report of the Assembly Elections"
-slug: "2011-07-04-review-report-of-the-assembly-elections"
-date: "2011-07-04"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2011-June-election-review.pdf"
-source_post_url: "https://cpim.org/review-report-assembly-elections/"
+title: Review Report of the Assembly Elections
+slug: 2011-07-04-review-report-of-the-assembly-elections
+date: '2011-07-04'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2011-June-election-review.pdf
+source_post_url: https://cpim.org/review-report-assembly-elections/
 page_count: 15
-extraction_method: "pymupdf4llm"
-sha256: "e897678c4a1f7dfdd196f5ccc41ea2c6fdab19e07e1b77ae67cd72ecdbf81bf2"
+extraction_method: pymupdf4llm
+sha256: e897678c4a1f7dfdd196f5ccc41ea2c6fdab19e07e1b77ae67cd72ecdbf81bf2
+doc_type: report
+topics:
+- elections-democracy
+- labour-workers
+- economy-public-sector
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 # **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

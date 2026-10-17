@@ -1,16 +1,26 @@
 ---
-title: "Report on Current Developments"
-slug: "2009-08-08-report-on-current-developments"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2007-march-april-cc%20report.pdf"
-source_post_url: "https://cpim.org/report-current-developments-0/"
+title: Report on Current Developments
+slug: 2009-08-08-report-on-current-developments
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2007-march-april-cc%20report.pdf
+source_post_url: https://cpim.org/report-current-developments-0/
 page_count: 16
-extraction_method: "pymupdf4llm"
-sha256: "53174e3b3b5d59d8cea89861432c22fefa681050099d049271d0871a1e82582b"
+extraction_method: pymupdf4llm
+sha256: 53174e3b3b5d59d8cea89861432c22fefa681050099d049271d0871a1e82582b
+doc_type: report
+topics:
+- economy-public-sector
+- anti-imperialism
+- agriculture-farmers
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Report On Current Developments (Adopted At the November 22-24, 2002 Meeting of the C.C)** 

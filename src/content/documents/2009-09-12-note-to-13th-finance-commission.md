@@ -1,16 +1,23 @@
 ---
-title: "Note to 13th Finance Commission"
-slug: "2009-09-12-note-to-13th-finance-commission"
-date: "2009-09-12"
-category: "Left View"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-note-to-13-finance-comm.pdf"
-source_post_url: "https://cpim.org/note-13th-finance-commission/"
+title: Note to 13th Finance Commission
+slug: 2009-09-12-note-to-13th-finance-commission
+date: '2009-09-12'
+category: Left View
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-note-to-13-finance-comm.pdf
+source_post_url: https://cpim.org/note-13th-finance-commission/
 page_count: 9
-extraction_method: "pymupdf4llm"
-sha256: "dffef8b74f0c964bd240b2730f09ab4fcdf4c00db31ff8e153a0f326c6f223d6"
+extraction_method: pymupdf4llm
+sha256: dffef8b74f0c964bd240b2730f09ab4fcdf4c00db31ff8e153a0f326c6f223d6
+doc_type: report
+topics:
+- economy-public-sector
+- federalism-states
+geo:
+- national
+period: national-current
 ---
 
 July 7, 2008 

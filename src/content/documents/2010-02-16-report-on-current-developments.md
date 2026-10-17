@@ -1,16 +1,26 @@
 ---
-title: "Report on Current Developments"
-slug: "2010-02-16-report-on-current-developments"
-date: "2010-02-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2010-Feb-CC-Report.pdf"
-source_post_url: "https://cpim.org/report-current-developments-5/"
+title: Report on Current Developments
+slug: 2010-02-16-report-on-current-developments
+date: '2010-02-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2010-Feb-CC-Report.pdf
+source_post_url: https://cpim.org/report-current-developments-5/
 page_count: 19
-extraction_method: "pymupdf4llm"
-sha256: "8e22f8b8511d5b99f691c6dac022006a5bd9970f8f13b949d2daaf1356742aa9"
+extraction_method: pymupdf4llm
+sha256: 8e22f8b8511d5b99f691c6dac022006a5bd9970f8f13b949d2daaf1356742aa9
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+- labour-workers
+- caste-social-justice
+- environment-climate
+geo:
+- national
+period: national-current
 ---
 
 ##### **Tel. 23344918,23747435 23363692, 23747436** 

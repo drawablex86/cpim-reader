@@ -1,16 +1,23 @@
 ---
-title: "18th Congress — On Certain Policy Matters"
-slug: "2009-09-12-18th-congress-on-certain-policy-matters"
-date: "2009-09-12"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2005-certain-policy-issues.pdf"
-source_post_url: "https://cpim.org/18th-congress-certain-policy-matters/"
+title: 18th Congress — On Certain Policy Matters
+slug: 2009-09-12-18th-congress-on-certain-policy-matters
+date: '2009-09-12'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2005-certain-policy-issues.pdf
+source_post_url: https://cpim.org/18th-congress-certain-policy-matters/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "5c8197a108fee070eb937bd2199521c46791bb8a0664d4e51c124f6f11f34bb6"
+extraction_method: pymupdf4llm
+sha256: 5c8197a108fee070eb937bd2199521c46791bb8a0664d4e51c124f6f11f34bb6
+doc_type: report
+topics:
+- economy-public-sector
+- anti-imperialism
+geo:
+- national
+period: 18th-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

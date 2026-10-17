@@ -1,16 +1,23 @@
 ---
-title: "In Solidarity with the People of West Bengal : 21 Congress"
-slug: "2015-07-31-in-solidarity-with-the-people-of-west-bengal-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/Bengal%20solidarity_0.pdf"
-source_post_url: "https://cpim.org/solidarity-people-west-bengal-21-congress/"
+title: 'In Solidarity with the People of West Bengal : 21 Congress'
+slug: 2015-07-31-in-solidarity-with-the-people-of-west-bengal-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/Bengal%20solidarity_0.pdf
+source_post_url: https://cpim.org/solidarity-people-west-bengal-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "f71903f5697b3b5dc284694953eaa5d38f1a5b1b74ecda8caddcf2c87c2be3cb"
+extraction_method: pymupdf4llm
+sha256: f71903f5697b3b5dc284694953eaa5d38f1a5b1b74ecda8caddcf2c87c2be3cb
+doc_type: report
+topics:
+- federalism-states
+geo:
+- west-bengal
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

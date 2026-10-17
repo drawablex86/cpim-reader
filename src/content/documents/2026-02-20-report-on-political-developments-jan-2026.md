@@ -11,6 +11,17 @@ page_count: 28
 extraction_method: pymupdf4llm
 sha256: 25eeb2157d359c64fc4af16c53706ac9be09750c02319d0de5ef5a4129d37902
 language: en
+doc_type: report
+topics:
+- palestine
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+geo:
+- palestine
+- kerala
+- international
+period: 24th-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

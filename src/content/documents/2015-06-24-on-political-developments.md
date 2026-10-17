@@ -1,16 +1,25 @@
 ---
-title: "On Political Developments"
-slug: "2015-06-24-on-political-developments"
-date: "2015-06-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-June-Note%20on%20Political%20Developments-Adopted.pdf"
-source_post_url: "https://cpim.org/political-developments/"
+title: On Political Developments
+slug: 2015-06-24-on-political-developments
+date: '2015-06-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-June-Note%20on%20Political%20Developments-Adopted.pdf
+source_post_url: https://cpim.org/political-developments/
 page_count: 11
-extraction_method: "pymupdf4llm"
-sha256: "08a2783f49efaaa3113a726de2933ecdbfa2c4dca426bc64e65caaa6118fe15c"
+extraction_method: pymupdf4llm
+sha256: 08a2783f49efaaa3113a726de2933ecdbfa2c4dca426bc64e65caaa6118fe15c
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- anti-imperialism
+- federalism-states
+geo:
+- national
+period: 21st-congress
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

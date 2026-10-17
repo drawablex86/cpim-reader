@@ -11,6 +11,15 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: b6c89e00aa3cf7c301f6c965807b88de23eafe46f2ee0f83b98ff71a70cec0b7
 language: en
+doc_type: campaign
+topics:
+- labour-workers
+- education-students
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 2019-elections
 ---
 
 # **<mark>CPI(M) Appeal</mark>** w 

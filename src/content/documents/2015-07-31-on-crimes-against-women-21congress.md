@@ -1,16 +1,22 @@
 ---
-title: "On Crimes Against Women :21Congress"
-slug: "2015-07-31-on-crimes-against-women-21congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/violence-against-women_0.pdf"
-source_post_url: "https://cpim.org/crimes-against-women-21congress/"
+title: On Crimes Against Women :21Congress
+slug: 2015-07-31-on-crimes-against-women-21congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/violence-against-women_0.pdf
+source_post_url: https://cpim.org/crimes-against-women-21congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "925178e0223101d249c80dbd7d3ad5e32614d45cc66276ed1052738ef4c0281d"
+extraction_method: pymupdf4llm
+sha256: 925178e0223101d249c80dbd7d3ad5e32614d45cc66276ed1052738ef4c0281d
+doc_type: report
+topics:
+- gender-womens-rights
+geo:
+- national
+period: 21st-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

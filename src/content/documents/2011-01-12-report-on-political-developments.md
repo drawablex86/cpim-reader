@@ -1,16 +1,25 @@
 ---
-title: "Report on Political Developments"
-slug: "2011-01-12-report-on-political-developments"
-date: "2011-01-12"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2010-Nov-CC-Political-report.pdf"
-source_post_url: "https://cpim.org/report-political-developments-17/"
+title: Report on Political Developments
+slug: 2011-01-12-report-on-political-developments
+date: '2011-01-12'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2010-Nov-CC-Political-report.pdf
+source_post_url: https://cpim.org/report-political-developments-17/
 page_count: 18
-extraction_method: "pymupdf4llm"
-sha256: "b62ea8cda92735d0798ba2a7aaacb0db69cc30b955f4034b4507c906f02b32fe"
+extraction_method: pymupdf4llm
+sha256: b62ea8cda92735d0798ba2a7aaacb0db69cc30b955f4034b4507c906f02b32fe
+doc_type: report
+topics:
+- labour-workers
+- communalism-secularism
+- economy-public-sector
+- education-students
+geo:
+- national
+period: national-current
 ---
 
 # **Report on Political Developments {Adopted At the Central Committee Meeting Communist Party of India (Marxist) November 19 to 21, 2010}** 

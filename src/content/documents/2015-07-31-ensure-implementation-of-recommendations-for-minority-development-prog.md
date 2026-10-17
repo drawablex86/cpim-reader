@@ -1,16 +1,23 @@
 ---
-title: "Ensure Implementation of Recommendations for Minority Development Programmes : 21 Congress"
-slug: "2015-07-31-ensure-implementation-of-recommendations-for-minority-development-prog"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/minority-development_0.pdf"
-source_post_url: "https://cpim.org/ensure-implementation-recommendations-minority-development-programmes-21-congress/"
+title: 'Ensure Implementation of Recommendations for Minority Development Programmes
+  : 21 Congress'
+slug: 2015-07-31-ensure-implementation-of-recommendations-for-minority-development-prog
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/minority-development_0.pdf
+source_post_url: https://cpim.org/ensure-implementation-recommendations-minority-development-programmes-21-congress/
 page_count: 2
-extraction_method: "pymupdf4llm"
-sha256: "73bcc61612530854b7bb2afa0260c474748050dc0568b43f81504f043ee04fbe"
+extraction_method: pymupdf4llm
+sha256: 73bcc61612530854b7bb2afa0260c474748050dc0568b43f81504f043ee04fbe
+doc_type: report
+topics:
+- communalism-secularism
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

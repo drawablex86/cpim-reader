@@ -1,16 +1,26 @@
 ---
-title: "Work on the Trade Union Front"
-slug: "2009-08-08-work-on-the-trade-union-front"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002_nov_tu_doc.pdf"
-source_post_url: "https://cpim.org/work-trade-union-front/"
+title: Work on the Trade Union Front
+slug: 2009-08-08-work-on-the-trade-union-front
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002_nov_tu_doc.pdf
+source_post_url: https://cpim.org/work-trade-union-front/
 page_count: 25
-extraction_method: "pymupdf4llm"
-sha256: "4f0db91fff602f25768b3ba34db23f3748842e8be3f704e2f165845c2b8defe3"
+extraction_method: pymupdf4llm
+sha256: 4f0db91fff602f25768b3ba34db23f3748842e8be3f704e2f165845c2b8defe3
+doc_type: policy-programme
+topics:
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+- economy-public-sector
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

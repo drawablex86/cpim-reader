@@ -11,6 +11,16 @@ page_count: 16
 extraction_method: pymupdf4llm
 sha256: a97d424c0b075a6a03f7c6aff2cfc0152ec01b2d00429b685873b56ed1289e1f
 language: en
+doc_type: campaign
+topics:
+- economy-public-sector
+- education-students
+- environment-climate
+- communalism-secularism
+- healthcare
+geo:
+- national
+period: national-current
 ---
 
 ## **4** 

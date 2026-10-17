@@ -11,6 +11,16 @@ page_count: 53
 extraction_method: pymupdf4llm
 sha256: 617ed0a5d5be3cb066436c7873e59f0b33a70d572bfd0650231650dcbc2f3eac
 language: en
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 # **Draft Political Resolution for 22**<sup>**nd**</sup> **Congress (Adopted at the Central Committee Meeting held on January 19-21, 2018 at Kolkata)** 

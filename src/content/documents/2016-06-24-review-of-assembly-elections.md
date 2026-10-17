@@ -1,16 +1,24 @@
 ---
-title: "Review of Assembly Elections"
-slug: "2016-06-24-review-of-assembly-elections"
-date: "2016-06-24"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2016-june-election-review-adopted.pdf"
-source_post_url: "https://cpim.org/review-assembly-elections/"
+title: Review of Assembly Elections
+slug: 2016-06-24-review-of-assembly-elections
+date: '2016-06-24'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2016-june-election-review-adopted.pdf
+source_post_url: https://cpim.org/review-assembly-elections/
 page_count: 10
-extraction_method: "pymupdf4llm"
-sha256: "a72f5764d660118cadc6fdb5106cd29a8ebaf5971407dc07ac3e1a8e711b36bf"
+extraction_method: pymupdf4llm
+sha256: a72f5764d660118cadc6fdb5106cd29a8ebaf5971407dc07ac3e1a8e711b36bf
+doc_type: review
+topics:
+- elections-democracy
+geo:
+- kerala
+- west-bengal
+- national
+period: national-current
 ---
 
 ## **_Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483_** 

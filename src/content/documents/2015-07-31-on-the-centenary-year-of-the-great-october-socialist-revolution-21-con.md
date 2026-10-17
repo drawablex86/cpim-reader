@@ -1,16 +1,23 @@
 ---
-title: "On the Centenary Year of the Great October Socialist Revolution : 21 Congress"
-slug: "2015-07-31-on-the-centenary-year-of-the-great-october-socialist-revolution-21-con"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/october-revolution.pdf"
-source_post_url: "https://cpim.org/centenary-year-great-october-socialist-revolution-21-congress/"
+title: 'On the Centenary Year of the Great October Socialist Revolution : 21 Congress'
+slug: 2015-07-31-on-the-centenary-year-of-the-great-october-socialist-revolution-21-con
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/october-revolution.pdf
+source_post_url: https://cpim.org/centenary-year-great-october-socialist-revolution-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "4774be6f66ff1d6c15948085155e3f09f7a345fab2f20c6dcc606c160d9decad"
+extraction_method: pymupdf4llm
+sha256: 4774be6f66ff1d6c15948085155e3f09f7a345fab2f20c6dcc606c160d9decad
+doc_type: report
+topics:
+- communalism-secularism
+- economy-public-sector
+geo:
+- national
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress** 

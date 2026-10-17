@@ -11,6 +11,16 @@ page_count: 88
 extraction_method: vlm-openrouter
 sha256: 03626f87430bf946315013c71c00e00b816d7eb6c5aeaa5be2ba4fa4b3a0d835
 language: en
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 24th-congress
 ---
 
 **Tel. 23344918,23747435 23363692, 23747436** 

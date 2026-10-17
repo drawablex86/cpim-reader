@@ -11,6 +11,16 @@ page_count: 27
 extraction_method: pymupdf4llm
 sha256: 45e0c6507405b1a46a7d1e00324bd47e25881c67bbb2410f71bfba49d7fa8299
 language: en
+doc_type: report
+topics:
+- labour-workers
+- communalism-secularism
+- elections-democracy
+- federalism-states
+- palestine
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

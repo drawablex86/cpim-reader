@@ -1,16 +1,26 @@
 ---
-title: "Draft Political Resolution: 21st Congress"
-slug: "2015-02-04-draft-political-resolution-21st-congress"
-date: "2015-02-04"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/20150204-draft-pol-resolution_0.pdf"
-source_post_url: "https://cpim.org/draft-political-resolution-21st-congress/"
+title: 'Draft Political Resolution: 21st Congress'
+slug: 2015-02-04-draft-political-resolution-21st-congress
+date: '2015-02-04'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/20150204-draft-pol-resolution_0.pdf
+source_post_url: https://cpim.org/draft-political-resolution-21st-congress/
 page_count: 49
-extraction_method: "pymupdf4llm"
-sha256: "8366a2213558ee5370a857b010720976fad51c640c1974cc517b365b98ada505"
+extraction_method: pymupdf4llm
+sha256: 8366a2213558ee5370a857b010720976fad51c640c1974cc517b365b98ada505
+doc_type: resolution
+topics:
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: 21th-congress
 ---
 
 <!-- Start of picture text -->

@@ -1,16 +1,22 @@
 ---
-title: "On the Rights of Persons with Disabilities Bill : 21Congress"
-slug: "2015-07-31-on-the-rights-of-persons-with-disabilities-bill-21congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/disabilities-rights-bill-150415.pdf"
-source_post_url: "https://cpim.org/rights-persons-disabilities-bill-21congress/"
+title: 'On the Rights of Persons with Disabilities Bill : 21Congress'
+slug: 2015-07-31-on-the-rights-of-persons-with-disabilities-bill-21congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/disabilities-rights-bill-150415.pdf
+source_post_url: https://cpim.org/rights-persons-disabilities-bill-21congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "bc080f71d7a689fa06264b930396fb74b415b39f58a2e762907cac727766fdad"
+extraction_method: pymupdf4llm
+sha256: bc080f71d7a689fa06264b930396fb74b415b39f58a2e762907cac727766fdad
+doc_type: report
+topics:
+- disability-lgbtq
+geo:
+- national
+period: national-current
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

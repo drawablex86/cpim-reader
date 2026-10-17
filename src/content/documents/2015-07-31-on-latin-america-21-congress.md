@@ -1,16 +1,22 @@
 ---
-title: "On Latin America : 21 Congress"
-slug: "2015-07-31-on-latin-america-21-congress"
-date: "2015-07-31"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/Latin_America.pdf"
-source_post_url: "https://cpim.org/latin-america-21-congress/"
+title: 'On Latin America : 21 Congress'
+slug: 2015-07-31-on-latin-america-21-congress
+date: '2015-07-31'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/Latin_America.pdf
+source_post_url: https://cpim.org/latin-america-21-congress/
 page_count: 1
-extraction_method: "pymupdf4llm"
-sha256: "ee1084e3c080fd423674d3a01a0331c48d6cdd6156a33edc077f88a876dea39e"
+extraction_method: pymupdf4llm
+sha256: ee1084e3c080fd423674d3a01a0331c48d6cdd6156a33edc077f88a876dea39e
+doc_type: report
+topics:
+- anti-imperialism
+geo:
+- international
+period: 21th-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

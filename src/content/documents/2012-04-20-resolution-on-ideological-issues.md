@@ -1,16 +1,26 @@
 ---
-title: "Resolution on Ideological Issues"
-slug: "2012-04-20-resolution-on-ideological-issues"
-date: "2012-04-20"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2012-April-20Congress-Ideological_Res_0.pdf"
-source_post_url: "https://cpim.org/resolution-ideological-issues/"
+title: Resolution on Ideological Issues
+slug: 2012-04-20-resolution-on-ideological-issues
+date: '2012-04-20'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2012-April-20Congress-Ideological_Res_0.pdf
+source_post_url: https://cpim.org/resolution-ideological-issues/
 page_count: 52
-extraction_method: "pymupdf4llm"
-sha256: "e9a1f60e5188d797e8f69bdad25678e33ba30d53bbcb507903579342e6b426ba"
+extraction_method: pymupdf4llm
+sha256: e9a1f60e5188d797e8f69bdad25678e33ba30d53bbcb507903579342e6b426ba
+doc_type: resolution
+topics:
+- labour-workers
+- caste-social-justice
+- economy-public-sector
+- anti-imperialism
+geo:
+- kerala
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

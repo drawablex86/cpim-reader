@@ -1,16 +1,27 @@
 ---
-title: "25 Years of West Bengal LF Government"
-slug: "2009-08-08-25-years-of-west-bengal-lf-government"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002_june_lf_wb_25_anniversary.pdf"
-source_post_url: "https://cpim.org/25-years-west-bengal-lf-government/"
+title: 25 Years of West Bengal LF Government
+slug: 2009-08-08-25-years-of-west-bengal-lf-government
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002_june_lf_wb_25_anniversary.pdf
+source_post_url: https://cpim.org/25-years-west-bengal-lf-government/
 page_count: 13
-extraction_method: "pymupdf4llm"
-sha256: "cd84360ecb8bd776f47322d320ad62eec16b19f37a85451f8495b3058d06d4c7"
+extraction_method: pymupdf4llm
+sha256: cd84360ecb8bd776f47322d320ad62eec16b19f37a85451f8495b3058d06d4c7
+doc_type: report
+topics:
+- federalism-states
+- communalism-secularism
+- caste-social-justice
+- labour-workers
+- gender-womens-rights
+geo:
+- west-bengal
+- national
+period: national-current
 ---
 
 **Leaflet** 

@@ -11,6 +11,14 @@ page_count: 12
 extraction_method: pymupdf4llm
 sha256: 1ff843dda79c4dc8293b5c97699cbe4e4ccab1b0d0ad3301cbd61902ab6c4d8b
 language: en
+doc_type: policy-programme
+topics:
+- communalism-secularism
+- caste-social-justice
+- anti-imperialism
+geo:
+- national
+period: national-current
 ---
 
 # **Communist Party of India (Marxist)** 

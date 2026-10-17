@@ -3,6 +3,7 @@
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
+  import { getDocTypeLabel, getTopicLabel, getGeoLabel } from '$lib/taxonomy';
 
   let { data } = $props();
 
@@ -173,6 +174,12 @@
 
       <div class="meta-strip">
         <span class="badge category" data-pagefind-filter="category">{data.meta.category}</span>
+        {#if data.meta.doc_type}
+          <span class="badge doc-type-badge" data-pagefind-filter="type">{getDocTypeLabel(data.meta.doc_type, currentLang).toUpperCase()}</span>
+        {/if}
+        {#if data.meta.period}
+          <span class="badge period-badge" data-pagefind-filter="period">{data.meta.period.toUpperCase()}</span>
+        {/if}
         <time class="meta-item date" datetime={data.meta.date}>{data.meta.date}</time>
         {#if data.meta.page_count}
           <span class="meta-item pages">{data.meta.page_count} PAGES</span>
@@ -182,6 +189,20 @@
         {/if}
         <span class="badge lang-tag" data-pagefind-filter="language">{currentLang.toUpperCase()}</span>
       </div>
+
+      {#if data.meta.topics && data.meta.topics.length > 0}
+        <div class="reader-topics-strip">
+          <span class="topics-label">INDEXED TOPICS:</span>
+          {#each data.meta.topics as t}
+            <span class="badge topic-badge" data-pagefind-filter="topic">#{getTopicLabel(t, currentLang)}</span>
+          {/each}
+          {#if data.meta.geo && data.meta.geo.length > 0}
+            {#each data.meta.geo as g}
+              <span class="badge geo-badge" data-pagefind-filter="geo">⚲ {getGeoLabel(g, currentLang).toUpperCase()}</span>
+            {/each}
+          {/if}
+        </div>
+      {/if}
 
       <h1 class="document-headline" lang={currentLang} class:indic-prose-ml={currentLang === 'ml'} class:indic-prose-hi={currentLang === 'hi'}>
         {displayTitle}
@@ -476,6 +497,46 @@
   .badge.category {
     background-color: var(--color-black);
     color: #FFFFFF;
+  }
+
+  .badge.doc-type-badge {
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+  }
+
+  .badge.period-badge {
+    background-color: var(--color-gold);
+    color: #000000;
+  }
+
+  .reader-topics-strip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .topics-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-gray-dark);
+  }
+
+  .badge.topic-badge {
+    background-color: #FAF5EB;
+    color: var(--color-black);
+    border: 1px solid #555555;
+    font-size: 0.72rem;
+  }
+
+  .badge.geo-badge {
+    background-color: var(--color-paper-dark);
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+    font-size: 0.72rem;
   }
 
   .badge.method {

@@ -11,6 +11,13 @@ page_count: 2
 extraction_method: pymupdf4llm
 sha256: 7fb873dcf0e346404d53daec6c30b68577e5fd505eeee9792aed6f9207507340
 language: en
+doc_type: resolution
+topics:
+- labour-workers
+geo:
+- kerala
+- national
+period: 23th-congress
 ---
 
 # Communist Party of India (Marxist) 

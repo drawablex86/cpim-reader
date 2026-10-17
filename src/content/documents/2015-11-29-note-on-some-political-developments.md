@@ -1,16 +1,25 @@
 ---
-title: "Note On Some Political Developments"
-slug: "2015-11-29-note-on-some-political-developments"
-date: "2015-11-29"
-category: "Left View"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2015-november-pol_report_adopted.pdf"
-source_post_url: "https://cpim.org/note-some-political-developments/"
+title: Note On Some Political Developments
+slug: 2015-11-29-note-on-some-political-developments
+date: '2015-11-29'
+category: Left View
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2015-november-pol_report_adopted.pdf
+source_post_url: https://cpim.org/note-some-political-developments/
 page_count: 12
-extraction_method: "pymupdf4llm"
-sha256: "8fd2da1042c8b333dcff6194e2eb51d69e1232b6dfc68946de7fac0d7fb2094a"
+extraction_method: pymupdf4llm
+sha256: 8fd2da1042c8b333dcff6194e2eb51d69e1232b6dfc68946de7fac0d7fb2094a
+doc_type: report
+topics:
+- education-students
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+geo:
+- national
+period: national-current
 ---
 
 #### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

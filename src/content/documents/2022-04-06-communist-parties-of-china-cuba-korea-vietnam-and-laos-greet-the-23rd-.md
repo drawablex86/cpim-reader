@@ -12,6 +12,14 @@ page_count: 5
 extraction_method: pymupdf4llm
 sha256: a15f25a3fcfd48cab4c65b9a2b32d6a09a69d515d4e85beaefb3b061ff24e130
 language: en
+doc_type: report
+topics:
+- anti-imperialism
+geo:
+- kerala
+- cuba
+- international
+period: 23th-congress
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

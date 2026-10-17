@@ -12,6 +12,15 @@ page_count: 11
 extraction_method: pymupdf4llm
 sha256: baa1dadfd342f533327a6eff597b58036a106e2ebe5c1c42d688fcb44b10cf82
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+geo:
+- kerala
+- west-bengal
+- national
+period: 23th-congress
 ---
 
 # Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

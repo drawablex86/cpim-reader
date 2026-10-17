@@ -11,6 +11,16 @@ page_count: 26
 extraction_method: pymupdf4llm
 sha256: 7647effeeb861c3d63cf9d1be7f695db24ae3c4dcd5bc0219e68197c8a6c45b2
 language: en
+doc_type: report
+topics:
+- palestine
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+geo:
+- cuba
+- international
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436** 

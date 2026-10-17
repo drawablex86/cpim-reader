@@ -1,16 +1,24 @@
 ---
-title: "RSS & “Beef” Politics"
-slug: "2016-01-16-rss-beef-politics"
-date: "2016-01-16"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/rss_book_-_3.pdf"
-source_post_url: "https://cpim.org/rss-beef-politics/"
+title: RSS & “Beef” Politics
+slug: 2016-01-16-rss-beef-politics
+date: '2016-01-16'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/rss_book_-_3.pdf
+source_post_url: https://cpim.org/rss-beef-politics/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "32c42523ca82dd12de4a34068a22c5b294b84f611632e00745866510f6aac3c8"
+extraction_method: pymupdf4llm
+sha256: 32c42523ca82dd12de4a34068a22c5b294b84f611632e00745866510f6aac3c8
+doc_type: report
+topics:
+- communalism-secularism
+- agriculture-farmers
+- caste-social-justice
+geo:
+- national
+period: national-current
 ---
 
 3 

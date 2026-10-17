@@ -11,6 +11,16 @@ page_count: 24
 extraction_method: pymupdf4llm
 sha256: f54e3464b3f2e12a87382b0ee8d8564cd71103ffc5d39e670e2e0b34b77e4ac1
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- elections-democracy
+- federalism-states
+- caste-social-justice
+geo:
+- national
+period: 23rd-congress
 ---
 
 # **_Tel. 23344918,23747435_** 

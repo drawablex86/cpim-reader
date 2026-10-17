@@ -1,16 +1,26 @@
 ---
-title: "Report on Political Developments — Jan. 2017"
-slug: "2017-01-19-report-on-political-developments-jan-2017"
-date: "2017-01-19"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2017-january-report_on_political_developments-adopted.pdf"
-source_post_url: "https://cpim.org/report-political-developments-jan-2017/"
+title: Report on Political Developments — Jan. 2017
+slug: 2017-01-19-report-on-political-developments-jan-2017
+date: '2017-01-19'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2017-january-report_on_political_developments-adopted.pdf
+source_post_url: https://cpim.org/report-political-developments-jan-2017/
 page_count: 30
-extraction_method: "pymupdf4llm"
-sha256: "7bd26c2b4f4920d2fa125663fbf7a84e763ce8290e784c12bec977899e438f70"
+extraction_method: pymupdf4llm
+sha256: 7bd26c2b4f4920d2fa125663fbf7a84e763ce8290e784c12bec977899e438f70
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- caste-social-justice
+- economy-public-sector
+- environment-climate
+geo:
+- national
+period: national-current
 ---
 
 **Fax: 23747483** 

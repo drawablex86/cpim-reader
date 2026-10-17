@@ -1,16 +1,25 @@
 ---
-title: "Report on Implementation of Organisational Tasks"
-slug: "2009-08-08-report-on-implementation-of-organisational-tasks"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2006_sept_rep-org.pdf"
-source_post_url: "https://cpim.org/report-implementation-organisational-tasks/"
+title: Report on Implementation of Organisational Tasks
+slug: 2009-08-08-report-on-implementation-of-organisational-tasks
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2006_sept_rep-org.pdf
+source_post_url: https://cpim.org/report-implementation-organisational-tasks/
 page_count: 48
-extraction_method: "pymupdf4llm"
-sha256: "26eab6ed034a4db6ca35b8891eadc8e508fdcc9210d6d8c1f528316b6c267854"
+extraction_method: pymupdf4llm
+sha256: 26eab6ed034a4db6ca35b8891eadc8e508fdcc9210d6d8c1f528316b6c267854
+doc_type: report
+topics:
+- agriculture-farmers
+- caste-social-justice
+- labour-workers
+- communalism-secularism
+geo:
+- national
+period: 2009-elections
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

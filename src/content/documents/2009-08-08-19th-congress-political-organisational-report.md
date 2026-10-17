@@ -1,16 +1,26 @@
 ---
-title: "19th Congress Political-Organisational Report"
-slug: "2009-08-08-19th-congress-political-organisational-report"
-date: "2009-08-08"
-category: "Party Congress"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2008-19%20cong-pol-org%20report.pdf"
-source_post_url: "https://cpim.org/19th-congress-political-organisational-report/"
+title: 19th Congress Political-Organisational Report
+slug: 2009-08-08-19th-congress-political-organisational-report
+date: '2009-08-08'
+category: Party Congress
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2008-19%20cong-pol-org%20report.pdf
+source_post_url: https://cpim.org/19th-congress-political-organisational-report/
 page_count: 138
-extraction_method: "pymupdf4llm"
-sha256: "60740f9615cc0e368e3626e8c25a1bacc31ce933d2c0651543703f22bc17796d"
+extraction_method: pymupdf4llm
+sha256: 60740f9615cc0e368e3626e8c25a1bacc31ce933d2c0651543703f22bc17796d
+doc_type: report
+topics:
+- palestine
+- labour-workers
+- agriculture-farmers
+- communalism-secularism
+- gender-womens-rights
+geo:
+- national
+period: 19th-congress
 ---
 
 ## **Political-Organisational Report Adopted at the XIX Congress of the CPI(M) March 29 to April 3, 2008, Coimbatore** 

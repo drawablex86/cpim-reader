@@ -1,16 +1,23 @@
 ---
-title: "On Tribal Question"
-slug: "2009-08-08-on-tribal-question"
-date: "2009-08-08"
-category: "CC Documents"
-author: "Central Committee, Communist Party of India (Marxist)"
-publisher: "Communist Party of India (Marxist)"
-language: "en"
-source_pdf_url: "https://cpim.org/wp-content/uploads/old/documents/2002_march_tribal_doc.pdf"
-source_post_url: "https://cpim.org/tribal-question/"
+title: On Tribal Question
+slug: 2009-08-08-on-tribal-question
+date: '2009-08-08'
+category: CC Documents
+author: Central Committee, Communist Party of India (Marxist)
+publisher: Communist Party of India (Marxist)
+language: en
+source_pdf_url: https://cpim.org/wp-content/uploads/old/documents/2002_march_tribal_doc.pdf
+source_post_url: https://cpim.org/tribal-question/
 page_count: 14
-extraction_method: "pymupdf4llm"
-sha256: "48fd5de8782c0cf295e45c4ddf1ff0bee5ea5ed2dfa874138042d9178cf6c972"
+extraction_method: pymupdf4llm
+sha256: 48fd5de8782c0cf295e45c4ddf1ff0bee5ea5ed2dfa874138042d9178cf6c972
+doc_type: report
+topics:
+- caste-social-justice
+- gender-womens-rights
+geo:
+- national
+period: national-current
 ---
 
 ### **Tel. 23344918,23747435 23363692, 23747436 Fax: 23747483** 

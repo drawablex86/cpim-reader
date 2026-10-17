@@ -11,6 +11,16 @@ page_count: 29
 extraction_method: pymupdf4llm
 sha256: ac73066259e290f55380f468f2925247a21ee535d8abd2eb18d34d2431ff2996
 language: en
+doc_type: report
+topics:
+- labour-workers
+- agriculture-farmers
+- economy-public-sector
+- anti-imperialism
+- healthcare
+geo:
+- national
+period: national-current
 ---
 
 Communist Party of India (Marxist) 
