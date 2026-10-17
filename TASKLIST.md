@@ -38,8 +38,32 @@
 - [x] **4.2** Verify Pagefind indexes pre-rendered documents (`npx pagefind --site build`).
 - [x] **4.3** Test static site build to verify client-side navigation, search indexing, and citation exports.
 
-## Phase 5: Dual-Mode Ingestion Pipeline & Local Inference Execution
+## Phase 5: Dual-Mode Ingestion Pipeline & Full Archive Extraction
 - [x] **5.1** Update `scripts/sync.py` to support dual-mode extraction (PDF + HTML posts) and multi-provider options (`--provider ollama`, `--provider openrouter`).
-- [ ] **5.2** Verify local Ollama model execution (`ollama run qwen2.5vl:3b` and `qwen2.5:7b`).
-- [ ] **5.3** Test OpenRouter Nemotron fallback execution (`--provider openrouter`).
-- [ ] **5.4** Run incremental sync test on sample historical batch (`python scripts/sync.py --limit 3`).
+- [x] **5.2** Verify local Ollama model execution (`qwen2.5vl:3b` and `qwen2.5:7b`).
+- [x] **5.3** Test OpenRouter Nemotron fallback execution (`--provider openrouter`).
+- [x] **5.4** Complete 100% canonical English archive ingestion across 235+ historical documents dating back to 2004.
+- [x] **5.5** Filter out corrupted non-Unicode mojibake regional reprints, designating canonical English versions as single source of truth.
+
+## Phase 6: Dense Semantic Search & Vector Embeddings
+- [x] **6.1** Author `scripts/embed.py` generating 256-dimensional embeddings with Google EmbeddingGemma 2 (`static/vectors.json`).
+- [x] **6.2** Build client-side semantic search engine (`src/lib/semantic-search.ts`) using `@huggingface/transformers` ONNX/WASM.
+- [x] **6.3** Integrate unified search UX with mode switching (`all`, `titles`, `semantic`) and `SemanticResultsPanel.svelte`.
+- [x] **6.4** Create `SimilarDocuments.svelte` recommending topically related historical documents based on vector cosine similarity.
+
+## Phase 7: Archival Taxonomy & Tag Fortification
+- [x] **7.1** Define controlled taxonomy types in `src/lib/taxonomy.ts` (`doc_type`, `topics`, `geography`, `congress`).
+- [x] **7.2** Create deterministic classification engine `scripts/classify_documents.py`.
+- [x] **7.3** Author vector centroid tag fortification engine `scripts/fortify_tags.py` to tag cross-cutting themes in omnibus resolutions.
+- [x] **7.4** Integrate faceted filter selectors into archive explorer (`+page.svelte`).
+
+## Phase 8: Multilingual Translation Subsystem & Bilingual Reader
+- [x] **8.1** Setup IndicTrans2 CTranslate2 INT8 model support and single-document CLI (`scripts/translate_single.py`).
+- [x] **8.2** Build bilingual split-screen reader in `src/routes/docs/[slug]/+page.svelte` with synchronized proportional scrolling.
+- [x] **8.3** Implement `LanguageSelector.svelte` and OpenRouter Gemma 31B cloud translation fallback.
+
+## Phase 9: In-Browser Dev Pipeline Terminal & Documentation Sync
+- [x] **9.1** Implement streaming RPC dev middleware plugins in `vite.config.ts` (`/api/dev/sync`, `/api/dev/embed`, `/api/dev/translate`, `/api/dev/models`, `/api/dev/translation-catalog`).
+- [x] **9.2** Build tactile Constructivist `DevPipelineModal.svelte` with real-time log streaming and heartbeat status banner.
+- [x] **9.3** Author comprehensive production `README.md` with CLI reference, architecture diagram, and feature showcase.
+- [x] **9.4** Update `ARCHITECTURE.md` to reflect all search, taxonomy, translation, and dev pipeline systems.
