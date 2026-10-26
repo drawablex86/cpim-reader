@@ -137,7 +137,7 @@
 
 <style>
   .skip-link {
-    position: absolute;
+    position: fixed;
     left: 0.75rem;
     top: -100px;
     z-index: 999;
