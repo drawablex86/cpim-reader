@@ -4,6 +4,11 @@
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import ReadingControls from '$lib/components/ReadingControls.svelte';
+  import {
+    getProgress,
+    saveProgress,
+    type ReadingProgressEntry
+  } from '$lib/reading-progress';
   import { getDocTypeLabel, getTopicLabel, getGeoLabel, getPeriodLabel } from '$lib/taxonomy';
   import { documentUrl, configuredSiteOrigin } from '$lib/site';
 
@@ -16,6 +21,11 @@
   let headings = $state<Array<{ id: string; text: string; level: number }>>([]);
   let tocScrollerEl = $state<HTMLElement | null>(null);
   let scrollSpy: IntersectionObserver | null = null;
+
+  // Resume-reading state
+  let resumeEntry = $state<ReadingProgressEntry | null>(null);
+  let resumeDismissed = $state(false);
+  let lastSavedAt = 0;
 
   // Multilingual State
   let currentLang = $state<string>('en');
@@ -114,11 +124,45 @@
     });
   }
 
+  function persistProgress(force = false) {
+    if (typeof window === 'undefined') return;
+    const now = Date.now();
+    if (!force && now - lastSavedAt < 1500) return;
+    lastSavedAt = now;
+
+    const percent = Math.round(readProgress);
+    if (percent < 1) return;
+
+    const heading = headings.find((h) => h.id === activeHeadingId);
+    saveProgress({
+      slug: data.meta.slug,
+      title: displayTitle,
+      percent,
+      headingId: heading?.id,
+      headingText: heading?.text,
+      updatedAt: now
+    });
+  }
+
+  function jumpToSavedPosition() {
+    if (!resumeEntry) return;
+
+    if (resumeEntry.headingId && document.getElementById(resumeEntry.headingId)) {
+      scrollToHeading(resumeEntry.headingId);
+    } else {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      window.scrollTo({ top: (resumeEntry.percent / 100) * totalHeight, behavior: 'smooth' });
+    }
+
+    resumeDismissed = true;
+  }
+
   function updateScroll() {
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
     if (totalHeight > 0) {
       readProgress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
     }
+    persistProgress();
   }
 
   function scrollToHeading(id: string, e?: MouseEvent) {
@@ -276,8 +320,21 @@
     updateScroll();
     refreshSectionNavigation();
 
+    // Offer to resume when there is meaningful saved progress and the visitor
+    // did not arrive at a specific anchor.
+    const saved = getProgress(data.meta.slug);
+    if (saved && saved.percent >= 3 && saved.percent <= 98 && !window.location.hash) {
+      resumeEntry = saved;
+    }
+
+    const flushProgress = () => persistProgress(true);
+    window.addEventListener('pagehide', flushProgress);
+    document.addEventListener('visibilitychange', flushProgress);
+
     return () => {
       window.removeEventListener('scroll', updateScroll);
+      window.removeEventListener('pagehide', flushProgress);
+      document.removeEventListener('visibilitychange', flushProgress);
       scrollSpy?.disconnect();
     };
   });
@@ -421,6 +478,33 @@
       />
     </div>
   </header>
+
+  {#if resumeEntry && !resumeDismissed}
+    <div class="resume-banner" role="status">
+      <div class="resume-text">
+        <span class="resume-stamp">◷ CONTINUE READING</span>
+        <span class="resume-detail">
+          You stopped at <strong>{resumeEntry.percent}%</strong>{#if resumeEntry.headingText}
+            in <em>{resumeEntry.headingText}</em>{/if}.
+        </span>
+      </div>
+      <div class="resume-actions">
+        <button type="button" class="resume-btn primary" onclick={jumpToSavedPosition}>
+          RESUME
+        </button>
+        <button
+          type="button"
+          class="resume-btn"
+          onclick={() => {
+            resumeDismissed = true;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          START OVER
+        </button>
+      </div>
+    </div>
+  {/if}
 
   <!-- Workspace Container: TOC Sidebar + Editorial Prose + Split PDF Pane -->
   <div
@@ -805,6 +889,76 @@
   .view-source {
     background-color: var(--color-paper-light);
     color: var(--color-gray-dark);
+  }
+
+  /* Resume reading banner */
+  .resume-banner {
+    max-width: 1400px;
+    margin: 1.5rem auto 0;
+    padding: 0.85rem 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    background-color: var(--color-black);
+    color: var(--color-paper-light);
+    border: var(--border-medium);
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .resume-text {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+  }
+
+  .resume-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    color: var(--color-gold);
+  }
+
+  .resume-detail {
+    color: #e4e2dd;
+  }
+
+  .resume-detail em {
+    font-family: var(--font-prose);
+    color: #ffffff;
+  }
+
+  .resume-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .resume-btn {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    border: 1.5px solid var(--color-paper-light);
+    background-color: transparent;
+    color: var(--color-paper-light);
+    cursor: pointer;
+  }
+
+  .resume-btn.primary {
+    background-color: var(--color-red-primary);
+    border-color: var(--color-red-primary);
+    color: #ffffff;
+  }
+
+  .resume-btn:hover {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-black);
   }
 
   /* Workspace Layout */

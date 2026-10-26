@@ -15,6 +15,12 @@
   } from '$lib/taxonomy';
   import { documentUrl } from '$lib/site';
   import {
+    readAllProgress,
+    recentProgress,
+    formatRelativeTime,
+    type ReadingProgressEntry
+  } from '$lib/reading-progress';
+  import {
     semanticSearch,
     loadEmbeddingModel,
     onModelProgress,
@@ -49,6 +55,10 @@
 
   const categories = ['All', 'CC Documents', 'Party Congress', 'Issues', 'Left View'];
 
+  // Locally stored reading progress (offline-first; no account, no server)
+  let recentReads = $state<ReadingProgressEntry[]>([]);
+  let progressBySlug = $state<Record<string, ReadingProgressEntry>>({});
+
   // Initialize Pagefind dynamically in the browser
   onMount(() => {
     async function loadPagefind() {
@@ -70,6 +80,9 @@
     }
 
     loadPagefind();
+
+    progressBySlug = readAllProgress();
+    recentReads = recentProgress(4);
   });
 
   // Debounced search effect
@@ -366,6 +379,29 @@
       </div>
     </div>
   </section>
+
+  {#if recentReads.length > 0}
+    <section class="continue-strip" aria-label="Continue reading">
+      <div class="continue-head">
+        <span class="continue-stamp">◷ CONTINUE READING</span>
+        <span class="continue-hint">Saved in this browser</span>
+      </div>
+      <div class="continue-items">
+        {#each recentReads as entry (entry.slug)}
+          <a class="continue-item" href={`/docs/${entry.slug}`}>
+            <div class="continue-top">
+              <span class="continue-pct">{entry.percent}%</span>
+              <span class="continue-when">{formatRelativeTime(entry.updatedAt)}</span>
+            </div>
+            <span class="continue-title">{entry.title}</span>
+            {#if entry.headingText}
+              <span class="continue-section">↳ {entry.headingText}</span>
+            {/if}
+          </a>
+        {/each}
+      </div>
+    </section>
+  {/if}
 
   <!-- Filter & Controls Toolbar -->
   <section class="controls-toolbar">
@@ -741,6 +777,11 @@
 
             <div class="card-footer">
               <div class="card-meta-info">
+                {#if progressBySlug[doc.slug]}
+                  <span class="doc-progress-chip" title="Reading progress in this browser">
+                    {progressBySlug[doc.slug].percent}% READ
+                  </span>
+                {/if}
                 {#if doc.page_count}
                   <span class="doc-page-count">{doc.page_count} PAGES</span>
                 {:else}
@@ -808,7 +849,12 @@
                     </div>
                   {/if}
                 </td>
-                <td class="mono-cell">{doc.page_count || '—'}</td>
+                <td class="mono-cell">
+                  {doc.page_count || '—'}
+                  {#if progressBySlug[doc.slug]}
+                    <div class="table-progress">{progressBySlug[doc.slug].percent}%</div>
+                  {/if}
+                </td>
                 <td class="actions-cell">
                   <a href={`/docs/${doc.slug}`} class="table-btn read">READ</a>
                   <button type="button" class="table-btn cite" onclick={() => openCite(doc)}>CITE</button>
@@ -919,6 +965,118 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     color: #CCCCCC;
+  }
+
+  /* Continue reading strip */
+  .continue-strip {
+    border: var(--border-medium);
+    background-color: var(--color-paper-light);
+    box-shadow: var(--shadow-hard-sm);
+    padding: 1rem 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .continue-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--color-gray-light);
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .continue-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    color: var(--color-red-primary);
+  }
+
+  .continue-hint {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-gray-dark);
+  }
+
+  .continue-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .continue-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--color-gray-dark);
+    background-color: var(--color-paper);
+    transition: all 0.1s ease;
+  }
+
+  .continue-item:hover {
+    background-color: #ffffff;
+    border-color: var(--color-red-primary);
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0px var(--color-black);
+  }
+
+  .continue-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .continue-pct {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: var(--color-red-primary);
+    padding: 0.1rem 0.35rem;
+  }
+
+  .continue-when {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--color-gray-dark);
+  }
+
+  .continue-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-black);
+  }
+
+  .continue-section {
+    font-family: var(--font-prose);
+    font-size: 0.78rem;
+    font-style: italic;
+    color: var(--color-gray-dark);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .doc-progress-chip {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    background-color: var(--color-red-primary);
+    padding: 0.2rem 0.45rem;
+  }
+
+  .table-progress {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: var(--color-red-primary);
+    margin-top: 0.15rem;
   }
 
   /* Controls Toolbar */

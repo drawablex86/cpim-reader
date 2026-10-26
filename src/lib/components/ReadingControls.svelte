@@ -1,15 +1,17 @@
 <script lang="ts">
   type ReaderTheme = 'paper' | 'white' | 'dim';
 
-  let {
-    fontSize = $bindable(1.18),
-    measure = $bindable(68),
-    theme = $bindable<ReaderTheme>('paper')
-  } = $props<{
+  interface Props {
     fontSize?: number;
     measure?: number;
     theme?: ReaderTheme;
-  }>();
+  }
+
+  let {
+    fontSize = $bindable(1.18),
+    measure = $bindable(68),
+    theme = $bindable('paper' as ReaderTheme)
+  }: Props = $props();
 
   const FONT_STEPS = [1, 1.08, 1.18, 1.3, 1.45];
   const MEASURES: Array<{ value: number; label: string; title: string }> = [
