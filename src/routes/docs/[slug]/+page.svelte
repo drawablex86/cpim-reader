@@ -602,6 +602,18 @@
           </p>
         </div>
 
+        <div class="print-footer" aria-hidden="true">
+          <p class="print-title">{displayTitle}</p>
+          <p>{data.meta.author || 'Central Committee, Communist Party of India (Marxist)'} · {data.meta.date}</p>
+          <p>CPI(M) Documents Archive · {documentUrl(data.meta.slug)}</p>
+          {#if data.meta.source_pdf_url}
+            <p>Facsimile: {data.meta.source_pdf_url}</p>
+          {/if}
+          {#if data.meta.sha256}
+            <p>SHA256: {data.meta.sha256}</p>
+          {/if}
+        </div>
+
         {#if data.neighbors && (data.neighbors.older || data.neighbors.newer)}
           <nav class="doc-pager" aria-label="Adjacent documents">
             {#if data.neighbors.older}
@@ -693,20 +705,35 @@
       <aside class="pdf-pane" aria-label="Original Source PDF Verification">
         <div class="pdf-pane-header">
           <span class="pdf-pane-title">ORIGINAL SOURCE PDF VERIFICATION</span>
-          <button
-            type="button"
-            class="pdf-close-btn"
-            onclick={() => (showPdfSplit = false)}
-            aria-label="Close PDF pane"
-          >
-            ✕
-          </button>
+          <div class="pdf-pane-actions">
+            <a
+              href={data.meta.source_pdf_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pdf-open-link"
+              title="Open the facsimile in a new tab"
+            >
+              OPEN ↗
+            </a>
+            <button
+              type="button"
+              class="pdf-close-btn"
+              onclick={() => (showPdfSplit = false)}
+              aria-label="Close PDF pane"
+            >
+              ✕
+            </button>
+          </div>
         </div>
         <iframe
           src={data.meta.source_pdf_url}
           title="Official Source PDF"
           class="pdf-iframe"
         ></iframe>
+        <p class="pdf-pane-note">
+          Publishers sometimes block embedded viewing. If the facsimile stays blank,
+          <a href={data.meta.source_pdf_url} target="_blank" rel="noopener noreferrer">open it directly ↗</a>.
+        </p>
       </aside>
     {/if}
   </div>
@@ -1827,6 +1854,170 @@
       color: var(--color-red-primary);
       font-weight: 700;
       border-left: 3px solid var(--color-red-primary);
+    }
+  }
+
+  .pdf-pane-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pdf-open-link {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-gold);
+    padding: 0.15rem 0.4rem;
+    border: 1px solid #555555;
+  }
+
+  .pdf-open-link:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+  }
+
+  .pdf-pane-note {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+    color: var(--color-gray-dark);
+    margin: 0;
+    padding: 0.45rem 0.75rem;
+    border-top: 1px solid var(--color-gray-light);
+    background-color: var(--color-paper);
+  }
+
+  .pdf-pane-note a {
+    color: var(--color-red-primary);
+    text-decoration: underline;
+  }
+
+  /* Print-only provenance */
+  .print-footer {
+    display: none;
+  }
+
+  @media print {
+    @page {
+      margin: 18mm 16mm;
+    }
+
+    :global(html),
+    :global(body) {
+      background: #ffffff !important;
+    }
+
+    :global(.masthead),
+    :global(.app-footer),
+    :global(.top-accent-bar),
+    :global(.reading-progress-track),
+    .resume-banner,
+    .reader-toolbar,
+    .reading-controls,
+    .toc-sidebar,
+    .mobile-toc-trigger,
+    .mobile-toc-backdrop,
+    .mobile-toc-sheet,
+    .pdf-pane,
+    .doc-pager,
+    .period-pager,
+    .end-of-document,
+    :global(.similar-box) {
+      display: none !important;
+    }
+
+    .reader-container {
+      background: #ffffff !important;
+    }
+
+    .doc-header {
+      background: #ffffff !important;
+      border-bottom: 1px solid #000000;
+      padding: 0 0 1rem;
+    }
+
+    .nav-breadcrumbs {
+      display: none;
+    }
+
+    .reader-workspace {
+      display: block;
+      max-width: none;
+      padding: 0;
+      gap: 0;
+    }
+
+    .reading-canvas {
+      max-width: none !important;
+      padding: 0 !important;
+      border: none !important;
+      background: #ffffff !important;
+    }
+
+    :global(.markdown-prose),
+    :global(.markdown-prose *) {
+      color: #000000 !important;
+      background-color: transparent !important;
+    }
+
+    :global(.markdown-prose) {
+      font-size: 10.5pt;
+      line-height: 1.55;
+    }
+
+    :global(.markdown-prose p) {
+      text-align: left;
+      hyphens: none;
+      orphans: 3;
+      widows: 3;
+    }
+
+    :global(.markdown-prose h1),
+    :global(.markdown-prose h2),
+    :global(.markdown-prose h3) {
+      break-after: avoid;
+      break-inside: avoid;
+    }
+
+    :global(.markdown-prose table),
+    :global(.markdown-prose blockquote),
+    :global(.markdown-prose pre) {
+      break-inside: avoid;
+    }
+
+    :global(.markdown-prose thead th) {
+      background-color: #ececec !important;
+      color: #000000 !important;
+      border-bottom: 1px solid #000000;
+    }
+
+    :global(.markdown-prose .table-scroll) {
+      overflow: visible !important;
+      border: 1px solid #000000;
+    }
+
+    .print-footer {
+      display: block;
+      margin-top: 2rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #000000;
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      line-height: 1.5;
+      color: #333333;
+    }
+
+    .print-footer p {
+      margin: 0 0 0.15rem;
+      word-break: break-all;
+    }
+
+    .print-footer .print-title {
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 0.35rem;
     }
   }
 
