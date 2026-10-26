@@ -220,6 +220,50 @@
   function closeCite() {
     activeCiteDoc = null;
   }
+
+  // Every active constraint, surfaced as a removable chip so the user can see
+  // *why* a result set is narrow.
+  const activeFilters = $derived.by(() => {
+    const chips: Array<{ key: string; label: string; clear: () => void }> = [];
+
+    if (selectedCategory !== 'All') {
+      chips.push({
+        key: 'category',
+        label: selectedCategory.toUpperCase(),
+        clear: () => (selectedCategory = 'All')
+      });
+    }
+    if (selectedDocType !== 'all') {
+      chips.push({
+        key: 'docType',
+        label: getDocTypeLabel(selectedDocType).toUpperCase(),
+        clear: () => (selectedDocType = 'all')
+      });
+    }
+    if (selectedTopic !== 'all') {
+      chips.push({
+        key: 'topic',
+        label: `#${getTopicLabel(selectedTopic)}`,
+        clear: () => (selectedTopic = 'all')
+      });
+    }
+    if (searchQuery.trim()) {
+      chips.push({
+        key: 'query',
+        label: `"${searchQuery.trim()}"`,
+        clear: () => (searchQuery = '')
+      });
+    }
+
+    return chips;
+  });
+
+  function resetAllFilters() {
+    selectedCategory = 'All';
+    selectedDocType = 'all';
+    selectedTopic = 'all';
+    searchQuery = '';
+  }
 </script>
 
 <svelte:head>
@@ -262,12 +306,11 @@
   <section class="controls-toolbar">
     <div class="toolbar-inner">
       <!-- Category Tabs & Language Toggle -->
-      <div class="category-tabs" role="tablist" aria-label="Document Category Filter">
+      <div class="category-tabs" role="group" aria-label="Document Category Filter">
         {#each categories as cat}
           <button
             type="button"
-            role="tab"
-            aria-selected={selectedCategory === cat}
+            aria-pressed={selectedCategory === cat}
             class="cat-tab"
             class:active={selectedCategory === cat}
             onclick={() => (selectedCategory = cat)}
@@ -308,6 +351,7 @@
               type="button"
               class="mode-toggle-btn"
               class:active={searchMode === 'all'}
+              aria-pressed={searchMode === 'all'}
               onclick={() => (searchMode = 'all')}
               title="Search entire unabridged document text"
             >
@@ -317,6 +361,7 @@
               type="button"
               class="mode-toggle-btn"
               class:active={searchMode === 'titles'}
+              aria-pressed={searchMode === 'titles'}
               onclick={() => (searchMode = 'titles')}
               title="Filter by document titles, authors, and dates"
             >
@@ -326,6 +371,7 @@
               type="button"
               class="mode-toggle-btn semantic-toggle"
               class:active={searchMode === 'semantic'}
+              aria-pressed={searchMode === 'semantic'}
               onclick={activateSemanticMode}
               title="Semantic topic search: find documents by concept and meaning"
             >
@@ -367,6 +413,7 @@
             type="button"
             class="facet-chip"
             class:active={selectedDocType === 'all'}
+            aria-pressed={selectedDocType === 'all'}
             onclick={() => (selectedDocType = 'all')}
           >
             ALL FORMATS ({data.documents.length})
@@ -377,6 +424,7 @@
                 type="button"
                 class="facet-chip"
                 class:active={selectedDocType === typeKey}
+                aria-pressed={selectedDocType === typeKey}
                 onclick={() => (selectedDocType = selectedDocType === typeKey ? 'all' : typeKey)}
               >
                 {typeObj.label.toUpperCase()} <span class="chip-count">({docTypeCounts[typeKey] || 0})</span>
@@ -394,6 +442,7 @@
             type="button"
             class="facet-chip topic-chip"
             class:active={selectedTopic === 'all'}
+            aria-pressed={selectedTopic === 'all'}
             onclick={() => (selectedTopic = 'all')}
           >
             ALL TOPICS
@@ -404,6 +453,7 @@
                 type="button"
                 class="facet-chip topic-chip"
                 class:active={selectedTopic === topicKey}
+                aria-pressed={selectedTopic === topicKey}
                 onclick={() => (selectedTopic = selectedTopic === topicKey ? 'all' : topicKey)}
               >
                 #{topicObj.label} <span class="chip-count">({topicCounts[topicKey] || 0})</span>
@@ -433,7 +483,7 @@
   <div class="results-meta-bar">
     <div class="results-inner">
       <div class="results-left">
-        <span class="results-count">
+        <span class="results-count" aria-live="polite">
           {#if searchMode === 'semantic' && searchQuery.trim()}
             CONCEPT MATCHES // <strong>{semanticResults.length}</strong> DOCUMENTS
           {:else}
@@ -464,17 +514,25 @@
           </span>
         {/if}
       </div>
-      {#if selectedCategory !== 'All' || searchQuery}
-        <button
-          type="button"
-          class="reset-filters"
-          onclick={() => {
-            selectedCategory = 'All';
-            searchQuery = '';
-          }}
-        >
-          RESET FILTERS ✕
-        </button>
+
+      {#if activeFilters.length > 0}
+        <div class="active-filters" aria-label="Active filters">
+          {#each activeFilters as filter (filter.key)}
+            <button
+              type="button"
+              class="active-filter-chip"
+              onclick={filter.clear}
+              aria-label={`Remove filter: ${filter.label}`}
+              title={`Remove filter: ${filter.label}`}
+            >
+              <span class="chip-text">{filter.label}</span>
+              <span class="chip-x" aria-hidden="true">✕</span>
+            </button>
+          {/each}
+          <button type="button" class="reset-filters" onclick={resetAllFilters}>
+            RESET ALL
+          </button>
+        </div>
       {/if}
     </div>
   </div>
@@ -494,14 +552,7 @@
         <div class="empty-box">
           <h3>NO DOCUMENTS FOUND</h3>
           <p>No resolutions match category <strong>{selectedCategory}</strong> and query "<em>{searchQuery}</em>".</p>
-          <button
-            type="button"
-            class="btn-reset"
-            onclick={() => {
-              selectedCategory = 'All';
-              searchQuery = '';
-            }}
-          >
+          <button type="button" class="btn-reset" onclick={resetAllFilters}>
             SHOW ALL DOCUMENTS
           </button>
         </div>
@@ -542,7 +593,7 @@
                   </button>
                 {/each}
                 {#if doc.topics.length > 3}
-                  <span class="topic-tag-more" title={doc.topics.slice(3).map(getTopicLabel).join(', ')}>
+                  <span class="topic-tag-more" title={doc.topics.slice(3).map((t) => getTopicLabel(t)).join(', ')}>
                     +{doc.topics.length - 3} more
                   </span>
                 {/if}
@@ -1051,6 +1102,48 @@
     color: var(--color-red-primary);
     cursor: pointer;
     text-decoration: underline;
+  }
+
+  /* Active filter summary */
+  .active-filters {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .active-filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    max-width: 22rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.28rem 0.55rem;
+    background-color: var(--color-black);
+    color: #ffffff;
+    border: 1px solid var(--color-black);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .active-filter-chip:hover,
+  .active-filter-chip:focus-visible {
+    background-color: var(--color-red-primary);
+    border-color: var(--color-red-dark);
+  }
+
+  .chip-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chip-x {
+    font-size: 0.7rem;
+    opacity: 0.8;
   }
 
   /* Card Grid */
