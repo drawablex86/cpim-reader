@@ -1,10 +1,26 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { dev } from '$app/environment';
   import DevPipelineModal from '$lib/components/DevPipelineModal.svelte';
+  import SearchPalette from '$lib/components/SearchPalette.svelte';
 
   let { children } = $props();
   let showDevModal = $state(false);
   let devModalTab = $state<'sync' | 'embed' | 'translate'>('sync');
+
+  let paletteOpen = $state(false);
+
+  function handleGlobalShortcut(event: KeyboardEvent) {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      paletteOpen = !paletteOpen;
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('keydown', handleGlobalShortcut);
+    return () => document.removeEventListener('keydown', handleGlobalShortcut);
+  });
 </script>
 
 <a class="skip-link" href="#main-content">SKIP TO MAIN CONTENT</a>
@@ -81,6 +97,18 @@
           <span class="stamp-label">EDITION</span>
           <span class="stamp-value">STATIC ARCHIVE</span>
         </div>
+        <button
+          type="button"
+          class="search-trigger"
+          onclick={() => (paletteOpen = true)}
+          aria-label="Search the archive (Command K)"
+          title="Search the archive (⌘K)"
+        >
+          <span class="search-trigger-icon" aria-hidden="true">⌕</span>
+          <span class="search-trigger-label">SEARCH</span>
+          <kbd class="search-trigger-kbd">⌘K</kbd>
+        </button>
+
         <nav class="nav-links">
           <a href="/" class="nav-item">CATALOG</a>
           <a href="https://cpim.org/documents/" target="_blank" rel="noopener noreferrer" class="nav-item external">
@@ -90,6 +118,9 @@
       </div>
     </div>
   </header>
+
+  <!-- Global search palette (⌘K) -->
+  <SearchPalette bind:open={paletteOpen} />
 
   <!-- Dev Pipeline Modal (Dev Only) -->
   {#if dev && showDevModal}
@@ -374,6 +405,53 @@
     font-weight: 700;
   }
 
+  .search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    box-shadow: var(--shadow-hard-sm);
+    cursor: pointer;
+    transition: all 0.1s ease;
+  }
+
+  .search-trigger:hover {
+    background-color: var(--color-red-primary);
+    color: #ffffff;
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-hard-md);
+  }
+
+  .search-trigger:hover .search-trigger-kbd {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+  }
+
+  .search-trigger-icon {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .search-trigger-label {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .search-trigger-kbd {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.05rem 0.25rem;
+    border: 1px solid var(--color-gray-dark);
+    color: var(--color-gray-dark);
+  }
+
   .nav-links {
     display: flex;
     gap: 0.5rem;
@@ -523,6 +601,14 @@
     .nav-item {
       font-size: 0.75rem;
       padding: 0.35rem 0.6rem;
+    }
+
+    .search-trigger-label {
+      display: none;
+    }
+
+    .search-trigger-kbd {
+      display: none;
     }
 
     .footer-inner {
