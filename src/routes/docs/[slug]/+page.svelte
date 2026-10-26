@@ -699,8 +699,8 @@
   /* Sticky Table of Contents Sidebar */
   .toc-sidebar {
     position: sticky;
-    top: 2rem;
-    max-height: calc(100vh - 4rem);
+    top: 4.75rem;
+    max-height: calc(100vh - 6.25rem);
     overflow-y: auto;
   }
 
@@ -835,7 +835,7 @@
     margin: 3.5rem 0 1.25rem;
     border-bottom: 3px solid var(--color-black);
     padding-bottom: 0.5rem;
-    scroll-margin-top: 3.5rem;
+    scroll-margin-top: 6.5rem;
   }
 
   :global(.markdown-prose h2) {
@@ -847,7 +847,7 @@
     margin: 2.75rem 0 1rem;
     border-bottom: 2px solid var(--color-black);
     padding-bottom: 0.35rem;
-    scroll-margin-top: 3.5rem;
+    scroll-margin-top: 6.5rem;
   }
 
   :global(.markdown-prose h3) {
@@ -857,7 +857,7 @@
     line-height: 1.35;
     color: var(--color-red-dark);
     margin: 2.25rem 0 0.85rem;
-    scroll-margin-top: 3rem;
+    scroll-margin-top: 6rem;
   }
 
   :global(.markdown-prose p) {
@@ -1080,8 +1080,8 @@
   /* Split PDF Verification Pane */
   .pdf-pane {
     position: sticky;
-    top: 2rem;
-    height: calc(100vh - 4rem);
+    top: 4.75rem;
+    height: calc(100vh - 6.25rem);
     background-color: var(--color-surface-pure);
     border: var(--border-heavy);
     box-shadow: var(--shadow-hard-md);

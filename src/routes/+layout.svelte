@@ -246,6 +246,9 @@
     background-color: var(--color-paper);
     border-bottom: var(--border-heavy);
     padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 200;
   }
 
   .masthead-inner {
@@ -462,10 +465,38 @@
   }
 
   @media (max-width: 768px) {
-    .masthead-inner {
-      flex-direction: column;
-      align-items: flex-start;
+    .masthead {
+      padding: 0.6rem 1rem;
     }
+
+    .masthead-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* Keep the sticky bar short on phones: drop the stamps and the
+       long-form subtitle, retain branding + navigation. */
+    .edition-stamp,
+    .archive-subtitle {
+      display: none;
+    }
+
+    .logo-box {
+      font-size: 1rem;
+      padding: 0.3rem 0.5rem;
+    }
+
+    .party-name {
+      font-size: 0.9rem;
+    }
+
+    .nav-item {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.6rem;
+    }
+
     .footer-inner {
       flex-direction: column;
     }
