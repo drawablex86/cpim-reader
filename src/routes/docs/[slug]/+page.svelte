@@ -176,6 +176,10 @@
 
     if (resumeEntry.headingId && document.getElementById(resumeEntry.headingId)) {
       scrollToHeading(resumeEntry.headingId);
+    } else if (isBilingualView && masterPaneEl) {
+      // The bilingual panes scroll internally; the page itself does not.
+      const max = masterPaneEl.scrollHeight - masterPaneEl.clientHeight;
+      masterPaneEl.scrollTo({ top: (resumeEntry.percent / 100) * max, behavior: 'smooth' });
     } else {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       window.scrollTo({ top: (resumeEntry.percent / 100) * totalHeight, behavior: 'smooth' });
@@ -184,11 +188,23 @@
     resumeDismissed = true;
   }
 
+  /**
+   * Reading progress is measured against whichever surface actually scrolls.
+   * In bilingual mode that is the master pane, not the page — measuring the
+   * page there would keep reporting the same percentage forever.
+   */
   function updateScroll() {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (totalHeight > 0) {
-      readProgress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
+    let fraction = 0;
+
+    if (isBilingualView && masterPaneEl) {
+      const max = masterPaneEl.scrollHeight - masterPaneEl.clientHeight;
+      fraction = max > 0 ? masterPaneEl.scrollTop / max : 0;
+    } else {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      fraction = totalHeight > 0 ? window.scrollY / totalHeight : 0;
     }
+
+    readProgress = Math.min(100, Math.max(0, fraction * 100));
     persistProgress();
   }
 
@@ -631,6 +647,7 @@
       return;
     }
     syncPanes('master');
+    updateScroll();
   }
 
   function handleTransScroll() {
