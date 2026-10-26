@@ -112,7 +112,6 @@
   // References for synchronized bilingual scrolling
   let masterPaneEl: HTMLElement | null = $state(null);
   let transPaneEl: HTMLElement | null = $state(null);
-  let isSyncingScroll = false;
 
   const availableTranslations = $derived(data.meta.translations || {});
   const activeTranslation = $derived(
@@ -481,6 +480,7 @@
     refreshHeadings();
     wrapProseTables();
     setupScrollSpy();
+    invalidateSyncAnchors();
   }
 
   function wrapProseTables() {
@@ -498,8 +498,11 @@
   }
 
   function refreshHeadings() {
+    // In bilingual mode the master (original) pane defines the document's
+    // structure; indexing the translation produced a Malayalam/Hindi TOC in an
+    // otherwise English interface.
     const selector = isBilingualView
-      ? '.bilingual-pane.trans-pane h1, .bilingual-pane.trans-pane h2, .bilingual-pane.trans-pane h3'
+      ? '.bilingual-pane.master-pane h1, .bilingual-pane.master-pane h2, .bilingual-pane.master-pane h3'
       : '.reading-canvas .markdown-prose h1, .reading-canvas .markdown-prose h2, .reading-canvas .markdown-prose h3';
 
     const elements = document.querySelectorAll(selector);
@@ -541,21 +544,108 @@
     headings = collected;
   }
 
+  // ---------------------------------------------------------------------------
+  // Bilingual scroll synchronisation
+  //
+  // A pure scroll-ratio mapping drifts badly: a Malayalam translation of an
+  // English report is not proportionally longer section by section, so after a
+  // few screens the panes are discussing different paragraphs.
+  //
+  // Instead each pane's headings are measured once, then a scroll position is
+  // interpolated inside the *current heading segment* only. Error stays bounded
+  // to one section and resets at every heading.
+  // ---------------------------------------------------------------------------
+
+  let syncAnchors: { master: number[]; trans: number[] } | null = null;
+  let suppressMasterSync = false;
+  let suppressTransSync = false;
+
+  function measurePaneAnchors(pane: HTMLElement): number[] {
+    const paneTop = pane.getBoundingClientRect().top - pane.scrollTop;
+    const offsets = Array.from(
+      pane.querySelectorAll<HTMLElement>('.markdown-prose h1, .markdown-prose h2, .markdown-prose h3')
+    ).map((heading) => heading.getBoundingClientRect().top - paneTop);
+
+    offsets.push(pane.scrollHeight); // closing sentinel: end of document
+    return offsets;
+  }
+
+  function refreshSyncAnchors() {
+    if (!masterPaneEl || !transPaneEl) {
+      syncAnchors = null;
+      return;
+    }
+    syncAnchors = {
+      master: measurePaneAnchors(masterPaneEl),
+      trans: measurePaneAnchors(transPaneEl)
+    };
+  }
+
+  function invalidateSyncAnchors() {
+    syncAnchors = null;
+  }
+
+  function syncPanes(source: 'master' | 'trans') {
+    const from = source === 'master' ? masterPaneEl : transPaneEl;
+    const to = source === 'master' ? transPaneEl : masterPaneEl;
+    if (!from || !to) return;
+
+    if (!syncAnchors) refreshSyncAnchors();
+    if (!syncAnchors) return;
+
+    const fromAnchors = source === 'master' ? syncAnchors.master : syncAnchors.trans;
+    const toAnchors = source === 'master' ? syncAnchors.trans : syncAnchors.master;
+    const pairs = Math.min(fromAnchors.length, toAnchors.length);
+    if (pairs === 0) return;
+
+    // Current heading segment (clamped to the paired range)
+    const y = from.scrollTop + 2;
+    let segment = 0;
+    for (let i = 0; i < pairs; i += 1) {
+      if (fromAnchors[i] <= y) segment = i;
+      else break;
+    }
+
+    const fromStart = fromAnchors[segment];
+    const fromEnd = fromAnchors[segment + 1] ?? from.scrollHeight;
+    const toStart = toAnchors[segment];
+    const toEnd = toAnchors[segment + 1] ?? to.scrollHeight;
+
+    const span = fromEnd - fromStart;
+    const fraction = span > 4 ? Math.min(1, Math.max(0, (y - fromStart) / span)) : 0;
+    const target = Math.round(toStart + fraction * (toEnd - toStart));
+
+    // Ignore the scroll event our own assignment will produce, but only if the
+    // position actually changes (otherwise no event arrives and the guard would
+    // swallow the next genuine scroll).
+    if (Math.abs(target - to.scrollTop) > 1) {
+      if (source === 'master') suppressTransSync = true;
+      else suppressMasterSync = true;
+      to.scrollTop = target;
+    }
+  }
+
   function handleMasterScroll() {
-    if (isSyncingScroll || !masterPaneEl || !transPaneEl) return;
-    isSyncingScroll = true;
-    const ratio = masterPaneEl.scrollTop / (masterPaneEl.scrollHeight - masterPaneEl.clientHeight || 1);
-    transPaneEl.scrollTop = ratio * (transPaneEl.scrollHeight - transPaneEl.clientHeight);
-    setTimeout(() => { isSyncingScroll = false; }, 50);
+    if (suppressMasterSync) {
+      suppressMasterSync = false;
+      return;
+    }
+    syncPanes('master');
   }
 
   function handleTransScroll() {
-    if (isSyncingScroll || !masterPaneEl || !transPaneEl) return;
-    isSyncingScroll = true;
-    const ratio = transPaneEl.scrollTop / (transPaneEl.scrollHeight - transPaneEl.clientHeight || 1);
-    masterPaneEl.scrollTop = ratio * (masterPaneEl.scrollHeight - masterPaneEl.clientHeight);
-    setTimeout(() => { isSyncingScroll = false; }, 50);
+    if (suppressTransSync) {
+      suppressTransSync = false;
+      return;
+    }
+    syncPanes('trans');
   }
+
+  // Typography or theme changes invalidate the measured heading positions
+  $effect(() => {
+    void [readerFontSize, readerMeasure, readerTheme];
+    syncAnchors = null;
+  });
 
   // Keep the active TOC entry in view without scrolling the page
   $effect(() => {
@@ -593,6 +683,9 @@
       resumeEntry = saved;
     }
 
+    const handleResize = () => invalidateSyncAnchors();
+    window.addEventListener('resize', handleResize);
+
     const flushProgress = () => persistProgress(true);
     window.addEventListener('pagehide', flushProgress);
     document.addEventListener('visibilitychange', flushProgress);
@@ -605,6 +698,7 @@
     return () => {
       window.removeEventListener('scroll', updateScroll);
       window.removeEventListener('pagehide', flushProgress);
+      window.removeEventListener('resize', handleResize);
       document.removeEventListener('visibilitychange', flushProgress);
       document.removeEventListener('mouseup', handleProseSelection);
       document.removeEventListener('keyup', handleProseSelection);
