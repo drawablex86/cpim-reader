@@ -29,6 +29,18 @@
     headings.find((h) => h.id === activeHeadingId)?.text || ''
   );
 
+  // Passage selection toolbar (deep link / quote / section citation)
+  type PassageSelection = {
+    text: string;
+    headingId?: string;
+    headingText?: string;
+    top: number;
+    left: number;
+  };
+  let passage = $state<PassageSelection | null>(null);
+  let passageFeedback = $state<string | null>(null);
+  let activeSectionTitle = $state('');
+
   // Resume-reading state
   let resumeEntry = $state<ReadingProgressEntry | null>(null);
   let resumeDismissed = $state(false);
@@ -170,6 +182,108 @@
       readProgress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
     }
     persistProgress();
+  }
+
+  /** Nearest preceding heading for a node inside the prose column. */
+  function findEnclosingHeading(node: Element): { headingId?: string; headingText?: string } {
+    let current: Element | null = node;
+
+    while (current && !current.classList.contains('markdown-prose')) {
+      let sibling: Element | null = current.previousElementSibling;
+      while (sibling) {
+        const heading = sibling.matches('h1, h2, h3')
+          ? sibling
+          : sibling.querySelector('h1, h2, h3');
+        if (heading) {
+          return {
+            headingId: heading.id || undefined,
+            headingText: heading.textContent?.trim() || undefined
+          };
+        }
+        sibling = sibling.previousElementSibling;
+      }
+      current = current.parentElement;
+    }
+
+    return {};
+  }
+
+  function handleProseSelection() {
+    if (typeof window === 'undefined') return;
+
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
+      passage = null;
+      return;
+    }
+
+    const text = selection.toString().trim();
+    if (text.length < 12) {
+      passage = null;
+      return;
+    }
+
+    const anchor = selection.anchorNode;
+    const anchorEl =
+      anchor?.nodeType === Node.TEXT_NODE ? anchor.parentElement : (anchor as Element | null);
+    if (!anchorEl || !anchorEl.closest('.markdown-prose')) {
+      passage = null;
+      return;
+    }
+
+    const rect = selection.getRangeAt(0).getBoundingClientRect();
+    if (rect.width === 0 && rect.height === 0) {
+      passage = null;
+      return;
+    }
+
+    const heading = findEnclosingHeading(anchorEl);
+    const toolbarWidth = 300;
+    const left = Math.min(
+      Math.max(rect.left + rect.width / 2, toolbarWidth / 2 + 12),
+      window.innerWidth - toolbarWidth / 2 - 12
+    );
+
+    passage = {
+      text,
+      ...heading,
+      top: Math.max(rect.top - 52, 12),
+      left
+    };
+  }
+
+  function dismissPassage() {
+    passage = null;
+  }
+
+  async function copyText(value: string, feedback: string) {
+    try {
+      await navigator.clipboard.writeText(value);
+      passageFeedback = feedback;
+      setTimeout(() => (passageFeedback = null), 1800);
+    } catch {
+      passageFeedback = 'COPY FAILED';
+      setTimeout(() => (passageFeedback = null), 1800);
+    }
+  }
+
+  async function copyPassageLink() {
+    if (!passage) return;
+    await copyText(documentUrl(data.meta.slug, passage.headingId), '✓ LINK COPIED');
+  }
+
+  async function copyPassageQuote() {
+    if (!passage) return;
+    const section = passage.headingText ? `${passage.headingText}. ` : '';
+    const quote = `“${passage.text}” — ${section}${data.meta.title} (${data.meta.date}), CPI(M) Documents Archive. ${documentUrl(data.meta.slug, passage.headingId)}`;
+    await copyText(quote, '✓ QUOTE COPIED');
+  }
+
+  function citePassage() {
+    if (!passage) return;
+    activeSectionTitle = passage.headingText || '';
+    showCiteDrawer = true;
+    passage = null;
   }
 
   function openMobileToc() {
@@ -347,10 +461,17 @@
     window.addEventListener('pagehide', flushProgress);
     document.addEventListener('visibilitychange', flushProgress);
 
+    document.addEventListener('mouseup', handleProseSelection);
+    document.addEventListener('keyup', handleProseSelection);
+    window.addEventListener('scroll', dismissPassage, { passive: true });
+
     return () => {
       window.removeEventListener('scroll', updateScroll);
       window.removeEventListener('pagehide', flushProgress);
       document.removeEventListener('visibilitychange', flushProgress);
+      document.removeEventListener('mouseup', handleProseSelection);
+      document.removeEventListener('keyup', handleProseSelection);
+      window.removeEventListener('scroll', dismissPassage);
       scrollSpy?.disconnect();
     };
   });
@@ -739,6 +860,48 @@
   </div>
 </article>
 
+<!-- Passage selection actions -->
+{#if passage}
+  <div
+    class="passage-toolbar"
+    style={`top: ${passage.top}px; left: ${passage.left}px;`}
+    role="toolbar"
+    aria-label="Passage actions"
+  >
+    {#if passageFeedback}
+      <span class="passage-feedback" role="status">{passageFeedback}</span>
+    {:else}
+      <button
+        type="button"
+        class="passage-btn"
+        onmousedown={(e) => e.preventDefault()}
+        onclick={copyPassageLink}
+        title="Copy a permalink to this section"
+      >
+        LINK
+      </button>
+      <button
+        type="button"
+        class="passage-btn"
+        onmousedown={(e) => e.preventDefault()}
+        onclick={copyPassageQuote}
+        title="Copy the selection as a citation"
+      >
+        QUOTE
+      </button>
+      <button
+        type="button"
+        class="passage-btn primary"
+        onmousedown={(e) => e.preventDefault()}
+        onclick={citePassage}
+        title="Open the citation generator for this section"
+      >
+        CITE SECTION
+      </button>
+    {/if}
+  </div>
+{/if}
+
 <!-- Mobile section navigation (sidebar is hidden below 1024px) -->
 {#if headings.length > 0}
   <button
@@ -793,7 +956,11 @@
   <CitationModal
     doc={data.meta}
     currentUrl={documentUrl(data.meta.slug)}
-    onclose={() => (showCiteDrawer = false)}
+    sectionTitle={activeSectionTitle}
+    onclose={() => {
+      showCiteDrawer = false;
+      activeSectionTitle = '';
+    }}
   />
 {/if}
 
@@ -1725,6 +1892,55 @@
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  /* Passage selection toolbar */
+  .passage-toolbar {
+    position: fixed;
+    z-index: 420;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    padding: 3px;
+    background-color: var(--color-black);
+    border: 2px solid var(--color-black);
+    box-shadow: var(--shadow-hard-md);
+  }
+
+  .passage-btn {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.55rem;
+    border: none;
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .passage-btn:hover {
+    background-color: var(--color-gold);
+  }
+
+  .passage-btn.primary {
+    background-color: var(--color-red-primary);
+    color: #ffffff;
+  }
+
+  .passage-btn.primary:hover {
+    background-color: var(--color-red-dark);
+  }
+
+  .passage-feedback {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.7rem;
+    color: var(--color-gold);
   }
 
   /* Mobile section navigation */

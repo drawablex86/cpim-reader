@@ -107,6 +107,9 @@
 </script>
 
 <!-- Backdrop Overlay -->
+<!-- Escape is handled at document level by handleKeydown, so the backdrop only
+     needs pointer dismissal. -->
+<!-- svelte-ignore a11y_click_events_have_key_events -->
 <div class="modal-backdrop" onclick={onclose} role="presentation">
   <div
     class="modal-dialog"
