@@ -55,6 +55,82 @@
 
   const categories = ['All', 'CC Documents', 'Party Congress', 'Issues', 'Left View'];
 
+  /**
+   * The catalog is deep-linkable: every facet, the query and the layout live in
+   * the query string so a filtered view can be shared, bookmarked, or reached
+   * from a document breadcrumb.
+   */
+  let urlReady = false;
+
+  function applyFiltersFromUrl() {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+
+    const cat = params.get('cat');
+    if (cat && categories.some((c) => c.toLowerCase() === cat.toLowerCase())) {
+      selectedCategory = categories.find((c) => c.toLowerCase() === cat.toLowerCase())!;
+    }
+
+    const type = params.get('type');
+    if (type && (type === 'all' || type in DOC_TYPES)) selectedDocType = type;
+
+    const topic = params.get('topic');
+    if (topic && (topic === 'all' || topic in TOPICS)) selectedTopic = topic;
+
+    const period = params.get('period');
+    if (period && (period === 'all' || period in PERIODS)) selectedPeriod = period;
+
+    const geo = params.get('geo');
+    if (geo && (geo === 'all' || geo in GEOGRAPHY)) selectedGeo = geo;
+
+    const view = params.get('view');
+    if (view === 'cards' || view === 'table') viewMode = view;
+
+    // Semantic mode is opt-in only: it downloads a model, so never restore it
+    // from a link.
+    const mode = params.get('mode');
+    if (mode === 'titles' || mode === 'all') searchMode = mode;
+
+    const q = params.get('q');
+    if (q) searchQuery = q;
+  }
+
+  function syncFiltersToUrl() {
+    if (typeof window === 'undefined' || !urlReady) return;
+
+    const params = new URLSearchParams();
+    if (selectedCategory !== 'All') params.set('cat', selectedCategory);
+    if (selectedDocType !== 'all') params.set('type', selectedDocType);
+    if (selectedTopic !== 'all') params.set('topic', selectedTopic);
+    if (selectedPeriod !== 'all') params.set('period', selectedPeriod);
+    if (selectedGeo !== 'all') params.set('geo', selectedGeo);
+    if (viewMode !== 'cards') params.set('view', viewMode);
+    if (searchMode !== 'all') params.set('mode', searchMode);
+    if (searchQuery.trim()) params.set('q', searchQuery.trim());
+
+    const query = params.toString();
+    const next = `${window.location.pathname}${query ? `?${query}` : ''}`;
+    if (next !== `${window.location.pathname}${window.location.search}`) {
+      // replaceState keeps filter tweaks out of the back-button history
+      window.history.replaceState({}, '', next);
+    }
+  }
+
+  $effect(() => {
+    // Touch every filter so the effect re-runs when any of them change
+    void [
+      selectedCategory,
+      selectedDocType,
+      selectedTopic,
+      selectedPeriod,
+      selectedGeo,
+      viewMode,
+      searchMode,
+      searchQuery
+    ];
+    syncFiltersToUrl();
+  });
+
   // Locally stored reading progress (offline-first; no account, no server)
   let recentReads = $state<ReadingProgressEntry[]>([]);
   let progressBySlug = $state<Record<string, ReadingProgressEntry>>({});
@@ -83,6 +159,13 @@
 
     progressBySlug = readAllProgress();
     recentReads = recentProgress(4);
+
+    applyFiltersFromUrl();
+    urlReady = true;
+
+    const onPopState = () => applyFiltersFromUrl();
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
   });
 
   // Debounced search effect

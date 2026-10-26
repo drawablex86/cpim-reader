@@ -363,6 +363,21 @@
     <div class="header-inner">
       <div class="nav-breadcrumbs">
         <a href="/" class="back-link">← RETURN TO CATALOG</a>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/" class="crumb">CATALOG</a>
+          <span class="crumb-sep" aria-hidden="true">/</span>
+          <span class="crumb">{data.meta.category}</span>
+          {#if data.meta.period}
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <a
+              href={`/?period=${data.meta.period}`}
+              class="crumb"
+              title="All documents from this Congress / election cycle"
+            >
+              {getPeriodLabel(data.meta.period, currentLang)}
+            </a>
+          {/if}
+        </nav>
       </div>
 
       <div class="meta-strip">
@@ -570,6 +585,47 @@
             <code>{data.meta.sha256 || 'verified-record'}</code>
           </p>
         </div>
+
+        {#if data.neighbors && (data.neighbors.older || data.neighbors.newer)}
+          <nav class="doc-pager" aria-label="Adjacent documents">
+            {#if data.neighbors.older}
+              <a class="pager-item older" href={`/docs/${data.neighbors.older.slug}`}>
+                <span class="pager-dir">← EARLIER DOCUMENT</span>
+                <span class="pager-title">{data.neighbors.older.title}</span>
+                <span class="pager-date">{data.neighbors.older.date}</span>
+              </a>
+            {:else}
+              <span class="pager-item empty"></span>
+            {/if}
+            {#if data.neighbors.newer}
+              <a class="pager-item newer" href={`/docs/${data.neighbors.newer.slug}`}>
+                <span class="pager-dir">LATER DOCUMENT →</span>
+                <span class="pager-title">{data.neighbors.newer.title}</span>
+                <span class="pager-date">{data.neighbors.newer.date}</span>
+              </a>
+            {/if}
+          </nav>
+        {/if}
+
+        {#if data.neighbors && (data.neighbors.periodPrevious || data.neighbors.periodNext)}
+          <nav class="period-pager" aria-label="Documents from the same Congress or election cycle">
+            <span class="period-pager-label">
+              {getPeriodLabel(data.meta.period, currentLang).toUpperCase()} — CONTINUE IN THIS SERIES
+            </span>
+            <div class="period-pager-items">
+              {#if data.neighbors.periodPrevious}
+                <a href={`/docs/${data.neighbors.periodPrevious.slug}`} class="period-pager-item">
+                  ← {data.neighbors.periodPrevious.title}
+                </a>
+              {/if}
+              {#if data.neighbors.periodNext}
+                <a href={`/docs/${data.neighbors.periodNext.slug}`} class="period-pager-item next">
+                  {data.neighbors.periodNext.title} →
+                </a>
+              {/if}
+            </div>
+          </nav>
+        {/if}
       </main>
     {:else}
       <!-- Parallel Bilingual Comparative Mode -->
@@ -687,6 +743,35 @@
 
   .nav-breadcrumbs {
     margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .crumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--color-gray-dark);
+    flex-wrap: wrap;
+  }
+
+  .crumb {
+    color: var(--color-gray-dark);
+    text-transform: uppercase;
+  }
+
+  .crumb:hover {
+    color: var(--color-red-primary);
+    text-decoration: underline;
+  }
+
+  .crumb-sep {
+    color: var(--color-gray-light);
   }
 
   .back-link {
@@ -1400,6 +1485,107 @@
     border: 1px solid var(--color-gray-light);
   }
 
+  /* Sequential document navigation */
+  .doc-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .pager-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.9rem 1rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    box-shadow: var(--shadow-hard-sm);
+    transition: all 0.1s ease;
+  }
+
+  .pager-item:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--shadow-hard-md);
+    border-color: var(--color-red-primary);
+  }
+
+  .pager-item.empty {
+    border: 1px dashed var(--color-gray-light);
+    box-shadow: none;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .pager-item.newer {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .pager-dir {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-red-primary);
+  }
+
+  .pager-title {
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-black);
+  }
+
+  .pager-date {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-gray-dark);
+  }
+
+  .period-pager {
+    margin-top: 2rem;
+    border: 1px solid var(--color-gray-light);
+    background-color: var(--color-paper);
+    padding: 1rem 1.15rem;
+  }
+
+  .period-pager-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    color: var(--color-gray-dark);
+    border-bottom: 1px solid var(--color-gray-light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .period-pager-items {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .period-pager-item {
+    font-family: var(--font-prose);
+    font-size: 0.92rem;
+    color: var(--color-red-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    flex: 1 1 240px;
+  }
+
+  .period-pager-item.next {
+    text-align: right;
+  }
+
+  .period-pager-item:hover {
+    color: var(--color-red-dark);
+  }
+
   /* Split PDF Verification Pane */
   .pdf-pane {
     position: sticky;
@@ -1472,6 +1658,16 @@
       height: 600px;
       position: static;
       margin-top: 2rem;
+    }
+
+    .doc-pager {
+      grid-template-columns: 1fr;
+    }
+
+    .pager-item.newer,
+    .period-pager-item.next {
+      text-align: left;
+      align-items: flex-start;
     }
   }
 
