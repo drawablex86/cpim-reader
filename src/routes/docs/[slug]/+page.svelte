@@ -13,6 +13,8 @@
   let readProgress = $state(0);
   let activeHeadingId = $state<string>('');
   let headings = $state<Array<{ id: string; text: string; level: number }>>([]);
+  let tocScrollerEl = $state<HTMLElement | null>(null);
+  let scrollSpy: IntersectionObserver | null = null;
 
   // Multilingual State
   let currentLang = $state<string>('en');
@@ -40,8 +42,7 @@
   function handleSelectLang(lang: string) {
     currentLang = lang;
     tick().then(() => {
-      refreshHeadings();
-      wrapProseTables();
+      refreshSectionNavigation();
     });
   }
 
@@ -58,7 +59,7 @@
       }
     }
     tick().then(() => {
-      refreshHeadings();
+      refreshSectionNavigation();
     });
   }
 
@@ -77,6 +78,48 @@
       activeHeadingId = id;
       history.pushState(null, '', `#${id}`);
     }
+  }
+
+  /**
+   * Highlights the section currently under the reading band. Design system 5.3
+   * specifies an IntersectionObserver; previously the active item only ever
+   * changed when the reader clicked a TOC link.
+   */
+  function setupScrollSpy() {
+    scrollSpy?.disconnect();
+    scrollSpy = null;
+
+    if (typeof IntersectionObserver === 'undefined' || headings.length === 0) return;
+
+    // id -> top of the heading inside the observation band
+    const inBand = new Map<string, number>();
+
+    scrollSpy = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) inBand.set(entry.target.id, entry.boundingClientRect.top);
+          else inBand.delete(entry.target.id);
+        }
+        if (inBand.size === 0) return; // mid-section: keep the last known heading
+        const nearestTop = [...inBand.entries()].sort((a, b) => a[1] - b[1])[0];
+        if (nearestTop && nearestTop[0] !== activeHeadingId) {
+          activeHeadingId = nearestTop[0];
+        }
+      },
+      { rootMargin: '-88px 0px -62% 0px', threshold: 0 }
+    );
+
+    for (const heading of headings) {
+      const el = document.getElementById(heading.id);
+      if (el) scrollSpy.observe(el);
+    }
+  }
+
+  /** Rebuild heading list, table wrappers and the scroll spy after a re-render. */
+  function refreshSectionNavigation() {
+    refreshHeadings();
+    wrapProseTables();
+    setupScrollSpy();
   }
 
   function wrapProseTables() {
@@ -153,6 +196,21 @@
     setTimeout(() => { isSyncingScroll = false; }, 50);
   }
 
+  // Keep the active TOC entry in view without scrolling the page
+  $effect(() => {
+    const id = activeHeadingId;
+    if (!id || !tocScrollerEl) return;
+    const active = tocScrollerEl.querySelector(`[data-toc-id="${id}"]`) as HTMLElement | null;
+    if (!active) return;
+
+    const box = tocScrollerEl.getBoundingClientRect();
+    const item = active.getBoundingClientRect();
+    if (item.top < box.top + 8 || item.bottom > box.bottom - 8) {
+      tocScrollerEl.scrollTop +=
+        item.top - box.top - tocScrollerEl.clientHeight / 2 + item.height / 2;
+    }
+  });
+
   onMount(() => {
     // Check if query params request a language
     const searchParams = new URLSearchParams(window.location.search);
@@ -163,11 +221,11 @@
 
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
-    refreshHeadings();
-    wrapProseTables();
+    refreshSectionNavigation();
 
     return () => {
       window.removeEventListener('scroll', updateScroll);
+      scrollSpy?.disconnect();
     };
   });
 </script>
@@ -311,7 +369,7 @@
     class:bilingual-active={isBilingualView}
   >
     <!-- Sticky Table of Contents & Related Resolutions Sidebar -->
-    <aside class="toc-sidebar" aria-label="Table of Contents and Related Documents">
+    <aside class="toc-sidebar" aria-label="Table of Contents and Related Documents" bind:this={tocScrollerEl}>
       {#if headings.length > 0}
         <div class="toc-sticky-box">
           <div class="toc-title-stamp">
@@ -321,6 +379,8 @@
             {#each headings as h}
               <a
                 href={`#${h.id}`}
+                data-toc-id={h.id}
+                aria-current={activeHeadingId === h.id ? 'location' : undefined}
                 class="toc-item level-{h.level}"
                 class:h1-item={h.level === 1}
                 class:h2-item={h.level === 2}
