@@ -111,6 +111,7 @@
 
         <nav class="nav-links">
           <a href="/" class="nav-item">CATALOG</a>
+          <a href="/browse" class="nav-item" title="Browse by topic, Congress, format and region">BROWSE</a>
           <a href="https://cpim.org/documents/" target="_blank" rel="noopener noreferrer" class="nav-item external">
             LIVE SOURCE ↗
           </a>
@@ -145,6 +146,18 @@
         </div>
       </div>
       <div class="footer-right">
+        <div class="footer-meta-block">
+          <span class="meta-label">INDEXES</span>
+          <span class="meta-val footer-index-links">
+            <a href="/browse/topics">By topic</a>
+            <span aria-hidden="true">·</span>
+            <a href="/browse/periods">By Congress</a>
+            <span aria-hidden="true">·</span>
+            <a href="/browse/formats">By format</a>
+            <span aria-hidden="true">·</span>
+            <a href="/browse/regions">By region</a>
+          </span>
+        </div>
         <div class="footer-meta-block">
           <span class="meta-label">COLLECTION</span>
           <span class="meta-val">Central Committee & Party Congress</span>
@@ -548,6 +561,23 @@
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
+    color: var(--color-red-primary);
+  }
+
+  .footer-index-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    color: var(--color-gray-dark);
+  }
+
+  .footer-index-links a {
+    color: var(--color-black);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .footer-index-links a:hover {
     color: var(--color-red-primary);
   }
 

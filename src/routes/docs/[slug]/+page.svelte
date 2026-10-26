@@ -657,12 +657,24 @@
       </div>
 
       <div class="meta-strip">
-        <span class="badge category" data-pagefind-filter="category">{data.meta.category}</span>
+        <a
+          class="badge category"
+          href={`/?cat=${encodeURIComponent(data.meta.category)}`}
+          title="All {data.meta.category} documents"
+          data-pagefind-filter="category">{data.meta.category}</a>
         {#if data.meta.doc_type}
-          <span class="badge doc-type-badge" data-pagefind-filter="type">{getDocTypeLabel(data.meta.doc_type, currentLang).toUpperCase()}</span>
+          <a
+            class="badge doc-type-badge"
+            href={`/browse/formats/${data.meta.doc_type}`}
+            title="Browse all {getDocTypeLabel(data.meta.doc_type)} documents"
+            data-pagefind-filter="type">{getDocTypeLabel(data.meta.doc_type, currentLang).toUpperCase()}</a>
         {/if}
         {#if data.meta.period}
-          <span class="badge period-badge" data-pagefind-filter="period">{getPeriodLabel(data.meta.period, currentLang).toUpperCase()}</span>
+          <a
+            class="badge period-badge"
+            href={`/browse/periods/${data.meta.period}`}
+            title="Browse this Congress / election cycle"
+            data-pagefind-filter="period">{getPeriodLabel(data.meta.period, currentLang).toUpperCase()}</a>
         {/if}
         <time class="meta-item date" datetime={data.meta.date}>{data.meta.date}</time>
         {#if data.meta.page_count}
@@ -678,11 +690,19 @@
         <div class="reader-topics-strip">
           <span class="topics-label">INDEXED TOPICS:</span>
           {#each data.meta.topics as t}
-            <span class="badge topic-badge" data-pagefind-filter="topic">#{getTopicLabel(t, currentLang)}</span>
+            <a
+              class="badge topic-badge"
+              href={`/browse/topics/${t}`}
+              title="Browse all documents on this topic"
+              data-pagefind-filter="topic">#{getTopicLabel(t, currentLang)}</a>
           {/each}
           {#if data.meta.geo && data.meta.geo.length > 0}
             {#each data.meta.geo as g}
-              <span class="badge geo-badge" data-pagefind-filter="geo">⚲ {getGeoLabel(g, currentLang).toUpperCase()}</span>
+              <a
+                class="badge geo-badge"
+                href={`/browse/regions/${g}`}
+                title="Browse all documents from this region"
+                data-pagefind-filter="geo">⚲ {getGeoLabel(g, currentLang).toUpperCase()}</a>
             {/each}
           {/if}
         </div>
@@ -1253,11 +1273,18 @@
 
   .badge {
     font-family: var(--font-mono);
+    text-decoration: none;
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.25rem 0.6rem;
     border: 1px solid var(--color-black);
     text-transform: uppercase;
+  }
+
+  .badge:hover {
+    filter: brightness(1.25);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .badge.category {
