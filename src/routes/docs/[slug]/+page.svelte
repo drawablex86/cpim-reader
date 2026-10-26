@@ -40,6 +40,7 @@
     currentLang = lang;
     tick().then(() => {
       refreshHeadings();
+      wrapProseTables();
     });
   }
 
@@ -75,6 +76,20 @@
       activeHeadingId = id;
       history.pushState(null, '', `#${id}`);
     }
+  }
+
+  function wrapProseTables() {
+    document.querySelectorAll('.markdown-prose table').forEach((table) => {
+      const parent = table.parentElement;
+      if (parent && parent.classList.contains('table-scroll')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll';
+      wrapper.setAttribute('role', 'region');
+      wrapper.setAttribute('tabindex', '0');
+      wrapper.setAttribute('aria-label', 'Data table');
+      table.parentNode?.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
   }
 
   function refreshHeadings() {
@@ -148,6 +163,7 @@
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
     refreshHeadings();
+    wrapProseTables();
 
     return () => {
       window.removeEventListener('scroll', updateScroll);
@@ -848,11 +864,17 @@
     margin: 0 0 1.5rem;
     text-align: justify;
     text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   :global(.markdown-prose strong) {
     color: var(--color-black);
     font-weight: 700;
+  }
+
+  :global(.markdown-prose em) {
+    font-style: italic;
   }
 
   :global(.markdown-prose blockquote) {
@@ -861,6 +883,169 @@
     padding: 0.75rem 1.5rem;
     background-color: var(--color-paper);
     font-style: italic;
+  }
+
+  :global(.markdown-prose blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  /* Lists — 6,970 bullet lines across the archive */
+  :global(.markdown-prose ul),
+  :global(.markdown-prose ol) {
+    margin: 0 0 1.6rem;
+    padding-left: 1.6rem;
+  }
+
+  :global(.markdown-prose ul) {
+    list-style-type: square;
+  }
+
+  :global(.markdown-prose li) {
+    margin-bottom: 0.55rem;
+    padding-left: 0.15rem;
+  }
+
+  :global(.markdown-prose li > ul),
+  :global(.markdown-prose li > ol) {
+    margin-top: 0.55rem;
+    margin-bottom: 0;
+  }
+
+  :global(.markdown-prose li > p) {
+    margin-bottom: 0.55rem;
+  }
+
+  :global(.markdown-prose ul > li::marker) {
+    color: var(--color-red-primary);
+    font-size: 0.9em;
+  }
+
+  :global(.markdown-prose ol > li::marker) {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    font-weight: 700;
+    color: var(--color-red-primary);
+  }
+
+  /* Inline links — headings are excluded (rehype-autolink wraps them in <a>) */
+  :global(.markdown-prose p a),
+  :global(.markdown-prose li a),
+  :global(.markdown-prose td a) {
+    color: var(--reader-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  :global(.markdown-prose p a:hover),
+  :global(.markdown-prose li a:hover),
+  :global(.markdown-prose td a:hover) {
+    color: var(--color-red-dark);
+    text-decoration-thickness: 2px;
+  }
+
+  :global(.markdown-prose h1 a),
+  :global(.markdown-prose h2 a),
+  :global(.markdown-prose h3 a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Inline code & preformatted blocks */
+  :global(.markdown-prose code) {
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+    background-color: var(--color-paper-dark);
+    border: 1px solid var(--color-gray-light);
+    padding: 0.1rem 0.32rem;
+  }
+
+  :global(.markdown-prose pre) {
+    background-color: var(--color-black);
+    color: var(--color-paper-light);
+    padding: 1.1rem 1.25rem;
+    overflow-x: auto;
+    margin: 0 0 1.6rem;
+    line-height: 1.55;
+    font-size: 0.85rem;
+  }
+
+  :global(.markdown-prose pre code) {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  /* Horizontal rules */
+  :global(.markdown-prose hr) {
+    border: none;
+    border-top: 2px solid var(--color-black);
+    margin: 2.75rem 0;
+  }
+
+  /* Images */
+  :global(.markdown-prose img) {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--color-gray-light);
+    background-color: #ffffff;
+  }
+
+  /* Data tables — 35 documents contain statistical tables */
+  :global(.markdown-prose .table-scroll) {
+    margin: 2rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--color-gray-dark);
+    background-color: #ffffff;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :global(.markdown-prose table) {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--font-prose);
+    font-size: 1rem;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+  }
+
+  :global(.markdown-prose thead th) {
+    background-color: var(--color-black);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-right: 1px solid #3a3a3a;
+    vertical-align: bottom;
+  }
+
+  :global(.markdown-prose tbody td) {
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--color-gray-light);
+    border-right: 1px solid var(--color-gray-light);
+    vertical-align: top;
+  }
+
+  :global(.markdown-prose tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  :global(.markdown-prose tbody tr:nth-child(even)) {
+    background-color: var(--color-paper);
+  }
+
+  :global(.markdown-prose tbody tr:hover) {
+    background-color: rgba(196, 30, 58, 0.05);
+  }
+
+  :global(.markdown-prose td:first-child),
+  :global(.markdown-prose th:first-child) {
+    font-weight: 600;
   }
 
   /* End of Document Stamp */
@@ -964,6 +1149,36 @@
       height: 600px;
       position: static;
       margin-top: 2rem;
+    }
+  }
+
+  /* Narrow screens: a justified column of ~40 characters produces river gaps.
+     Switch to ragged-right and give the prose a touch more breathing room. */
+  @media (max-width: 640px) {
+    :global(.markdown-prose p) {
+      text-align: left;
+      hyphens: none;
+      -webkit-hyphens: none;
+    }
+
+    :global(.markdown-prose) {
+      font-size: 1.08rem;
+    }
+
+    :global(.markdown-prose h1) {
+      font-size: 1.6rem;
+    }
+
+    :global(.markdown-prose h2) {
+      font-size: 1.4rem;
+    }
+
+    :global(.markdown-prose h3) {
+      font-size: 1.2rem;
+    }
+
+    :global(.markdown-prose table) {
+      font-size: 0.9rem;
     }
   }
 </style>
