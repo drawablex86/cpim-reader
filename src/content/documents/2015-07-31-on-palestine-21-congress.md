@@ -17,7 +17,7 @@ topics:
 geo:
 - palestine
 - international
-period: 21th-congress
+period: 21st-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress Samar Mukherjee Nagar Visakhapatnam, April 14-19, 2015** 

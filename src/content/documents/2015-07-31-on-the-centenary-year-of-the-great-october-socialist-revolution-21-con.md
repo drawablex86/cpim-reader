@@ -17,7 +17,7 @@ topics:
 - economy-public-sector
 geo:
 - national
-period: 21th-congress
+period: 21st-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST) 21**<sup>**st**</sup> **Congress** 

@@ -20,7 +20,7 @@ topics:
 - gender-womens-rights
 geo:
 - national
-period: 22th-congress
+period: 22nd-congress
 ---
 
 # **Political Resolution Adopted by the 22**<sup>**nd**</sup> **Congress Of the Communist Party of India (Marxist) Hyderabad, April 18-22, 2018** 

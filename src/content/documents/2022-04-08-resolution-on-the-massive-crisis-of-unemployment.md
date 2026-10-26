@@ -17,7 +17,7 @@ topics:
 geo:
 - kerala
 - national
-period: 23th-congress
+period: 23rd-congress
 ---
 
 # Communist Party of India (Marxist) 

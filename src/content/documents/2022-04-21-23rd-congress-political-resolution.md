@@ -21,7 +21,7 @@ topics:
 geo:
 - jammu-kashmir
 - national
-period: 23th-congress
+period: 23rd-congress
 ---
 
 # **Political Resolution** 

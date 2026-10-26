@@ -19,7 +19,7 @@ geo:
 - kerala
 - cuba
 - international
-period: 23th-congress
+period: 23rd-congress
 ---
 
 Communist Party of India (Marxist) 23rd Congress, E K Nayanar nagar, Kannur, Kerala April 6-10, 2022 

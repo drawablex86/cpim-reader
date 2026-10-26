@@ -19,7 +19,7 @@ topics:
 - caste-social-justice
 geo:
 - national
-period: 21th-congress
+period: 21st-congress
 ---
 
 # **COMMUNIST PARTY OF INDIA (MARXIST )** 

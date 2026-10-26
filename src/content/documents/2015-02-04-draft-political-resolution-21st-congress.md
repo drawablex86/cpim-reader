@@ -20,7 +20,7 @@ topics:
 - gender-womens-rights
 geo:
 - national
-period: 21th-congress
+period: 21st-congress
 ---
 
 <!-- Start of picture text -->

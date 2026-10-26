@@ -18,7 +18,7 @@ topics:
 geo:
 - kerala
 - national
-period: 23th-congress
+period: 23rd-congress
 ---
 
 # **WELCOME SPEECH** 

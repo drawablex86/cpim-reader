@@ -16,7 +16,7 @@ topics:
 - economy-public-sector
 geo:
 - national
-period: 23th-congress
+period: 23rd-congress
 ---
 
 Resolution Calling for Nationwide Protest Against Petrol and Diesel Price Hikes (Adopted by the 23rd Congress on April 7, 2022) 

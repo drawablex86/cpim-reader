@@ -20,7 +20,7 @@ topics:
 - gender-womens-rights
 geo:
 - national
-period: 21th-congress
+period: 21st-congress
 ---
 
 # **Political Resolution Adopted at the 21**<sup>**st**</sup> **Congress Of The Communist Party of India (Marxist) Visakhapatnam, April 14-19, 2015** 
