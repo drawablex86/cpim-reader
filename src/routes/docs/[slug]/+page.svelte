@@ -22,6 +22,13 @@
   let tocScrollerEl = $state<HTMLElement | null>(null);
   let scrollSpy: IntersectionObserver | null = null;
 
+  // Mobile section navigation (the sticky sidebar is hidden below 1024px)
+  let mobileTocOpen = $state(false);
+
+  const activeHeadingText = $derived(
+    headings.find((h) => h.id === activeHeadingId)?.text || ''
+  );
+
   // Resume-reading state
   let resumeEntry = $state<ReadingProgressEntry | null>(null);
   let resumeDismissed = $state(false);
@@ -165,6 +172,14 @@
     persistProgress();
   }
 
+  function openMobileToc() {
+    mobileTocOpen = true;
+  }
+
+  function closeMobileToc() {
+    mobileTocOpen = false;
+  }
+
   function scrollToHeading(id: string, e?: MouseEvent) {
     if (e) e.preventDefault();
     const target = document.getElementById(id);
@@ -173,6 +188,7 @@
       activeHeadingId = id;
       history.pushState(null, '', `#${id}`);
     }
+    mobileTocOpen = false;
   }
 
   /**
@@ -695,6 +711,55 @@
     {/if}
   </div>
 </article>
+
+<!-- Mobile section navigation (sidebar is hidden below 1024px) -->
+{#if headings.length > 0}
+  <button
+    type="button"
+    class="mobile-toc-trigger"
+    onclick={openMobileToc}
+    aria-expanded={mobileTocOpen}
+    aria-controls="mobile-toc-sheet"
+  >
+    <span class="trigger-icon" aria-hidden="true">☰</span>
+    <span class="trigger-label">SECTIONS</span>
+    {#if activeHeadingText}
+      <span class="trigger-current">{activeHeadingText}</span>
+    {/if}
+  </button>
+
+  {#if mobileTocOpen}
+    <div class="mobile-toc-backdrop" onclick={closeMobileToc} role="presentation"></div>
+    <div
+      class="mobile-toc-sheet"
+      id="mobile-toc-sheet"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Document sections"
+    >
+      <div class="sheet-header">
+        <span class="sheet-title">
+          {currentLang === 'ml' ? 'പ്രമേയ ഉള്ളടക്കം' : currentLang === 'hi' ? 'दस्तावेज़ की विषय-सूची' : 'DOCUMENT SECTIONS'}
+        </span>
+        <button type="button" class="sheet-close" onclick={closeMobileToc} aria-label="Close sections">
+          ✕
+        </button>
+      </div>
+      <nav class="sheet-list">
+        {#each headings as h}
+          <a
+            href={`#${h.id}`}
+            class="sheet-item level-{h.level}"
+            class:active={activeHeadingId === h.id}
+            onclick={(e) => scrollToHeading(h.id, e)}
+          >
+            {h.text}
+          </a>
+        {/each}
+      </nav>
+    </div>
+  {/if}
+{/if}
 
 <!-- Academic Citation Modal -->
 {#if showCiteDrawer}
@@ -1633,6 +1698,136 @@
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  /* Mobile section navigation */
+  .mobile-toc-trigger {
+    display: none;
+  }
+
+  .mobile-toc-backdrop {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-toc-trigger {
+      position: fixed;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      max-width: calc(100vw - 1.5rem);
+      padding: 0.6rem 0.85rem;
+      border: 2px solid var(--color-black);
+      background-color: var(--color-black);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      box-shadow: var(--shadow-hard-md);
+      cursor: pointer;
+    }
+
+    .trigger-icon {
+      color: var(--color-gold);
+      font-size: 0.9rem;
+    }
+
+    .trigger-current {
+      font-family: var(--font-prose);
+      font-size: 0.78rem;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0;
+      color: #d8d5cf;
+      max-width: 12rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mobile-toc-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 398;
+      background-color: rgba(18, 18, 18, 0.55);
+    }
+
+    .mobile-toc-sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 399;
+      max-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-paper-light);
+      border-top: 3px solid var(--color-black);
+      box-shadow: 0 -4px 0 rgba(18, 18, 18, 0.25);
+    }
+
+    .sheet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--color-black);
+      background-color: var(--color-paper);
+    }
+
+    .sheet-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--color-red-primary);
+    }
+
+    .sheet-close {
+      border: 1.5px solid var(--color-black);
+      background-color: var(--color-paper-light);
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      cursor: pointer;
+    }
+
+    .sheet-list {
+      overflow-y: auto;
+      padding: 0.5rem 0.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sheet-item {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      line-height: 1.35;
+      color: var(--color-black);
+      padding: 0.55rem 0.5rem;
+      border-bottom: 1px solid var(--color-gray-light);
+    }
+
+    .sheet-item.level-2 {
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .sheet-item.level-3 {
+      padding-left: 1.9rem;
+      font-size: 0.8rem;
+      color: var(--color-gray-dark);
+    }
+
+    .sheet-item.active {
+      color: var(--color-red-primary);
+      font-weight: 700;
+      border-left: 3px solid var(--color-red-primary);
+    }
   }
 
   /* Responsive Adjustments */
