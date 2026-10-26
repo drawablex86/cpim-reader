@@ -29,6 +29,15 @@
     headings.find((h) => h.id === activeHeadingId)?.text || ''
   );
 
+  // In-document find (the prose can exceed 58,000 words)
+  let findOpen = $state(false);
+  let findQuery = $state('');
+  let findIndex = $state(0);
+  let findMatches = $state(0);
+  let findInputEl = $state<HTMLInputElement | null>(null);
+  let findRanges: Range[] = [];
+  let findTimer: ReturnType<typeof setTimeout> | undefined;
+
   // Passage selection toolbar (deep link / quote / section citation)
   type PassageSelection = {
     text: string;
@@ -184,6 +193,119 @@
     persistProgress();
   }
 
+  function openFind() {
+    findOpen = true;
+    tick().then(() => {
+      findInputEl?.focus();
+      findInputEl?.select();
+    });
+  }
+
+  function closeFind() {
+    findOpen = false;
+    findQuery = '';
+    findIndex = 0;
+    findMatches = 0;
+    findRanges = [];
+    clearHighlights();
+  }
+
+  function clearHighlights() {
+    const highlights = (window as any).CSS?.highlights;
+    if (highlights) {
+      highlights.delete('cpim-find');
+      highlights.delete('cpim-find-current');
+    }
+  }
+
+  function collectFindRanges(needle: string) {
+    findRanges = [];
+    if (!needle) return;
+
+    const root = document.querySelector(
+      isBilingualView ? '.bilingual-workspace' : '.reading-canvas .markdown-prose'
+    ) as HTMLElement | null;
+    if (!root) return;
+
+    const lowerNeedle = needle.toLowerCase();
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || parent.closest('script, style')) return NodeFilter.FILTER_REJECT;
+        return node.nodeValue && node.nodeValue.toLowerCase().includes(lowerNeedle)
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT;
+      }
+    });
+
+    let node = walker.nextNode();
+    while (node) {
+      const text = (node.nodeValue || '').toLowerCase();
+      let position = text.indexOf(lowerNeedle);
+
+      while (position !== -1) {
+        const range = document.createRange();
+        range.setStart(node, position);
+        range.setEnd(node, position + lowerNeedle.length);
+        findRanges.push(range);
+        if (findRanges.length >= 400) return;
+        position = text.indexOf(lowerNeedle, position + lowerNeedle.length);
+      }
+
+      node = walker.nextNode();
+    }
+  }
+
+  function paintFindHighlights() {
+    const cssHighlights = (window as any).CSS?.highlights;
+    const HighlightCtor = (window as any).Highlight;
+    if (!cssHighlights || !HighlightCtor) return;
+
+    clearHighlights();
+    if (findRanges.length === 0) return;
+
+    cssHighlights.set('cpim-find', new HighlightCtor(...findRanges));
+    const current = findRanges[findIndex];
+    if (current) cssHighlights.set('cpim-find-current', new HighlightCtor(current));
+  }
+
+  function scrollToCurrentMatch() {
+    const range = findRanges[findIndex];
+    if (!range) return;
+    const rect = range.getBoundingClientRect();
+    window.scrollBy({
+      top: rect.top - window.innerHeight / 2,
+      behavior: 'smooth'
+    });
+  }
+
+  function runFind(query: string) {
+    collectFindRanges(query);
+    findIndex = 0;
+    findMatches = findRanges.length;
+    paintFindHighlights();
+    if (findRanges.length > 0) scrollToCurrentMatch();
+  }
+
+  function stepFind(direction: 1 | -1) {
+    if (findRanges.length === 0) return;
+    findIndex = (findIndex + direction + findRanges.length) % findRanges.length;
+    paintFindHighlights();
+    scrollToCurrentMatch();
+  }
+
+  // Re-run the search as the query changes
+  $effect(() => {
+    const query = findQuery.trim();
+    if (!findOpen) return;
+
+    if (findTimer) clearTimeout(findTimer);
+    findTimer = setTimeout(() => runFind(query), 140);
+    return () => {
+      if (findTimer) clearTimeout(findTimer);
+    };
+  });
+
   /** Nearest preceding heading for a node inside the prose column. */
   function findEnclosingHeading(node: Element): { headingId?: string; headingText?: string } {
     let current: Element | null = node;
@@ -206,6 +328,20 @@
     }
 
     return {};
+  }
+
+  function handleDocumentKeydown(event: KeyboardEvent) {
+    const isFindShortcut =
+      (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'f';
+    if (isFindShortcut) {
+      event.preventDefault();
+      openFind();
+      return;
+    }
+    if (event.key === 'Escape' && findOpen) {
+      event.preventDefault();
+      closeFind();
+    }
   }
 
   function handleProseSelection() {
@@ -463,6 +599,7 @@
 
     document.addEventListener('mouseup', handleProseSelection);
     document.addEventListener('keyup', handleProseSelection);
+    document.addEventListener('keydown', handleDocumentKeydown);
     window.addEventListener('scroll', dismissPassage, { passive: true });
 
     return () => {
@@ -471,6 +608,8 @@
       document.removeEventListener('visibilitychange', flushProgress);
       document.removeEventListener('mouseup', handleProseSelection);
       document.removeEventListener('keyup', handleProseSelection);
+      document.removeEventListener('keydown', handleDocumentKeydown);
+      clearHighlights();
       window.removeEventListener('scroll', dismissPassage);
       scrollSpy?.disconnect();
     };
@@ -859,6 +998,56 @@
     {/if}
   </div>
 </article>
+
+<!-- In-document find bar -->
+{#if findOpen}
+  <div class="find-bar" role="search" aria-label="Find in this document">
+    <input
+      type="search"
+      class="find-input"
+      bind:this={findInputEl}
+      bind:value={findQuery}
+      placeholder="Find in this document…"
+      aria-label="Find in this document"
+      onkeydown={(e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          stepFind(e.shiftKey ? -1 : 1);
+        }
+      }}
+    />
+    <span class="find-count" aria-live="polite">
+      {#if findQuery.trim()}
+        {findMatches === 0 ? 'NO MATCHES' : `${findIndex + 1} / ${findMatches}`}
+      {:else}
+        TYPE TO SEARCH
+      {/if}
+    </span>
+    <div class="find-actions">
+      <button
+        type="button"
+        class="find-btn"
+        onclick={() => stepFind(-1)}
+        disabled={findMatches === 0}
+        aria-label="Previous match"
+      >
+        ↑
+      </button>
+      <button
+        type="button"
+        class="find-btn"
+        onclick={() => stepFind(1)}
+        disabled={findMatches === 0}
+        aria-label="Next match"
+      >
+        ↓
+      </button>
+      <button type="button" class="find-btn close" onclick={closeFind} aria-label="Close find bar">
+        ✕
+      </button>
+    </div>
+  </div>
+{/if}
 
 <!-- Passage selection actions -->
 {#if passage}
@@ -1892,6 +2081,103 @@
     width: 100%;
     height: 100%;
     border: none;
+  }
+
+  /* In-document find */
+  .find-bar {
+    position: fixed;
+    top: 4.9rem;
+    right: 1rem;
+    z-index: 430;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    background-color: var(--color-paper-light);
+    border: var(--border-medium);
+    box-shadow: var(--shadow-hard-md);
+    max-width: calc(100vw - 2rem);
+  }
+
+  .find-input {
+    font-family: var(--font-prose);
+    font-size: 0.92rem;
+    padding: 0.35rem 0.5rem;
+    border: 1.5px solid var(--color-black);
+    background-color: #ffffff;
+    min-width: 190px;
+    outline: none;
+  }
+
+  .find-input:focus {
+    border-color: var(--color-red-primary);
+    box-shadow: 0 0 0 1px var(--color-red-primary);
+  }
+
+  .find-count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-gray-dark);
+    white-space: nowrap;
+  }
+
+  .find-actions {
+    display: flex;
+    gap: 2px;
+  }
+
+  .find-btn {
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.35rem 0.45rem;
+    border: 1.5px solid var(--color-black);
+    background-color: var(--color-paper);
+    cursor: pointer;
+    min-width: 26px;
+  }
+
+  .find-btn:hover:not(:disabled) {
+    background-color: var(--color-red-primary);
+    color: #ffffff;
+  }
+
+  .find-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .find-btn.close {
+    border-color: var(--color-black);
+    background-color: var(--color-black);
+    color: #ffffff;
+  }
+
+  /* Passage highlighting via the CSS Custom Highlight API */
+  :global(::highlight(cpim-find)) {
+    background-color: rgba(212, 160, 23, 0.45);
+    color: inherit;
+  }
+
+  :global(::highlight(cpim-find-current)) {
+    background-color: var(--color-red-primary);
+    color: #ffffff;
+  }
+
+  @media (max-width: 640px) {
+    .find-bar {
+      top: auto;
+      bottom: 4.5rem;
+      right: 0.5rem;
+      left: 0.5rem;
+    }
+
+    .find-input {
+      min-width: 0;
+      flex: 1;
+    }
   }
 
   /* Passage selection toolbar */
