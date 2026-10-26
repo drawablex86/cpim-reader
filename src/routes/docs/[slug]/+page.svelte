@@ -3,6 +3,7 @@
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
+  import ReadingControls from '$lib/components/ReadingControls.svelte';
   import { getDocTypeLabel, getTopicLabel, getGeoLabel, getPeriodLabel } from '$lib/taxonomy';
   import { documentUrl, configuredSiteOrigin } from '$lib/site';
 
@@ -19,6 +20,56 @@
   // Multilingual State
   let currentLang = $state<string>('en');
   let isBilingualView = $state(false);
+
+  // Reader presentation preferences (persisted per browser)
+  type ReaderTheme = 'paper' | 'white' | 'dim';
+  const READER_PREFS_KEY = 'cpim:reader-prefs';
+  let readerFontSize = $state(1.18);
+  let readerMeasure = $state(68);
+  let readerTheme = $state<ReaderTheme>('paper');
+  let readerPrefsLoaded = $state(false);
+
+  $effect(() => {
+    // Never write before the stored preferences have been read, otherwise the
+    // first effect flush would overwrite the saved values with defaults.
+    if (!readerPrefsLoaded) return;
+    if (typeof window === 'undefined') return;
+    const prefs = {
+      fontSize: readerFontSize,
+      measure: readerMeasure,
+      theme: readerTheme
+    };
+    try {
+      window.localStorage.setItem(READER_PREFS_KEY, JSON.stringify(prefs));
+    } catch {
+      /* storage unavailable (private mode) — preferences stay session-only */
+    }
+  });
+
+  function restoreReaderPrefs() {
+    try {
+      const raw = window.localStorage.getItem(READER_PREFS_KEY);
+      if (!raw) return;
+      const prefs = JSON.parse(raw) as Partial<{
+        fontSize: number;
+        measure: number;
+        theme: ReaderTheme;
+      }>;
+      if (typeof prefs.fontSize === 'number' && prefs.fontSize >= 0.9 && prefs.fontSize <= 1.6) {
+        readerFontSize = prefs.fontSize;
+      }
+      if (typeof prefs.measure === 'number' && [58, 68, 82].includes(prefs.measure)) {
+        readerMeasure = prefs.measure;
+      }
+      if (prefs.theme === 'paper' || prefs.theme === 'white' || prefs.theme === 'dim') {
+        readerTheme = prefs.theme;
+      }
+    } catch {
+      /* ignore malformed prefs */
+    } finally {
+      readerPrefsLoaded = true;
+    }
+  }
 
   // References for synchronized bilingual scrolling
   let masterPaneEl: HTMLElement | null = $state(null);
@@ -219,6 +270,8 @@
       currentLang = requestedLang;
     }
 
+    restoreReaderPrefs();
+
     window.addEventListener('scroll', updateScroll, { passive: true });
     updateScroll();
     refreshSectionNavigation();
@@ -359,6 +412,13 @@
         onSelectLang={handleSelectLang}
         onToggleBilingual={handleToggleBilingual}
       />
+
+      <!-- Reader presentation controls (text size, measure, page theme) -->
+      <ReadingControls
+        bind:fontSize={readerFontSize}
+        bind:measure={readerMeasure}
+        bind:theme={readerTheme}
+      />
     </div>
   </header>
 
@@ -367,6 +427,7 @@
     class="reader-workspace"
     class:split-active={showPdfSplit}
     class:bilingual-active={isBilingualView}
+    style={`--reader-font-size: ${readerFontSize}rem; --reader-measure: ${readerMeasure}ch;`}
   >
     <!-- Sticky Table of Contents & Related Resolutions Sidebar -->
     <aside class="toc-sidebar" aria-label="Table of Contents and Related Documents" bind:this={tocScrollerEl}>
@@ -404,6 +465,7 @@
       <!-- Single Column Standard Mode -->
       <main
         class="reading-canvas"
+        data-reader-theme={readerTheme}
         lang={currentLang}
         class:indic-prose-ml={currentLang === 'ml'}
         class:indic-prose-hi={currentLang === 'hi'}
@@ -431,6 +493,7 @@
         <!-- Left: English Master Text -->
         <div
           class="bilingual-pane master-pane"
+          data-reader-theme={readerTheme}
           bind:this={masterPaneEl}
           onscroll={handleMasterScroll}
         >
@@ -445,6 +508,7 @@
         <!-- Right: Indian Language Translation Text -->
         <div
           class="bilingual-pane trans-pane"
+          data-reader-theme={readerTheme}
           lang={currentLang}
           class:indic-prose-ml={currentLang === 'ml'}
           class:indic-prose-hi={currentLang === 'hi'}
@@ -890,7 +954,7 @@
   /* Editorial Markdown Prose Styles */
   :global(.markdown-prose) {
     font-family: var(--font-prose);
-    font-size: 1.18rem;
+    font-size: var(--reader-font-size, 1.18rem);
     line-height: var(--reader-line-height);
     color: var(--reader-ink);
   }
@@ -1030,8 +1094,8 @@
   }
 
   :global(.markdown-prose pre) {
-    background-color: var(--color-black);
-    color: var(--color-paper-light);
+    background-color: #121212;
+    color: #faf8f5;
     padding: 1.1rem 1.25rem;
     overflow-x: auto;
     margin: 0 0 1.6rem;
@@ -1062,12 +1126,48 @@
     background-color: #ffffff;
   }
 
+  /* Reading themes (prose surface only — the shell stays constructivist) */
+  .reading-canvas[data-reader-theme='white'],
+  .bilingual-pane[data-reader-theme='white'] {
+    background-color: #ffffff;
+  }
+
+  .reading-canvas[data-reader-theme='dim'],
+  .bilingual-pane[data-reader-theme='dim'] {
+    background-color: #16171a;
+    border: 1px solid #33343a;
+    padding: 2rem;
+  }
+
+  .reading-canvas[data-reader-theme='white'],
+  .bilingual-pane[data-reader-theme='white'] {
+    padding: 2rem;
+    border: 1px solid var(--color-gray-light);
+  }
+
+  .reading-canvas[data-reader-theme='dim'] :global(.markdown-prose),
+  .bilingual-pane[data-reader-theme='dim'] :global(.markdown-prose) {
+    --reader-ink: #e4dfd4;
+    --reader-ink-secondary: #a9a6a0;
+    --color-black: #e4dfd4;
+    --color-red-primary: #e8657c;
+    --color-red-dark: #f08ca0;
+    --color-paper: #202127;
+    --color-paper-dark: #2a2b31;
+    --color-gray-light: #3a3b41;
+    --color-gray-dark: #b3b0a8;
+  }
+
+  .reading-canvas[data-reader-theme='dim'] :global(.markdown-prose .table-scroll) {
+    --reader-table-bg: #1e1f24;
+  }
+
   /* Data tables — 35 documents contain statistical tables */
   :global(.markdown-prose .table-scroll) {
     margin: 2rem 0;
     overflow-x: auto;
     border: 1px solid var(--color-gray-dark);
-    background-color: #ffffff;
+    background-color: var(--reader-table-bg, #ffffff);
     -webkit-overflow-scrolling: touch;
   }
 
@@ -1081,7 +1181,7 @@
   }
 
   :global(.markdown-prose thead th) {
-    background-color: var(--color-black);
+    background-color: #121212;
     color: #ffffff;
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -1230,8 +1330,11 @@
       -webkit-hyphens: none;
     }
 
-    :global(.markdown-prose) {
-      font-size: 1.08rem;
+    .reading-canvas[data-reader-theme='white'],
+    .reading-canvas[data-reader-theme='dim'],
+    .bilingual-pane[data-reader-theme='white'],
+    .bilingual-pane[data-reader-theme='dim'] {
+      padding: 1.15rem;
     }
 
     :global(.markdown-prose h1) {
