@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount, tick } from 'svelte';
   import type { DocumentMeta } from '$lib/documents';
 
   let {
@@ -15,6 +16,49 @@
 
   let activeFormat = $state<'APA' | 'MLA' | 'Chicago' | 'BibTeX'>('APA');
   let copiedFormat = $state<string | null>(null);
+  let dialogEl = $state<HTMLDivElement | null>(null);
+
+  const FOCUSABLE =
+    'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      event.stopPropagation();
+      onclose?.();
+      return;
+    }
+
+    // Trap focus inside the dialog while it is open
+    if (event.key !== 'Tab' || !dialogEl) return;
+    const focusable = Array.from(dialogEl.querySelectorAll<HTMLElement>(FOCUSABLE));
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  onMount(() => {
+    // The handler used to live on the backdrop, so Escape only worked when
+    // focus was already inside the dialog.
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeydown);
+    tick().then(() => dialogEl?.focus());
+
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+      document.body.style.overflow = previousOverflow;
+      previouslyFocused?.focus?.();
+    };
+  });
 
   const parsedDate = $derived(new Date(doc.date));
   const year = $derived(isNaN(parsedDate.getFullYear()) ? '2026' : parsedDate.getFullYear());
@@ -63,15 +107,16 @@
 </script>
 
 <!-- Backdrop Overlay -->
-<div class="modal-backdrop" onclick={onclose} onkeydown={(e) => e.key === 'Escape' && onclose?.()} role="presentation">
+<div class="modal-backdrop" onclick={onclose} role="presentation">
   <div
     class="modal-dialog"
     onclick={(e) => e.stopPropagation()}
-    onkeydown={(e) => e.stopPropagation()}
     role="dialog"
     aria-modal="true"
     aria-labelledby="cite-modal-title"
+    aria-describedby="cite-modal-hint"
     tabindex="-1"
+    bind:this={dialogEl}
   >
     <div class="modal-header">
       <div class="header-stamp">ACADEMIC CITATION GENERATOR</div>
@@ -82,6 +127,9 @@
 
     <div class="modal-body">
       <h2 id="cite-modal-title" class="doc-title">{doc.title}</h2>
+      <p id="cite-modal-hint" class="modal-hint">
+        Press Escape to close. Use Tab to move between citation formats.
+      </p>
       <div class="doc-meta-strip">
         <span><strong>DATE:</strong> {doc.date}</span>
         <span><strong>CATEGORY:</strong> {doc.category}</span>
@@ -117,6 +165,7 @@
           type="button"
           class="action-btn copy-btn"
           onclick={() => copy(activeFormat)}
+          aria-live="polite"
         >
           {copiedFormat === activeFormat ? '✓ COPIED TO CLIPBOARD' : `COPY ${activeFormat} CITATION`}
         </button>
@@ -209,6 +258,13 @@
     line-height: 1.3;
   }
 
+  .modal-hint {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-gray-dark);
+  }
+
   .doc-meta-strip {
     display: flex;
     gap: 1.25rem;
@@ -222,7 +278,7 @@
   }
 
   .hash-tag {
-    color: var(--color-steel);
+    color: var(--color-gray-dark);
   }
 
   .format-tabs {
