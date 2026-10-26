@@ -7,6 +7,8 @@
   let devModalTab = $state<'sync' | 'embed' | 'translate'>('sync');
 </script>
 
+<a class="skip-link" href="#main-content">SKIP TO MAIN CONTENT</a>
+
 <div class="app-shell">
   <!-- Dev-Only Pipeline Control Ribbon (Stripped in Production Build) -->
   {#if dev}
@@ -95,7 +97,7 @@
   {/if}
 
   <!-- Main Viewport Content -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
     {@render children()}
   </main>
 
@@ -134,6 +136,32 @@
 </div>
 
 <style>
+  .skip-link {
+    position: absolute;
+    left: 0.75rem;
+    top: -100px;
+    z-index: 999;
+    padding: 0.6rem 1rem;
+    background-color: var(--color-black);
+    color: #ffffff;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--color-gold);
+    transition: top 0.12s ease;
+  }
+
+  .skip-link:focus {
+    top: 0.75rem;
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  .main-content:focus {
+    outline: none;
+  }
+
   .app-shell {
     min-height: 100vh;
     display: flex;
