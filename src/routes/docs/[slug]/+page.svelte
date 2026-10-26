@@ -3,7 +3,7 @@
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
-  import { getDocTypeLabel, getTopicLabel, getGeoLabel } from '$lib/taxonomy';
+  import { getDocTypeLabel, getTopicLabel, getGeoLabel, getPeriodLabel } from '$lib/taxonomy';
   import { documentUrl, configuredSiteOrigin } from '$lib/site';
 
   let { data } = $props();
@@ -203,7 +203,7 @@
           <span class="badge doc-type-badge" data-pagefind-filter="type">{getDocTypeLabel(data.meta.doc_type, currentLang).toUpperCase()}</span>
         {/if}
         {#if data.meta.period}
-          <span class="badge period-badge" data-pagefind-filter="period">{data.meta.period.toUpperCase()}</span>
+          <span class="badge period-badge" data-pagefind-filter="period">{getPeriodLabel(data.meta.period, currentLang).toUpperCase()}</span>
         {/if}
         <time class="meta-item date" datetime={data.meta.date}>{data.meta.date}</time>
         {#if data.meta.page_count}

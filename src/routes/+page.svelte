@@ -3,7 +3,16 @@
   import CitationModal from '$lib/components/CitationModal.svelte';
   import SemanticResultsPanel from '$lib/components/SemanticResultsPanel.svelte';
   import type { DocumentMeta } from '$lib/documents';
-  import { DOC_TYPES, TOPICS, GEOGRAPHY, getDocTypeLabel, getTopicLabel } from '$lib/taxonomy';
+  import {
+    DOC_TYPES,
+    TOPICS,
+    PERIODS,
+    GEOGRAPHY,
+    getDocTypeLabel,
+    getTopicLabel,
+    getPeriodLabel,
+    getGeoLabel
+  } from '$lib/taxonomy';
   import { documentUrl } from '$lib/site';
   import {
     semanticSearch,
@@ -17,6 +26,8 @@
   let selectedCategory = $state('All');
   let selectedDocType = $state('all');
   let selectedTopic = $state('all');
+  let selectedPeriod = $state('all');
+  let selectedGeo = $state('all');
   let searchQuery = $state('');
   let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
@@ -177,6 +188,35 @@
     return counts;
   });
 
+  // Periods (Party Congresses / election cycles) available within the current selection
+  const periodCounts = $derived.by(() => {
+    const counts: Record<string, number> = {};
+    for (const doc of data.documents as DocumentMeta[]) {
+      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
+      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
+      if (selectedTopic !== 'all' && !(doc.topics && doc.topics.includes(selectedTopic))) continue;
+      if (doc.period) counts[doc.period] = (counts[doc.period] || 0) + 1;
+    }
+    return counts;
+  });
+
+  // Regions available within the current selection
+  const geoCounts = $derived.by(() => {
+    const counts: Record<string, number> = {};
+    for (const doc of data.documents as DocumentMeta[]) {
+      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
+      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
+      if (selectedTopic !== 'all' && !(doc.topics && doc.topics.includes(selectedTopic))) continue;
+      if (selectedPeriod !== 'all' && doc.period !== selectedPeriod) continue;
+      if (doc.geo && Array.isArray(doc.geo)) {
+        for (const g of doc.geo) {
+          counts[g] = (counts[g] || 0) + 1;
+        }
+      }
+    }
+    return counts;
+  });
+
   // Filter and sort documents based on metadata + Pagefind WASM results
   const filteredDocs = $derived.by(() => {
     const q = searchQuery.toLowerCase().trim();
@@ -194,6 +234,14 @@
         const matchesTopic =
           selectedTopic === 'all' || (doc.topics && doc.topics.includes(selectedTopic));
         if (!matchesTopic) return false;
+
+        const matchesPeriod =
+          selectedPeriod === 'all' || doc.period === selectedPeriod;
+        if (!matchesPeriod) return false;
+
+        const matchesGeo =
+          selectedGeo === 'all' || (doc.geo && doc.geo.includes(selectedGeo));
+        if (!matchesGeo) return false;
 
         if (!q) return true;
 
@@ -248,6 +296,20 @@
         clear: () => (selectedTopic = 'all')
       });
     }
+    if (selectedPeriod !== 'all') {
+      chips.push({
+        key: 'period',
+        label: getPeriodLabel(selectedPeriod).toUpperCase(),
+        clear: () => (selectedPeriod = 'all')
+      });
+    }
+    if (selectedGeo !== 'all') {
+      chips.push({
+        key: 'geo',
+        label: getGeoLabel(selectedGeo).toUpperCase(),
+        clear: () => (selectedGeo = 'all')
+      });
+    }
     if (searchQuery.trim()) {
       chips.push({
         key: 'query',
@@ -263,6 +325,8 @@
     selectedCategory = 'All';
     selectedDocType = 'all';
     selectedTopic = 'all';
+    selectedPeriod = 'all';
+    selectedGeo = 'all';
     searchQuery = '';
   }
 </script>
@@ -458,6 +522,66 @@
                 onclick={() => (selectedTopic = selectedTopic === topicKey ? 'all' : topicKey)}
               >
                 #{topicObj.label} <span class="chip-count">({topicCounts[topicKey] || 0})</span>
+              </button>
+            {/if}
+          {/each}
+        </div>
+      </div>
+
+      <!-- Party Congress / Election Cycle Row -->
+      <div class="facet-row">
+        <span class="facet-label">CONGRESS:</span>
+        <div class="facet-scroll">
+          <button
+            type="button"
+            class="facet-chip"
+            class:active={selectedPeriod === 'all'}
+            aria-pressed={selectedPeriod === 'all'}
+            onclick={() => (selectedPeriod = 'all')}
+          >
+            ALL PERIODS
+          </button>
+          {#each Object.entries(PERIODS) as [periodKey, periodObj]}
+            {#if (periodCounts[periodKey] || 0) > 0}
+              <button
+                type="button"
+                class="facet-chip"
+                class:active={selectedPeriod === periodKey}
+                aria-pressed={selectedPeriod === periodKey}
+                onclick={() => (selectedPeriod = selectedPeriod === periodKey ? 'all' : periodKey)}
+                title={periodObj.description || periodObj.label}
+              >
+                {periodObj.label.toUpperCase()} <span class="chip-count">({periodCounts[periodKey] || 0})</span>
+              </button>
+            {/if}
+          {/each}
+        </div>
+      </div>
+
+      <!-- Region Row -->
+      <div class="facet-row">
+        <span class="facet-label">REGION:</span>
+        <div class="facet-scroll">
+          <button
+            type="button"
+            class="facet-chip"
+            class:active={selectedGeo === 'all'}
+            aria-pressed={selectedGeo === 'all'}
+            onclick={() => (selectedGeo = 'all')}
+          >
+            ALL REGIONS
+          </button>
+          {#each Object.entries(GEOGRAPHY) as [geoKey, geoObj]}
+            {#if (geoCounts[geoKey] || 0) > 0}
+              <button
+                type="button"
+                class="facet-chip"
+                class:active={selectedGeo === geoKey}
+                aria-pressed={selectedGeo === geoKey}
+                onclick={() => (selectedGeo = selectedGeo === geoKey ? 'all' : geoKey)}
+                title={geoObj.description || geoObj.label}
+              >
+                {geoObj.label.toUpperCase()} <span class="chip-count">({geoCounts[geoKey] || 0})</span>
               </button>
             {/if}
           {/each}

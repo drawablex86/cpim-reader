@@ -251,6 +251,106 @@ export const TOPICS: Record<string, TaxonomyItem> = {
   }
 };
 
+export const PERIODS: Record<string, TaxonomyItem> = {
+  'national-current': {
+    slug: 'national-current',
+    label: 'National — Current Period',
+    description:
+      'Central Committee statements, reports and resolutions on contemporary national developments'
+  },
+  '24th-congress': {
+    slug: '24th-congress',
+    label: '24th Party Congress (2025)',
+    description: 'Documents adopted at the 24th Congress, Madurai, April 2025',
+    translations: { ml: '24-ാം പാർട്ടി കോൺഗ്രസ്', hi: '24वाँ पार्टी कांग्रेस', bn: '২৪তম পার্টি কংগ্রেস' }
+  },
+  '23rd-congress': {
+    slug: '23rd-congress',
+    label: '23rd Party Congress (2022)',
+    description: 'Documents adopted at the 23rd Congress, Kannur, April 2022',
+    translations: { ml: '23-ാം പാർട്ടി കോൺഗ്രസ്', hi: '23वाँ पार्टी कांग्रेस', bn: '২৩তম পার্টি কংগ্রেস' }
+  },
+  '22nd-congress': {
+    slug: '22nd-congress',
+    label: '22nd Party Congress (2018)',
+    description: 'Documents adopted at the 22nd Congress, Hyderabad, April 2018',
+    translations: { ml: '22-ാം പാർട്ടി കോൺഗ്രസ്', hi: '22वाँ पार्टी कांग्रेस', bn: '২২তম পার্টি কংগ্রেস' }
+  },
+  '21st-congress': {
+    slug: '21st-congress',
+    label: '21st Party Congress (2015)',
+    description: 'Documents adopted at the 21st Congress, Visakhapatnam, April 2015',
+    translations: { ml: '21-ാം പാർട്ടി കോൺഗ്രസ്', hi: '21वाँ पार्टी कांग्रेस', bn: '২১তম পার্টি কংগ্রেস' }
+  },
+  '20th-congress': {
+    slug: '20th-congress',
+    label: '20th Party Congress (2012)',
+    description: 'Documents adopted at the 20th Congress, Kozhikode, April 2012',
+    translations: { ml: '20-ാം പാർട്ടി കോൺഗ്രസ്', hi: '20वाँ पार्टी कांग्रेस', bn: '২০তম পার্টি কংগ্রেস' }
+  },
+  '19th-congress': {
+    slug: '19th-congress',
+    label: '19th Party Congress (2008)',
+    description: 'Documents adopted at the 19th Congress, Coimbatore, March 2008',
+    translations: { ml: '19-ാം പാർട്ടി കോൺഗ്രസ്', hi: '19वाँ पार्टी कांग्रेस', bn: '১৯তম পার্টি কংগ্রেস' }
+  },
+  '18th-congress': {
+    slug: '18th-congress',
+    label: '18th Party Congress (2005)',
+    description: 'Documents adopted at the 18th Congress, New Delhi, April 2005'
+  },
+  '17th-congress': {
+    slug: '17th-congress',
+    label: '17th Party Congress (2002)',
+    description: 'Documents adopted at the 17th Congress, Hyderabad, March 2002'
+  },
+  '14th-congress': {
+    slug: '14th-congress',
+    label: '14th Party Congress (1992)',
+    description: 'Documents adopted at the 14th Congress, Madras, January 1992'
+  },
+  '2024-elections': {
+    slug: '2024-elections',
+    label: '2024 General Elections',
+    description: 'Manifesto, campaign material and review of the 18th Lok Sabha elections'
+  },
+  '2019-elections': {
+    slug: '2019-elections',
+    label: '2019 General Elections',
+    description: 'Manifesto, campaign material and review of the 17th Lok Sabha elections'
+  },
+  '2014-elections': {
+    slug: '2014-elections',
+    label: '2014 General Elections',
+    description: 'Manifesto, campaign material and review of the 16th Lok Sabha elections'
+  },
+  '2009-elections': {
+    slug: '2009-elections',
+    label: '2009 General Elections',
+    description: 'Manifesto, campaign material and review of the 15th Lok Sabha elections'
+  },
+  '2004-elections': {
+    slug: '2004-elections',
+    label: '2004 General Elections',
+    description: 'Manifesto and review of the 14th Lok Sabha elections'
+  },
+  '1999-elections': {
+    slug: '1999-elections',
+    label: '1999 General Elections',
+    description: 'Manifesto and review of the 13th Lok Sabha elections'
+  },
+  '1998-elections': {
+    slug: '1998-elections',
+    label: '1998 General Elections',
+    description: 'Manifesto and review of the 12th Lok Sabha elections'
+  },
+  '1996-elections': {
+    slug: '1996-elections',
+    label: '1996 General Elections',
+    description: 'Manifesto and review of the 11th Lok Sabha elections'
+  }
+};
+
 export const GEOGRAPHY: Record<string, TaxonomyItem> = {
   national: { slug: 'national', label: 'All-India' },
   kerala: { slug: 'kerala', label: 'Kerala', translations: { ml: 'കേരളം' } },
@@ -285,6 +385,15 @@ export function getTopicLabel(slug: string, lang = 'en'): string {
 
 export function getGeoLabel(slug: string, lang = 'en'): string {
   const item = GEOGRAPHY[slug];
+  if (!item) return slug;
+  if (lang !== 'en' && item.translations?.[lang]) {
+    return item.translations[lang];
+  }
+  return item.label;
+}
+
+export function getPeriodLabel(slug: string, lang = 'en'): string {
+  const item = PERIODS[slug];
   if (!item) return slug;
   if (lang !== 'en' && item.translations?.[lang]) {
     return item.translations[lang];
