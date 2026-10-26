@@ -4,6 +4,7 @@
   import SimilarDocuments from '$lib/components/SimilarDocuments.svelte';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import { getDocTypeLabel, getTopicLabel, getGeoLabel } from '$lib/taxonomy';
+  import { documentUrl, configuredSiteOrigin } from '$lib/site';
 
   let { data } = $props();
 
@@ -173,6 +174,14 @@
 
 <svelte:head>
   <title>{displayTitle} — CPI(M) Official Archive</title>
+  {#if configuredSiteOrigin}
+    <link rel="canonical" href={documentUrl(data.meta.slug)} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={displayTitle} />
+    <meta property="og:url" content={documentUrl(data.meta.slug)} />
+    <meta name="citation_publication_date" content={data.meta.date} />
+    <meta name="citation_title" content={displayTitle} />
+  {/if}
 </svelte:head>
 
 <!-- Sticky Top Reading Progress Bar -->
@@ -427,7 +436,7 @@
 {#if showCiteDrawer}
   <CitationModal
     doc={data.meta}
-    currentUrl={`https://cpim.org/documents/${data.meta.slug}`}
+    currentUrl={documentUrl(data.meta.slug)}
     onclose={() => (showCiteDrawer = false)}
   />
 {/if}

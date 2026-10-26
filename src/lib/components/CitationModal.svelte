@@ -27,15 +27,15 @@
   const fullTitle = $derived(sectionTitle ? `${doc.title} (Section: ${sectionTitle})` : doc.title);
 
   const citations = $derived({
-    APA: `${author}. (${year}, ${formattedDate}). ${fullTitle} [Official Party Document, ${doc.category}]. Communist Party of India (Marxist). ${currentUrl}`,
-    MLA: `${author}. "${fullTitle}." Communist Party of India (Marxist), ${formattedDate}, ${currentUrl}.`,
-    Chicago: `${author}. "${fullTitle}." Communist Party of India (Marxist). ${formattedDate}. ${currentUrl}.`,
+    APA: `${author}. (${year}, ${formattedDate}). ${fullTitle} [Official party document, ${doc.category}]. CPI(M) Documents Archive. ${currentUrl}`,
+    MLA: `${author}. "${fullTitle}." CPI(M) Documents Archive, ${formattedDate}, ${currentUrl}.`,
+    Chicago: `${author}. "${fullTitle}." CPI(M) Documents Archive. ${formattedDate}. ${currentUrl}.`,
     BibTeX: `@misc{cpim_${year}_${doc.slug.replace(/[^a-zA-Z0-9_]/g, '_')},
   author = {{${author}}},
   title = {{${fullTitle}}},
   year = {${year}},
   date = {${doc.date}},
-  note = {Official Document: ${doc.category}},
+  note = {Official document: ${doc.category}. Archived at CPI(M) Documents Archive},
   url = {${currentUrl}},
   howpublished = {\\url{${doc.source_pdf_url || currentUrl}}}
 }`

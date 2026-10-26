@@ -4,6 +4,7 @@
   import SemanticResultsPanel from '$lib/components/SemanticResultsPanel.svelte';
   import type { DocumentMeta } from '$lib/documents';
   import { DOC_TYPES, TOPICS, GEOGRAPHY, getDocTypeLabel, getTopicLabel } from '$lib/taxonomy';
+  import { documentUrl } from '$lib/site';
   import {
     semanticSearch,
     loadEmbeddingModel,
@@ -711,7 +712,7 @@
   {#if activeCiteDoc}
     <CitationModal
       doc={activeCiteDoc}
-      currentUrl={`https://cpim.org/documents/${activeCiteDoc.slug}`}
+      currentUrl={documentUrl(activeCiteDoc.slug)}
       onclose={closeCite}
     />
   {/if}
