@@ -1528,6 +1528,10 @@
     padding: 1.75rem;
     position: relative;
     transition: transform 0.12s ease, box-shadow 0.12s ease;
+    /* 235 cards mount at once; defer off-screen layout/paint. The intrinsic
+       size keeps the scrollbar stable while cards are skipped. */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 360px;
   }
 
   .doc-card:hover {
