@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, tick } from 'svelte';
+  import { tick } from 'svelte';
   import { goto } from '$app/navigation';
   import { TOPICS, getDocTypeLabel } from '$lib/taxonomy';
   import {
@@ -189,12 +189,6 @@
     };
   });
 
-  onMount(() => {
-    // Warm the metadata index so the first keystroke is instant
-    loadMetadataIndex().then((docs) => {
-      if (documents.length === 0) documents = docs;
-    });
-  });
 </script>
 
 {#if open}
