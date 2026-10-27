@@ -38,6 +38,35 @@
   let findRanges: Range[] = [];
   let findTimer: ReturnType<typeof setTimeout> | undefined;
 
+  // Facsimile source: prefer a locally cached PDF when the archive ships one
+  let pdfSrc = $state<string | null>(null);
+  let pdfIsLocal = $state(false);
+
+  async function resolvePdfSource() {
+    if (pdfSrc || typeof window === 'undefined') return;
+
+    const remote = data.meta.source_pdf_url;
+    const local = `/pdfs/${data.meta.slug}.pdf`;
+
+    try {
+      const probe = await fetch(local, { method: 'HEAD' });
+      if (probe.ok) {
+        pdfSrc = local;
+        pdfIsLocal = true;
+        return;
+      }
+    } catch {
+      /* no local cache — fall through to the publisher */
+    }
+
+    pdfSrc = remote;
+    pdfIsLocal = false;
+  }
+
+  $effect(() => {
+    if (showPdfSplit && !pdfSrc) resolvePdfSource();
+  });
+
   // Passage selection toolbar (deep link / quote / section citation)
   type PassageSelection = {
     text: string;
@@ -1095,10 +1124,15 @@
     {#if showPdfSplit && data.meta.source_pdf_url}
       <aside class="pdf-pane" aria-label="Original Source PDF Verification">
         <div class="pdf-pane-header">
-          <span class="pdf-pane-title">ORIGINAL SOURCE PDF VERIFICATION</span>
+          <span class="pdf-pane-title">
+            ORIGINAL SOURCE PDF VERIFICATION
+            {#if pdfIsLocal}
+              <span class="pdf-source-badge">LOCAL FACSIMILE</span>
+            {/if}
+          </span>
           <div class="pdf-pane-actions">
             <a
-              href={data.meta.source_pdf_url}
+              href={pdfSrc || data.meta.source_pdf_url}
               target="_blank"
               rel="noopener noreferrer"
               class="pdf-open-link"
@@ -1117,13 +1151,18 @@
           </div>
         </div>
         <iframe
-          src={data.meta.source_pdf_url}
+          src={pdfSrc || data.meta.source_pdf_url}
           title="Official Source PDF"
           class="pdf-iframe"
         ></iframe>
         <p class="pdf-pane-note">
-          Publishers sometimes block embedded viewing. If the facsimile stays blank,
-          <a href={data.meta.source_pdf_url} target="_blank" rel="noopener noreferrer">open it directly ↗</a>.
+          {#if pdfIsLocal}
+            Served from the archive's own facsimile cache — works offline.
+            <a href={pdfSrc} target="_blank" rel="noopener noreferrer">open it directly ↗</a>.
+          {:else}
+            Publishers sometimes block embedded viewing. If the facsimile stays blank,
+            <a href={data.meta.source_pdf_url} target="_blank" rel="noopener noreferrer">open it directly ↗</a>.
+          {/if}
         </p>
       </aside>
     {/if}
@@ -2501,6 +2540,16 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .pdf-source-badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.3rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    background-color: var(--color-gold);
+    color: var(--color-black);
   }
 
   .pdf-open-link {

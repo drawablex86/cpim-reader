@@ -33,6 +33,6 @@ Build a static, offline-capable, richly navigable web archive of official docume
 - **Run incremental sync with local Ollama**: `python scripts/sync.py --limit 3`
 - **Run sync with OpenRouter Nemotron fallback**: `OPENROUTER_API_KEY="sk-or-..." python scripts/sync.py --provider openrouter --limit 3`
 - **Run local semantic embedding pipeline**: `python scripts/embed.py --dim 256`
-- **Install web deps**: `npm install`
+- **Publish cached facsimiles for offline PDF verification**: `npm run pdfs` (copies `.cache/pdfs/` to gitignored `static/pdfs/`)
 - **Run dev server**: `npm run dev`
 - **Build static site + Pagefind index**: `npm run build`

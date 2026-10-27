@@ -11,7 +11,8 @@
     "sync": "python3 scripts/sync.py",
     "embed": "python3 scripts/embed.py",
     "classify": "python3 scripts/classify_documents.py",
-    "fortify": "python3 scripts/fortify_tags.py"
+    "fortify": "python3 scripts/fortify_tags.py",
+    "pdfs": "python3 scripts/publish_pdfs.py"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.2",
