@@ -168,6 +168,14 @@ npm run preview
 
 The resulting `build/` folder is 100% self-contained and ready to deploy on any static hosting provider (GitHub Pages, Cloudflare Pages, Netlify, Vercel, or an offline static server).
 
+### 4. Deploying to Vercel
+
+`vercel.json` pins the static deployment: framework preset `Other`, `npm run build` as the build command, `build/` as the output directory, and `cleanUrls` so extensionless prerendered routes such as `/docs/<slug>` and `/browse/topics/<slug>` resolve to their `.html` files.
+
+The install command sets `ONNXRUNTIME_NODE_INSTALL=skip`. `@huggingface/transformers` depends on `onnxruntime-node`, whose postinstall downloads large CUDA/TensorRT libraries from a NuGet feed; that download is frequently unreachable from CI networks and is useless here, because semantic search only runs the WebAssembly build (`onnxruntime-web`) in the browser. The Node package stays installed, just without the CUDA provider binaries.
+
+`npm run pdfs` is not part of the deploy: `static/pdfs/` is gitignored, so hosted builds contain no facsimiles and the reader falls back to the original `cpim.org` PDF URLs.
+
 ---
 
 ## Operational Pipelines & CLI Reference
