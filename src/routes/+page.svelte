@@ -30,14 +30,27 @@
   let { data } = $props();
 
   let selectedCategory = $state('All');
-  let selectedDocType = $state('all');
-  let selectedTopic = $state('all');
-  let selectedPeriod = $state('all');
-  let selectedGeo = $state('all');
+  // Facets are multi-select: the four groups combine with AND, values within a
+  // group combine with OR.
+  let selectedDocTypes = $state<string[]>([]);
+  let selectedTopics = $state<string[]>([]);
+  let selectedPeriods = $state<string[]>([]);
+  let selectedGeos = $state<string[]>([]);
   let searchQuery = $state('');
   let searchMode = $state<'all' | 'titles' | 'semantic'>('all');
   let viewMode = $state<'cards' | 'table'>('cards');
   let activeCiteDoc = $state<DocumentMeta | null>(null);
+
+  // Filter panel disclosure — every group stays collapsed until requested
+  let filtersOpen = $state(false);
+  let formatGroupOpen = $state(false);
+  let topicGroupOpen = $state(false);
+  let congressGroupOpen = $state(false);
+  let regionGroupOpen = $state(false);
+  let topicSearch = $state('');
+  let filtersButtonEl = $state<HTMLButtonElement | null>(null);
+  let filterPanelEl = $state<HTMLDivElement | null>(null);
+  let searchOptionsEl = $state<HTMLDetailsElement | null>(null);
 
   // Pagefind WASM state
   let pagefindModule: any = $state(null);
@@ -55,6 +68,35 @@
 
   const categories = ['All', 'CC Documents', 'Party Congress', 'Issues', 'Left View'];
 
+  const searchModes = [
+    { value: 'all' as const, label: 'Full text', hint: 'Search every word of every document' },
+    { value: 'titles' as const, label: 'Titles & dates', hint: 'Match titles, authors and dates only' },
+    {
+      value: 'semantic' as const,
+      label: 'Topic concepts',
+      hint: 'Find documents by meaning (loads a local model)'
+    }
+  ];
+
+  const searchModeLabel = $derived(
+    searchModes.find((mode) => mode.value === searchMode)?.label ?? 'Full text'
+  );
+
+  function chooseSearchMode(mode: 'all' | 'titles' | 'semantic') {
+    if (mode === 'semantic') activateSemanticMode();
+    else searchMode = mode;
+    if (searchOptionsEl) searchOptionsEl.open = false;
+  }
+
+  // Facet params are comma-separated so links can carry a multi-select state.
+  function parseFacetParam(raw: string | null, table: Record<string, unknown>): string[] {
+    if (!raw) return [];
+    return raw
+      .split(',')
+      .map((value) => value.trim())
+      .filter((value) => value !== '' && value !== 'all' && value in table);
+  }
+
   /**
    * The catalog is deep-linkable: every facet, the query and the layout live in
    * the query string so a filtered view can be shared, bookmarked, or reached
@@ -71,17 +113,10 @@
       selectedCategory = categories.find((c) => c.toLowerCase() === cat.toLowerCase())!;
     }
 
-    const type = params.get('type');
-    if (type && (type === 'all' || type in DOC_TYPES)) selectedDocType = type;
-
-    const topic = params.get('topic');
-    if (topic && (topic === 'all' || topic in TOPICS)) selectedTopic = topic;
-
-    const period = params.get('period');
-    if (period && (period === 'all' || period in PERIODS)) selectedPeriod = period;
-
-    const geo = params.get('geo');
-    if (geo && (geo === 'all' || geo in GEOGRAPHY)) selectedGeo = geo;
+    selectedDocTypes = parseFacetParam(params.get('type'), DOC_TYPES);
+    selectedTopics = parseFacetParam(params.get('topic'), TOPICS);
+    selectedPeriods = parseFacetParam(params.get('period'), PERIODS);
+    selectedGeos = parseFacetParam(params.get('geo'), GEOGRAPHY);
 
     const view = params.get('view');
     if (view === 'cards' || view === 'table') viewMode = view;
@@ -100,10 +135,10 @@
 
     const params = new URLSearchParams();
     if (selectedCategory !== 'All') params.set('cat', selectedCategory);
-    if (selectedDocType !== 'all') params.set('type', selectedDocType);
-    if (selectedTopic !== 'all') params.set('topic', selectedTopic);
-    if (selectedPeriod !== 'all') params.set('period', selectedPeriod);
-    if (selectedGeo !== 'all') params.set('geo', selectedGeo);
+    if (selectedDocTypes.length > 0) params.set('type', selectedDocTypes.join(','));
+    if (selectedTopics.length > 0) params.set('topic', selectedTopics.join(','));
+    if (selectedPeriods.length > 0) params.set('period', selectedPeriods.join(','));
+    if (selectedGeos.length > 0) params.set('geo', selectedGeos.join(','));
     if (viewMode !== 'cards') params.set('view', viewMode);
     if (searchMode !== 'all') params.set('mode', searchMode);
     if (searchQuery.trim()) params.set('q', searchQuery.trim());
@@ -120,10 +155,10 @@
     // Touch every filter so the effect re-runs when any of them change
     void [
       selectedCategory,
-      selectedDocType,
-      selectedTopic,
-      selectedPeriod,
-      selectedGeo,
+      selectedDocTypes,
+      selectedTopics,
+      selectedPeriods,
+      selectedGeos,
       viewMode,
       searchMode,
       searchQuery
@@ -258,59 +293,173 @@
     return () => clearTimeout(semanticTimer);
   });
 
-  // Available document types with counts based on current category
-  const docTypeCounts = $derived.by(() => {
-    const counts: Record<string, number> = {};
-    for (const doc of data.documents as DocumentMeta[]) {
-      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
-      const t = doc.doc_type || 'report';
-      counts[t] = (counts[t] || 0) + 1;
+  type FacetGroup = 'format' | 'topic' | 'period' | 'region';
+
+  function matchesCategory(doc: DocumentMeta): boolean {
+    return (
+      selectedCategory === 'All' ||
+      doc.category.toLowerCase() === selectedCategory.toLowerCase()
+    );
+  }
+
+  /**
+   * `skip` leaves one group out of the predicate so that its own counts are
+   * measured against the other active groups (the standard facet behaviour).
+   */
+  function docMatchesFilters(doc: DocumentMeta, skip?: FacetGroup): boolean {
+    if (!matchesCategory(doc)) return false;
+
+    if (skip !== 'format' && selectedDocTypes.length > 0) {
+      if (!doc.doc_type || !selectedDocTypes.includes(doc.doc_type)) return false;
     }
-    return counts;
+
+    if (skip !== 'topic' && selectedTopics.length > 0) {
+      if (!doc.topics || !selectedTopics.some((topic) => doc.topics!.includes(topic))) return false;
+    }
+
+    if (skip !== 'period' && selectedPeriods.length > 0) {
+      if (!doc.period || !selectedPeriods.includes(doc.period)) return false;
+    }
+
+    if (skip !== 'region' && selectedGeos.length > 0) {
+      if (!doc.geo || !selectedGeos.some((geo) => doc.geo!.includes(geo))) return false;
+    }
+
+    return true;
+  }
+
+  // Facet counts against the current category and the other active groups.
+  const facetCounts = $derived.by(() => {
+    const docs = data.documents as DocumentMeta[];
+
+    const docType: Record<string, number> = {};
+    for (const doc of docs.filter((doc) => docMatchesFilters(doc, 'format'))) {
+      const key = doc.doc_type || 'report';
+      docType[key] = (docType[key] || 0) + 1;
+    }
+
+    const topic: Record<string, number> = {};
+    for (const doc of docs.filter((doc) => docMatchesFilters(doc, 'topic'))) {
+      for (const key of doc.topics || []) topic[key] = (topic[key] || 0) + 1;
+    }
+
+    const period: Record<string, number> = {};
+    for (const doc of docs.filter((doc) => docMatchesFilters(doc, 'period'))) {
+      if (doc.period) period[doc.period] = (period[doc.period] || 0) + 1;
+    }
+
+    const geo: Record<string, number> = {};
+    for (const doc of docs.filter((doc) => docMatchesFilters(doc, 'region'))) {
+      for (const key of doc.geo || []) geo[key] = (geo[key] || 0) + 1;
+    }
+
+    return { docType, topic, period, geo };
   });
 
-  // Available topics with counts based on current category and doc_type
-  const topicCounts = $derived.by(() => {
-    const counts: Record<string, number> = {};
-    for (const doc of data.documents as DocumentMeta[]) {
-      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
-      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
-      if (doc.topics && Array.isArray(doc.topics)) {
-        for (const top of doc.topics) {
-          counts[top] = (counts[top] || 0) + 1;
-        }
+  function toggleValue(list: string[], value: string): string[] {
+    return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
+  }
+
+  function toggleDocType(value: string) {
+    selectedDocTypes = toggleValue(selectedDocTypes, value);
+  }
+
+  function toggleTopic(value: string) {
+    selectedTopics = toggleValue(selectedTopics, value);
+  }
+
+  function togglePeriod(value: string) {
+    selectedPeriods = toggleValue(selectedPeriods, value);
+  }
+
+  function toggleGeo(value: string) {
+    selectedGeos = toggleValue(selectedGeos, value);
+  }
+
+  // Only the option sets a request away, never the whole taxonomy.
+  const visibleDocTypes = $derived(
+    Object.entries(DOC_TYPES).filter(
+      ([key]) => (facetCounts.docType[key] || 0) > 0 || selectedDocTypes.includes(key)
+    )
+  );
+
+  const visibleTopics = $derived.by(() => {
+    const needle = topicSearch.trim().toLowerCase();
+    return Object.entries(TOPICS).filter(([key, item]) => {
+      if ((facetCounts.topic[key] || 0) === 0 && !selectedTopics.includes(key)) return false;
+      if (!needle) return true;
+      return item.label.toLowerCase().includes(needle) || key.includes(needle);
+    });
+  });
+
+  const congressGroups = $derived.by(() => {
+    const entries = Object.entries(PERIODS);
+    const groups = [
+      {
+        key: 'congress',
+        label: 'Party Congresses',
+        items: entries.filter(([key]) => key.endsWith('-congress'))
+      },
+      {
+        key: 'current',
+        label: 'National — Current Period',
+        items: entries.filter(([key]) => key === 'national-current')
+      },
+      {
+        key: 'elections',
+        label: 'General Elections',
+        items: entries.filter(([key]) => key.endsWith('-elections'))
       }
-    }
-    return counts;
+    ];
+
+    return groups
+      .map((group) => ({
+        ...group,
+        items: group.items.filter(
+          ([key]) => (facetCounts.period[key] || 0) > 0 || selectedPeriods.includes(key)
+        )
+      }))
+      .filter((group) => group.items.length > 0);
   });
 
-  // Periods (Party Congresses / election cycles) available within the current selection
-  const periodCounts = $derived.by(() => {
-    const counts: Record<string, number> = {};
-    for (const doc of data.documents as DocumentMeta[]) {
-      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
-      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
-      if (selectedTopic !== 'all' && !(doc.topics && doc.topics.includes(selectedTopic))) continue;
-      if (doc.period) counts[doc.period] = (counts[doc.period] || 0) + 1;
-    }
-    return counts;
-  });
+  const visibleGeos = $derived(
+    Object.entries(GEOGRAPHY).filter(
+      ([key]) => (facetCounts.geo[key] || 0) > 0 || selectedGeos.includes(key)
+    )
+  );
 
-  // Regions available within the current selection
-  const geoCounts = $derived.by(() => {
-    const counts: Record<string, number> = {};
-    for (const doc of data.documents as DocumentMeta[]) {
-      if (selectedCategory !== 'All' && doc.category.toLowerCase() !== selectedCategory.toLowerCase()) continue;
-      if (selectedDocType !== 'all' && doc.doc_type !== selectedDocType) continue;
-      if (selectedTopic !== 'all' && !(doc.topics && doc.topics.includes(selectedTopic))) continue;
-      if (selectedPeriod !== 'all' && doc.period !== selectedPeriod) continue;
-      if (doc.geo && Array.isArray(doc.geo)) {
-        for (const g of doc.geo) {
-          counts[g] = (counts[g] || 0) + 1;
-        }
-      }
+  function toggleFiltersPanel() {
+    if (filtersOpen) closeFiltersPanel(false);
+    else filtersOpen = true;
+  }
+
+  function closeFiltersPanel(restoreFocus = true) {
+    if (!filtersOpen) return;
+    filtersOpen = false;
+    if (restoreFocus) filtersButtonEl?.focus();
+  }
+
+  function handleGlobalKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && filtersOpen) {
+      event.stopPropagation();
+      closeFiltersPanel();
     }
-    return counts;
+  }
+
+  // Dismiss the panel on an outside click (desktop); the mobile backdrop covers
+  // the same job for touch.
+  $effect(() => {
+    if (!filtersOpen || typeof document === 'undefined') return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (filterPanelEl?.contains(target) || filtersButtonEl?.contains(target)) return;
+      filtersOpen = false;
+    };
+
+    document.addEventListener('mousedown', onPointerDown);
+    return () => document.removeEventListener('mousedown', onPointerDown);
   });
 
   // Filter and sort documents based on metadata + Pagefind WASM results
@@ -319,25 +468,7 @@
 
     return (data.documents as DocumentMeta[])
       .filter((doc: DocumentMeta) => {
-        const matchesCategory =
-          selectedCategory === 'All' || doc.category.toLowerCase() === selectedCategory.toLowerCase();
-        if (!matchesCategory) return false;
-
-        const matchesDocType =
-          selectedDocType === 'all' || doc.doc_type === selectedDocType;
-        if (!matchesDocType) return false;
-
-        const matchesTopic =
-          selectedTopic === 'all' || (doc.topics && doc.topics.includes(selectedTopic));
-        if (!matchesTopic) return false;
-
-        const matchesPeriod =
-          selectedPeriod === 'all' || doc.period === selectedPeriod;
-        if (!matchesPeriod) return false;
-
-        const matchesGeo =
-          selectedGeo === 'all' || (doc.geo && doc.geo.includes(selectedGeo));
-        if (!matchesGeo) return false;
+        if (!docMatchesFilters(doc)) return false;
 
         if (!q) return true;
 
@@ -366,70 +497,81 @@
     activeCiteDoc = null;
   }
 
-  // Every active constraint, surfaced as a removable chip so the user can see
-  // *why* a result set is narrow.
-  const activeFilters = $derived.by(() => {
-    const chips: Array<{ key: string; label: string; clear: () => void }> = [];
+  interface FilterChip {
+    id: string;
+    facet: FacetGroup;
+    value: string;
+    label: string;
+  }
 
-    if (selectedCategory !== 'All') {
+  // One chip per selected value, so a filter can be removed individually.
+  const activeFilterChips = $derived.by(() => {
+    const chips: FilterChip[] = [];
+
+    for (const value of selectedDocTypes) {
       chips.push({
-        key: 'category',
-        label: selectedCategory.toUpperCase(),
-        clear: () => (selectedCategory = 'All')
+        id: `format:${value}`,
+        facet: 'format',
+        value,
+        label: getDocTypeLabel(value).toUpperCase()
       });
     }
-    if (selectedDocType !== 'all') {
+    for (const value of selectedTopics) {
+      chips.push({ id: `topic:${value}`, facet: 'topic', value, label: `#${getTopicLabel(value)}` });
+    }
+    for (const value of selectedPeriods) {
       chips.push({
-        key: 'docType',
-        label: getDocTypeLabel(selectedDocType).toUpperCase(),
-        clear: () => (selectedDocType = 'all')
+        id: `period:${value}`,
+        facet: 'period',
+        value,
+        label: getPeriodLabel(value).toUpperCase()
       });
     }
-    if (selectedTopic !== 'all') {
+    for (const value of selectedGeos) {
       chips.push({
-        key: 'topic',
-        label: `#${getTopicLabel(selectedTopic)}`,
-        clear: () => (selectedTopic = 'all')
-      });
-    }
-    if (selectedPeriod !== 'all') {
-      chips.push({
-        key: 'period',
-        label: getPeriodLabel(selectedPeriod).toUpperCase(),
-        clear: () => (selectedPeriod = 'all')
-      });
-    }
-    if (selectedGeo !== 'all') {
-      chips.push({
-        key: 'geo',
-        label: getGeoLabel(selectedGeo).toUpperCase(),
-        clear: () => (selectedGeo = 'all')
-      });
-    }
-    if (searchQuery.trim()) {
-      chips.push({
-        key: 'query',
-        label: `"${searchQuery.trim()}"`,
-        clear: () => (searchQuery = '')
+        id: `region:${value}`,
+        facet: 'region',
+        value,
+        label: getGeoLabel(value).toUpperCase()
       });
     }
 
     return chips;
   });
 
-  function resetAllFilters() {
+  function removeFilterChip(chip: FilterChip) {
+    if (chip.facet === 'format') {
+      selectedDocTypes = selectedDocTypes.filter((value) => value !== chip.value);
+    } else if (chip.facet === 'topic') {
+      selectedTopics = selectedTopics.filter((value) => value !== chip.value);
+    } else if (chip.facet === 'period') {
+      selectedPeriods = selectedPeriods.filter((value) => value !== chip.value);
+    } else {
+      selectedGeos = selectedGeos.filter((value) => value !== chip.value);
+    }
+  }
+
+  // Clear all resets the filters only; category and query are the user's
+  // navigation and search context, not filters.
+  function clearFilters() {
+    selectedDocTypes = [];
+    selectedTopics = [];
+    selectedPeriods = [];
+    selectedGeos = [];
+  }
+
+  function resetSearchAndFilters() {
     selectedCategory = 'All';
-    selectedDocType = 'all';
-    selectedTopic = 'all';
-    selectedPeriod = 'all';
-    selectedGeo = 'all';
     searchQuery = '';
+    clearFilters();
   }
 </script>
 
 <svelte:head>
   <title>CPI(M) Documents Archive // Research Catalog</title>
 </svelte:head>
+
+<svelte:window onkeydown={handleGlobalKeydown} />
 
 <div class="archive-explorer">
   <!-- Constructivist Hero Banner -->
@@ -486,247 +628,98 @@
     </section>
   {/if}
 
-  <!-- Filter & Controls Toolbar -->
-  <section class="controls-toolbar">
-    <div class="toolbar-inner">
-      <!-- Category Tabs & Language Toggle -->
-      <div class="category-tabs" role="group" aria-label="Document Category Filter">
-        {#each categories as cat}
+  <!-- Catalog controls: navigation, search, then results -->
+  <section class="catalog-controls" aria-label="Catalog controls">
+    <!-- Archive navigation -->
+    <nav class="archive-nav" aria-label="Document category">
+      {#each categories as cat}
+        <button
+          type="button"
+          class="cat-tab"
+          class:active={selectedCategory === cat}
+          aria-pressed={selectedCategory === cat}
+          onclick={() => (selectedCategory = cat)}
+        >
+          {cat.toUpperCase()}
+        </button>
+      {/each}
+    </nav>
+
+    <!-- Search -->
+    <div class="search-row">
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">{searchMode === 'semantic' ? '⬡' : '⌕'}</span>
+        <input
+          type="search"
+          bind:value={searchQuery}
+          placeholder={searchMode === 'semantic'
+            ? 'Search by concept: e.g. agrarian crisis, secularism, labour rights...'
+            : searchMode === 'all'
+              ? 'Search across titles, resolutions & full document text...'
+              : 'Search by title, author, or year...'}
+          class="search-input"
+          aria-label="Search documents"
+        />
+        {#if isWasmSearching || isSemanticSearching}
+          <span class="search-spinner" title="Searching index...">●</span>
+        {/if}
+        {#if searchQuery}
           <button
             type="button"
-            aria-pressed={selectedCategory === cat}
-            class="cat-tab"
-            class:active={selectedCategory === cat}
-            onclick={() => (selectedCategory = cat)}
+            class="clear-btn"
+            onclick={() => (searchQuery = '')}
+            aria-label="Clear search"
           >
-            {cat.toUpperCase()}
+            ✕
           </button>
-        {/each}
+        {/if}
       </div>
 
-      <!-- Search Field & View Switcher -->
-      <div class="search-and-views">
-        <div class="search-box">
-          <span class="search-icon" aria-hidden="true">{searchMode === 'semantic' ? '⬡' : '⌕'}</span>
-          <input
-            type="search"
-            bind:value={searchQuery}
-            placeholder={searchMode === 'semantic' ? "Search by concept: e.g. agrarian crisis, secularism, labour rights..." : searchMode === 'all' ? "Search across titles, resolutions & full document text..." : "Search by title, author, or year..."}
-            class="search-input"
-            aria-label="Search documents"
-          />
-          {#if isWasmSearching || isSemanticSearching}
-            <span class="search-spinner" title="Searching index...">●</span>
+      <!-- Secondary search modes stay one click away -->
+      <details class="search-options" bind:this={searchOptionsEl}>
+        <summary class="search-options-trigger">
+          <span class="search-options-label">SCOPE: {searchModeLabel}</span>
+          <span class="search-options-caret" aria-hidden="true">▾</span>
+        </summary>
+        <div class="search-options-menu">
+          <p class="search-options-heading">SEARCH SCOPE</p>
+          {#each searchModes as mode}
+            <button
+              type="button"
+              class="search-option"
+              class:active={searchMode === mode.value}
+              aria-pressed={searchMode === mode.value}
+              onclick={() => chooseSearchMode(mode.value)}
+            >
+              <span class="search-option-name">{mode.label}</span>
+              <span class="search-option-hint">{mode.hint}</span>
+            </button>
+          {/each}
+        </div>
+      </details>
+    </div>
+
+    <!-- Results toolbar -->
+    <div class="results-toolbar">
+      <div class="toolbar-left">
+        <button
+          type="button"
+          class="filters-toggle"
+          class:active={filtersOpen}
+          aria-expanded={filtersOpen}
+          aria-controls="filter-panel"
+          aria-label={activeFilterChips.length > 0
+            ? `Filters, ${activeFilterChips.length} active`
+            : 'Filters'}
+          bind:this={filtersButtonEl}
+          onclick={toggleFiltersPanel}
+        >
+          FILTERS
+          {#if activeFilterChips.length > 0}
+            <span class="filters-count" aria-hidden="true">{activeFilterChips.length}</span>
           {/if}
-          {#if searchQuery}
-            <button
-              type="button"
-              class="clear-btn"
-              onclick={() => (searchQuery = '')}
-              aria-label="Clear search"
-            >
-              ✕
-            </button>
-          {/if}
+        </button>
 
-          <!-- Integrated Search Scope Toggle (Inside Unified Search Box) -->
-          <div class="search-mode-pill" role="group" aria-label="Search scope">
-            <button
-              type="button"
-              class="mode-toggle-btn"
-              class:active={searchMode === 'all'}
-              aria-pressed={searchMode === 'all'}
-              onclick={() => (searchMode = 'all')}
-              title="Search entire unabridged document text"
-            >
-              ★ FULL TEXT
-            </button>
-            <button
-              type="button"
-              class="mode-toggle-btn"
-              class:active={searchMode === 'titles'}
-              aria-pressed={searchMode === 'titles'}
-              onclick={() => (searchMode = 'titles')}
-              title="Filter by document titles, authors, and dates"
-            >
-              TITLES & DATES
-            </button>
-            <button
-              type="button"
-              class="mode-toggle-btn semantic-toggle"
-              class:active={searchMode === 'semantic'}
-              aria-pressed={searchMode === 'semantic'}
-              onclick={activateSemanticMode}
-              title="Semantic topic search: find documents by concept and meaning"
-            >
-              ⬡ TOPIC CONCEPTS
-            </button>
-          </div>
-        </div>
-
-        <div class="view-toggles" role="group" aria-label="Catalog Layout View">
-          <button
-            type="button"
-            class="view-btn"
-            class:active={viewMode === 'cards'}
-            onclick={() => (viewMode = 'cards')}
-            title="Card Grid View"
-          >
-            CARDS
-          </button>
-          <button
-            type="button"
-            class="view-btn"
-            class:active={viewMode === 'table'}
-            onclick={() => (viewMode = 'table')}
-            title="Archival Ledger Table View"
-          >
-            TABLE
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Faceted Discovery Strip (Document Types & Topic Badges) -->
-    <div class="facet-strip-container">
-      <!-- Doc Types Row -->
-      <div class="facet-row">
-        <span class="facet-label">FORMAT:</span>
-        <div class="facet-scroll">
-          <button
-            type="button"
-            class="facet-chip"
-            class:active={selectedDocType === 'all'}
-            aria-pressed={selectedDocType === 'all'}
-            onclick={() => (selectedDocType = 'all')}
-          >
-            ALL FORMATS ({data.documents.length})
-          </button>
-          {#each Object.entries(DOC_TYPES) as [typeKey, typeObj]}
-            {#if (docTypeCounts[typeKey] || 0) > 0}
-              <button
-                type="button"
-                class="facet-chip"
-                class:active={selectedDocType === typeKey}
-                aria-pressed={selectedDocType === typeKey}
-                onclick={() => (selectedDocType = selectedDocType === typeKey ? 'all' : typeKey)}
-              >
-                {typeObj.label.toUpperCase()} <span class="chip-count">({docTypeCounts[typeKey] || 0})</span>
-              </button>
-            {/if}
-          {/each}
-        </div>
-      </div>
-
-      <!-- Topics Row -->
-      <div class="facet-row">
-        <span class="facet-label">TOPIC:</span>
-        <div class="facet-scroll">
-          <button
-            type="button"
-            class="facet-chip topic-chip"
-            class:active={selectedTopic === 'all'}
-            aria-pressed={selectedTopic === 'all'}
-            onclick={() => (selectedTopic = 'all')}
-          >
-            ALL TOPICS
-          </button>
-          {#each Object.entries(TOPICS) as [topicKey, topicObj]}
-            {#if (topicCounts[topicKey] || 0) > 0}
-              <button
-                type="button"
-                class="facet-chip topic-chip"
-                class:active={selectedTopic === topicKey}
-                aria-pressed={selectedTopic === topicKey}
-                onclick={() => (selectedTopic = selectedTopic === topicKey ? 'all' : topicKey)}
-              >
-                #{topicObj.label} <span class="chip-count">({topicCounts[topicKey] || 0})</span>
-              </button>
-            {/if}
-          {/each}
-        </div>
-      </div>
-
-      <!-- Party Congress / Election Cycle Row -->
-      <div class="facet-row">
-        <span class="facet-label">CONGRESS:</span>
-        <div class="facet-scroll">
-          <button
-            type="button"
-            class="facet-chip"
-            class:active={selectedPeriod === 'all'}
-            aria-pressed={selectedPeriod === 'all'}
-            onclick={() => (selectedPeriod = 'all')}
-          >
-            ALL PERIODS
-          </button>
-          {#each Object.entries(PERIODS) as [periodKey, periodObj]}
-            {#if (periodCounts[periodKey] || 0) > 0}
-              <button
-                type="button"
-                class="facet-chip"
-                class:active={selectedPeriod === periodKey}
-                aria-pressed={selectedPeriod === periodKey}
-                onclick={() => (selectedPeriod = selectedPeriod === periodKey ? 'all' : periodKey)}
-                title={periodObj.description || periodObj.label}
-              >
-                {periodObj.label.toUpperCase()} <span class="chip-count">({periodCounts[periodKey] || 0})</span>
-              </button>
-            {/if}
-          {/each}
-        </div>
-      </div>
-
-      <!-- Region Row -->
-      <div class="facet-row">
-        <span class="facet-label">REGION:</span>
-        <div class="facet-scroll">
-          <button
-            type="button"
-            class="facet-chip"
-            class:active={selectedGeo === 'all'}
-            aria-pressed={selectedGeo === 'all'}
-            onclick={() => (selectedGeo = 'all')}
-          >
-            ALL REGIONS
-          </button>
-          {#each Object.entries(GEOGRAPHY) as [geoKey, geoObj]}
-            {#if (geoCounts[geoKey] || 0) > 0}
-              <button
-                type="button"
-                class="facet-chip"
-                class:active={selectedGeo === geoKey}
-                aria-pressed={selectedGeo === geoKey}
-                onclick={() => (selectedGeo = selectedGeo === geoKey ? 'all' : geoKey)}
-                title={geoObj.description || geoObj.label}
-              >
-                {geoObj.label.toUpperCase()} <span class="chip-count">({geoCounts[geoKey] || 0})</span>
-              </button>
-            {/if}
-          {/each}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Model Loading Banner (Semantic Search Initialization) -->
-  {#if searchMode === 'semantic' && (semanticStatus === 'downloading' || semanticStatus === 'initializing')}
-    <div class="model-loading-strip">
-      <div class="loading-info">
-        <span class="loading-stamp">⬡ TOPIC SEARCH ENGINE // PREPARING IN-BROWSER MODEL</span>
-        <span class="loading-pct">{semanticProgress}%</span>
-      </div>
-      <div class="loading-track">
-        <div class="loading-fill" style={`width: ${Math.max(6, semanticProgress)}%`}></div>
-      </div>
-      <div class="loading-hint">Initializing topic similarity model. Runs locally in your browser for private, offline search.</div>
-    </div>
-  {/if}
-
-  <!-- Results Count Strip -->
-  <div class="results-meta-bar">
-    <div class="results-inner">
-      <div class="results-left">
         <span class="results-count" aria-live="polite">
           {#if searchMode === 'semantic' && searchQuery.trim()}
             CONCEPT MATCHES // <strong>{semanticResults.length}</strong> DOCUMENTS
@@ -734,6 +727,7 @@
             SHOWING <strong>{filteredDocs.length}</strong> OF <strong>{data.documents.length}</strong> DOCUMENTS
           {/if}
         </span>
+
         {#if searchQuery && searchMode === 'all'}
           <span class="wasm-status-badge">
             {#if isWasmSearching}
@@ -759,27 +753,238 @@
         {/if}
       </div>
 
-      {#if activeFilters.length > 0}
-        <div class="active-filters" aria-label="Active filters">
-          {#each activeFilters as filter (filter.key)}
-            <button
-              type="button"
-              class="active-filter-chip"
-              onclick={filter.clear}
-              aria-label={`Remove filter: ${filter.label}`}
-              title={`Remove filter: ${filter.label}`}
-            >
-              <span class="chip-text">{filter.label}</span>
-              <span class="chip-x" aria-hidden="true">✕</span>
-            </button>
-          {/each}
-          <button type="button" class="reset-filters" onclick={resetAllFilters}>
-            RESET ALL
+      <div class="view-toggles" role="group" aria-label="Catalog layout">
+        <button
+          type="button"
+          class="view-btn"
+          class:active={viewMode === 'cards'}
+          aria-pressed={viewMode === 'cards'}
+          onclick={() => (viewMode = 'cards')}
+          title="Card grid view"
+        >
+          CARDS
+        </button>
+        <button
+          type="button"
+          class="view-btn"
+          class:active={viewMode === 'table'}
+          aria-pressed={viewMode === 'table'}
+          onclick={() => (viewMode = 'table')}
+          title="Archival ledger table view"
+        >
+          TABLE
+        </button>
+      </div>
+    </div>
+
+    <!-- Active filters -->
+    {#if activeFilterChips.length > 0}
+      <div class="active-filters" aria-label="Active filters">
+        {#each activeFilterChips as chip (chip.id)}
+          <button
+            type="button"
+            class="active-filter-chip"
+            onclick={() => removeFilterChip(chip)}
+            aria-label={`Remove filter: ${chip.label}`}
+            title={`Remove filter: ${chip.label}`}
+          >
+            <span class="chip-text">{chip.label}</span>
+            <span class="chip-x" aria-hidden="true">✕</span>
+          </button>
+        {/each}
+        <button type="button" class="reset-filters" onclick={clearFilters}>CLEAR ALL</button>
+      </div>
+    {/if}
+
+    <!-- Filter panel, opened on request -->
+    {#if filtersOpen}
+      <div
+        class="filter-backdrop"
+        role="presentation"
+        onclick={() => closeFiltersPanel(false)}
+      ></div>
+      <div
+        class="filter-panel"
+        id="filter-panel"
+        role="region"
+        aria-label="Filter documents"
+        bind:this={filterPanelEl}
+      >
+        <div class="filter-panel-head">
+          <span class="filter-panel-title">FILTER DOCUMENTS</span>
+          <button
+            type="button"
+            class="filter-panel-close"
+            onclick={() => closeFiltersPanel()}
+            aria-label="Close filters"
+          >
+            ✕
           </button>
         </div>
-      {/if}
+
+        <div class="filter-panel-body">
+          <details class="filter-group" bind:open={formatGroupOpen}>
+            <summary class="filter-group-summary">
+              <span class="filter-group-name">FORMAT</span>
+              {#if selectedDocTypes.length > 0}
+                <span class="filter-group-active">{selectedDocTypes.length}</span>
+              {/if}
+              <span class="filter-group-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="filter-options">
+              {#each visibleDocTypes as [key, item] (key)}
+                <button
+                  type="button"
+                  class="filter-option"
+                  class:selected={selectedDocTypes.includes(key)}
+                  aria-pressed={selectedDocTypes.includes(key)}
+                  onclick={() => toggleDocType(key)}
+                  title={item.description || item.label}
+                >
+                  <span class="filter-option-label">{item.label}</span>
+                  <span class="filter-option-count">{facetCounts.docType[key] || 0}</span>
+                </button>
+              {:else}
+                <p class="filter-empty">No formats in this category.</p>
+              {/each}
+            </div>
+          </details>
+
+          <details class="filter-group" bind:open={topicGroupOpen}>
+            <summary class="filter-group-summary">
+              <span class="filter-group-name">TOPIC</span>
+              {#if selectedTopics.length > 0}
+                <span class="filter-group-active">{selectedTopics.length}</span>
+              {/if}
+              <span class="filter-group-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="filter-options">
+              <input
+                type="search"
+                class="topic-search"
+                bind:value={topicSearch}
+                placeholder="Find a topic…"
+                aria-label="Find a topic"
+              />
+              {#each visibleTopics as [key, item] (key)}
+                <button
+                  type="button"
+                  class="filter-option"
+                  class:selected={selectedTopics.includes(key)}
+                  aria-pressed={selectedTopics.includes(key)}
+                  onclick={() => toggleTopic(key)}
+                  title={item.description || item.label}
+                >
+                  <span class="filter-option-label">#{item.label}</span>
+                  <span class="filter-option-count">{facetCounts.topic[key] || 0}</span>
+                </button>
+              {:else}
+                <p class="filter-empty">
+                  {topicSearch.trim()
+                    ? `No topics match “${topicSearch.trim()}”.`
+                    : 'No topics in this selection.'}
+                </p>
+              {/each}
+            </div>
+          </details>
+
+          <details class="filter-group" bind:open={congressGroupOpen}>
+            <summary class="filter-group-summary">
+              <span class="filter-group-name">CONGRESS &amp; ELECTIONS</span>
+              {#if selectedPeriods.length > 0}
+                <span class="filter-group-active">{selectedPeriods.length}</span>
+              {/if}
+              <span class="filter-group-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="filter-options">
+              {#each congressGroups as group (group.key)}
+                <div class="filter-subgroup">
+                  <p class="filter-subgroup-label">{group.label}</p>
+                  <div class="filter-subgroup-options">
+                    {#each group.items as [key, item] (key)}
+                      <button
+                        type="button"
+                        class="filter-option"
+                        class:selected={selectedPeriods.includes(key)}
+                        aria-pressed={selectedPeriods.includes(key)}
+                        onclick={() => togglePeriod(key)}
+                        title={item.description || item.label}
+                      >
+                        <span class="filter-option-label">{item.label}</span>
+                        <span class="filter-option-count">{facetCounts.period[key] || 0}</span>
+                      </button>
+                    {/each}
+                  </div>
+                </div>
+              {:else}
+                <p class="filter-empty">No Congress or election documents in this selection.</p>
+              {/each}
+            </div>
+          </details>
+
+          <details class="filter-group" bind:open={regionGroupOpen}>
+            <summary class="filter-group-summary">
+              <span class="filter-group-name">REGION</span>
+              {#if selectedGeos.length > 0}
+                <span class="filter-group-active">{selectedGeos.length}</span>
+              {/if}
+              <span class="filter-group-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="filter-options">
+              {#each visibleGeos as [key, item] (key)}
+                <button
+                  type="button"
+                  class="filter-option"
+                  class:selected={selectedGeos.includes(key)}
+                  aria-pressed={selectedGeos.includes(key)}
+                  onclick={() => toggleGeo(key)}
+                  title={item.description || item.label}
+                >
+                  <span class="filter-option-label">{item.label}</span>
+                  <span class="filter-option-count">{facetCounts.geo[key] || 0}</span>
+                </button>
+              {:else}
+                <p class="filter-empty">No regions in this selection.</p>
+              {/each}
+            </div>
+          </details>
+        </div>
+
+        <div class="filter-panel-foot">
+          <span class="filter-result-count">
+            {filteredDocs.length} OF {data.documents.length} DOCUMENTS
+          </span>
+          <div class="filter-panel-actions">
+            <button
+              type="button"
+              class="panel-clear"
+              onclick={clearFilters}
+              disabled={activeFilterChips.length === 0}
+            >
+              CLEAR ALL
+            </button>
+            <button type="button" class="panel-apply" onclick={() => closeFiltersPanel()}>
+              SHOW {filteredDocs.length} RESULTS
+            </button>
+          </div>
+        </div>
+      </div>
+    {/if}
+  </section>
+
+  <!-- Model Loading Banner (Semantic Search Initialization) -->
+  {#if searchMode === 'semantic' && (semanticStatus === 'downloading' || semanticStatus === 'initializing')}
+    <div class="model-loading-strip">
+      <div class="loading-info">
+        <span class="loading-stamp">⬡ TOPIC SEARCH ENGINE // PREPARING IN-BROWSER MODEL</span>
+        <span class="loading-pct">{semanticProgress}%</span>
+      </div>
+      <div class="loading-track">
+        <div class="loading-fill" style={`width: ${Math.max(6, semanticProgress)}%`}></div>
+      </div>
+      <div class="loading-hint">Initializing topic similarity model. Runs locally in your browser for private, offline search.</div>
     </div>
-  </div>
+  {/if}
 
   <!-- Document Explorer Results -->
   <div class="catalog-viewport">
@@ -795,8 +1000,11 @@
       <div class="empty-state">
         <div class="empty-box">
           <h3>NO DOCUMENTS FOUND</h3>
-          <p>No resolutions match category <strong>{selectedCategory}</strong> and query "<em>{searchQuery}</em>".</p>
-          <button type="button" class="btn-reset" onclick={resetAllFilters}>
+          <p>
+            Nothing in <strong>{selectedCategory}</strong> matches the current
+            {searchQuery.trim() ? 'query and ' : ''}filters.
+          </p>
+          <button type="button" class="btn-reset" onclick={resetSearchAndFilters}>
             SHOW ALL DOCUMENTS
           </button>
         </div>
@@ -827,11 +1035,13 @@
                   <button
                     type="button"
                     class="topic-tag"
+                    class:selected={selectedTopics.includes(t)}
+                    aria-pressed={selectedTopics.includes(t)}
                     onclick={(e) => {
                       e.preventDefault();
-                      selectedTopic = t;
+                      toggleTopic(t);
                     }}
-                    title={`Filter by topic: ${getTopicLabel(t)}`}
+                    title={`${selectedTopics.includes(t) ? 'Remove' : 'Add'} topic filter: ${getTopicLabel(t)}`}
                   >
                     #{getTopicLabel(t)}
                   </button>
@@ -983,8 +1193,8 @@
     background-color: var(--color-black);
     color: var(--color-paper-light);
     border: var(--border-heavy);
-    margin: 2rem 0;
-    padding: 2.5rem 2rem 2rem;
+    margin: 1.25rem 0;
+    padding: 1.6rem 1.5rem 1.35rem;
     position: relative;
     box-shadow: var(--shadow-hard-md);
   }
@@ -999,34 +1209,34 @@
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-size: clamp(1.75rem, 4.2vw, 2.6rem);
     font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 1.1;
     color: #FFFFFF;
-    margin: 0 0 1rem;
+    margin: 0 0 0.6rem;
   }
 
   .hero-deck {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.55;
     color: #D5D5D5;
     max-width: 800px;
-    margin: 0 0 2rem;
+    margin: 0 0 1.15rem;
   }
 
   .hero-stats-strip {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
     border-top: 2px solid #333333;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
   }
 
   .stat-pill {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background-color: #1E1E1E;
     border: 1px solid #444444;
   }
@@ -1037,7 +1247,7 @@
   }
 
   .stat-num {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #FFFFFF;
     font-family: var(--font-mono);
@@ -1048,6 +1258,43 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     color: #CCCCCC;
+  }
+
+  /* On small screens the hero yields space to the catalog controls */
+  @media (max-width: 720px) {
+    .hero-banner {
+      margin: 0.75rem 0;
+      padding: 1.1rem 1rem 1rem;
+    }
+
+    .hero-title {
+      font-size: 1.55rem;
+    }
+
+    .hero-deck {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-stats-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem;
+      padding-top: 0.7rem;
+    }
+
+    .stat-pill {
+      padding: 0.35rem 0.6rem;
+    }
+
+    .stat-num {
+      font-size: 0.95rem;
+    }
+
+    .stat-txt {
+      font-size: 0.58rem;
+    }
   }
 
   /* Continue reading strip */
@@ -1162,135 +1409,88 @@
     margin-top: 0.15rem;
   }
 
-  /* Controls Toolbar */
-  .controls-toolbar {
-    background-color: var(--color-paper-dark);
-    border: var(--border-heavy);
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow-hard-sm);
+  /* Catalog controls */
+  .catalog-controls {
+    position: relative;
+    margin-bottom: 1.25rem;
   }
 
-  .toolbar-inner {
+  .archive-nav {
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .category-tabs {
-    display: flex;
-    gap: 0.5rem;
+    gap: 0.25rem;
     flex-wrap: wrap;
+    border-bottom: var(--border-heavy);
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.9rem;
   }
 
   .cat-tab {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--color-black);
-    background-color: var(--color-paper-light);
-    color: var(--color-black);
+    letter-spacing: 0.06em;
+    padding: 0.45rem 0.7rem;
+    border: 2px solid transparent;
+    background: transparent;
+    color: var(--color-gray-dark);
     cursor: pointer;
-    box-shadow: var(--shadow-hard-sm);
-    transition: all 0.1s ease;
+    transition: color 0.1s ease, background-color 0.1s ease;
   }
 
   .cat-tab:hover {
-    background-color: var(--color-red-primary);
-    color: #FFFFFF;
-    transform: translate(-1px, -1px);
-    box-shadow: var(--shadow-hard-md);
+    color: var(--color-black);
+    background-color: var(--color-paper-dark);
   }
 
   .cat-tab.active {
     background-color: var(--color-black);
-    color: #FFFFFF;
     border-color: var(--color-black);
-    box-shadow: none;
-    transform: translate(1px, 1px);
-  }
-
-  .lang-toggle-group {
-    display: inline-flex;
-    margin-left: auto;
-    border: 2px solid var(--color-black);
-    background-color: var(--color-paper-light);
-    box-shadow: var(--shadow-hard-sm);
-  }
-
-  .lang-pill-btn {
-    font-size: 0.75rem;
-    font-weight: 700;
-    font-family: var(--font-mono);
-    padding: 0.45rem 0.75rem;
-    background: transparent;
-    border: none;
-    border-right: 1px solid var(--color-black);
-    color: var(--color-black);
-    cursor: pointer;
-    transition: all 0.1s ease;
-  }
-
-  .lang-pill-btn:last-child {
-    border-right: none;
-  }
-
-  .lang-pill-btn:hover {
-    background-color: var(--color-red-light);
-    color: var(--color-red-primary);
-  }
-
-  .lang-pill-btn.active {
-    background-color: var(--color-red-primary);
     color: #FFFFFF;
   }
 
-  .badge-tag.lang-hi {
-    background-color: var(--color-red-light);
-    color: var(--color-red-primary);
-    font-weight: 700;
-    border-color: var(--color-red-primary);
-  }
-
-  .search-and-views {
+  /* Search */
+  .search-row {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-bottom: 0.65rem;
   }
 
   .search-box {
     flex: 1;
-    min-width: 320px;
+    min-width: 0;
     display: flex;
     align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.5rem 0 0.75rem;
     background-color: #FFFFFF;
     border: 2px solid var(--color-black);
-    box-shadow: var(--shadow-hard-sm);
-    padding: 0 0.5rem 0 0.75rem;
-    gap: 0.5rem;
+  }
+
+  .search-box:focus-within {
+    outline: 2px solid var(--color-red-primary);
+    outline-offset: 1px;
   }
 
   .search-icon {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--color-gray-dark);
+    color: var(--color-gray-medium);
   }
 
   .search-input {
     flex: 1;
-    min-width: 120px;
+    min-width: 0;
+    padding: 0.7rem 0;
     border: none;
     outline: none;
+    background: transparent;
     font-family: inherit;
     font-size: 0.95rem;
-    padding: 0.65rem 0;
-    background: transparent;
   }
 
   .search-spinner {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--color-red-primary);
     animation: pulse 0.8s infinite alternate;
   }
@@ -1301,48 +1501,229 @@
   }
 
   .clear-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--color-gray-dark);
     padding: 0.25rem 0.5rem;
+    border: none;
+    background: transparent;
+    color: var(--color-gray-medium);
+    font-weight: 700;
+    cursor: pointer;
   }
 
-  /* Integrated Search Scope Toggle Pill */
-  .search-mode-pill {
-    display: inline-flex;
-    background-color: var(--color-paper-dark);
-    border: 1.5px solid var(--color-black);
-    padding: 2px;
-    gap: 2px;
+  .clear-btn:hover {
+    color: var(--color-red-primary);
   }
 
-  .mode-toggle-btn {
+  /* Search scope disclosure */
+  .search-options {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .search-options-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 100%;
+    padding: 0 0.9rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-gray-dark);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    padding: 0.25rem 0.55rem;
-    border: none;
-    background: transparent;
-    color: var(--color-gray-dark);
-    cursor: pointer;
-    transition: all 0.1s ease;
     white-space: nowrap;
+    cursor: pointer;
+    list-style: none;
   }
 
-  .mode-toggle-btn.active {
+  .search-options-trigger::-webkit-details-marker {
+    display: none;
+  }
+
+  .search-options-trigger:hover {
+    color: var(--color-black);
+    background-color: var(--color-paper-dark);
+  }
+
+  .search-options[open] .search-options-trigger {
     background-color: var(--color-black);
     color: #FFFFFF;
   }
 
-  .mode-toggle-btn.semantic-toggle {
+  .search-options[open] .search-options-caret {
+    transform: rotate(180deg);
+  }
+
+  .search-options-menu {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    right: 0;
+    z-index: 320;
+    width: 17.5rem;
+    max-width: calc(100vw - 3rem);
+    padding: 0.45rem;
+    background-color: var(--color-paper-light);
+    border: var(--border-medium);
+    box-shadow: var(--shadow-hard-md);
+  }
+
+  .search-options-heading {
+    margin: 0 0 0.35rem;
+    padding: 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--color-gray-medium);
+  }
+
+  .search-option {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    border: none;
+    border-left: 3px solid transparent;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .search-option:hover {
+    background-color: var(--color-paper-dark);
+  }
+
+  .search-option.active {
+    border-left-color: var(--color-red-primary);
+    background-color: var(--color-paper-dark);
+  }
+
+  .search-option-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+
+  .search-option.active .search-option-name {
     color: var(--color-red-primary);
   }
 
-  .mode-toggle-btn.semantic-toggle.active {
+  .search-option-hint {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    line-height: 1.4;
+    color: var(--color-gray-medium);
+  }
+
+  /* Results toolbar */
+  .results-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-top: 0.35rem;
+  }
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+
+  .filters-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.7rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-paper-light);
+    color: var(--color-black);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background-color 0.1s ease, color 0.1s ease;
+  }
+
+  .filters-toggle:hover,
+  .filters-toggle.active {
+    background-color: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .filters-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.1rem;
+    height: 1.1rem;
+    padding: 0 0.25rem;
     background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    font-size: 0.62rem;
+    line-height: 1;
+  }
+
+  .results-count {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--color-gray-dark);
+  }
+
+  .results-count strong {
+    color: var(--color-black);
+  }
+
+  .wasm-status-badge {
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--color-gray-light);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-dark);
+  }
+
+  .wasm-status-badge.semantic-badge {
+    border-color: var(--color-gold);
+    background-color: var(--color-black);
+    color: var(--color-gold);
+  }
+
+  .view-toggles {
+    display: inline-flex;
+    margin-left: auto;
+    border: 2px solid var(--color-black);
+  }
+
+  .view-btn {
+    padding: 0.35rem 0.7rem;
+    border: none;
+    background-color: var(--color-paper-light);
+    color: var(--color-gray-dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+  }
+
+  .view-btn + .view-btn {
+    border-left: 2px solid var(--color-black);
+  }
+
+  .view-btn:hover {
+    color: var(--color-black);
+  }
+
+  .view-btn.active {
+    background-color: var(--color-black);
     color: #FFFFFF;
   }
 
@@ -1350,8 +1731,8 @@
   .model-loading-strip {
     background-color: #FFFDF9;
     border: 2px solid var(--color-black);
-    padding: 0.85rem 1.25rem;
-    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
     box-shadow: var(--shadow-hard-sm);
   }
 
@@ -1394,88 +1775,13 @@
     font-family: var(--font-mono);
   }
 
-  .wasm-status-badge.semantic-badge {
-    background-color: #121212;
-    color: var(--color-gold);
-    border-color: var(--color-gold);
-  }
-
-  .view-toggles {
-    display: flex;
-  }
-
-  .view-btn {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.6rem 1rem;
-    border: 2px solid var(--color-black);
-    background-color: var(--color-paper-light);
-    color: var(--color-black);
-    cursor: pointer;
-    box-shadow: var(--shadow-hard-sm);
-  }
-
-  .view-btn:first-child {
-    border-right: none;
-  }
-
-  .view-btn.active {
-    background-color: var(--color-black);
-    color: #FFFFFF;
-    box-shadow: none;
-  }
-
-  /* Results Meta Bar */
-  .results-meta-bar {
-    padding: 0.5rem 0.25rem;
-    margin-bottom: 1.25rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-  }
-
-  .results-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .results-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .wasm-status-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.2rem 0.55rem;
-    background-color: var(--color-red-primary);
-    color: #FFFFFF;
-    border: 1px solid var(--color-red-dark);
-  }
-
-  .reset-filters {
-    background: transparent;
-    border: none;
-    font-family: inherit;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--color-red-primary);
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  /* Active filter summary */
+  /* Active filter chips */
   .active-filters {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     flex-wrap: wrap;
+    margin-top: 0.7rem;
   }
 
   .active-filter-chip {
@@ -1483,16 +1789,16 @@
     align-items: center;
     gap: 0.4rem;
     max-width: 22rem;
+    padding: 0.28rem 0.55rem;
+    border: 1px solid var(--color-black);
+    background-color: var(--color-black);
+    color: #FFFFFF;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    padding: 0.28rem 0.55rem;
-    background-color: var(--color-black);
-    color: #ffffff;
-    border: 1px solid var(--color-black);
     cursor: pointer;
-    transition: all 0.1s ease;
+    transition: background-color 0.1s ease;
   }
 
   .active-filter-chip:hover,
@@ -1508,8 +1814,26 @@
   }
 
   .chip-x {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     opacity: 0.8;
+  }
+
+  .reset-filters {
+    padding: 0.2rem 0.3rem;
+    border: none;
+    background: transparent;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-red-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .reset-filters:hover {
+    color: var(--color-red-dark);
   }
 
   /* Card Grid */
@@ -1852,87 +2176,323 @@
     cursor: pointer;
   }
 
-  /* Faceted Discovery Strip Styles */
-  .facet-strip-container {
-    border-top: 2px solid var(--color-black);
-    padding-top: 1rem;
-    margin-top: 0.75rem;
+  /* Filter panel */
+  .filter-backdrop {
+    display: none;
+  }
+
+  .filter-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 310;
+    width: min(46rem, 100%);
+    max-height: min(70vh, 40rem);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    background-color: var(--color-paper-light);
+    border: var(--border-heavy);
+    box-shadow: var(--shadow-hard-lg);
   }
 
-  .facet-row {
+  .filter-panel-head {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    overflow-x: auto;
-    padding-bottom: 2px;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 2px solid var(--color-black);
   }
 
-  .facet-label {
+  .filter-panel-title {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .filter-panel-close {
+    padding: 0.1rem 0.3rem;
+    border: none;
+    background: transparent;
+    color: var(--color-gray-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .filter-panel-close:hover {
+    color: var(--color-red-primary);
+  }
+
+  .filter-panel-body {
+    overflow-y: auto;
+    padding: 0.15rem 0.9rem 0.6rem;
+  }
+
+  .filter-group {
+    border-bottom: 1px solid var(--color-gray-light);
+  }
+
+  .filter-group:last-child {
+    border-bottom: none;
+  }
+
+  .filter-group-summary {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 0;
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: var(--color-gray-dark);
-    min-width: 65px;
-    text-transform: uppercase;
-  }
-
-  .facet-scroll {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .facet-chip {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.3rem 0.65rem;
-    border: 1.5px solid var(--color-black);
-    background-color: var(--color-paper-light);
-    color: var(--color-black);
+    list-style: none;
     cursor: pointer;
-    box-shadow: 1px 1px 0px var(--color-black);
-    transition: all 0.1s ease;
-    white-space: nowrap;
   }
 
-  .facet-chip:hover {
-    background-color: var(--color-red-light);
-    transform: translate(-1px, -1px);
-    box-shadow: 2px 2px 0px var(--color-black);
+  .filter-group-summary::-webkit-details-marker {
+    display: none;
   }
 
-  .facet-chip.active {
+  .filter-group-summary:hover {
+    color: var(--color-red-primary);
+  }
+
+  .filter-group-caret {
+    margin-left: auto;
+    font-size: 0.65rem;
+    color: var(--color-gray-medium);
+  }
+
+  .filter-group[open] .filter-group-caret {
+    transform: rotate(180deg);
+  }
+
+  .filter-group-active {
+    padding: 0.05rem 0.3rem;
     background-color: var(--color-black);
     color: #FFFFFF;
-    box-shadow: none;
+    font-size: 0.6rem;
+    letter-spacing: 0;
   }
 
-  .facet-chip.topic-chip {
-    background-color: #FAF5EB;
-    border-color: #4A4A4A;
+  .filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0 0 0.8rem;
   }
 
-  .facet-chip.topic-chip:hover {
-    background-color: var(--color-gold-muted);
+  .filter-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: 100%;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid var(--color-gray-light);
+    background-color: var(--color-paper);
+    color: var(--color-black);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-align: left;
+    cursor: pointer;
   }
 
-  .facet-chip.topic-chip.active {
-    background-color: var(--color-red-primary);
+  .filter-option:hover {
+    border-color: var(--color-black);
+  }
+
+  .filter-option.selected {
+    background-color: var(--color-black);
     border-color: var(--color-black);
     color: #FFFFFF;
   }
 
-  .chip-count {
-    opacity: 0.75;
+  .filter-option-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .filter-option-count {
+    font-size: 0.62rem;
+    color: var(--color-gray-medium);
+  }
+
+  .filter-option.selected .filter-option-count {
+    color: var(--color-gray-light);
+  }
+
+  .topic-search {
+    flex: 1 1 100%;
+    margin-bottom: 0.15rem;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--color-gray-light);
+    background-color: #FFFFFF;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+
+  .topic-search:focus-visible {
+    outline: 2px solid var(--color-red-primary);
+    outline-offset: -1px;
+  }
+
+  .filter-subgroup {
+    flex: 1 1 100%;
+    margin-bottom: 0.55rem;
+  }
+
+  .filter-subgroup:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-subgroup-label {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
+  }
+
+  .filter-subgroup-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .filter-empty {
+    flex: 1 1 100%;
+    margin: 0;
+    font-family: var(--font-mono);
     font-size: 0.65rem;
-    margin-left: 2px;
+    color: var(--color-gray-medium);
+  }
+
+  .filter-panel-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.6rem 0.9rem;
+    border-top: 2px solid var(--color-black);
+    background-color: var(--color-paper-dark);
+  }
+
+  .filter-result-count {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-gray-dark);
+  }
+
+  .filter-panel-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .panel-clear {
+    padding: 0.4rem 0.6rem;
+    border: 2px solid var(--color-black);
+    background: transparent;
+    color: var(--color-black);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .panel-clear:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .panel-apply {
+    padding: 0.4rem 0.8rem;
+    border: 2px solid var(--color-black);
+    background-color: var(--color-red-primary);
+    color: #FFFFFF;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+
+  .panel-apply:hover {
+    background-color: var(--color-red-dark);
+  }
+
+  @media (max-width: 720px) {
+    .archive-nav {
+      gap: 0.15rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .cat-tab {
+      flex: 0 0 auto;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.68rem;
+    }
+
+    .search-row {
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1 1 100%;
+    }
+
+    .search-options {
+      flex: 1 1 100%;
+    }
+
+    .search-options-trigger {
+      width: 100%;
+      height: auto;
+      justify-content: space-between;
+      padding: 0.45rem 0.7rem;
+    }
+
+    .search-options-menu {
+      right: auto;
+      left: 0;
+      width: 100%;
+    }
+
+    .filter-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      /* above the sticky masthead (999) so the drawer reads as modal */
+      z-index: 1000;
+      background-color: rgba(18, 18, 18, 0.45);
+    }
+
+    .filter-panel {
+      position: fixed;
+      inset: auto 0 0 0;
+      z-index: 1010;
+      width: 100%;
+      max-height: 82vh;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      box-shadow: none;
+    }
+
+    .filter-option {
+      font-size: 0.65rem;
+    }
+
+    .filter-panel-foot {
+      position: sticky;
+      bottom: 0;
+    }
   }
 
   /* Card and Table Facet Tags */
@@ -1976,6 +2536,16 @@
   .topic-tag:hover {
     background-color: var(--color-gold);
     color: #000000;
+  }
+
+  .topic-tag.selected {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    color: #FFFFFF;
+  }
+
+  .topic-tag.selected:hover {
+    background-color: var(--color-red-primary);
   }
 
   .topic-tag-more {

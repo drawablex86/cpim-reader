@@ -133,14 +133,21 @@ All colors are exposed as CSS Custom Properties in `:root`:
   - Left branding: Red square hammer & sickle emblem, bold all-caps title `CPI(M) DOCUMENT ARCHIVE`, subtitle `CENTRAL COMMITTEE & PARTY CONGRESS REPOSITORY`.
   - Right utilities: Live catalog count badge (`273 DOCUMENTS`), quick search keyboard shortcut hint (`Cmd + K` or `/`).
 
-### 5.2 Archive Explorer & Filter Bar (`+page.svelte`)
-- **Category Filter Pills**:
+### 5.2 Archive Explorer & Filter Panel (`+page.svelte`)
+- **Archive Navigation**:
   - Industrial block tabs (`ALL`, `CC DOCUMENTS`, `PARTY CONGRESS`, `ISSUES`, `LEFT VIEW`).
-  - Active tab: Pure black background, white text, 3px solid black border.
-  - Inactive tab: Off-white background, black text, 2px solid black border; on hover fills with `--color-red-primary`.
-- **Search & Sort Bar**:
-  - Angular search field with hard drop-shadow.
-  - Instant client-side filter by title, date, category, and author.
+  - Active tab: Pure black background, white text. Inactive tab: transparent, grey-black text, `--color-red-primary` on hover.
+  - The category is navigation, not a filter: `CLEAR ALL` never changes it.
+- **Search Bar**:
+  - Angular search field with a visible focus ring; full-text (Pagefind) is the default scope.
+  - Secondary scopes (`Titles & Dates`, `Topic Concepts`) live in a compact `SCOPE:` disclosure beside the field rather than as permanent buttons.
+- **Results Toolbar**:
+  - `FILTERS` button carrying the count of active filters, the result count, a subdued search-status badge, and the Cards/Table switcher.
+- **Filter Panel (progressive disclosure)**:
+  - Hidden by default; opens from `FILTERS` as a compact dropdown on desktop and a bottom sheet (backdrop, `CLEAR ALL`, `SHOW N RESULTS`) on mobile.
+  - Four collapsible groups, all collapsed when opened: **Format**; **Topic** (with its own search field); **Congress & Elections** (Party Congresses, National — Current Period, General Elections); **Region**.
+  - Multi-select inside a group (OR) and across groups (AND); every option keeps its document count, measured against the other active groups.
+  - Selections appear as removable chips above the results, with a `CLEAR ALL` that leaves the archive category and the search query untouched.
 - **Card & Table View Switcher**:
   - **Constructivist Card View**: Stamped archive cards with bold dates, category tags, author byline, quick "Read" button, and quick "Cite" trigger.
   - **Industrial Data Table View**: Dense archival ledger with columns for `DATE`, `CATEGORY`, `OFFICIAL TITLE`, `FORMAT (PDF/WEB)`, `ACTIONS`.
@@ -177,7 +184,7 @@ All colors are exposed as CSS Custom Properties in `:root`:
 
 | Breakpoint | Width | Behavior |
 | :--- | :--- | :--- |
-| `sm` | `< 640px` | Single column, stacked filter buttons, sticky bottom navigation drawer for Table of Contents, full-screen PDF view toggle. |
-| `md` | `640px – 1023px` | Two-column card grid, inline filter bar, collapsible TOC drawer. |
+| `sm` | `< 640px` | Single column, filter panel as a bottom sheet with Apply/Clear, sticky bottom navigation drawer for Table of Contents, full-screen PDF view toggle. |
+| `md` | `640px – 1023px` | Two-column card grid, filter panel dropdown, collapsible TOC drawer. |
 | `lg` | `1024px – 1439px` | Sticky sidebar TOC + central 68ch reading canvas, side-by-side split PDF workspace on demand. |
 | `xl` | `≥ 1440px` | Full multi-column research workstation: left navigation & metadata, central reading prose, right-side persistent split PDF verification window. |
