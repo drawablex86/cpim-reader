@@ -50,7 +50,11 @@
 
     try {
       const probe = await fetch(local, { method: 'HEAD' });
-      if (probe.ok) {
+      // Some static hosts answer unknown paths with an HTML fallback page; only
+      // accept the local file when it really looks like a PDF.
+      const contentType = probe.headers.get('content-type') || '';
+      const looksLikePdf = contentType === '' || contentType.toLowerCase().includes('pdf');
+      if (probe.ok && looksLikePdf) {
         pdfSrc = local;
         pdfIsLocal = true;
         return;
